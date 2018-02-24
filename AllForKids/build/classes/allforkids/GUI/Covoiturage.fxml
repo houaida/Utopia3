@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="707.0" prefWidth="1130.0" styleClass="mainFxmlClass" stylesheets="@css/covoiturage.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.CovoiturageController">
+   <children>
+      <ImageView fitHeight="742.0" fitWidth="1139.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/bd2.jpg" />
+         </image>
+      </ImageView>
+      <HBox layoutX="8.0" layoutY="206.0" prefHeight="60.0" prefWidth="1122.0" styleClass="box-topo">
+         <children>
+            <Label fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Covoiturage:" textFill="#81c771" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="afficher_entry" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
+            <ToggleButton mnemonicParsing="false" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="pesquisar" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" stylesheets="@css/gestionevaluation.css" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-add" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" stylesheets="@css/gestionevaluation.css" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-editar" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" stylesheets="@css/gestionevaluation.css" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-excluir" />
+               </styleClass>
+               <toggleGroup>
+                  <ToggleGroup fx:id="menu" />
+               </toggleGroup>
+            </ToggleButton>
+            <TextField fx:id="id" visible="false" />
+         </children>
+      </HBox>
+      <TableView id="table" fx:id="table" layoutX="47.0" prefHeight="207.0" prefWidth="973.0">
+         <columns>
+            <TableColumn id="Cid" fx:id="Cid" prefWidth="67.0" text="Identifiant" />
+            <TableColumn id="Cidu" fx:id="Cidu" prefWidth="119.0" text="Identifiant user " />
+            <TableColumn id="Cdepart" fx:id="Cdepart" prefWidth="112.0" text="Ville depart" />
+            <TableColumn id="Cdepart" fx:id="Cddepart" prefWidth="207.0" text="Date de depart" />
+            <TableColumn id="Cdestinaion" fx:id="Cdestination" prefWidth="99.0" text="Ville destnation" />
+            <TableColumn id="Cid" fx:id="Cdarrive" prefWidth="197.0" text="Date d'arrivée" />
+            <TableColumn id="Cnbr" fx:id="Cnbr" prefWidth="171.0" text="Nombre de place disponible " />
+         </columns>
+      </TableView>
+      <TextField fx:id="depart" layoutX="217.0" layoutY="303.0" promptText="ville de départ" />
+      <TextField fx:id="nbr" layoutX="218.0" layoutY="441.0" promptText="disponible" />
+      <DatePicker fx:id="date_depart" layoutX="218.0" layoutY="380.0" />
+      <DatePicker fx:id="datearrivee" layoutX="660.0" layoutY="380.0" />
+      <TextField fx:id="destination" layoutX="660.0" layoutY="308.0" promptText="ville de destination" />
+      <Label layoutX="28.0" layoutY="302.0" prefHeight="27.0" prefWidth="154.0" text="Ville de départ:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="452.0" layoutY="379.0" text="Date d'arrivée:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="452.0" layoutY="307.0" prefHeight="27.0" prefWidth="183.0" text="Ville de destination:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="30.0" layoutY="440.0" text="Nombre de place:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="30.0" layoutY="379.0" prefHeight="27.0" prefWidth="137.0" text="Date de départ:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Button id="btn1" fx:id="btn1" disable="true" layoutX="660.0" layoutY="455.0" mnemonicParsing="false" onAction="#mod2" prefHeight="8.0" prefWidth="124.0" text="Valider Modification" />
+      <TextField fx:id="iduser" layoutX="217.0" layoutY="416.0" visible="false" />
+      <Button fx:id="btretour" layoutX="991.0" layoutY="626.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
+   </children>
+</AnchorPane>

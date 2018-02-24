@@ -1,0 +1,86 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.Anchor{
+
+     -fx-prompt-text-fill: black;
+     
+}
+.Anchor2{
+
+     -fx-prompt-text-fill: white;
+     
+}
+.mainFxmlClass {
+
+ -fx-background-size: 1130 800;
+    -fx-background-repeat: no-repeat;
+
+}
+.menus-acoes:hover {
+    -fx-effect: innershadow(two-pass-box, rgba(0, 0, 0, 0.2), 6, 0.1, 0, 2);
+}
+
+.menus-acoes:pressed {
+    -fx-graphic-text-gap: 12;
+}
+.menu-green {
+    -fx-background-color: linear-gradient(to top right, #55c8fe, #34bdfe);
+    -fx-border-color: linear-gradient(to top right, #55c8fe, #34bdfe);
+}
+
+.menu-green:pressed {
+    -fx-background-color: #55c8fe;
+    -fx-border-color: #34bdfe;
+}
+
+.menu-blue {
+    -fx-background-color: linear-gradient(to top right, #55c8fe, #34bdfe);
+    -fx-border-color: linear-gradient(to top right, #55c8fe, #34bdfe);
+}
+
+.menu-blue:pressed {
+    -fx-background-color: #55c8fe;
+    -fx-border-color: #34bdfe;
+}
+
+.menu-red {
+    -fx-background-color: linear-gradient(to top right, #ff5b5b, #ff5359);
+    -fx-border-color: linear-gradient(to top right, #ff5b5b, #ff5359);
+}
+
+.menu-red:pressed {
+    -fx-background-color: #ff5b5b;
+    -fx-border-color: #ff5b5b;
+}
+
+.menu-green {
+    -fx-background-color:  #1D702D;
+    -fx-border-color:  #1D702D;
+}
+
+.menu-green:pressed {
+    -fx-background-color: #7ecb8a;
+    -fx-border-color: #73cb80;
+}
+
+.menu-laranja {
+    -fx-background-color: linear-gradient(to top right, #ffc234, #fdb440);
+    -fx-border-color: linear-gradient(to top right, #ffc234, #fdb440);
+}
+
+.menu-laranja:pressed {
+    -fx-background-color: #ffc234;
+    -fx-border-color: #fdb440;
+}
+
+.menu-roxo {
+    -fx-background-color: linear-gradient(to top right, #79589F, #534A93);
+    -fx-border-color: linear-gradient(to top right, #79589F, #534A93);
+}
+
+.menu-roxo:pressed {
+    -fx-background-color: #79589F;
+    -fx-border-color: #79589F;
+}

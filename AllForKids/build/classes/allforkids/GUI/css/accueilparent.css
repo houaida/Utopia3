@@ -1,0 +1,68 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+.background {
+    -fx-background-image: url("../img/hoda hadher/video.mp4");
+    -fx-background-size: 100% 100%;
+    -fx-background-color: transparent;
+    -fx-background-position: top;
+    -fx-background-repeat: no-repeat;
+}
+
+.buttonGarderie{
+     -fx-background-image: url("../img/hoda.png");
+    -fx-background-size: 204 147;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:left;  
+
+}
+.buttonMail{
+     -fx-background-image: url("../img/mail.png");
+    -fx-background-size: 204 147;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:left;  
+
+}
+.buttonEva{
+     -fx-background-image: url("../img/eva.png");
+    -fx-background-size: 204 147;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position:left;  
+
+}
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #e6e6e6;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #cce6ff;
+}
+ 
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: #828282;
+    -fx-font-size: 18px;
+   
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: black;
+}

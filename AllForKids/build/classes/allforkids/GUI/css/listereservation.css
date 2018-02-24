@@ -1,0 +1,18 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.root {
+    -fx-background-color: #fff;
+   
+}
+.text {
+    -fx-background-color:#C0C0C0;
+     -fx-border-color: #e8e8e8;
+    -fx-font-size: 13px;
+    -fx-font-family: "Open Sans Semibold", sans-serif;
+
+      -fx-text-fill: #800000;
+}
+
+

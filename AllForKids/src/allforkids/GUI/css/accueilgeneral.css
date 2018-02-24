@@ -1,0 +1,44 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.toggle {
+      -fx-background-color: transparent;
+      -fx-border-radius: 50%;
+      
+      
+
+}
+.table-view .column-header-background{
+    -fx-background-color:linear-gradient(#e6f3ff 0%,#e0e0eb 100%);
+    -fx-font-size:16px;
+    
+}
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: black;
+     -fx-font-size:16px;
+}
+.button{
+    
+   -fx-background-color:   #87CEFA;
+   
+}
+.button:pressed{
+    -fx-background-color: white;
+    
+}
+.bt{
+    -fx-background-color:transparent;
+}
+.bt:pressed{
+    -fx-background-color:#2cce53;
+}

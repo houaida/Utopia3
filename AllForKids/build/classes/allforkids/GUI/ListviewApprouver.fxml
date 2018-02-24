@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" stylesheets="@css/approuverdemande.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ListviewApprouverController">
+   <children>
+      <ListView fx:id="liste1" layoutY="98.0" prefHeight="682.0" prefWidth="1330.0" style="-fx-border-color: #800000;" />
+      <Label layoutX="31.0" layoutY="35.0" prefHeight="45.0" prefWidth="1063.0" style="-fx-background-color: #C0C0C0;" text="Liste des demandes d'emploi:">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <ToggleButton fx:id="bt1" layoutX="1176.0" layoutY="23.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="68.0" prefWidth="60.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/confirmar.png" />
+               </image>
+            </ImageView>
+         </graphic></ToggleButton>
+      <ToggleButton fx:id="bt11" layoutX="1248.0" layoutY="17.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="83.0" prefWidth="53.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/erro.png" />
+               </image>
+            </ImageView>
+         </graphic></ToggleButton>
+   </children>
+</AnchorPane>

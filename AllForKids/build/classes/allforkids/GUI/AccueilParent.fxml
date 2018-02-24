@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilParentController">
+   <children>
+      <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/icon/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutX="-1.0" layoutY="-1.0" prefHeight="869.0" prefWidth="266.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <ImageView fitHeight="333.0" fitWidth="232.0" layoutX="17.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logofinal.gif" />
+               </image>
+            </ImageView>
+            <ToggleButton layoutX="1.0" layoutY="270.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionPrduit" layoutY="198.0" mnemonicParsing="false" onAction="#boutique" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Boutique&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evaluation Enfant&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="386.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="BabySitter&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="2.0" layoutY="464.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Covoiturage &amp;&#10;Réservation&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="547.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Club &amp;&#10;événement&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="575.0" layoutY="91.0" prefHeight="105.0" prefWidth="505.0" text="Ils sont très mignons mais ils nous font parfois tourner &#10;en rond. Ici la vérité sort de la bouche des parents !" textAlignment="CENTER" textFill="#434242">
+         <font>
+            <Font name="Baskerville" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="629.0" layoutY="43.0" text="Bienvenue à AllForKids " textFill="#ffc014">
+         <font>
+            <Font name="Baskerville Bold" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgView" fitHeight="161.0" fitWidth="285.0" layoutX="279.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
+      <ToggleButton fx:id="bt" layoutX="818.0" layoutY="352.0" mnemonicParsing="false" onAction="#changer1" prefHeight="53.0" prefWidth="58.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/suivant.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton fx:id="bt1" layoutX="744.0" layoutY="354.0" mnemonicParsing="false" onAction="#changer2" prefHeight="53.0" prefWidth="58.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="39.0" onDragDetected="#changer2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/precedent.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ImageView fx:id="imgView1" fitHeight="161.0" fitWidth="285.0" layoutX="674.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgView2" fitHeight="161.0" fitWidth="285.0" layoutX="1056.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
+      <MediaView fx:id="video" fitHeight="400.0" fitWidth="700.0" layoutX="456.0" layoutY="406.0" />
+   </children>
+</AnchorPane>

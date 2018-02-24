@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.demandeTravailController">
+    <stylesheets>
+        <URL value="@demandetravail.css" />
+    </stylesheets>
+   <children>
+      <ToggleButton layoutX="4.0" layoutY="4.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/icon/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ImageView fitHeight="65.0" fitWidth="75.0" layoutX="399.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_ID_Card_50px_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="82.0" fitWidth="76.0" layoutX="831.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/216710-200.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="64.0" layoutX="404.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/phone-contact.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="75.0" layoutX="401.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_ID_Card_50px_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="65.0" fitWidth="75.0" layoutX="402.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_ID_Card_50px_2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="47.0" fitWidth="101.0" layoutX="412.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_Calendar_52px_1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="47.0" fitWidth="41.0" layoutX="418.0" layoutY="405.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_Create_48px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="74.0" layoutX="834.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_Book_48px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="49.0" fitWidth="57.0" layoutX="848.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8_Group_64px_2.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="id_user" layoutX="212.0" layoutY="619.0" visible="false" />
+      <TextField fx:id="path" layoutX="264.0" layoutY="607.0" visible="false" />
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutY="-1.0" prefHeight="879.0" prefWidth="259.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <ImageView fitHeight="333.0" fitWidth="232.0" layoutX="17.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logofinal.gif" />
+               </image>
+            </ImageView>
+            <ToggleButton fx:id="gestionUtilisateur" layoutX="1.0" layoutY="264.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Utilisateurs">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionProduit" layoutY="198.0" mnemonicParsing="false" onAction="#gestionProduit" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Produits&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionOffre" layoutX="3.0" layoutY="322.0" mnemonicParsing="false" onAction="#gestionOffre" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Offres &#10;et Demandes" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionUtilisateur1" layoutX="3.0" layoutY="406.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Demandes de &#10;travail et Reclamations">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="fleche2" layoutX="233.0" layoutY="417.0" mnemonicParsing="false" onAction="#aff1" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/fleche1%20-%20copie.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="fleche1" layoutX="234.0" layoutY="417.0" mnemonicParsing="false" onAction="#aff2" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;" visible="false">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/fleche1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <BorderPane fx:id="anB" layoutX="267.0" layoutY="420.0" prefHeight="129.0" prefWidth="243.0" style="-fx-background-color: #87CEFA;" visible="false">
+         <top>
+            <ToggleButton fx:id="gestionReclamation" mnemonicParsing="false" onAction="#gestionReclamation" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Reclamations&#10;&#10;" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </top>
+         <center>
+            <ToggleButton fx:id="gestionReclamation1" mnemonicParsing="false" onAction="#gestionDemande" onMouseClicked="#gotoDemandeTravail" prefHeight="83.0" prefWidth="243.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Demandes &#10;de travail&#10;&#10;" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </center>
+      </BorderPane>
+      <JFXTextField fx:id="tnom1" layoutX="486.0" layoutY="63.0" text="Nom" />
+      <JFXTextField fx:id="tprenom" layoutX="486.0" layoutY="159.0" text="Prenom" />
+      <JFXTextField fx:id="tadresse" layoutX="486.0" layoutY="242.0" text="Adresse" />
+      <JFXTextField fx:id="tnum_tel" layoutX="486.0" layoutY="339.0" text="Numero telephone" />
+      <JFXTextField fx:id="tmail" layoutX="486.0" layoutY="413.0" text="Adresse electronique" />
+      <JFXDatePicker fx:id="tdate_naissance" defaultColor="#eb1132" layoutX="486.0" layoutY="511.0" />
+      <JFXTextField fx:id="tetude" layoutX="933.0" layoutY="76.0" text="Niveau d'etude" />
+      <JFXTextField fx:id="tposte" layoutX="933.0" layoutY="159.0" text="Poste actuel" />
+      <JFXComboBox fx:id="tlangue" layoutX="933.0" layoutY="274.0" promptText="Maitrice des langues" />
+      <JFXButton layoutX="1050.0" layoutY="594.0" onAction="#ajouter" style="-fx-background-color: #ffc014;" text="Ajouter" />
+   </children>
+</AnchorPane>

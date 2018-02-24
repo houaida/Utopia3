@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" stylesheets="@css/inscriptionuser.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.InscriptionUserController">
+
+   <children>
+       <RadioButton fx:id="Rparent" layoutX="477.0" layoutY="39.0" mnemonicParsing="false" onAction="#afficher" selected="true" text="Parent">
+        <toggleGroup>
+            <ToggleGroup fx:id="group" />
+        </toggleGroup>
+    </RadioButton>
+    <RadioButton fx:id="Renseignant" layoutX="339.0" layoutY="40.0" mnemonicParsing="false" onAction="#afficher" text="Enseignant" toggleGroup="$group" />
+      <RadioButton fx:id="Rbabysitter" layoutX="593.0" layoutY="40.0" mnemonicParsing="false" onAction="#afficher" text="Babysitter" toggleGroup="$group" />
+        
+      <Label fx:id="Lcin" layoutX="47.0" layoutY="148.0" prefHeight="16.0" prefWidth="55.0" text="CIN">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lnom" layoutX="366.0" layoutY="156.0" text="Nom">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lprenom" layoutX="776.0" layoutY="156.0" text="Prenom">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lpseudo" layoutX="45.0" layoutY="202.0" text="Pseudo">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lmdp" layoutX="367.0" layoutY="202.0" prefHeight="32.0" prefWidth="118.0" text="Mot de passe">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lemail" layoutX="777.0" layoutY="202.0" prefHeight="32.0" prefWidth="75.0" text="Email">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Ladresse" layoutX="45.0" layoutY="256.0" text="Adresse">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lmontant" layoutX="369.0" layoutY="260.0" text="Montant">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lnom_club" layoutX="778.0" layoutY="263.0" text="Nom club">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lnum_tel" layoutX="46.0" layoutY="312.0" text="Numero">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cin" layoutX="185.0" layoutY="142.0" promptText="carte d'identité" />
+      <TextField fx:id="nom" layoutX="533.0" layoutY="148.0" promptText="nom" />
+      <TextField fx:id="prenom" layoutX="964.0" layoutY="149.0" promptText="prenom" />
+      <TextField fx:id="pseudo" layoutX="185.0" layoutY="196.0" promptText="pseudo" />
+      <TextField fx:id="mdp" layoutX="534.0" layoutY="202.0" promptText="mot de passe" />
+      <TextField fx:id="email" layoutX="965.0" layoutY="200.0" promptText="Exp:nom@yahoo.com" />
+      <TextField fx:id="adresse" layoutX="184.0" layoutY="246.0" promptText="adresse" />
+      <TextField fx:id="montant" layoutX="535.0" layoutY="253.0" promptText="montant" />
+      <TextField fx:id="club" layoutX="967.0" layoutY="253.0" promptText="nom du club" />
+      <TextField fx:id="num_tel" layoutX="183.0" layoutY="305.0" promptText="numero téléphone" />
+
+      <AnchorPane fx:id="an2" layoutX="5.0" layoutY="419.0" prefHeight="88.0" prefWidth="1333.0">
+         <children>
+            <HBox layoutY="1.0" prefHeight="26.0" prefWidth="1337.0" style="-fx-background-color: #87CEFA;">
+               <children>
+                  <Label fx:id="Lnum_tel1" prefHeight="22.0" prefWidth="168.0" text="     Partie Enfant">
+                     <font>
+                        <Font name="AdobeHebrew-Regular" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label fx:id="Lnum_tel2" layoutX="47.0" layoutY="43.0" text="Nom">
+               <font>
+                  <Font name="AdobeHebrew-Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Lnum_tel3" layoutX="416.0" layoutY="44.0" text="Prenom">
+               <font>
+                  <Font name="AdobeHebrew-Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Lnum_tel4" layoutX="803.0" layoutY="38.0" text="Age">
+               <font>
+                  <Font name="AdobeHebrew-Regular" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="prenom_enfant" layoutX="541.0" layoutY="38.0" promptText="prenom de votre enfant" />
+            <TextField fx:id="nom_enfant" layoutX="182.0" layoutY="36.0" promptText="nom de votre enfant" />
+            <TextField fx:id="age" layoutX="968.0" layoutY="36.0" promptText="age de l'enfant" />
+         </children>
+      </AnchorPane>
+      <HBox layoutX="-1.0" layoutY="98.0" prefHeight="22.0" prefWidth="1337.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <Label fx:id="Lnum_tel11" text="     Partie Utilisateur">
+               <font>
+                  <Font name="AdobeHebrew-Regular" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Button fx:id="btV" layoutX="1159.0" layoutY="38.0" mnemonicParsing="false" onAction="#inscrire" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #cce6ff; -fx-text-fill: black;" text="Valider" />
+      <AnchorPane fx:id="an3" layoutX="2.0" layoutY="529.0" prefHeight="80.0" prefWidth="1337.0">
+         <children>
+            <HBox layoutX="-2.0" prefHeight="26.0" prefWidth="1339.0" style="-fx-background-color: #87CEFA;">
+               <children>
+                  <Label fx:id="Lnum_tel12" prefHeight="22.0" prefWidth="395.0" text="     Partie Garderie/Jardin d'enfant">
+                     <font>
+                        <Font name="AdobeHebrew-Regular" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <RadioButton fx:id="Rgarderie" layoutX="314.0" layoutY="37.0" mnemonicParsing="false" text="Garderie" toggleGroup="$etude">
+               <toggleGroup>
+                  <ToggleGroup fx:id="etude" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="Rjardin" layoutX="811.0" layoutY="37.0" mnemonicParsing="false" text="Jardin d'enfant" toggleGroup="$etude" />
+            <Label layoutX="603.0" layoutY="46.0" text="Ou" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="btP" layoutX="1159.0" layoutY="614.0" mnemonicParsing="false" onAction="#listegarderie" style="-fx-background-color: #cce6ff; -fx-text-fill: black;" text="Passer au choix " />
+      <Label fx:id="Lcin1" layoutX="370.0" layoutY="305.0" prefHeight="27.0" prefWidth="160.0" text="Date de naissance">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="naissance" layoutX="535.0" layoutY="303.0" prefHeight="22.0" prefWidth="161.0" promptText="Date de Naissance" />
+      <TextField fx:id="imgPath" layoutX="963.0" layoutY="298.0" prefHeight="26.0" prefWidth="167.0" promptText="Image" />
+      <Label layoutX="780.0" layoutY="299.0" prefHeight="32.0" prefWidth="161.0" text="Image">
+         <font>
+            <Font name="AdobeHebrew-Regular" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="1166.0" layoutY="294.0" mnemonicParsing="false" onAction="#actionBrowser" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #cce6ff; -fx-text-fill: black;" text="Browse" />
+      <ImageView fx:id="imgV" fitHeight="179.0" fitWidth="312.0" layoutX="873.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

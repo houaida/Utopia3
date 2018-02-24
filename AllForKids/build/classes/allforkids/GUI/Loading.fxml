@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="splashAnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/loading.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.LoadingController">
+   <children>
+      <JFXProgressBar layoutX="134.0" layoutY="261.0" prefHeight="7.0" prefWidth="323.0" />
+      <ImageView fitHeight="119.0" fitWidth="196.0" layoutX="224.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/hodaaaa.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="232.0" layoutY="184.0" text="AllForKids" textFill="#ffc014">
+         <font>
+            <Font name="Baskerville Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="277.0" layoutY="232.0" text="Loading..." textFill="#000000be">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

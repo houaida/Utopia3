@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="706.0" prefWidth="1042.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionEvaluationController">
+   <children>
+      <ImageView fitHeight="706.0" fitWidth="1173.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/b2.jpg" />
+         </image>
+      </ImageView>
+      <HBox layoutX="18.0" layoutY="11.0" prefHeight="60.0" prefWidth="1036.0" styleClass="box-topo">
+         <children>
+            <Label fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Gestion d'évaluations d'un enfant" textFill="#45d328" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="entrer" onAction="#rechercher" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
+            <ToggleButton mnemonicParsing="false" onAction="#rechercher" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="pesquisar" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" stylesheets="@css/gestionevaluation.css" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-add" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" stylesheets="@css/gestionevaluation.css" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-editar" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" stylesheets="@css/gestionevaluation.css" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-excluir" />
+               </styleClass>
+               <toggleGroup>
+                  <ToggleGroup fx:id="menu" />
+               </toggleGroup>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <Label layoutX="22.0" layoutY="135.0" text="Nom" />
+      <Label layoutX="23.0" layoutY="203.0" text="Prénom" />
+      <Label layoutX="24.0" layoutY="266.0" text="Matiére" />
+      <Label layoutX="26.0" layoutY="325.0" text="Moyenne" />
+      <TextField fx:id="moyenne" layoutX="128.0" layoutY="321.0" />
+      <TextField fx:id="matiere" layoutX="128.0" layoutY="261.0" />
+      <TextField fx:id="prenom" layoutX="128.0" layoutY="195.0" />
+      <TextField fx:id="nom" layoutX="128.0" layoutY="131.0" />
+      <TableView fx:id="table" layoutX="476.0" layoutY="129.0" prefHeight="393.0" prefWidth="499.0">
+        <columns>
+            <TableColumn fx:id="Cid" prefWidth="92.07455444335938" text="Id évaluation" visible="false" />
+          <TableColumn fx:id="Cnom" prefWidth="107.55718994140625" text="Nom" />
+          <TableColumn fx:id="Cprenom" prefWidth="140.05194091796875" text="Prénom" />
+            <TableColumn fx:id="Cmatiere" prefWidth="124.662353515625" text="Matiére" />
+            <TableColumn fx:id="Cmoyenne" minWidth="0.0" prefWidth="122.2987060546875" text="Moyenne" />
+            <TableColumn fx:id="Cremarque" prefWidth="177.7012939453125" text="Remarque" visible="false" />
+        </columns>
+      </TableView>
+      <Button id="btn1" fx:id="btn1" disable="true" layoutX="169.0" layoutY="402.0" mnemonicParsing="false" onAction="#mod2" text="Valider Modification" />
+      <TextField fx:id="idEva" layoutX="60.0" layoutY="517.0" visible="false" />
+      <Button fx:id="btretour" layoutX="957.0" layoutY="611.0" mnemonicParsing="false" onAction="#retour" onMouseClicked="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
+      <TextField fx:id="idEns" layoutX="81.0" layoutY="585.0" visible="false" />
+   </children>
+</AnchorPane>

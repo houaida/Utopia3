@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="bt2" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilGeneralController">
+   <children>
+      <ImageView fx:id="imgView" fitHeight="161.0" fitWidth="324.0" layoutX="251.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
+      <ToggleButton layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/icon/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutX="-2.0" layoutY="-11.0" prefHeight="879.0" prefWidth="259.0" style="-fx-background-color: #800000;" visible="false">
+         <children>
+            <ImageView fitHeight="232.0" fitWidth="258.0" layoutX="1.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo.png" />
+               </image>
+            </ImageView>
+            <ToggleButton layoutX="-2.0" layoutY="162.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education" textFill="WHITE" />
+            <ToggleButton layoutY="215.0" mnemonicParsing="false" onMouseClicked="#gotoDemandeTravail" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Postuler demande de travail" textFill="WHITE" />
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="11.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="604.0" layoutY="25.0" text="Bienvenu à AllForKids" textFill="MAROON">
+         <font>
+            <Font name="Baoli SC Regular" size="40.0" />
+         </font>
+      </Label>
+      <ToggleButton fx:id="bt" layoutX="808.0" layoutY="342.0" mnemonicParsing="false" onAction="#changer1" prefHeight="53.0" prefWidth="58.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/suivant.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton fx:id="bt1" layoutX="734.0" layoutY="344.0" mnemonicParsing="false" onAction="#changer2" prefHeight="53.0" prefWidth="58.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="39.0" onDragDetected="#changer2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/precedent.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ImageView fx:id="imgView1" fitHeight="161.0" fitWidth="324.0" layoutX="646.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgView2" fitHeight="161.0" fitWidth="324.0" layoutX="1037.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="509.0" layoutY="97.0" text="L'enfance est le temps de l'innocence">
+         <font>
+            <Font name="Baoli SC Regular" size="35.0" />
+         </font>
+      </Label>
+      <TextField fx:id="id_user" layoutX="136.0" layoutY="85.0" visible="false" />
+   </children>
+</AnchorPane>

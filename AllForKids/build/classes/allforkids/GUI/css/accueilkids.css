@@ -1,0 +1,47 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+-fx-background-image: url("../img/bd1.png");
+ -fx-background-size: 1130 800;
+    -fx-background-repeat: no-repeat;
+
+}
+.menu-green {
+    -fx-background-color: linear-gradient(to top right, #1D702D, #1D702D);
+    -fx-border-color: linear-gradient(to top right, #1D702D, #1D702D);
+}
+
+.menu-green:pressed {
+    -fx-background-color: #55c8fe;
+    -fx-border-color: #34bdfe;
+}
+.menu-red {
+    -fx-background-color: linear-gradient(to top right,  #C9001A,  #C9001A);
+    -fx-border-color: linear-gradient(to top right,  #C9001A,  #C9001A);
+}
+
+.menu-red:pressed {
+    -fx-background-color:  #C9001A;
+    -fx-border-color:  #C9001A;
+}
+.menu{
+   -fxcolor: linear-gradient(to top right, #1D702D, #1D702D);
+    -fx-color: linear-gradient(to top right, #1D702D, #1D702D);
+    
+}
+.menu:pressed{
+    -fx-color: #ff5b5b;
+    -fx-color: #ff5b5b;
+    
+}
+.menu-2{
+    -fx-color: #ff5b5b;
+    -fx-color: #ff5b5b;
+}
+.menu-2:pressed{
+    -fx-background-color: linear-gradient(to top right, #1D702D, #1D702D);
+    -fx-border-color: linear-gradient(to top right, #1D702D, #1D702D);
+   
+}
