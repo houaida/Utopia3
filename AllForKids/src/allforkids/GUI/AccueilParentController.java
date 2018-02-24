@@ -67,20 +67,20 @@ public class AccueilParentController implements Initializable {
 @FXML
     private void changer2(ActionEvent event) {
        
-        imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
+        /*imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
        
         imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
-         imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));
+         imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));*/
      bt1.setDisable(true);
      bt.setDisable(false);
     }
     @FXML
     private void changer1(ActionEvent event) {
        
-          imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie2.jpg"));
+         /* imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie2.jpg"));
          imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique2.jpg"));
    imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event2.jpg"));
-    bt1.setDisable(false);
+   */ bt1.setDisable(false);
      bt.setDisable(true);
     }
       
@@ -95,27 +95,21 @@ public class AccueilParentController implements Initializable {
 
        
 
-        imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
+      /*  imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
        
         imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
          imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));
-     bt1.setDisable(true);
+     */bt1.setDisable(true);
      bt.setDisable(false);
      
-     String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+    /* String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
         Media media = new Media(Vurl);
      MediaPlayer mediaplayer=new MediaPlayer(media);
      video.setFitHeight(400);
      video.setFitWidth(700);
      video.setMediaPlayer(mediaplayer);
-      mediaplayer.setAutoPlay(true);
-     /*String urlv = "file:/C:/Users/pacha/Videos/fifa-world-cup-russia-2018-official-video.mp4";
-        media = new Media(urlv);
-        mediaPlayer = new MediaPlayer(media);
-        view.setFitHeight(600);
-        view.setFitWidth(400);
-        view.setMediaPlayer(mediaPlayer);
-        mediaPlayer.setAutoPlay(true);*/
+      mediaplayer.setAutoPlay(true);*/
+     
     }
 
     

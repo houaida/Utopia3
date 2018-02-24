@@ -94,7 +94,7 @@ public class User {
 
     @Override
     public String toString() {
-        return  " pseudo=" + pseudo + ", mdp=" +mdp + ", email=" + email ;
+        return  " pseudo=" + pseudo + ", mdp=" +mdp + ", email=" + email +",image="+image;
     }
 
     public int getId_user() {
