@@ -414,6 +414,7 @@ imgv1.setVisible(false);
        nom_club.setVisible(true);
        num_tel.setVisible(true);
        imgPath.setVisible(true);
+        
        //les labels false
        Lcin.setVisible(true);
        Lnom.setVisible(true);
@@ -501,14 +502,14 @@ imgv1.setVisible(false);
 
     }
     else if(Babysitter.isSelected())
-    {table.setPrefWidth(815);
+    {      table.setPrefWidth(815);
              table.setPrefHeight(234);
              
         inscrit.setVisible(true);
         personnel.setVisible(true);
          
         table1.setVisible(true);
-          
+          imgv1.setVisible(true);
           btn1.setVisible(false);
         BabysitterService ps1=BabysitterService.getInstance();
     adresse.setDisable(false);
@@ -580,8 +581,7 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
 Cnum_tel1.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
  Cnaissance1.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));
   
-    }
-    }
+    }}
     @FXML
     public void ajouter()
     {/*if(Rparent.isSelected())
@@ -982,7 +982,6 @@ String nom=entrer.getText();
                if(entrer.getText().isEmpty()){
               afficher();
               }}
-
    
 
     @FXML
@@ -1010,7 +1009,7 @@ String nom=entrer.getText();
      
     }
 
-     @FXML
+    @FXML
     private void afficherImage2(MouseEvent event) {
         //Checking double click
          if (event.getClickCount() == 1) //Checking double click
@@ -1055,9 +1054,6 @@ String nom=entrer.getText();
 
       }
     }}
-
-
-    
 
               
 
