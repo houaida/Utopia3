@@ -58,6 +58,12 @@ public class AccueilParentController implements Initializable {
     private ImageView imgView2;
     @FXML
     private AnchorPane AnchorPane1;
+    @FXML
+    private ToggleButton fleche2;
+    @FXML
+    private ToggleButton fleche1;
+    @FXML
+    private AnchorPane anB;
 @FXML
     private void changer2(ActionEvent event) {
        
@@ -126,6 +132,41 @@ public class AccueilParentController implements Initializable {
          AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listViewTest.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void aff1(ActionEvent event) {
+        anB.setVisible(true);
+        fleche2.setVisible(false);
+        fleche1.setVisible(true);
+    }
+
+    @FXML
+    private void aff2(ActionEvent event) {
+        anB.setVisible(false);
+        fleche2.setVisible(true);
+        fleche1.setVisible(false);
+    }
+
+    @FXML
+    private void PostulerTravail(ActionEvent event) throws IOException {
+        
+    }
+
+    @FXML
+    private void Reclamation(ActionEvent event) {
+    }
+
+    @FXML
+    private void Offres(ActionEvent event) {
+    }
+
+    @FXML
+    private void Demandes(ActionEvent event) {
+    }
+
+    @FXML
+    private void ServiceAllForKids(ActionEvent event) {
     }
 
     
