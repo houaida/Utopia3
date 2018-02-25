@@ -13,6 +13,7 @@ import allforkids.service.BabysitterService;
 import allforkids.service.OffreService;
 import allforkids.service.ReclamationService;
 import allforkids.service.demande_travailService;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -35,6 +36,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -44,6 +46,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -77,6 +80,22 @@ public class ReclamationController implements Initializable {
     private JFXListView<Reclamation> maliste;
     @FXML
     private ToggleButton bt11;
+    @FXML
+    private JFXButton ajouter;
+    @FXML
+    private AnchorPane AnchorPane2;
+    @FXML
+    private ToggleButton gestionPrduit;
+    @FXML
+    private ToggleButton retire;
+    @FXML
+    private ToggleButton fleche2;
+    @FXML
+    private ToggleButton fleche1;
+    @FXML
+    private AnchorPane anB;
+    @FXML
+    private Button btretour;
 
     /**
      * Initializes the controller class.
@@ -125,7 +144,6 @@ public class ReclamationController implements Initializable {
                }
            });}
 
-    @FXML
     private void ajouter(ActionEvent event){
       
         ReclamationService GRec =ReclamationService.getInstance();
@@ -213,4 +231,80 @@ Label label=new Label();
     
     
 }}
+@FXML
+    private void retirer(ActionEvent event) {
+        AnchorPane2.setVisible(false);
+        retire.setVisible(false);
+    }
+
+  @FXML
+    private void afficher(ActionEvent event) {
+       AnchorPane2.setVisible(true);
+       retire.setVisible(true);
+    }
+
+    @FXML
+    private void gotoDemandeTravail(MouseEvent event) {
+    }
+
+     @FXML
+    private void boutique(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listViewTest.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void aff1(ActionEvent event) {
+        anB.setVisible(true);
+        fleche2.setVisible(false);
+        fleche1.setVisible(true);
+    }
+
+    @FXML
+    private void aff2(ActionEvent event) {
+        anB.setVisible(false);
+        fleche2.setVisible(true);
+        fleche1.setVisible(false);
+    }
+
+    
+
+    @FXML
+    private void Reclamation(ActionEvent event) throws IOException {
+        
+           AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Reclamation.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+   
+
+    @FXML
+    private void ServiceAllForKids(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("babysitterPersonnel.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    
+
+    @FXML
+   
+    private void Demandes(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void retour(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void ListeOffre(ActionEvent event) {
+    }
 }

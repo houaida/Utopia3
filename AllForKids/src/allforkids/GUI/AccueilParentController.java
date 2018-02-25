@@ -164,12 +164,7 @@ public class AccueilParentController implements Initializable {
         fleche1.setVisible(false);
     }
 
-    @FXML
-    private void PostulerTravail(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
+   
 
     @FXML
     private void Reclamation(ActionEvent event) throws IOException {
@@ -188,19 +183,17 @@ public class AccueilParentController implements Initializable {
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 
-    @FXML
-    private void Offres(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
+   
     @FXML
    
     private void Demandes(ActionEvent event) throws IOException {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void ListeOffre(ActionEvent event) {
     }
 
     
