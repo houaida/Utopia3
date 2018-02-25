@@ -72,57 +72,52 @@ public class ListePromotionsController implements Initializable {
     private TableColumn<Promotion, Integer> produit;
     @FXML
     private TableColumn<Promotion, Integer> pourcentage;
-      @FXML
+    @FXML
     private TableColumn<Promotion, String> date_d;
-       @FXML
+    @FXML
     private TableColumn<Promotion, String> date_f;
     String id ; 
-     @FXML
+    @FXML
      private TextField prod ; 
-      @FXML
+    @FXML
      private ComboBox<Integer> pourc ; 
-       @FXML
+    @FXML
      private DatePicker dated ;
-        @FXML
+    @FXML
      private DatePicker datef ; 
          @FXML
      private ImageView imgV ; 
-         @FXML
-     private TextField imagePath ;
          @FXML
      private Text textSearch ;
     @FXML
     private Button retour;
     @FXML
-    private ToggleButton ajouter;
+    private AnchorPane AnchorPane2;
     @FXML
-    private ToggleButton supprimer;
+    private ToggleButton retire;
+    private BorderPane anB;
+    private ToggleButton fleche2;
+    private ToggleButton fleche1;
+    @FXML
+    private TextField imagePath;
+    @FXML
+    private ToggleButton ajouter;
     @FXML
     private ToggleButton modifier;
     @FXML
-    private AnchorPane AnchorPane2;
+    private ToggleButton supprimer;
+    @FXML
+    private ToggleGroup menu;
     @FXML
     private ToggleButton gestionUtilisateur;
     @FXML
     private ToggleButton gestionProduit;
     @FXML
-    private ToggleButton retire;
-    @FXML
     private ToggleButton gestionOffre;
     @FXML
     private ToggleButton gestionUtilisateur1;
     @FXML
-    private ToggleGroup menu;
-    @FXML
-    private BorderPane anB;
-    @FXML
-    private ToggleButton gestionReclamation;
-    @FXML
-    private ToggleButton gestionReclamation1;
-    @FXML
-    private ToggleButton fleche2;
-    @FXML
-    private ToggleButton fleche1;
+    private ToggleButton gestionReclamation2;
       
     /**
      * Initializes the controller class.
@@ -238,7 +233,7 @@ public class ListePromotionsController implements Initializable {
        afficherListePromotions() ;
         }
     }
-     @FXML
+    @FXML
     public void supprimerPromotion(ActionEvent event)throws IOException, InterruptedException{
         if (!tableP.getSelectionModel().isEmpty()) {
          
@@ -345,14 +340,12 @@ public class ListePromotionsController implements Initializable {
        retire.setVisible(true);
     }
 
-    @FXML
     private void aff1(ActionEvent event) {
         anB.setVisible(true);
         fleche2.setVisible(false);
         fleche1.setVisible(true);
     }
 
-    @FXML
     private void aff2(ActionEvent event) {
         anB.setVisible(false);
         fleche2.setVisible(true);
@@ -367,7 +360,6 @@ public class ListePromotionsController implements Initializable {
         
     }
 
-    @FXML
     private void gestionDemande(ActionEvent event) throws IOException {
          AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
@@ -378,11 +370,27 @@ public class ListePromotionsController implements Initializable {
     private void gotoDemandeTravail(MouseEvent event) {
     }
 
-   @FXML
+    @FXML
     private void gestionOffre(ActionEvent event) throws IOException {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void gestionUtilisateur(ActionEvent event) throws IOException {
+          AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+
+    @FXML
+    private void approbation(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
     }
     
 }

@@ -77,25 +77,12 @@ public class demandeTravailController implements Initializable {
     @FXML
     private AnchorPane AnchorPane2;
     @FXML
-    private ToggleButton gestionUtilisateur;
-    @FXML
-    private ToggleButton gestionProduit;
-    @FXML
     private ToggleButton retire;
-    @FXML
-    private ToggleButton gestionOffre;
-    @FXML
-    private ToggleButton gestionUtilisateur1;
-    @FXML
     private ToggleButton fleche2;
-    @FXML
     private ToggleButton fleche1;
-    @FXML
     private BorderPane anB;
     @FXML
-    private ToggleButton gestionReclamation;
-    @FXML
-    private ToggleButton gestionReclamation1;
+    private Button btretour;
 
  
    
@@ -193,9 +180,6 @@ public class demandeTravailController implements Initializable {
         
     }
 
-    @FXML
-    private void gestionProduit(ActionEvent event) {
-    }
 
     @FXML
     private void retirer(ActionEvent event) {
@@ -203,29 +187,34 @@ public class demandeTravailController implements Initializable {
         retire.setVisible(false);
     }
 
+   
+
     @FXML
-    private void gestionOffre(ActionEvent event) {
-    }
- @FXML
-    private void aff1(ActionEvent event) {
-        anB.setVisible(true);
-        fleche2.setVisible(false);
-        fleche1.setVisible(true);
+    private void demandeB(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("DemandeBabysitterFront.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
 
     @FXML
-    private void aff2(ActionEvent event) {
-        anB.setVisible(false);
-        fleche2.setVisible(true);
-        fleche1.setVisible(false);
+    private void offresB(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+     @FXML
+    private void PostulerTravail(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
 
     @FXML
-    private void gestionReclamation(ActionEvent event) {
-    }
-
-    @FXML
-    private void gestionDemande(ActionEvent event) {
+    private void retour(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
 }
 

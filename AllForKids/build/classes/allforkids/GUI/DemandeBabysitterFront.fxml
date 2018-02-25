@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.DemandeBabysitterFrontController">
+   <children>
+      <ToggleButton mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/icon/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <HBox layoutX="274.0" layoutY="-5.0" prefHeight="75.0" prefWidth="1052.0" styleClass="box-topo" stylesheets="@css/covoiturage.css">
+         <children>
+            <Button fx:id="retour" mnemonicParsing="false" onAction="#retour" prefHeight="63.0" prefWidth="123.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/ios7-rewind-outline_icon-icons.com_50173.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label prefHeight="31.0" prefWidth="733.0" styleClass="box-topo" stylesheets="@css/covoiturage.css" textFill="MAROON">
+               <font>
+                  <Font name="AdobeHebrew-Regular" size="26.0" />
+               </font>
+            </Label>
+            <TextField maxHeight="44.0" prefHeight="44.0" prefWidth="200.0" promptText="chercher par titre" style="-fx-border-color: #ffc014;" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <ToggleButton maxHeight="40.0" mnemonicParsing="false" prefHeight="40.0" style="-fx-border-color: #ffc014;" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="pesquisar" />
+               </styleClass>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <TableView fx:id="tbtable" layoutX="287.0" layoutY="259.0" prefHeight="365.0" prefWidth="1013.0">
+         <columns>
+            <TableColumn id="id_offre" fx:id="id_offre" prefWidth="286.0" text="id" visible="false" />
+            <TableColumn fx:id="titre1" prefWidth="130.99996948242188" text="Titre" />
+            <TableColumn fx:id="date_debut1" prefWidth="159.0" text="Date debut" />
+            <TableColumn fx:id="date_fin1" minWidth="0.0" prefWidth="163.0" text="Date fin" />
+            <TableColumn fx:id="description1" prefWidth="558.0" text="Description" />
+         </columns>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <opaqueInsets>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </opaqueInsets>
+      </TableView>
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" prefHeight="869.0" prefWidth="266.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <ImageView fitHeight="333.0" fitWidth="232.0" layoutX="17.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logofinal.gif" />
+               </image>
+            </ImageView>
+            <ToggleButton layoutX="1.0" layoutY="270.0" mnemonicParsing="false" onAction="#demandeB" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Demandes">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutY="198.0" mnemonicParsing="false" onAction="#offresB" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Offres&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" onAction="#PostulerTravail" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Postuler Travail&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
