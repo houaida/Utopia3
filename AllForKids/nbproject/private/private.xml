@@ -3,8 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/technique/util/DataSource.java</file>
+<<<<<<< HEAD
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/GestionUserController.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/service/ProprietaireJService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/AccueilGeneralController.java</file>
@@ -44,6 +44,12 @@
 =======
 >>>>>>> 1fc70bd5adf8e96f1e8f513fad15fad04660e488
 >>>>>>> 0b804bdf385f324f4dc5a62377c7048f8a2f8d8b
+=======
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/ReclamationController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/AccueilParentController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/OffreDemandeController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/ListViewTestController.java</file>
+>>>>>>> b0753554122ccb95c1db5f747fc140a2c93c99dd
         </group>
     </open-files>
 </project-private>

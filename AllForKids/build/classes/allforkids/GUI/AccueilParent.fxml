@@ -60,7 +60,7 @@
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
-            <ToggleButton layoutX="3.0" layoutY="547.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Club &amp;&#10;événement&#10;&#10;">
+            <ToggleButton layoutX="-1.0" layoutY="547.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Clubs&#10;&#10;">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
@@ -82,6 +82,11 @@
                      </image>
                   </ImageView>
                </graphic>
+            </ToggleButton>
+            <ToggleButton layoutX="1.0" layoutY="607.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evénements&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
             </ToggleButton>
          </children>
       </AnchorPane>
@@ -117,29 +122,24 @@
       <ImageView fx:id="imgView1" fitHeight="161.0" fitWidth="285.0" layoutX="674.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgView2" fitHeight="161.0" fitWidth="285.0" layoutX="1056.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
       <MediaView fx:id="video" fitHeight="400.0" fitWidth="700.0" layoutX="456.0" layoutY="406.0" />
-      <AnchorPane fx:id="anB" layoutX="265.0" layoutY="396.0" prefHeight="287.0" prefWidth="262.0" style="-fx-background-color: #87CEFA;" visible="false">
+      <AnchorPane fx:id="anB" layoutX="265.0" layoutY="409.0" prefHeight="212.0" prefWidth="262.0" style="-fx-background-color: #87CEFA;" visible="false">
          <children>
-            <ToggleButton layoutX="-1.0" layoutY="2.0" mnemonicParsing="false" onAction="#PostulerTravail" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Postuler Travail&#10;">
+            <ToggleButton mnemonicParsing="false" onAction="#Reclamation" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Reclamation&#10;">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
-            <ToggleButton layoutY="62.0" mnemonicParsing="false" onAction="#Reclamation" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Reclamation&#10;">
+            <ToggleButton layoutY="53.0" mnemonicParsing="false" onAction="#ListeOffre" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Liste des offres">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
-            <ToggleButton layoutY="116.0" mnemonicParsing="false" onAction="#Offres" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Offres">
+            <ToggleButton layoutY="106.0" mnemonicParsing="false" onAction="#Demandes" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Demandes">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
-            <ToggleButton layoutY="172.0" mnemonicParsing="false" onAction="#Demandes" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Demandes">
-               <font>
-                  <Font name="Baskerville" size="23.0" />
-               </font>
-            </ToggleButton>
-            <ToggleButton layoutX="10.0" layoutY="232.0" mnemonicParsing="false" onAction="#ServiceAllForKids" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Service AllForKids&#10;">
+            <ToggleButton layoutY="159.0" mnemonicParsing="false" onAction="#ServiceAllForKids" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Service AllForKids&#10;">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>

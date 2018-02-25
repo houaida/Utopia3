@@ -77,6 +77,12 @@ public class ListViewTestController implements Initializable {
     private ToggleButton retire;
     @FXML
     private Button btretour;
+    @FXML
+    private ToggleButton fleche2;
+    @FXML
+    private ToggleButton fleche1;
+    @FXML
+    private AnchorPane anB;
    
      
     @Override
@@ -322,6 +328,62 @@ public class ListViewTestController implements Initializable {
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
+
+  @FXML
+    private void aff1(ActionEvent event) {
+        anB.setVisible(true);
+        fleche2.setVisible(false);
+        fleche1.setVisible(true);
+    }
+
+    @FXML
+    private void aff2(ActionEvent event) {
+        anB.setVisible(false);
+        fleche2.setVisible(true);
+        fleche1.setVisible(false);
+    }
+
+    @FXML
+    private void PostulerTravail(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void Reclamation(ActionEvent event) throws IOException {
+        
+           AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Reclamation.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+   
+
+    @FXML
+    private void ServiceAllForKids(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("babysitterPersonnel.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void Offres(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+   
+    private void Demandes(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+
+   
     
     
     

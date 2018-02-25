@@ -81,18 +81,13 @@ public class OffreDemandeCompController implements Initializable {
     private ToggleButton gestionOffre;
     @FXML
     private ToggleButton gestionUtilisateur1;
-    @FXML
     private ToggleButton fleche2;
-    @FXML
     private ToggleButton fleche1;
     @FXML
     private AnchorPane AnchorPane1;
-    @FXML
     private BorderPane anB;
     @FXML
     private ToggleButton gestionReclamation;
-    @FXML
-    private ToggleButton gestionReclamation1;
 
     /**
      * Initializes the controller class.
@@ -232,9 +227,11 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
     }
 
     @FXML
-    private void gestionProduit(ActionEvent event) {
+    private void gestionProduit(ActionEvent event) throws IOException {
+          AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listeProduits.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
-
    @FXML
     private void retirer(ActionEvent event) {
          AnchorPane2.setVisible(false);
@@ -245,14 +242,12 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
 
    
 
-    @FXML
     private void aff1(ActionEvent event) {
         anB.setVisible(true);
         fleche2.setVisible(false);
         fleche1.setVisible(true);
     }
 
-    @FXML
     private void aff2(ActionEvent event) {
         anB.setVisible(false);
         fleche2.setVisible(true);
@@ -267,7 +262,6 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
         
     }
 
-    @FXML
     private void gestionDemande(ActionEvent event) throws IOException {
          AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
@@ -280,5 +274,14 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
+
+     @FXML
+    private void approbation(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+
     
 }

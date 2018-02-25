@@ -23,8 +23,10 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -34,6 +36,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -52,6 +55,22 @@ public class ListviewApprouverController implements Initializable {
     private ToggleButton bt11;
  public static final String ACCOUNT_SID = "AC1b03266295bbba0a1e053cb7f2c4c550";
   public static final String AUTH_TOKEN = "2c12a62349d571be7427e4b55f3774c8";
+    @FXML
+    private AnchorPane AnchorPane2;
+    @FXML
+    private ToggleButton gestionUtilisateur;
+    @FXML
+    private ToggleButton gestionProduit;
+    @FXML
+    private ToggleButton retire;
+    @FXML
+    private ToggleButton gestionOffre;
+    @FXML
+    private ToggleButton gestionUtilisateur1;
+    @FXML
+    private ToggleButton gestionReclamation;
+    @FXML
+    private Button btretour;
     /**
      * Initializes the controller class.
      * @param url
@@ -145,6 +164,69 @@ public class ListviewApprouverController implements Initializable {
 
   }
     }   
+
+    @FXML
+    private void afficher(ActionEvent event) {
+         AnchorPane2.setVisible(true);
+       retire.setVisible(true);
+    }
+@FXML
+    private void gestionUtilisateur(ActionEvent event) throws IOException {
+          AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+
+    @FXML
+    private void gotoDemandeTravail(MouseEvent event) {
+    }
+
+   @FXML
+    private void gestionProduit(ActionEvent event) throws IOException {
+          AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listeProduits.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void retirer(ActionEvent event) {
+         AnchorPane2.setVisible(false);
+        retire.setVisible(false);
+    }
+
+    
+
+    @FXML
+    private void approbation(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+
+     @FXML
+    private void gestionReclamation(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewReclamation.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+
+    
+
+    @FXML
+    private void gestionOffre(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+    @FXML
+    private void retour(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilAdmin.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
             }
         
     

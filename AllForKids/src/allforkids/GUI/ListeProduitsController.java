@@ -128,15 +128,10 @@ public class ListeProduitsController implements Initializable {
     private ToggleButton gestionOffre;
     @FXML
     private ToggleButton gestionUtilisateur1;
-    @FXML
     private BorderPane anB;
     @FXML
     private ToggleButton gestionReclamation;
-    @FXML
-    private ToggleButton gestionReclamation1;
-    @FXML
     private ToggleButton fleche2;
-    @FXML
     private ToggleButton fleche1;
      
      
@@ -475,14 +470,12 @@ public class ListeProduitsController implements Initializable {
 
     
 
-    @FXML
     private void aff1(ActionEvent event) {
         anB.setVisible(true);
         fleche2.setVisible(false);
         fleche1.setVisible(true);
     }
 
-    @FXML
     private void aff2(ActionEvent event) {
         anB.setVisible(false);
         fleche2.setVisible(true);
@@ -497,13 +490,7 @@ public class ListeProduitsController implements Initializable {
         
     }
 
-    @FXML
-    private void gestionDemande(ActionEvent event) throws IOException {
-         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
+    
      @FXML
     private void gestionOffre(ActionEvent event) throws IOException {
         AnchorPane1.getChildren().clear();
@@ -513,6 +500,14 @@ public class ListeProduitsController implements Initializable {
 
     @FXML
     private void gotoDemandeTravail(MouseEvent event) {
+    }
+
+    @FXML
+    private void approbation(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
     }
     
     

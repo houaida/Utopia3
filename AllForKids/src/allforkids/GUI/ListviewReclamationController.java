@@ -20,6 +20,7 @@ import allforkids.service.demande_travailService;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.Optional;
@@ -27,8 +28,10 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -39,6 +42,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 
@@ -57,6 +61,22 @@ public class ListviewReclamationController implements Initializable {
     private ToggleButton bt1;
 public static final String ACCOUNT_SID = "AC8f118de401e49baedc319855cbb14258";
   public static final String AUTH_TOKEN = "433014f1c92f881f5a11b580a8669e08";
+    @FXML
+    private AnchorPane AnchorPane2;
+    @FXML
+    private ToggleButton gestionUtilisateur;
+    @FXML
+    private ToggleButton gestionProduit;
+    @FXML
+    private ToggleButton retire;
+    @FXML
+    private ToggleButton gestionOffre;
+    @FXML
+    private ToggleButton gestionUtilisateur1;
+    @FXML
+    private ToggleButton gestionReclamation;
+    @FXML
+    private Button btretour;
     /**
      * Initializes the controller class.
      */
@@ -199,7 +219,65 @@ Message message2 = Message
 
      
     
-    }}}
+    }}
+
+    @FXML
+    private void afficher(ActionEvent event) {
+         AnchorPane2.setVisible(true);
+       retire.setVisible(true);
+    }
+
+    @FXML
+    private void gotoDemandeTravail(MouseEvent event) {
+    }
+
+    @FXML
+    private void gestionProduit(ActionEvent event) throws IOException {
+          AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listeProduits.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void retirer(ActionEvent event) {
+         AnchorPane2.setVisible(false);
+        retire.setVisible(false);
+    }
+
+    
+
+     @FXML
+    private void approbation(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+
+     @FXML
+    private void gestionReclamation(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewReclamation.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+
+    
+
+    @FXML
+    private void gestionOffre(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void retour(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilAdmin.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+}
 
             
     
