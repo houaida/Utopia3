@@ -20,7 +20,6 @@ import allforkids.service.demande_travailService;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalTime;
 import java.util.Optional;
@@ -28,7 +27,6 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -41,8 +39,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.StringConverter;
 
@@ -61,28 +57,6 @@ public class ListviewReclamationController implements Initializable {
     private ToggleButton bt1;
 public static final String ACCOUNT_SID = "AC8f118de401e49baedc319855cbb14258";
   public static final String AUTH_TOKEN = "433014f1c92f881f5a11b580a8669e08";
-    @FXML
-    private AnchorPane AnchorPane2;
-    @FXML
-    private ToggleButton gestionUtilisateur;
-    @FXML
-    private ToggleButton gestionProduit;
-    @FXML
-    private ToggleButton retire;
-    @FXML
-    private ToggleButton gestionOffre;
-    @FXML
-    private ToggleButton gestionUtilisateur1;
-    @FXML
-    private ToggleButton fleche2;
-    @FXML
-    private ToggleButton fleche1;
-    @FXML
-    private BorderPane anB;
-    @FXML
-    private ToggleButton gestionReclamation;
-    @FXML
-    private ToggleButton gestionReclamation1;
     /**
      * Initializes the controller class.
      */
@@ -140,7 +114,7 @@ public static final String ACCOUNT_SID = "AC8f118de401e49baedc319855cbb14258";
 
     @FXML
     private void approuverReclamation(ActionEvent event) {
-        int i=0;
+       
         ReclamationService ds=ReclamationService.getInstance();
         BabysitterService ds1=BabysitterService.getInstance();
         ParentService ds3=new ParentService();
@@ -153,13 +127,14 @@ public static final String ACCOUNT_SID = "AC8f118de401e49baedc319855cbb14258";
   for(Reclamation s : selectedItems){
       
            int id2=s.getId_babysitter();
-      Babysitter babysitter=ds1.search(id2);
-      Reclamation r=ds.search2(s.getId_babysitter());
-      Parent p=ds3.search(r.getId_parent());
+      Babysitter babysitter1=ds1.search(id2);
+      Reclamation r=ds.search3(s.getId_reclamation());
+      Parent p=ds3.search(s.getId_parent());
+                 ds.update2(s.getId_reclamation());
+
 if((r.getDiff_heure()==0)&&(r.getDiff_minute()<=15))
 {
   
-           ds.update2(r.getId_reclamation(),0);
                
 
                                         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
@@ -173,37 +148,42 @@ if((r.getDiff_heure()==0)&&(r.getDiff_minute()<=15))
 
 else
 {
-      i++;
-               ds.update2(r.getId_reclamation(),i);
-               
+        Babysitter babysitter2=ds1.searchAlerte(id2);
+        int alerte=babysitter2.getAlerte();
+        System.out.println("pp"+alerte);       
       
-    if(i==1){
+                       ds1.update2(id2, alerte+1);
+
                          Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 Message message2 = Message
-        .creator(new PhoneNumber("+216"+babysitter.getNum_tel()), new PhoneNumber("+12104051270"),
-            "Mr/Mme "+babysitter.getNom()+" "+babysitter.getPrenom()+ " je suis trés deçu par votre service,c'est votre premier retard vous ne devez plus retarder svp,vous devez contacter Mr/Mme "+
+        .creator(new PhoneNumber("+216"+babysitter1.getNum_tel()), new PhoneNumber("+12104051270"),
+            "Mr/Mme "+babysitter1.getNom()+" "+babysitter1.getPrenom()+ " je suis trés deçu par votre service,c'est votre premier retard vous ne devez plus retarder svp,vous devez contacter Mr/Mme "+
              p.getNom()+" pour s'excuser")
         .create();
   
-   }
+   
      
-      if(i==2){
+      if(alerte==2){
+                         ds1.update2(id2,alerte+1);
+
                            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
    
-    Message message2 = Message
-        .creator(new PhoneNumber("+216"+babysitter.getNum_tel()), new PhoneNumber("+12104051270"),
-            "Mr/Mme"+babysitter.getNom()+" "+babysitter.getPrenom()+ "je suis trés deçu par votre service,c'est votre deuxieme retard vous ne devez plus retarder svp,vous devez contacter Mr/Mme"+
+    Message message3 = Message
+        .creator(new PhoneNumber("+216"+babysitter1.getNum_tel()), new PhoneNumber("+12104051270"),
+            "Mr/Mme"+babysitter1.getNom()+" "+babysitter1.getPrenom()+ "je suis trés deçu par votre service,c'est votre deuxieme retard vous ne devez plus retarder svp,vous devez contacter Mr/Mme"+
              p.getNom()+" pour s'excuser la prochaine fois vous allez étre supprimer difinitivement!")
         .create();}
-     if(i==3){
-          ds.delete(r.getId_reclamation());
-          ds1.delete(r.getId_babysitter());
+     if(alerte==3){
+          ds.delete(s.getId_reclamation());
+          ds1.delete(s.getId_babysitter());
                }
+                                Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
                Message message1 = Message
         .creator(new PhoneNumber("+216"+p.getNum_tel()), new PhoneNumber("+12104051270"),
-            "On est vraiment désolé Mr/Mme "+p.getNom()+" "+p.getPrenom()+" pour le retard de"+r.getDiff_heure()+" heure et de "+r.getDiff_minute()+"minute "
-                    + "nous allons avertir Mr/Mme "+babysitter.getNom()+" et j'éspére que ça ne reproduirera plus")
+            "On est vraiment désolé Mr/Mme "+p.getNom()+" "+p.getPrenom()+" pour le retard de"+r.getDiff_heure()+" heure et de "+s.getDiff_minute()+"minute "
+                    + "nous allons avertir Mr/Mme "+babysitter1.getNom()+" et j'éspére que ça ne reproduirera plus")
         .create();
                
                
@@ -219,70 +199,7 @@ Message message2 = Message
 
      
     
-    }}
-
-   @FXML
-    private void afficher(ActionEvent event) {
-         AnchorPane2.setVisible(true);
-       retire.setVisible(true);
-    }
-
-   @FXML
-    private void retirer(ActionEvent event) {
-         AnchorPane2.setVisible(false);
-        retire.setVisible(false);
-    }
-
-    
-
-    @FXML
-    private void gestionProduit(ActionEvent event) throws IOException {
-          AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listeProduits.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
-    @FXML
-    private void aff1(ActionEvent event) {
-        anB.setVisible(true);
-        fleche2.setVisible(false);
-        fleche1.setVisible(true);
-    }
-
-    @FXML
-    private void aff2(ActionEvent event) {
-        anB.setVisible(false);
-        fleche2.setVisible(true);
-        fleche1.setVisible(false);
-    }
-
-    @FXML
-    private void gestionReclamation(ActionEvent event) throws IOException {
-         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewReclamation.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-        
-    }
-
-    @FXML
-    private void gestionDemande(ActionEvent event) throws IOException {
-         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
-    @FXML
-    private void gotoDemandeTravail(MouseEvent event) {
-    }
-
-    @FXML
-    private void gestionOffre(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-    
-}
+    }}}
 
             
     

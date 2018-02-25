@@ -152,8 +152,8 @@
       <JFXTextField fx:id="tnum_tel" layoutX="486.0" layoutY="339.0" text="Numero telephone" />
       <JFXTextField fx:id="tmail" layoutX="486.0" layoutY="413.0" text="Adresse electronique" />
       <JFXDatePicker fx:id="tdate_naissance" defaultColor="#eb1132" layoutX="486.0" layoutY="511.0" />
-      <JFXTextField fx:id="tetude" layoutX="933.0" layoutY="76.0" text="Niveau d'etude" />
-      <JFXTextField fx:id="tposte" layoutX="933.0" layoutY="159.0" text="Poste actuel" />
+      <JFXTextField fx:id="tetude" layoutX="933.0" layoutY="76.0" promptText="Niveau d'etude" />
+      <JFXTextField fx:id="tposte" layoutX="933.0" layoutY="159.0" promptText="Poste actuel" />
       <JFXComboBox fx:id="tlangue" layoutX="933.0" layoutY="274.0" promptText="Maitrice des langues" />
       <JFXButton layoutX="1050.0" layoutY="594.0" onAction="#ajouter" style="-fx-background-color: #ffc014;" text="Ajouter" />
    </children>

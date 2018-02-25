@@ -72,7 +72,7 @@ public static ReclamationService getInstance()
     try {
         while(rs.next()){
           Reclamation p;
-          p = new Reclamation(rs.getInt("id_parent"),rs.getInt("id_babysitter"),rs.getString("Description")
+          p = new Reclamation(rs.getInt("id_reclamation"),rs.getInt("id_parent"),rs.getInt("id_babysitter"),rs.getString("Description")
                   ,rs.getTimestamp("date_envoi"),rs.getTime("heure_travail"),rs.getTime("heure_pointe"),rs.getInt("etat"));
             Reclamations.add(p);
         }
@@ -96,7 +96,7 @@ public static ReclamationService getInstance()
     try {
         while(rs.next()){
           Reclamation p;
-          p = new Reclamation(rs.getInt("id_parent"),rs.getInt("id_babysitter"),rs.getString("Description")
+          p = new Reclamation(rs.getInt("id_reclamation"),rs.getInt("id_parent"),rs.getInt("id_babysitter"),rs.getString("Description")
                   ,rs.getTimestamp("date_envoi"),rs.getTime("heure_travail"),rs.getTime("heure_pointe"),rs.getInt("etat"));
             Reclamations.add(p);
         }
@@ -217,13 +217,13 @@ Reclamation p1=search(id);
    return false;
     }  
 
-    public boolean update2(int id,int alerte) {
+    public boolean update2(int id) {
     Reclamation p1=search3(id);
    
    if(p1!=null)
    {
         try {
-        st.executeUpdate("Update reclamations set etat='1',alerte='"+alerte+"'where id_reclamation="+id);
+        st.executeUpdate("Update reclamations set etat='1' where id_reclamation="+id);
        	
 
         } catch (SQLException ex) { 

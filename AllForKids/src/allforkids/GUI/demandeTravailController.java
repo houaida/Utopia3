@@ -52,8 +52,7 @@ public class demandeTravailController implements Initializable {
     private TextField tnom1;
     @FXML
     private TextField id_user;
-    @FXML
-    private AnchorPane AnchorPane1;
+    private AnchorPane AnchorPane;
     @FXML
     private TextField tadresse;
     @FXML
@@ -73,6 +72,8 @@ public class demandeTravailController implements Initializable {
     private TextField tposte;
     @FXML
     private TextField path;
+    @FXML
+    private AnchorPane AnchorPane1;
     @FXML
     private AnchorPane AnchorPane2;
     @FXML
@@ -129,7 +130,7 @@ public class demandeTravailController implements Initializable {
     private void affichage() throws ParseException {
       
         BabysitterService as=BabysitterService.getInstance();
-        Babysitter b=  as.search(AuthentificationController.LoggedAdmin.getId_user());
+        Babysitter b=  as.search(AuthentificationController.LoggedBabysitter.getId_user());
         tnom1.setDisable(true);
         tadresse.setDisable(true);
         tdate_naissance.setDisable(true);
@@ -167,40 +168,45 @@ public class demandeTravailController implements Initializable {
        Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
      Gd.insert1(demande,AuthentificationController.LoggedBabysitter.getId_user());
-         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilGeneral.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
+         
     tetude.clear();
     tposte.clear();
     tlangue.setValue(null);
     
+           AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
      
-    }}
+    }
+ 
+    }
 
     @FXML
     private void afficher(ActionEvent event) {
+       AnchorPane2.setVisible(true);
+       retire.setVisible(true);
     }
+    
 
     @FXML
     private void gotoDemandeTravail(MouseEvent event) {
+        
     }
 
-   
+    @FXML
+    private void gestionProduit(ActionEvent event) {
+    }
 
     @FXML
     private void retirer(ActionEvent event) {
-         AnchorPane2.setVisible(false);
+        AnchorPane2.setVisible(false);
         retire.setVisible(false);
     }
 
-   @FXML
-    private void gestionProduit(ActionEvent event) throws IOException {
-          AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listeProduits.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
     @FXML
+    private void gestionOffre(ActionEvent event) {
+    }
+ @FXML
     private void aff1(ActionEvent event) {
         anB.setVisible(true);
         fleche2.setVisible(false);
@@ -215,27 +221,12 @@ public class demandeTravailController implements Initializable {
     }
 
     @FXML
-    private void gestionReclamation(ActionEvent event) throws IOException {
-         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewReclamation.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-        
+    private void gestionReclamation(ActionEvent event) {
     }
 
     @FXML
-    private void gestionDemande(ActionEvent event) throws IOException {
-         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
+    private void gestionDemande(ActionEvent event) {
     }
-
-     @FXML
-    private void gestionOffre(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-    
 }
 
     
