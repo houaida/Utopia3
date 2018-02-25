@@ -122,8 +122,6 @@ public class AccueilParentController implements Initializable {
       mediaplayer.setAutoPlay(true);*/
      
 
-      
-
 
     }
 
