@@ -192,11 +192,20 @@ public static Admin LoggedAdmin;
                 LoggedBabysitter.setId_user(u.getId_user());
        //System.out.println(u.getId_user());
        // System.out.println(tfPseudo.getText());
-             
-            AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilBaby.fxml"));
+             AnchorPane1.setPrefSize(1329,866);
+                 Stage stage = new Stage();
+                     //  ((Node) event.getSource()).getScene().getWindow().hide();
+                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
+                        Scene scene = new Scene(root);
+
+                        
+
+                        stage.setScene(scene);
+                        stage.show();
+            /*AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
-         
+         */
 
        
     

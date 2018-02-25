@@ -93,24 +93,9 @@
             <Font size="18.0" />
          </font>
       </ToggleButton>
-<<<<<<< HEAD
-      <BorderPane fx:id="anB" layoutX="267.0" layoutY="410.0" prefHeight="148.0" prefWidth="243.0" style="-fx-background-color: #87CEFA;" visible="false">
-         <top>
-            <ToggleButton fx:id="gestionReclamation" mnemonicParsing="false" onAction="#gestionReclamation" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Reclamations&#10;&#10;" textAlignment="CENTER" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Baskerville" size="23.0" />
-               </font>
-            </ToggleButton>
-         </top>
-         <center>
-            <ToggleButton fx:id="gestionReclamation1" mnemonicParsing="false" onAction="#gestionDemande" onMouseClicked="#gotoDemandeTravail" prefHeight="83.0" prefWidth="243.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Demandes &#10;de travail&#10;&#10;" textAlignment="CENTER" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Baskerville" size="23.0" />
-               </font>
-            </ToggleButton>
-         </center>
-      </BorderPane>
-=======
->>>>>>> b0753554122ccb95c1db5f747fc140a2c93c99dd
+
+    
+
+
    </children>
 </AnchorPane>

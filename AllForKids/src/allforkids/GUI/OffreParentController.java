@@ -23,14 +23,18 @@ import javafx.scene.layout.Pane;
 /**
  * FXML Controller class
  *
- * @author user
+ * @author MacBook
  */
-public class DemandeBabysitterFrontController implements Initializable {
+public class OffreParentController implements Initializable {
 
     @FXML
     private AnchorPane AnchorPane1;
     @FXML
     private Button retour;
+    @FXML
+    private ToggleButton fleche2;
+    @FXML
+    private ToggleButton fleche1;
     @FXML
     private TableView<?> tbtable;
     @FXML
@@ -46,7 +50,15 @@ public class DemandeBabysitterFrontController implements Initializable {
     @FXML
     private AnchorPane AnchorPane2;
     @FXML
+    private ToggleButton gestionPrduit;
+    @FXML
     private ToggleButton retire;
+    @FXML
+    private ToggleButton fleche21;
+    @FXML
+    private ToggleButton fleche11;
+    @FXML
+    private AnchorPane anB;
 
     /**
      * Initializes the controller class.
@@ -65,40 +77,71 @@ public class DemandeBabysitterFrontController implements Initializable {
     @FXML
     private void retour(ActionEvent event) throws IOException {
         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 
     @FXML
-    private void demandeB(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("DemandeBabysitterFront.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
+    private void aff1(ActionEvent event) {
+        anB.setVisible(true);
+        fleche2.setVisible(false);
+        fleche1.setVisible(true);
+    }
+
+    @FXML
+    private void aff2(ActionEvent event) {
+        anB.setVisible(false);
+        fleche2.setVisible(true);
+        fleche1.setVisible(false);
     }
 
     @FXML
     private void gotoDemandeTravail(MouseEvent event) {
     }
 
-   @FXML
-    private void offresB(ActionEvent event) throws IOException {
+    @FXML
+    private void boutique(ActionEvent event) throws IOException {
          AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listViewTest.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 
-
-        @FXML
+    
+    @FXML
     private void retirer(ActionEvent event) {
         AnchorPane2.setVisible(false);
         retire.setVisible(false);
     }
 
-   @FXML
-    private void PostulerTravail(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
+    @FXML
+    private void Reclamation(ActionEvent event) throws IOException {
+        
+           AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Reclamation.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
+
+    @FXML
+    private void ListeOffre(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreParentFront.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+ @FXML
+    private void ServiceAllForKids(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("babysitterPersonnel.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+   
+    @FXML
+   
+    private void Demandes(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
     
 }

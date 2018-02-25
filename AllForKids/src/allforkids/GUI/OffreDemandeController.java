@@ -43,8 +43,6 @@ public class OffreDemandeController implements Initializable {
     @FXML
     private AnchorPane AnchorPane1;
     @FXML
-    private AnchorPane anchor_offre;
-    @FXML
     private Text txtnom;
     @FXML
     private Text txtType;
@@ -89,8 +87,6 @@ public class OffreDemandeController implements Initializable {
     @FXML
     private Button btn2;
     @FXML
-    private Button btretour1;
-    @FXML
     private ToggleButton ajouter;
     @FXML
     private ToggleButton supprimer;
@@ -99,15 +95,9 @@ public class OffreDemandeController implements Initializable {
     @FXML
     private AnchorPane AnchorPane2;
     @FXML
-    private ToggleButton gestionPrduit;
-    @FXML
     private ToggleButton retire;
-    @FXML
     private ToggleButton fleche2;
-    @FXML
     private ToggleButton fleche1;
-    @FXML
-    private AnchorPane anB;
      
 
     
@@ -223,26 +213,7 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
     private void gotoDemandeTravail(MouseEvent event) {
     }
 
-      @FXML
-    private void boutique(ActionEvent event) throws IOException {
-         AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listViewTest.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
-    @FXML
-    private void aff1(ActionEvent event) {
-        anB.setVisible(true);
-        fleche2.setVisible(false);
-        fleche1.setVisible(true);
-    }
-
-    @FXML
-    private void aff2(ActionEvent event) {
-        anB.setVisible(false);
-        fleche2.setVisible(true);
-        fleche1.setVisible(false);
-    }
+    
 
     @FXML
     private void PostulerTravail(ActionEvent event) throws IOException {
@@ -251,44 +222,8 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 
-    @FXML
-    private void Reclamation(ActionEvent event) throws IOException {
-        
-           AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Reclamation.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
    
-
-    @FXML
-    private void ServiceAllForKids(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("babysitterPersonnel.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
-    @FXML
-    private void Offres(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
-    @FXML
-   
-    private void Demandes(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
-
-    @FXML
-    private void retour(ActionEvent event) throws IOException {
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
+    
 
     @FXML
     private void afficher(ActionEvent event) {
@@ -302,6 +237,21 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
         retire.setVisible(false);
     }
 
+    @FXML
+    private void demandeB(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("DemandeBabysitterFront.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void offresB(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    
   
 
     }

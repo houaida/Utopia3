@@ -191,7 +191,10 @@ public class AccueilParentController implements Initializable {
     }
 
     @FXML
-    private void ListeOffre(ActionEvent event) {
+    private void ListeOffre(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreParentFront.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
 
     
