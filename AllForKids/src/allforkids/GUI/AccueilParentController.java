@@ -118,9 +118,10 @@ public class AccueilParentController implements Initializable {
      video.setFitHeight(400);
      video.setFitWidth(700);
      video.setMediaPlayer(mediaplayer);
-<<<<<<< HEAD
+
       mediaplayer.setAutoPlay(true);*/
      
+
 
     }
 
