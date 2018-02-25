@@ -16,9 +16,7 @@ public class Reservation {
     private int nbre_place;
     private int idC;
 
-    public Reservation(int idC) {
-        this.idC = idC;
-    }
+  
     
     
     public Reservation(int id, int id_user, int nbre_place) {
@@ -31,13 +29,6 @@ public class Reservation {
         this.id_user = id_user;
         this.nbre_place = nbre_place;
     }
-
-   /* public Reservation(int id, int id_user, int nbre_place, int idC) {
-        this.id = id;
-        this.id_user = id_user;
-        this.nbre_place = nbre_place;
-        this.idC = idC;
-    }*/
 
     public Reservation(int id, int id_user, int nbre_place, int idC) {
         this.id = id;
@@ -84,6 +75,10 @@ public class Reservation {
     public String toString() {
         return "Reservation{" + "id=" + id + ", id_user=" + id_user + ", nbre_place=" + nbre_place + ", idC=" + idC + '}';
     }
+
+    public Reservation() {
+    }
+    
     
     
 }
