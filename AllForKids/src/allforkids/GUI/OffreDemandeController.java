@@ -42,21 +42,7 @@ public class OffreDemandeController implements Initializable {
     @FXML
     private AnchorPane AnchorPane1;
     @FXML
-    private AnchorPane AnchorPane2;
-    @FXML
-    private ToggleButton menu_babysitter;
-    @FXML
-    private ToggleGroup grupoMenus;
-    @FXML
-    private ToggleButton Education;
-    @FXML
     private AnchorPane anchor_offre;
-    @FXML
-    private Label lbTitulo1;
-    @FXML
-    private ToggleButton ajout;
-    @FXML
-    private ToggleGroup menu;
     @FXML
     private Text txtnom;
     @FXML
@@ -78,28 +64,37 @@ public class OffreDemandeController implements Initializable {
     @FXML
     private DatePicker tdate_fin;
  
-    @FXML
     private TableColumn<Offre, String> titre;
-    @FXML
     private TableColumn<Offre, String> date_debut;
-    @FXML
     private TableColumn<Offre, String> date_fin;
-    @FXML
     private TableColumn<Offre, String> description;
     @FXML
     private TableColumn<Offre, String> id_offre;
     @FXML
-    private ToggleButton supp;
-    @FXML
     private ToggleButton modifier;
-    @FXML
     private Button btn1;
     @FXML
     private TextField id_offre1;
     @FXML
     private TextField trecherche;
     @FXML
-    private ToggleButton recherche;
+    private TableColumn<?, ?> titre1;
+    @FXML
+    private TableColumn<?, ?> date_debut1;
+    @FXML
+    private TableColumn<?, ?> date_fin1;
+    @FXML
+    private TableColumn<?, ?> description1;
+    @FXML
+    private Button btn2;
+    @FXML
+    private Button btretour1;
+    @FXML
+    private ToggleButton ajouter;
+    @FXML
+    private ToggleButton supprimer;
+    @FXML
+    private ToggleGroup menu1;
      
 
     
@@ -129,23 +124,16 @@ public class OffreDemandeController implements Initializable {
             tbtable.setItems(null);
                 tbtable.setItems(Goffre.getAll());
 
-titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
-date_debut.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
-date_fin.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
-description.setCellValueFactory(new PropertyValueFactory<>("description"));       
+titre1.setCellValueFactory(new PropertyValueFactory<>("titre"));
+date_debut1.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
+date_fin1.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
+description1.setCellValueFactory(new PropertyValueFactory<>("description"));       
 id_offre.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
 
         
 
 
        }
-    @FXML
-    private void menu_babysitter(ActionEvent event) {
-    }
-
-    @FXML
-    private void Education(ActionEvent event) {
-    }
 
     @FXML
     private void ajouter(ActionEvent event) throws ParseException{

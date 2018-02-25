@@ -20,6 +20,18 @@ public class Babysitter extends User{
     private String adresse;
     private String num_tel;
     private String image;
+     private int alerte;
+
+
+  
+
+    public int getAlerte() {
+        return alerte;
+    }
+
+    public void setAlerte(int alerte) {
+        this.alerte = alerte;
+    }
 public java.sql.Date convert(String date) throws ParseException {
 
         SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
@@ -45,7 +57,19 @@ public java.sql.Date convert(String date) throws ParseException {
         this.adresse = adresse;
         this.num_tel = num_tel;
     }
-public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,String num_tel,String date_naissance,String image ) {
+ 
+public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,String num_tel,String date_naissance,String image,int alerte ) {
+        super(id_user, pseudo, mdp, Email);
+        this.date_naissance=date_naissance;
+        this.image=image;
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.alerte=alerte;
+    }
+public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,String num_tel,String date_naissance,String image) {
         super(id_user, pseudo, mdp, Email);
         this.date_naissance=date_naissance;
         this.image=image;
@@ -64,7 +88,16 @@ public Babysitter(int id_user,int cin, String nom, String prenom, String adresse
         this.adresse = adresse;
         this.num_tel = num_tel;
     }
-
+ public Babysitter(int cin, String nom, String prenom, String pseudo,String mdp,String Email,String adresse, String num_tel,String date_naissance,String image,int alerte) {
+        super(pseudo, mdp, Email);
+        this.cin = cin;
+     this.image=image;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.alerte=alerte;
+    }
     public Babysitter(int cin, String nom, String prenom, String pseudo,String mdp,String Email,String adresse, String num_tel,String date_naissance,String image) {
         super(pseudo, mdp, Email);
              this.image=image;
@@ -76,6 +109,18 @@ public Babysitter(int id_user,int cin, String nom, String prenom, String adresse
         this.adresse = adresse;
         this.num_tel = num_tel;
     }   
+
+    public Babysitter(int cin, String nom, String prenom,String pseudo, String mdp, String email, String adresse, String num_tel, String image, int alerte) {
+        super(pseudo, mdp, email);
+        this.date_naissance = date_naissance;
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.image = image;
+        this.alerte = alerte;
+    }
 
     public Babysitter() {
     }
@@ -131,12 +176,16 @@ public Babysitter(int id_user,int cin, String nom, String prenom, String adresse
         this.num_tel = num_tel;
     }
 
-    
-
     @Override
     public String toString() {
-        return "Babysitter{" + "date_naissance=" + date_naissance + ", cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", num_tel=" + num_tel + ", image=" + image + '}';
+        return "Babysitter{" + "date_naissance=" + date_naissance + ", cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", num_tel=" + num_tel + ", image=" + image + ", alerte=" + alerte + '}';
     }
+
+  
+
+    
+
+    
 
     
 

@@ -46,28 +46,6 @@ public static BabysitterService getInstance()
             instance = new BabysitterService();}
         return instance;
     }
-public ObservableList<Babysitter> getAll2() {
-ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
-        
-    try {
-        rs=st.executeQuery("select * from users where type='babysitterPersonnel'");
-    } catch (SQLException ex) { 
-        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);}
-  
-      
-    try {
-        while(rs.next()){
-            Babysitter p;
-        
-            p = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
-                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("type"),rs.getString("date_naissance"),rs.getString("image"));
-             Babysitters.add(p);
-        }
-    } catch (SQLException ex) { 
-        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    return  Babysitters;
-    }
 
     @Override
     public void insert(Babysitter p) {
@@ -107,16 +85,69 @@ ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
     }
     return  Babysitters;
     }
-
     
+   public ObservableList<Babysitter> getAll2() {
+ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
+        
+    try {
+        rs=st.executeQuery("select * from users where type='babysitterPersonnel'");
+    } catch (SQLException ex) { 
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  
+      
+    try {
+        while(rs.next()){
+            Babysitter p;
+        
+            p = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("type"),rs.getString("date_naissance"),rs.getString("image"));
+             Babysitters.add(p);
+        }
+    } catch (SQLException ex) { 
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return  Babysitters;
+    }
+
+     public Babysitter searchAlerte(int n) {
+Babysitter p=null;
+        try {
+       
+        rs=st.executeQuery("select * from users where type='babysitter' and id_user="+n);
+          if(rs.next())
+         p = new Babysitter(rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("date_naissance"),rs.getString("image"),rs.getInt("alerte"));
+    } catch (SQLException ex) {  
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+        return p; 
+    }
+   
     @Override
     public Babysitter search(int n) {
 Babysitter p=null;
         try {
        
-        rs=st.executeQuery("select * from users where id_user="+n);
+        rs=st.executeQuery("select * from users where type='babysitter' and id_user="+n);
           if(rs.next())
          p = new Babysitter(rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("date_naissance"),rs.getString("image"));
+    } catch (SQLException ex) {  
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+        return p; 
+    }
+   
+    public Babysitter search1(int n) {
+Babysitter p=null;
+        try {
+       
+        rs=st.executeQuery("select * from users where type='babysitter' and cin="+n);
+          if(rs.next())
+         p = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
                     rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("date_naissance"),rs.getString("image"));
     } catch (SQLException ex) {  
         Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
@@ -164,6 +195,20 @@ Babysitter p=null;
    {
         try {
             st.executeUpdate("Update users set type='babysitterPersonnel' where id_user="+id);
+        } catch (SQLException ex) { 
+             Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       return true ;
+   }
+   return false;
+    }
+
+       public boolean update2(int id,int alerte) {
+     Babysitter p1=search(id);
+   if(p1!=null)
+   {
+        try {
+            st.executeUpdate("Update users set alerte="+alerte+" where id_user="+id);
         } catch (SQLException ex) { 
              Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
          }

@@ -49,10 +49,6 @@ public class demandeController implements Initializable {
     @FXML
     private AnchorPane anchor_offre;
     @FXML
-    private Label lbTitulo1;
-    @FXML
-    private ToggleGroup menu;
-    @FXML
     private Text txtnom;
     @FXML
     private Text txtType;
@@ -60,13 +56,9 @@ public class demandeController implements Initializable {
     private Text txtPrix;
     @FXML
     private Text txtDescription;
-    private TextField ttitre;
-    private DatePicker tdate_debut;
-    private TextArea tdescription;
     private TableView<Demande> tbtable;
     
     
-    private DatePicker tdate_fin;
  
     private TableColumn<Demande, String> titre;
     private TableColumn<Demande, String> date_debut;
@@ -74,17 +66,8 @@ public class demandeController implements Initializable {
     private TableColumn<Demande, String> description;
     private Button btn1;
     private TableColumn<?, ?> id_offre1;
-    private TextField trecherche;
     @FXML
     private TextField trecherche1;
-    @FXML
-    private ToggleButton ajout1;
-    @FXML
-    private ToggleButton supp1;
-    @FXML
-    private ToggleButton modifier1;
-    @FXML
-    private ToggleButton recherche1;
     @FXML
     private TextField ttitre1;
     @FXML
@@ -110,7 +93,15 @@ public class demandeController implements Initializable {
     @FXML
     private TableColumn<Demande, String> id_demande2;
     @FXML
-    private Button btretour;
+    private Button btretour1;
+    @FXML
+    private ToggleButton ajouter;
+    @FXML
+    private ToggleButton modifier;
+    @FXML
+    private ToggleButton supprimer;
+    @FXML
+    private ToggleGroup menu1;
      
 
     
@@ -164,9 +155,7 @@ id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
   afficherDemande();
     
     }
-@FXML
-    
-        
+    @FXML
         public void modifierdemande()
      {
           btn2.setDisable(false);
@@ -188,7 +177,7 @@ id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
      gDemande.update(demande);
          afficherDemande();
      }
-  @FXML
+    @FXML
     private void supprimerdemande(ActionEvent event) {
       
         if (!tbtable1.getSelectionModel().isEmpty()) {
@@ -213,8 +202,7 @@ id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
         }
 
     }
-  @FXML
-  
+    @FXML
     private void recherchedemande(ActionEvent event)throws IOException, InterruptedException {
      DemandeService gDemande=DemandeService.getInstance();
                 String a =(trecherche1.getText()) ;
@@ -226,6 +214,7 @@ date_fin1.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
 description1.setCellValueFactory(new PropertyValueFactory<>("description"));       
         
     }
+
 
 }
     

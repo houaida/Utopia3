@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.BabysitterPersonnelController">
+    <stylesheets>
+        <URL value="@babysitterpersonnel.css" />
+    </stylesheets>
+   <children>
+      <JFXListView fx:id="listebabysitter" layoutX="284.0" layoutY="80.0" prefHeight="708.0" prefWidth="1006.0" />
+      <Text fill="#ffc014" layoutX="285.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des personnels" wrappingWidth="354.13671875">
+         <font>
+            <Font name="Baskerville" size="31.0" />
+         </font>
+      </Text>
+      <HBox layoutX="1001.0" layoutY="12.0" minHeight="52.0" prefHeight="60.0" prefWidth="354.0" styleClass="box-topo" stylesheets="@css/covoiturage.css">
+         <children>
+            <TextField fx:id="search" maxHeight="44.0" onAction="#rechercherProduit" prefHeight="44.0" prefWidth="200.0" promptText="chercher par nom" style="-fx-border-color: #ffc014;" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <ToggleButton fx:id="rechercher" maxHeight="40.0" mnemonicParsing="false" onAction="#rechercherProduit" prefHeight="40.0" style="-fx-border-color: #ffc014;" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="pesquisar" />
+               </styleClass>
+            </ToggleButton>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
