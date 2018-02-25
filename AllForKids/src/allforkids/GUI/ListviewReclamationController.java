@@ -150,8 +150,7 @@ else
 {
         Babysitter babysitter2=ds1.searchAlerte(id2);
         int alerte=babysitter2.getAlerte();
-        System.out.println("pp"+alerte);       
-      
+      if(alerte==0){
                        ds1.update2(id2, alerte+1);
 
                          Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
@@ -161,9 +160,10 @@ Message message2 = Message
              p.getNom()+" pour s'excuser")
         .create();
   
-   
+      }
      
-      if(alerte==2){
+      if(alerte==1){
+       
                          ds1.update2(id2,alerte+1);
 
                            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
@@ -174,7 +174,7 @@ Message message2 = Message
             "Mr/Mme"+babysitter1.getNom()+" "+babysitter1.getPrenom()+ "je suis trés deçu par votre service,c'est votre deuxieme retard vous ne devez plus retarder svp,vous devez contacter Mr/Mme"+
              p.getNom()+" pour s'excuser la prochaine fois vous allez étre supprimer difinitivement!")
         .create();}
-     if(alerte==3){
+     if(alerte==2){
           ds.delete(s.getId_reclamation());
           ds1.delete(s.getId_babysitter());
                }
