@@ -45,6 +45,10 @@ public class AccueilParentController implements Initializable {
     @FXML
     private ToggleButton gestionPrduit;
     @FXML
+    private ToggleButton clubs;
+    @FXML
+    private ToggleButton evenements;
+    @FXML
     private ToggleButton retire;
     @FXML
     private ImageView imgView;
@@ -115,21 +119,36 @@ public class AccueilParentController implements Initializable {
      bt1.setDisable(true);
      bt.setDisable(false);
      
+<<<<<<< HEAD
+    /* String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+=======
      String Vurl="file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
 
 
 
 
+>>>>>>> 804e546665f454bf02eaeb7aec1087a9129b620f
         Media media = new Media(Vurl);
      MediaPlayer mediaplayer=new MediaPlayer(media);
      video.setFitHeight(400);
      video.setFitWidth(700);
      video.setMediaPlayer(mediaplayer);
-
+<<<<<<< HEAD
       mediaplayer.setAutoPlay(true);*/
+     /*String urlv = "file:/C:/Users/pacha/Videos/fifa-world-cup-russia-2018-official-video.mp4";
+        media = new Media(urlv);
+        mediaPlayer = new MediaPlayer(media);
+        view.setFitHeight(600);
+        view.setFitWidth(400);
+        view.setMediaPlayer(mediaPlayer);
+        mediaPlayer.setAutoPlay(true);*/
+//=======
+
+     // mediaplayer.setAutoPlay(true);*/
      
 
 
+//>>>>>>> 804e546665f454bf02eaeb7aec1087a9129b620f
     }
 
     
@@ -152,6 +171,18 @@ public class AccueilParentController implements Initializable {
     private void boutique(ActionEvent event) throws IOException {
          AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listViewTest.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+    @FXML
+    private void clubs(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Clubs.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+    @FXML
+    private void evenements(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evenements.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 

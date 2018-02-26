@@ -15,7 +15,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import allforkids.entite.Club;
 import allforkids.technique.util.DataSource;
+import java.sql.PreparedStatement;
 import java.util.Map;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 
 
 /**
@@ -31,8 +35,8 @@ public class ClubService implements IAllForKids<Club>{
     public static ClubService getInstance()
     {
         if(instance==null)
-        {
-    instance = new ClubService();}
+    
+    instance = new ClubService();
           return instance;
     }
     private ClubService() 
@@ -47,7 +51,7 @@ public class ClubService implements IAllForKids<Club>{
      @Override
     public void insert(Club c) {
        
-    String req="insert into clubs(nom,categorie,lieu,age_min,age_max,nombre_enseignant,nombre_inscrits)values('"+c.getNom()+"','"+c.getCategorie()+"','"+c.getLieu()+"','"+c.getAge_min()+"','"+c.getAge_max()+"','"+c.getNombre_enseignant()+"','"+c.getNombre_inscrits()+"')";
+       String req="insert into clubs(cin_proprietaire,email,nom_club,categorie,description,nombre_personnels,lieu,image)values('"+c.getCin_proprietaire()+"','"+c.getEmail()+"','"+c.getNom_club()+"','"+c.getCategorie()+"','"+c.getDescription()+"','"+c.getNombre_personnel()+"','"+c.getLieu()+"','"+c.getImage()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -69,7 +73,7 @@ public class ClubService implements IAllForKids<Club>{
         System.out.println("");
     try {
         while(result.next()){
-            Club c=new Club(result.getString(2),result.getString(3),result.getString(4),result.getInt(5),result.getInt(6),result.getInt(7),result.getInt(8));
+            Club c=new Club(result.getLong("cin_proprietaire"),result.getString("email"),result.getString("nom_club"),result.getString("categorie"),result.getString("description"),result.getInt("nombre_personnels"),result.getString("lieu"),result.getString("image"));
             Clubs.add(c);
         }
     } catch (SQLException ex) {
@@ -84,9 +88,9 @@ public class ClubService implements IAllForKids<Club>{
     Club c=null;
         try {
        
-        result=st.executeQuery("select * from clubs where id="+id);
+        result=st.executeQuery("select * from clubs where id_club="+id);
           if(result.next())
-         c = new Club(result.getString(2),result.getString(3),result.getString(4),result.getInt(5),result.getInt(6),result.getInt(7),result.getInt(8));
+         c = new Club(result.getLong("cin_proprietaire"),result.getString("email"),result.getString("nom_club"),result.getString("categorie"),result.getString("description"),result.getInt("nombre_personnels"),result.getString("lieu"),result.getString("image"));
     } catch (SQLException ex) {
         Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -102,7 +106,7 @@ public class ClubService implements IAllForKids<Club>{
    if(c!=null)
    {
        try {
-           st.executeUpdate("delete from clubs where id="+id);
+           st.executeUpdate("delete from clubs where id_club="+id);
             return true;
        } catch (SQLException ex) {
            Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,12 +117,11 @@ public class ClubService implements IAllForKids<Club>{
 
     @Override
     public boolean update(Club c) {
-         Club cl=search(c.getId());
+         Club cl=search(c.getId_club());
    if(cl!=null)
    {
         try {
-            st.executeUpdate("Update clubs set  nom='"+c.getNom()+"',categorie='"+c.getCategorie()+"', lieu='"
-                    +c.getLieu()+"', age_min='"+c.getAge_min()+"', age_max='"+c.getAge_max()+"', nombre_enseignant='"+c.getNombre_enseignant()+"', nombre_inscrits='"+c.getNombre_inscrits()+"' where id="+c.getId());
+            st.executeUpdate("Update clubs set  cin_proprietaire='"+c.getCin_proprietaire()+"',email='"+c.getEmail()+"', nom_club='"+c.getNom_club()+"', categorie='"+c.getCategorie()+"', description='"+c.getDescription()+"', nombre_membre='"+c.getNombre_membre()+"', nombre_epersonnels='"+c.getNombre_personnel()+"',lieu='"+c.getLieu()+"',image='"+c.getImage()+"' where id_club="+c.getId_club());
         } catch (SQLException ex) {
             Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -126,10 +129,71 @@ public class ClubService implements IAllForKids<Club>{
    }
    return false;
     }
+    public  ObservableList<Club>  SearchCatégorie(String s) {
+        
+        ObservableList<Club> liste = FXCollections.observableArrayList();
+   
+    try{
+        result = st.executeQuery("select * from clubss where categorie like '"+s+"' ") ; 
+      while (result.next()) { 
+        Club c = new Club(result.getLong("cin_proprietaire"),result.getString("email"),result.getString("nom_club"),result.getString("categorie"),result.getString("description"),result.getInt("nombre_personnels"),result.getString("lieu"),result.getString("image"));
+                liste.add(c); 
+    } }  catch (SQLException ex) {
+            Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return liste ; 
+    }
 
-    @Override
-    public Map<String, Club> getAllMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ObservableList<Club> SearchCategorie(String s) {
+ ObservableList<Club> liste = FXCollections.observableArrayList();
+   
+    try{
+        result = st.executeQuery("select * from clubs where categorie like '"+s+"' ") ; 
+      while (result.next()) { 
+        Club c = new Club(result.getLong("cin_proprietaire"),result.getString("email"),result.getString("nom_club"),result.getString("categorie"),result.getString("description"),result.getInt("nombre_personnels"),result.getString("lieu"),result.getString("image"));
+                liste.add(c); 
+    } }  catch (SQLException ex) {
+            Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return liste ;     }
+
+    public ObservableList<Club> Search() {
+        ObservableList<Club> liste = FXCollections.observableArrayList();
+   
+    try{
+        result = st.executeQuery("select * from clubs") ; 
+      while (result.next()) { 
+        Club c = new Club(result.getLong("cin_proprietaire"),result.getString("email"),result.getString("nom_club"),result.getString("categorie"),result.getString("description"),result.getInt("nombre_personnels"),result.getString("lieu"),result.getString("image"));
+                liste.add(c); 
+    } }  catch (SQLException ex) {
+            Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return liste ; 
+}
+
+    public ObservableList<Club> getAllByName(String nom) {
+        ObservableList<Club> Clubs=FXCollections.observableArrayList();
+   String requete = "select * from clubs where nom_club=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, nom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+            Club c=new Club(result.getLong("cin_proprietaire"),result.getString("email"),result.getString("nom_club"),result.getString("categorie"),result.getString("description"),result.getInt("nombre_personnels"),result.getString("lieu"),result.getString("image"));
+            Clubs.add(c);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return Clubs;
     }
 
     @Override
@@ -137,8 +201,60 @@ public class ClubService implements IAllForKids<Club>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    @Override
+    public Map<String, Club> getAllMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
+public ObservableList<Club> getbyPseudo1(String pseudo) {
+    ObservableList<Club> liste = FXCollections.observableArrayList();
+   
+    try{
+ result = st.executeQuery("select * from clubs where nom_club like '%"+pseudo+"%'") ;
+      while (result.next()) { 
+            Club c = new Club(result.getLong("cin_proprietaire"),result.getString("email"),result.getString("nom_club"),result.getString("categorie"),result.getString("description"),result.getInt("nombre_personnels"),result.getString("lieu"),result.getString("image"));
+                liste.add(c); 
+    } } catch (SQLException ex) { 
+        Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return liste ; 
+    }
+   public ObservableList<String> fillCombo() throws SQLException
+   {
+       ObservableList<String> liste = FXCollections.observableArrayList();
+       try {
+        result=st.executeQuery("select * from clubs");
+        while(result.next())
+        {
+            String s= result.getString("nom_club");
+            liste.add(s);
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  
+       return liste;
+       
+   
+}
 
+    public Club getByName(String nom) {
+        
+         Club c=null;
+        try {
+       
+        result=st.executeQuery("select * from clubs where nom_club like'"+nom+"'");
+          if(result.next())
+              
+         c = new Club(result.getInt("id_club"), result.getLong("cin_proprietaire"), result.getString("email"), result.getString("nom_club"), result.getString("categorie"), result.getString("description"), result.getInt("nombre_personnels"), result.getString("lieu"), result.getString("image"));
+          
+         
+    } catch (SQLException ex) {  
+        Logger.getLogger(ClubService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+        return c; 
+    }
+    
+    }

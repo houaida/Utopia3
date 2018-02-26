@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/service/EnfantService.java</file>
-            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/entite/Enfant.java</file>
-            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/ListeGardJardController.java</file>
-            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/GestionEnfantController.java</file>
-            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/AccueilParentController.java</file>
-            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/InscriptionUserController.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/MesClubs.fxml</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/LesClubs.fxml</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ClubsController.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/InscriptionClub.fxml</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/Clubs.fxml</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilParentController.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/InscriptionClubController.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilAdminController.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/Evenements.fxml</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/LesClubsController.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/service/MembreService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/technique/util/DataSource.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/DevenirPartenaire.fxml</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/entite/Membre.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/allforkids.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/service/ClubService.java</file>
+            <file>file:/C:/Users/hammamet/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ClubsDetails.fxml</file>
         </group>
     </open-files>
 </project-private>

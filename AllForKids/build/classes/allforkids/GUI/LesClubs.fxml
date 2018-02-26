@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.LesClubsController">
+   <children>
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" prefHeight="869.0" prefWidth="269.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <ToggleButton layoutX="1.0" layoutY="270.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionPrduit" layoutY="198.0" mnemonicParsing="false" onAction="#boutique" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Boutique&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evaluation Enfant&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="386.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="BabySitter&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="2.0" layoutY="464.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Covoiturage &amp;&#10;Réservation&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="clubs" layoutX="3.0" layoutY="547.0" mnemonicParsing="false" onAction="#clubs" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Clubs&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="evenements" layoutX="7.0" layoutY="658.0" mnemonicParsing="false" onAction="#evenements" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evénements&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <JFXButton fx:id="retour" layoutX="312.0" layoutY="36.0" onAction="#retour" text="retour" />
+      <JFXTextField fx:id="rechercher2" layoutX="447.0" layoutY="36.0" onAction="#rechercher2" text="Rechercher club" />
+      <JFXListView fx:id="liste1" layoutX="334.0" layoutY="148.0" onMouseClicked="#onselect" prefHeight="463.0" prefWidth="857.0" />
+      <JFXButton fx:id="inscriptionClub" layoutX="808.0" layoutY="675.0" onAction="#InscriptionClub" text="S'inscrire" />
+   </children>
+</AnchorPane>

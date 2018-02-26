@@ -30,7 +30,7 @@ private Screen screen = Screen.getPrimary();
 @Override
     public void start(Stage stage) throws IOException {
         window = stage;
-
+//Parent root = FXMLLoader.load(getClass().getResource("LesClubs.fxml")); 
 
     Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml")); 
 
