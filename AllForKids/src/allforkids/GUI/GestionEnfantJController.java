@@ -5,15 +5,24 @@
  */
 package allforkids.GUI;
 
+import allforkids.entite.Commande;
 import allforkids.entite.Enfant;
 import allforkids.entite.EnfantJ;
 import allforkids.entite.Garderie;
 import allforkids.entite.JardinEnfant;
+import allforkids.entite.LigneCommande;
+import allforkids.entite.Produit;
 import allforkids.service.EnfantJService;
 import allforkids.service.EnfantService;
+import allforkids.service.LigneCommandeService;
 import allforkids.service.LivraisonService;
+import allforkids.service.ProduitService;
 import allforkids.technique.util.DataSource;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -23,6 +32,10 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,14 +43,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -64,7 +84,6 @@ public class GestionEnfantJController implements Initializable {
     private TextField nom;
        @FXML
     private TextField id_garderie;
-       @FXML
     private TextField age;
        @FXML
     private TextField entrer;
@@ -89,6 +108,14 @@ public class GestionEnfantJController implements Initializable {
     private ToggleGroup menu;
     @FXML
     private Button btretour1;
+    @FXML
+    private JFXTextField path;
+    @FXML
+    private TableColumn<EnfantJ, Image> Cimage;
+    @FXML
+    private Label lbimage;
+    @FXML
+    private JFXComboBox<Integer> comBox3;
    
 
  
@@ -97,6 +124,22 @@ public class GestionEnfantJController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+         ObservableList<Integer> ol3 = FXCollections.observableArrayList();
+        ol3.add(1) ; 
+        ol3.add(2) ; 
+        ol3.add(3) ; 
+        ol3.add(4) ; 
+        ol3.add(5) ;
+         ol3.add(6) ;
+          ol3.add(7) ;
+           ol3.add(8) ;
+            ol3.add(9) ;
+             ol3.add(10) ;
+              ol3.add(11) ;
+               ol3.add(12) ;
+                ol3.add(13) ;
+                 ol3.add(14) ;
+        comBox3.setItems(ol3);
         connexion=DataSource.getInstance().getConnexion();
     try {
         st=connexion.createStatement();
@@ -116,7 +159,7 @@ public class GestionEnfantJController implements Initializable {
            nom_enfant.setDisable(true);
            prenom_enfant.setDisable(true);
            id_parent.setDisable(true);
-           age.setDisable(true);
+           comBox3.setDisable(true);
            EnfantJService ips = new EnfantJService();
            
             nom.setText(u.getNom());
@@ -125,6 +168,31 @@ public class GestionEnfantJController implements Initializable {
             
             table.setItems(null);
                 table.setItems(ips.getListeEnfant(nom.getText()));
+                Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<EnfantJ, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<EnfantJ, Image> param) {
+                    EnfantJ p = param.getValue() ; 
+                  EnfantJService ps = new EnfantJService() ; 
+                    EnfantJ pr = ps.search(p.getId_enfant()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+             Cimage.setCellFactory(new Callback<TableColumn<EnfantJ, Image>, TableCell<EnfantJ, Image>>() {
+                @Override
+                public TableCell<EnfantJ, Image> call(TableColumn<EnfantJ, Image> param) {
+                    return new TableCell<EnfantJ, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        ImageView imageView = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        setGraphic(imageView);
+                    }
+                } ; 
+                }
+            });
  Cid.setCellValueFactory(new PropertyValueFactory<>("id_enfant"));
   Cid_parent.setCellValueFactory(new PropertyValueFactory<>("id_parent"));
         Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
@@ -175,12 +243,12 @@ while (result.next())
           id_parent.setDisable(true);
           nom_enfant.setDisable(false);
           prenom_enfant.setDisable(false);
-         age.setDisable(false);
+         comBox3.setDisable(false);
           id_enfant.setText(Integer.toString(table.getSelectionModel().getSelectedItem().getId_enfant()));
      nom_enfant.setText(table.getSelectionModel().getSelectedItem().getNom());
      prenom_enfant.setText(table.getSelectionModel().getSelectedItem().getPrenom());
-     age.setText(Integer.toString(table.getSelectionModel().getSelectedItem().getAge()));
-  
+     comBox3.setValue(table.getSelectionModel().getSelectedItem().getAge());
+  path.setText(table.getSelectionModel().getSelectedItem().getImage());
      
     
      }
@@ -189,7 +257,7 @@ while (result.next())
      {
      EnfantJService ps=new EnfantJService();
      EnfantJ e=new EnfantJ(Integer.parseInt(id_enfant.getText()),Integer.parseInt(id_parent.getText()),Integer.parseInt(id_garderie.getText()),
-     nom_enfant.getText(),prenom_enfant.getText(),Integer.parseInt(age.getText()));
+     nom_enfant.getText(),prenom_enfant.getText(),comBox3.getValue(),path.getText());
      ps.update(e);
      afficher(GestionJardinController.LoggedUser);
      }
@@ -203,7 +271,34 @@ EnfantJService ps=new EnfantJService();
 
         table.setItems(null);
                 table.setItems(ps.getAllByName(nom));
+                Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<EnfantJ, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<EnfantJ, Image> param) {
+                    EnfantJ p = param.getValue() ; 
+                  EnfantJService ps = new EnfantJService() ; 
+                    EnfantJ pr = ps.search(p.getId_enfant()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+             Cimage.setCellFactory(new Callback<TableColumn<EnfantJ, Image>, TableCell<EnfantJ, Image>>() {
+                @Override
+                public TableCell<EnfantJ, Image> call(TableColumn<EnfantJ, Image> param) {
+                    return new TableCell<EnfantJ, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        ImageView imageView = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        setGraphic(imageView);
+                    }
+                } ; 
+                }
+            });
+                
  Cid.setCellValueFactory(new PropertyValueFactory<>("id_enfant"));
+ 
         Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
           
         Cage.setCellValueFactory(new PropertyValueFactory<>("age"));
@@ -220,6 +315,24 @@ EnfantJService ps=new EnfantJService();
          AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionJardin.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void actionBrowse(ActionEvent event) throws MalformedURLException {
+        String imageFile;
+      
+        FileChooser fc = new FileChooser();
+        File selectedFile = fc.showOpenDialog(null);
+        if (selectedFile != null) {
+            imageFile = selectedFile.toURI().toURL().toString();
+            System.out.println(imageFile);
+            Image image1 = new Image(imageFile);
+            //imgV.setImage(image1);
+            path.setText(imageFile);
+        } else {
+            System.out.println("file doesn't exist");
+        }
+     
     }
     
     

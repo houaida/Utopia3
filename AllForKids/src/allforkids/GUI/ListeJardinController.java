@@ -110,7 +110,7 @@ public class ListeJardinController implements Initializable {
 public void confirmerEnfant(EnfantJ e)
 {
    
-  EnfantJ p= new EnfantJ(Integer.parseInt(id_parent.getText()),Integer.parseInt(id_jardin.getText()),e.getNom(),e.getPrenom(),e.getAge());
+  EnfantJ p= new EnfantJ(Integer.parseInt(id_parent.getText()),Integer.parseInt(id_jardin.getText()),e.getNom(),e.getPrenom(),e.getAge(),e.getImage());
           EnfantJService es=new EnfantJService();
           es.insert(p);
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
 <?import java.net.URL?>
@@ -58,9 +59,10 @@
          <columns>
             <TableColumn fx:id="Cid_parent" minWidth="0.0" prefWidth="216.0" text="Id parent" visible="false" />
             <TableColumn fx:id="Cid" prefWidth="92.07455444335938" text="Id" visible="false" />
-            <TableColumn fx:id="Cnom" prefWidth="222.2668857574463" text="Nom" />
-            <TableColumn fx:id="Cprenom" prefWidth="284.73309326171875" text="Prenom" />
-            <TableColumn fx:id="Cage" prefWidth="258.9427185058594" text="Age" />
+            <TableColumn fx:id="Cimage" prefWidth="177.0375576019287" text="Image" />
+            <TableColumn fx:id="Cnom" prefWidth="155.62600708007812" text="Nom" />
+            <TableColumn fx:id="Cprenom" prefWidth="199.82943725585938" text="Prenom" />
+            <TableColumn fx:id="Cage" prefWidth="232.0" text="Age" />
          </columns>
       </TableView>
       <TextField fx:id="nom" layoutX="7.0" layoutY="666.0" visible="false" />
@@ -85,8 +87,7 @@
       <TextField fx:id="id_parent" layoutX="1052.0" layoutY="213.0" prefHeight="26.0" prefWidth="150.0" visible="false" />
       <JFXTextField fx:id="nom_enfant" layoutX="1060.0" layoutY="290.0" />
       <JFXTextField fx:id="prenom_enfant" layoutX="1062.0" layoutY="366.0" />
-      <JFXTextField fx:id="age" layoutX="1064.0" layoutY="448.0" />
-      <JFXButton fx:id="btn1" layoutX="1121.0" layoutY="538.0" onAction="#mod2" style="-fx-background-color: #ffc014;" text="Valider modification">
+      <JFXButton fx:id="btn1" layoutX="1121.0" layoutY="593.0" onAction="#mod2" style="-fx-background-color: #ffc014;" text="Valider modification">
          <font>
             <Font name="Baskerville" size="18.0" />
          </font>
@@ -100,5 +101,17 @@
             </ImageView>
          </graphic>
       </Button>
+      <Label fx:id="lbimage" layoutX="850.0" layoutY="518.0" text="Image de l'enfant">
+         <font>
+            <Font name="Baskerville" size="23.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="path" layoutX="1061.0" layoutY="519.0" prefHeight="26.0" prefWidth="110.0" />
+      <JFXButton layoutX="1197.0" layoutY="519.0" onAction="#actionBrowse" style="-fx-background-color: #ffc014;" text="Browse">
+         <font>
+            <Font name="Baskerville" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="comBox3" layoutX="1061.0" layoutY="447.0" prefHeight="26.0" prefWidth="147.0" />
    </children>
 </AnchorPane>
