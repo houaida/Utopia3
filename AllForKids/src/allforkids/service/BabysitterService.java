@@ -142,7 +142,32 @@ Babysitter p=null;
     
         return p; 
     }
-   
+    
+
+   public ObservableList<Babysitter> search2(String n) {
+ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
+        
+    try {
+        rs=st.executeQuery("select * from users where type='babysitter' and prenom like '%"+n+"%'");
+    } catch (SQLException ex) { 
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  
+      
+    try {
+        while(rs.next()){
+            Babysitter p;
+        
+            p = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("type"),rs.getString("date_naissance"),rs.getString("image"));
+             Babysitters.add(p);
+        }
+    } catch (SQLException ex) { 
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return  Babysitters;
+    }
+    
     public Babysitter search1(int n) {
 Babysitter p=null;
         try {

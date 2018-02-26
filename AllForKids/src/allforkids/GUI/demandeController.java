@@ -156,7 +156,7 @@ id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
     @FXML
     private void ajouterdemande(ActionEvent event) throws ParseException{
      DemandeService gDemande=DemandeService.getInstance();
-     Demande demande=new Demande(3,tdescription1.getText(),ttitre1.getText(),tdate_debut1.getEditor().getText(),tdate_fin1.getEditor().getText());
+     Demande demande=new Demande(AuthentificationController.LoggedParent.getId_user(),tdescription1.getText(),ttitre1.getText(),tdate_debut1.getEditor().getText(),tdate_fin1.getEditor().getText());
     gDemande.insert(demande);
      tdescription1.clear();
       ttitre1.clear();
@@ -183,7 +183,7 @@ id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
      public void mod2()
      {
      DemandeService gDemande=DemandeService.getInstance();
-     Demande demande=new Demande(Integer.parseInt(id_demande1.getText()),3,tdescription1.getText(),ttitre1.getText(),tdate_debut1.getEditor().getText(),tdate_fin1.getEditor().getText());
+     Demande demande=new Demande(Integer.parseInt(id_demande1.getText()),AuthentificationController.LoggedParent.getId_user(),tdescription1.getText(),ttitre1.getText(),tdate_debut1.getEditor().getText(),tdate_fin1.getEditor().getText());
 
      gDemande.update(demande);
          afficherDemande();

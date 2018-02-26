@@ -96,14 +96,18 @@ public class AccueilParentController implements Initializable {
        
 
 
-      /*  imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
+      /* imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
        
         imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
          imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));
      */bt1.setDisable(true);
      bt.setDisable(false);
      
+<<<<<<< HEAD
     /* String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+=======
+    // String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+>>>>>>> b0af3010ed1fad557cebb1404626e57716bf79fe
 
         imgView.setImage(new Image("file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
         imgView1.setImage(new Image("file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
@@ -112,14 +116,17 @@ public class AccueilParentController implements Initializable {
      bt.setDisable(false);
      
      String Vurl="file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+<<<<<<< HEAD
 
+=======
+>>>>>>> b0af3010ed1fad557cebb1404626e57716bf79fe
         Media media = new Media(Vurl);
      MediaPlayer mediaplayer=new MediaPlayer(media);
      video.setFitHeight(400);
      video.setFitWidth(700);
      video.setMediaPlayer(mediaplayer);
 
-      mediaplayer.setAutoPlay(true);*/
+      mediaplayer.setAutoPlay(true);
      
 
 
@@ -198,7 +205,10 @@ public class AccueilParentController implements Initializable {
     }
 
     @FXML
+<<<<<<< HEAD
 
+=======
+>>>>>>> b0af3010ed1fad557cebb1404626e57716bf79fe
     private void ConseilsGoogle(ActionEvent event) {
     }
 
@@ -217,7 +227,10 @@ public class AccueilParentController implements Initializable {
     }
     
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> b0af3010ed1fad557cebb1404626e57716bf79fe
 
     
 

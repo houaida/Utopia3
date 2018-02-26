@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -59,6 +60,8 @@ public class OffreParentController implements Initializable {
     private ToggleButton fleche11;
     @FXML
     private AnchorPane anB;
+    @FXML
+    private TextField search;
 
     /**
      * Initializes the controller class.
@@ -141,6 +144,10 @@ public class OffreParentController implements Initializable {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void rechercheOffre(ActionEvent event) {
     }
 
     
