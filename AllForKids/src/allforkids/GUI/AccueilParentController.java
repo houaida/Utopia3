@@ -45,6 +45,10 @@ public class AccueilParentController implements Initializable {
     @FXML
     private ToggleButton gestionPrduit;
     @FXML
+    private ToggleButton clubs;
+    @FXML
+    private ToggleButton evenements;
+    @FXML
     private ToggleButton retire;
     @FXML
     private ImageView imgView;
@@ -96,13 +100,13 @@ public class AccueilParentController implements Initializable {
      bt1.setDisable(true);
      bt.setDisable(false);
      
-     String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+    /* String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
         Media media = new Media(Vurl);
      MediaPlayer mediaplayer=new MediaPlayer(media);
      video.setFitHeight(400);
      video.setFitWidth(700);
      video.setMediaPlayer(mediaplayer);
-      mediaplayer.setAutoPlay(true);
+      mediaplayer.setAutoPlay(true);*/
      /*String urlv = "file:/C:/Users/pacha/Videos/fifa-world-cup-russia-2018-official-video.mp4";
         media = new Media(urlv);
         mediaPlayer = new MediaPlayer(media);
@@ -132,6 +136,18 @@ public class AccueilParentController implements Initializable {
     private void boutique(ActionEvent event) throws IOException {
          AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listViewTest.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+    @FXML
+    private void clubs(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Clubs.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+    @FXML
+    private void evenements(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evenements.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 

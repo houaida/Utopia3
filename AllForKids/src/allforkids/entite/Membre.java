@@ -6,6 +6,8 @@
 package allforkids.entite;
 
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,22 +18,67 @@ import java.util.List;
 public class Membre {
     
     private int id;
+    private int id_user;
+    private int id_club;
     private String nom;
     private String prenom;
-    private Date date_inscription;
-    private int age;
     private int num_parent;
     private String email_parent;
+    private String date_naissance;
 
-    public Membre(String nom, String prenom, Date date_inscription, int age, int num_parent, String email_parent) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.date_inscription = date_inscription;
-        this.age = age;
-        this.num_parent = num_parent;
-        this.email_parent = email_parent;
+    public Membre() {
+        id_user=0;
+        id_club=0;
+        nom="";
+        prenom="";
+        num_parent=0;
+        email_parent="";
+        date_naissance="";
+    }
+    public java.sql.Date convert(String date) throws ParseException {
+
+        SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+        java.util.Date date1 = sdf1.parse(date);
+        java.sql.Date sqlDate = new java.sql.Date(date1.getTime());
+        return sqlDate;
     }
 
+    public Membre(int id_user, int id_club, String nom, String prenom, int num_parent, String email_parent, String date_naissance) {
+        this.id_user = id_user;
+        this.id_club = id_club;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.num_parent = num_parent;
+        this.email_parent = email_parent;
+        this.date_naissance = date_naissance;
+    }
+   
+   
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
+
+    public int getId_club() {
+        return id_club;
+    }
+
+    public void setId_club(int id_club) {
+        this.id_club = id_club;
+    }
+
+    public String getDate_naissance() {
+        return date_naissance;
+    }
+
+    public void setDate_naissance(String date_naissance) {
+        this.date_naissance = date_naissance;
+    }
+   
     public int getId() {
         return id;
     }
@@ -44,13 +91,9 @@ public class Membre {
         return prenom;
     }
 
-    public Date getDate_inscription() {
-        return date_inscription;
-    }
+    
 
-    public int getAge() {
-        return age;
-    }
+   
 
     public int getNum_parent() {
         return num_parent;
@@ -72,13 +115,7 @@ public class Membre {
         this.prenom = prenom;
     }
 
-    public void setDate_inscription(Date date_inscription) {
-        this.date_inscription = date_inscription;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
+   
 
     public void setNum_parent(int num_parent) {
         this.num_parent = num_parent;
