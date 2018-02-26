@@ -41,6 +41,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
@@ -99,7 +100,7 @@ private AnchorPane AnchorPane1;
     @FXML
     private TextField pseudo;
     @FXML
-    private TextField mdp;
+    private PasswordField mdp;
     @FXML
     private TextField email;
     @FXML
@@ -156,6 +157,12 @@ private AnchorPane AnchorPane1;
     private TextField imgPath;
     @FXML
     private ImageView imgV;
+    @FXML
+    private TextField path;
+    @FXML
+    private Button btBrowse;
+    @FXML
+    private Label lbimage;
 
     /**
      * Initializes the controller class.
@@ -209,6 +216,9 @@ ToggleGroup etude = new ToggleGroup();
      @FXML
     public void afficher() {
      if(Rparent.isSelected()){
+         path.setVisible(true);
+         btBrowse.setVisible(true);
+         lbimage.setVisible(true);
          imgV.setVisible(false);
       imgPath.setDisable(false);
     naissance.setDisable(true);
@@ -230,6 +240,7 @@ ToggleGroup etude = new ToggleGroup();
       adresse.clear();
       email.clear();
       montant.clear();
+      
       
      
      }
@@ -358,7 +369,9 @@ ToggleGroup etude = new ToggleGroup();
         LoggedEnfant.setNom(nom_enfant.getText());
         LoggedEnfant.setPrenom(prenom_enfant.getText());
         LoggedEnfant.setAge(Integer.parseInt(age.getText())); 
+        LoggedEnfant.setImage(path.getText()); 
         System.out.println(LoggedEnfant.getNom());
+        System.out.println("enfant"+LoggedEnfant.getImage());
       
          
       LoggedParent = new Parent();
@@ -419,6 +432,7 @@ ToggleGroup etude = new ToggleGroup();
         LoggedEnfantJ.setNom(nom_enfant.getText());
         LoggedEnfantJ.setPrenom(prenom_enfant.getText());
         LoggedEnfantJ.setAge(Integer.parseInt(age.getText())); 
+        LoggedEnfant.setImage(path.getText()); 
         System.out.println(LoggedEnfantJ.getNom());
       
          
@@ -489,6 +503,24 @@ ToggleGroup etude = new ToggleGroup();
             Image image1 = new Image(imageFile);
             imgV.setImage(image1);
             imgPath.setText(imageFile);
+        } else {
+            System.out.println("file doesn't exist");
+        }
+     
+        
+        }
+    @FXML
+    public void actionBrowser2(ActionEvent event) throws MalformedURLException{  
+        String imageFile;
+      
+        FileChooser fc = new FileChooser();
+        File selectedFile = fc.showOpenDialog(null);
+        if (selectedFile != null) {
+            imageFile = selectedFile.toURI().toURL().toString();
+            System.out.println(imageFile);
+            Image image1 = new Image(imageFile);
+            imgV.setImage(image1);
+            path.setText(imageFile);
         } else {
             System.out.println("file doesn't exist");
         }

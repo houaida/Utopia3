@@ -67,7 +67,7 @@ public ProprietaireJService()
             preparedStatement.setString(1, s);
              result = preparedStatement.executeQuery();
             while (result.next()) {
-                user = new ProprietaireJ(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(13));
+                user = new ProprietaireJ(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(14));
                 break;
             }
         } catch (SQLException ex) {
@@ -91,7 +91,7 @@ public ProprietaireJService()
         System.out.println("");
     try {
         while(result.next()){
-           ProprietaireJ p=new ProprietaireJ(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12));
+           ProprietaireJ p=new ProprietaireJ(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(13));
             ProprietaireJs.add(p);
         }
     } catch (SQLException ex) {
@@ -106,9 +106,9 @@ public ProprietaireJService()
     ProprietaireJ p=null;
         try {
        
-        result=st.executeQuery("select * from users where id_user="+id);
+        result=st.executeQuery("select * from users where type='proprietairej' and id_user="+id);
           if(result.next())
-         p = new ProprietaireJ(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
+         p = new ProprietaireJ(result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(13));
     } catch (SQLException ex) {
         Logger.getLogger(ProprietaireJService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -158,7 +158,7 @@ public ProprietaireJService()
             preparedStatement.setString(1, s);
              result = preparedStatement.executeQuery();
             while (result.next()) {
-                user = new ProprietaireJ(result.getString(5),result.getString(6),result.getString(7),result.getString(12));
+                user = new ProprietaireJ(result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(13));
                 break;
             }
         } catch (SQLException ex) {
@@ -224,7 +224,7 @@ return LoggedUser;
            result = preparedStatement.executeQuery();
             while (result.next()) {
 
-            ProprietaireJ p=new ProprietaireJ(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(13));
+            ProprietaireJ p=new ProprietaireJ(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(13));
             ProprietaireJs.add(p);
         }
     } catch (SQLException ex) {

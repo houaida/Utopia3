@@ -91,7 +91,7 @@ public EnseignantService()
     Enseignant p=null;
         try {
        
-        result=st.executeQuery("select * from users where id_user="+id);
+        result=st.executeQuery("select * from users where type='enseignant' and id_user="+id);
           if(result.next())
          p = new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12),result.getString(13));
     } catch (SQLException ex) {
@@ -226,7 +226,7 @@ public Enseignant findbyMail(String s) {
             preparedStatement.setString(1, s);
              result = preparedStatement.executeQuery();
             while (result.next()) {
-                user = new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12),result.getString(13));
+                user = new Enseignant(result.getInt(1),result.getInt(2),result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getFloat(9),result.getString(10),result.getString(12),result.getString(14));
                 break;
             }
         } catch (SQLException ex) {

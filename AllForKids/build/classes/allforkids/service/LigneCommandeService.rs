@@ -1,1 +1,0 @@
-moduleboutique.service.LigneCommandeService

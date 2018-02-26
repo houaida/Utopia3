@@ -87,11 +87,9 @@ public class GestionEnfantController implements Initializable {
     Statement st;
     ResultSet result;
     @FXML
-    private Label lbTitulo1;
-    @FXML
     private ToggleGroup menu;
     @FXML
-    private Button btretour;
+    private Button btretour1;
    
 
  
@@ -191,8 +189,9 @@ while (result.next())
      public void mod2()
      {
      EnfantService ps=new EnfantService();
-     Enfant e=new Enfant(Integer.parseInt(id_enfant.getText()),Integer.parseInt(id_parent.getText()),Integer.parseInt(id_garderie.getText()),
-     nom_enfant.getText(),prenom_enfant.getText(),Integer.parseInt(age.getText()));
+     Enfant e=null;
+     //Enfant e=new Enfant(Integer.parseInt(id_enfant.getText()),Integer.parseInt(id_parent.getText()),Integer.parseInt(id_garderie.getText()),
+     //nom_enfant.getText(),prenom_enfant.getText(),Integer.parseInt(age.getText()));
      ps.update(e);
      afficher(GestionGarderieController.LoggedUser);
      }

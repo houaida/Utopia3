@@ -147,11 +147,10 @@ public class CovoiturageService implements IAllForKids<Covoiturage>{
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
   //  Covoiturage t1 = getMoyenById(t.getId()) ; 
         Covoiturage t1 = search(t.getId()) ;
-        //System.out.println("coooooo:"+t1.toString());
+    
     if(t1!=null){
-        try{
-//           "update personne set nom='"+p.getNom()+"', prenom='"+p.getPrenom()+"'where id="+p.getId())
-            st.executeUpdate("update covoiturages set id_user='"+ t.getId_user()+"',depart='"+ t.getDepart()+"',DateDepart='"+ t.getDateDepart()+"',HeureD='"+ t.getHeureD()+"',destination='"+ t.getDestination()+"',DateArrive='"+ t.getDateArrive()+ "',HeureA='"+ t.getHeureA()+"',nbre_place_dispo='" + t.getNbre_place_dispo()+"'where id="+t1.getId()) ; 
+        try{         
+            st.executeUpdate("update covoiturages set id_user='"+ t.getId_user()+"',depart='"+ t.getDepart()+"',DateDepart='"+ t.getDateDepart()+"',HeureD='"+ t.getHeureD()+"',destination='"+ t.getDestination()+"',DateArrive='"+ t.getDateArrive()+ "',HeureA='"+ t.getHeureA()+"',nbre_place_dispo='" + t.getNbre_place_dispo()+"'where id="+t.getId()) ; 
         } catch (SQLException ex) {
             Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -220,4 +219,3 @@ req = "insert into covoiturages (id_user,depart,DateDepart,HeureD,destination,Da
      
     }
     }
-

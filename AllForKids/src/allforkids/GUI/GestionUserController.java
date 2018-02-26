@@ -6,6 +6,7 @@
 package allforkids.GUI;
 
 import allforkids.entite.Babysitter;
+import allforkids.entite.Commande;
 import allforkids.entite.Enfant;
 import allforkids.entite.EnfantJ;
 import allforkids.entite.Enseignant;
@@ -31,6 +32,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -40,8 +42,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -51,11 +55,13 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.ImageViewBuilder;
 import static javafx.scene.input.KeyCode.T;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -199,6 +205,22 @@ private RadioButton Rparent;
     private ToggleButton ajoutbt;
     @FXML
     private ToggleButton btmod;
+    @FXML
+    private TableColumn Cimage;
+    @FXML
+    private AnchorPane AnchorPane2;
+    @FXML
+    private ToggleButton gestionUtilisateur;
+    @FXML
+    private ToggleButton gestionProduit;
+    @FXML
+    private ToggleButton retire;
+    @FXML
+    private ToggleButton gestionOffre;
+    @FXML
+    private ToggleButton gestionUtilisateur1;
+    @FXML
+    private ToggleButton gestionReclamation;
     
     /**
      * Initializes the controller class.
@@ -232,7 +254,13 @@ ToggleGroup group = new ToggleGroup();
     {
     if(Rparent.isSelected())
         
-    { ajoutbt.setDisable(true);
+    {  Cpseudo.setMinWidth(80);
+ Cmdp.setMinWidth(80);
+ Cemail.setMinWidth(200);
+         table.setLayoutX(25);
+             table.setPrefWidth(888);
+              table.setPrefHeight(500);
+        ajoutbt.setDisable(true);
     btmod.setDisable(false);
     btbrowse.setVisible(false);
     btn1.setVisible(true);
@@ -241,6 +269,7 @@ ToggleGroup group = new ToggleGroup();
        montant.setDisable(false);
        nom_club.setDisable(true);
        num_tel.setDisable(false);
+       Cimage.setVisible(true);
                     Cnom_club.setVisible(false);
               Cnum_tel.setVisible(false);
                Cmontant.setVisible(true);
@@ -252,8 +281,38 @@ ToggleGroup group = new ToggleGroup();
     
          table.setItems(null);
                 table.setItems(ps.getAll());
+                
+               /* Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Parent, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<Parent, Image> param) {
+                    Parent p = param.getValue() ; 
+                    ParentService ps = new ParentService() ; 
+                    Parent pr = ps.search(p.getId_user()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+                Cimage.setCellFactory(new Callback<TableColumn<Parent, Image>, TableCell<Parent, Image>>() {
+                @Override
+                public TableCell<Parent, Image> call(TableColumn<Parent, Image> param) {
+                    return new TableCell<Parent, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        //ImageView imageV =  new ImageView() ; 
+                        ImageView imageV = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        //final Circle clip = new Circle(30,40,25);
+                        //imageV.setClip(clip);
+                        setGraphic(imageV);
+                    }
+                } ; 
+                }
+            });*/
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
  Ccin.setCellValueFactory(new PropertyValueFactory<>("cin"));
+ //Cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
         Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
           Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
         Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
@@ -262,8 +321,7 @@ ToggleGroup group = new ToggleGroup();
               Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
               Cadresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
               Cmontant.setCellValueFactory(new PropertyValueFactory<>("montant"));
-             table.setPrefWidth(690);
-              table.setPrefHeight(400);
+             
 //False les champs de saisie
        cin.setVisible(true);
        nom.setVisible(true);
@@ -298,14 +356,20 @@ imgv1.setVisible(false);
       
                 }
     else if(Renseignant.isSelected())
-    {Cnaissance.setVisible(false);
+        
+    { Cpseudo.setMinWidth(80);
+ Cmdp.setMinWidth(80);
+ Cemail.setMinWidth(200);
+    table.setLayoutX(25);
+         table.setPrefWidth(892);
+              table.setPrefHeight(500);
+        Cnaissance.setVisible(false);
                 Cnaissance1.setVisible(false);
 imgv1.setVisible(false);
         inscrit.setVisible(false);
         personnel.setVisible(false);
                 table1.setVisible(false);
-         table.setPrefWidth(636);
-              table.setPrefHeight(400);
+                 
         ajoutbt.setDisable(true);
         btmod.setDisable(false);
       btbrowse.setVisible(false);
@@ -318,7 +382,7 @@ imgv1.setVisible(false);
     num_tel.setDisable(false);
     nom.setDisable(false);
     prenom.setDisable(false);
-         table.setItems(null);
+         
          Cnom_club.setVisible(true);
         Cadresse.setVisible(false);
        Cnum_tel.setVisible(false);
@@ -326,7 +390,38 @@ imgv1.setVisible(false);
        Ccin.setVisible(true);
        Cnom.setVisible(true);
         Cprenom.setVisible(true);
+        Cimage.setVisible(true);
+        table.setItems(null);
                 table.setItems(ps.getAll());
+               /* Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Enseignant, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<Enseignant, Image> param) {
+                    Enseignant p = param.getValue() ; 
+                    EnseignantService ps = new EnseignantService() ; 
+                    Enseignant pr = ps.search(p.getId_user()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+                Cimage.setCellFactory(new Callback<TableColumn<Enseignant, Image>, TableCell<Enseignant, Image>>() {
+                @Override
+                public TableCell<Enseignant, Image> call(TableColumn<Enseignant, Image> param) {
+                    return new TableCell<Enseignant, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        //ImageView imageV =  new ImageView() ; 
+                        ImageView imageV = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        //final Circle clip = new Circle(30,40,25);
+                        //imageV.setClip(clip);
+                        setGraphic(imageV);
+                    }
+                } ; 
+                }
+            });*/
+              //  Cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
  Ccin.setCellValueFactory(new PropertyValueFactory<>("cin"));
         Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
@@ -377,9 +472,12 @@ imgv1.setVisible(false);
      btmod.setDisable(false);
     btbrowse.setVisible(true);
      btn1.setVisible(true);
-     
-           table.setPrefWidth(270);
-             table.setPrefHeight(400);
+     Cpseudo.setMinWidth(80);
+ Cmdp.setMinWidth(80);
+ Cemail.setMinWidth(200);
+           table.setPrefWidth(475);
+             table.setPrefHeight(500);
+             table.setLayoutX(350);
         ProprietaireGService ps=new ProprietaireGService();
     montant.setDisable(true);
     adresse.setDisable(true);
@@ -388,9 +486,39 @@ imgv1.setVisible(false);
     nom.setDisable(true);
     prenom.setDisable(true);
      cin.setDisable(true);
+     Cimage.setVisible(true);
          table.setItems(null);
                 table.setItems(ps.getAll());
+             /*   Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProprietaireG, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<ProprietaireG, Image> param) {
+                    ProprietaireG p = param.getValue() ; 
+                    ProprietaireGService ps = new ProprietaireGService() ; 
+                    ProprietaireG pr = ps.search(p.getId_user()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+                Cimage.setCellFactory(new Callback<TableColumn<ProprietaireG, Image>, TableCell<ProprietaireG, Image>>() {
+                @Override
+                public TableCell<ProprietaireG, Image> call(TableColumn<ProprietaireG, Image> param) {
+                    return new TableCell<ProprietaireG, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        //ImageView imageV =  new ImageView() ; 
+                        ImageView imageV = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        //final Circle clip = new Circle(30,40,25);
+                        //imageV.setClip(clip);
+                        setGraphic(imageV);
+                    }
+                } ; 
+                }
+            });*/
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ //Cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
  Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
               Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
               Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -414,6 +542,7 @@ imgv1.setVisible(false);
        nom_club.setVisible(true);
        num_tel.setVisible(true);
        imgPath.setVisible(true);
+        
        //les labels false
        Lcin.setVisible(true);
        Lnom.setVisible(true);
@@ -441,14 +570,14 @@ imgv1.setVisible(false);
      btmod.setDisable(false);
     btbrowse.setVisible(true);
      btn1.setVisible(true);
-     
-           table.setPrefWidth(270);
-             table.setPrefHeight(400);
+      table.setLayoutX(350);
+           table.setPrefWidth(475);
+             table.setPrefHeight(500);
         ajoutbt.setDisable(false);
      btmod.setDisable(false);
     btbrowse.setVisible(true);
      btn1.setVisible(true);
-          table.setPrefWidth(270);
+       //   table.setPrefWidth(270);
              // table.setPrefHeight(552);
         ProprietaireJService ps=new ProprietaireJService();
     montant.setDisable(true);
@@ -458,10 +587,44 @@ imgv1.setVisible(false);
     nom.setDisable(true);
     prenom.setDisable(true);
      cin.setDisable(true);
+     Cimage.setVisible(true);
          table.setItems(null);
                 table.setItems(ps.getAll());
+               /* Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProprietaireJ, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<ProprietaireJ, Image> param) {
+                    ProprietaireJ p = param.getValue() ; 
+                    ProprietaireJService ps = new ProprietaireJService() ; 
+                    ProprietaireJ pr = ps.search(p.getId_user()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+            Cimage.setCellFactory(new Callback<TableColumn<ProprietaireJ, Image>, TableCell<ProprietaireJ, Image>>() {
+                @Override
+                public TableCell<ProprietaireJ, Image> call(TableColumn<ProprietaireJ, Image> param) {
+                    return new TableCell<ProprietaireJ, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        //ImageView imageV =  new ImageView() ; 
+                        ImageView imageV = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        //final Circle clip = new Circle(30,40,25);
+                        //imageV.setClip(clip);
+                        setGraphic(imageV);
+                    }
+                } ; 
+                }
+            });*/
+                //Cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
  Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
+ Cpseudo.setMinWidth(80);
+ Cmdp.setMinWidth(80);
+ Cemail.setMinWidth(200);
+ 
               Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
               Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
              Cmontant.setVisible(false);
@@ -501,14 +664,17 @@ imgv1.setVisible(false);
 
     }
     else if(Babysitter.isSelected())
-    {table.setPrefWidth(815);
+    {    Cpseudo.setMinWidth(80);
+ Cmdp.setMinWidth(80);
+ Cemail.setMinWidth(200);  
+        table.setPrefWidth(905);
              table.setPrefHeight(234);
-             
+             table.setLayoutX(42);
         inscrit.setVisible(true);
         personnel.setVisible(true);
-         
+         Cimage.setVisible(false);
         table1.setVisible(true);
-          
+          imgv1.setVisible(true);
           btn1.setVisible(false);
         BabysitterService ps1=BabysitterService.getInstance();
     adresse.setDisable(false);
@@ -527,7 +693,9 @@ cin.setDisable(false);
             Cnaissance1.setVisible(true);
      Cnom_club1.setVisible(false);
            Cmontant1.setVisible(false);
-
+ Limage.setVisible(false);
+ imgPath.setVisible(false);
+  btbrowse.setVisible(false);
          table.setItems(null);
                 table.setItems(ps1.getAll());
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
@@ -580,8 +748,7 @@ Cnum_tel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
 Cnum_tel1.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
  Cnaissance1.setCellValueFactory(new PropertyValueFactory<>("date_naissance"));
   
-    }
-    }
+    }}
     @FXML
     public void ajouter()
     {/*if(Rparent.isSelected())
@@ -870,10 +1037,38 @@ String nom=entrer.getText();
 
         table.setItems(null);
                 table.setItems(ps.getAllByName(nom));
+                /*Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Parent, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<Parent, Image> param) {
+                    Parent p = param.getValue() ; 
+                    ParentService ps = new ParentService() ; 
+                    Parent pr = ps.search(p.getId_user()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+                Cimage.setCellFactory(new Callback<TableColumn<Parent, Image>, TableCell<Parent, Image>>() {
+                @Override
+                public TableCell<Parent, Image> call(TableColumn<Parent, Image> param) {
+                    return new TableCell<Parent, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        //ImageView imageV =  new ImageView() ; 
+                        ImageView imageV = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        //final Circle clip = new Circle(30,40,25);
+                        //imageV.setClip(clip);
+                        setGraphic(imageV);
+                    }
+                } ; 
+                }
+            });*/
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
  Ccin.setCellValueFactory(new PropertyValueFactory<>("cin"));
         Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-          
+          //Cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
         Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
               Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
@@ -892,8 +1087,37 @@ String nom=entrer.getText();
 
         table.setItems(null);
                 table.setItems(ps.getAllByName(nom));
+                /* Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Enseignant, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<Enseignant, Image> param) {
+                    Enseignant p = param.getValue() ; 
+                    EnseignantService ps = new EnseignantService() ; 
+                    Enseignant pr = ps.search(p.getId_user()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+                Cimage.setCellFactory(new Callback<TableColumn<Enseignant, Image>, TableCell<Enseignant, Image>>() {
+                @Override
+                public TableCell<Enseignant, Image> call(TableColumn<Enseignant, Image> param) {
+                    return new TableCell<Enseignant, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        //ImageView imageV =  new ImageView() ; 
+                        ImageView imageV = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        //final Circle clip = new Circle(30,40,25);
+                        //imageV.setClip(clip);
+                        setGraphic(imageV);
+                    }
+                } ; 
+                }
+            });*/
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
  Ccin.setCellValueFactory(new PropertyValueFactory<>("cin"));
+ //Cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
         Cnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
           Cprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
@@ -917,7 +1141,36 @@ String nom=entrer.getText();
 
         table.setItems(null);
                 table.setItems(ps.getAllByName(nom));
+                 /*Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProprietaireG, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<ProprietaireG, Image> param) {
+                    ProprietaireG p = param.getValue() ; 
+                    ProprietaireGService ps = new ProprietaireGService() ; 
+                    ProprietaireG pr = ps.search(p.getId_user()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+                Cimage.setCellFactory(new Callback<TableColumn<ProprietaireG, Image>, TableCell<ProprietaireG, Image>>() {
+                @Override
+                public TableCell<ProprietaireG, Image> call(TableColumn<ProprietaireG, Image> param) {
+                    return new TableCell<ProprietaireG, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        //ImageView imageV =  new ImageView() ; 
+                        ImageView imageV = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        //final Circle clip = new Circle(30,40,25);
+                        //imageV.setClip(clip);
+                        setGraphic(imageV);
+                    }
+                } ; 
+                }
+            });*/
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ //Cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
  Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
               Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
               Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -942,7 +1195,37 @@ String nom=entrer.getText();
 
         table.setItems(null);
                 table.setItems(ps.getAllByName(nom));
+                /*Cimage.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<ProprietaireJ, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<ProprietaireJ, Image> param) {
+                    ProprietaireJ p = param.getValue() ; 
+                    ProprietaireJService ps = new ProprietaireJService() ; 
+                    ProprietaireJ pr = ps.search(p.getId_user()) ; 
+                    
+                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; */
+           /* Cimage.setCellFactory(new Callback<TableColumn<ProprietaireJ, Image>, TableCell<ProprietaireJ, Image>>() {
+                @Override
+                public TableCell<ProprietaireJ, Image> call(TableColumn<ProprietaireJ, Image> param) {
+                    return new TableCell<ProprietaireJ, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        //ImageView imageV =  new ImageView() ; 
+                        ImageView imageV = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        //final Circle clip = new Circle(30,40,25);
+                        //imageV.setClip(clip);
+                        setGraphic(imageV);
+                    }
+                } ; 
+                }
+            });*/
+           
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+ //Cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
  Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));
               Cmdp.setCellValueFactory(new PropertyValueFactory<>("mdp"));
               Cemail.setCellValueFactory(new PropertyValueFactory<>("email"));
@@ -982,7 +1265,6 @@ String nom=entrer.getText();
                if(entrer.getText().isEmpty()){
               afficher();
               }}
-
    
 
     @FXML
@@ -1010,7 +1292,7 @@ String nom=entrer.getText();
      
     }
 
-     @FXML
+    @FXML
     private void afficherImage2(MouseEvent event) {
         //Checking double click
          if (event.getClickCount() == 1) //Checking double click
@@ -1054,10 +1336,62 @@ String nom=entrer.getText();
                      label.setText(nom+" "+prenom+"\n"+date+"\n"+"Role:"+type);
 
       }
-    }}
+    }
 
+    @FXML
+    private void gestionUtilisateur(ActionEvent event) throws IOException {
+          AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionUser.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
 
-    
+    @FXML
+    private void gotoDemandeTravail(MouseEvent event) {
+    }
+
+   @FXML
+    private void gestionProduit(ActionEvent event) throws IOException {
+          AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("listeProduits.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void retirer(ActionEvent event) {
+         AnchorPane2.setVisible(false);
+        retire.setVisible(false);
+    }
+
+    @FXML
+    private void gestionOffre(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void approbation(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+
+     @FXML
+    private void gestionReclamation(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewReclamation.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+
+    @FXML
+    private void afficherBar(ActionEvent event) {
+         AnchorPane2.setVisible(true);
+       retire.setVisible(true);
+    }
+}
 
               
 

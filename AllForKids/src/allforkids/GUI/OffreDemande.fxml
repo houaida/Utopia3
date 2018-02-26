@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -16,85 +16,137 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="707.0" prefWidth="1130.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.OffreDemandeController">
+<AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.OffreDemandeController">
    <children>
-      <ImageView fitHeight="804.0" fitWidth="1154.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/bd2.jpg" />
-         </image>
-      </ImageView>
-      <AnchorPane fx:id="anchor_offre" layoutX="199.0" prefHeight="54.0" prefWidth="463.0">
+      <AnchorPane id="AnchorPane" layoutY="-3.0" prefHeight="866.0" prefWidth="1329.0">
          <children>
-            <AnchorPane id="AnchorPane" layoutX="-206.0" prefHeight="716.0" prefWidth="1161.0">
+            <Text fx:id="txtnom" layoutX="354.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre  :">
+               <font>
+                  <Font name="Baskerville" size="22.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtType" layoutX="355.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date debut :">
+               <font>
+                  <Font name="Baskerville" size="22.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtPrix" layoutX="357.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date fin :">
+               <font>
+                  <Font name="Baskerville" size="22.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtDescription" layoutX="748.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
+               <font>
+                  <Font name="Baskerville" size="22.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tbtable" layoutX="357.0" layoutY="394.0" prefHeight="365.0" prefWidth="931.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
+               <columns>
+                  <TableColumn fx:id="titre1" prefWidth="130.99996948242188" text="Titre" />
+                  <TableColumn fx:id="date_debut1" prefWidth="159.0" text="Date debut" />
+                  <TableColumn fx:id="date_fin1" minWidth="0.0" prefWidth="257.47406005859375" text="Date fin" />
+                  <TableColumn fx:id="description1" prefWidth="382.52581787109375" text="Description" />
+                  <TableColumn fx:id="id_offre" prefWidth="130.99996948242188" text="id" visible="false" />
+               </columns>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </opaqueInsets>
+            </TableView>
+            <Button id="btn1" fx:id="btn2" disable="true" layoutX="1129.0" layoutY="308.0" mnemonicParsing="false" onAction="#mod2" style="-fx-background-color: #ffc014;" text="Valider Modification" />
+            <TextField fx:id="id_offre1" layoutX="130.0" layoutY="256.0" visible="false" />
+            <JFXTextArea fx:id="tdescription" layoutX="881.0" layoutY="122.0" prefHeight="134.0" prefWidth="433.0" promptText="saisir description" />
+            <JFXDatePicker fx:id="tdate_debut" defaultColor="LIGHTSKYBLUE" layoutX="475.0" layoutY="161.0" promptText="saisir date debut" />
+            <JFXDatePicker fx:id="tdate_fin" defaultColor="LIGHTSKYBLUE" layoutX="475.0" layoutY="197.0" promptText="saisir date fin" />
+            <JFXTextField fx:id="ttitre" layoutX="479.0" layoutY="116.0" promptText="saisir titre" />
+            <HBox layoutX="285.0" layoutY="2.0" prefHeight="75.0" prefWidth="1051.0" styleClass="box-topo" stylesheets="@css/covoiturage.css">
                <children>
-                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="1125.0" styleClass="box-topo">
-                     <children>
-                        <Label fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Les offres disponible :" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS" />
-                        <TextField fx:id="trecherche" prefHeight="50.0" prefWidth="417.0" promptText="chercher" styleClass="pesquisar" />
-                        <ToggleButton fx:id="ajout" mnemonicParsing="false" onAction="#ajouter" stylesheets="@css/gestionevaluation.css" text="">
-                           <styleClass>
-                              <String fx:value="menus-tela" />
-                              <String fx:value="menu-add" />
-                           </styleClass>
-                        </ToggleButton>
-                        <ToggleButton fx:id="supp" layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" text="">
-                           <styleClass>
-                              <String fx:value="menus-tela" />
-                              <String fx:value="menu-excluir" />
-                           </styleClass>
-                           <toggleGroup>
-                              <ToggleGroup fx:id="menu" />
-                           </toggleGroup>
-                        </ToggleButton>
-                        <ToggleButton fx:id="modifier" mnemonicParsing="false" onAction="#modifier" text="">
-                           <styleClass>
-                              <String fx:value="menus-tela" />
-                              <String fx:value="menu-editar" />
-                           </styleClass>
-                        </ToggleButton>
-                        <ToggleButton fx:id="recherche" mnemonicParsing="false" onAction="#recherche">
-                           <styleClass>
-                              <String fx:value="menus-tela" />
-                              <String fx:value="pesquisar" />
-                           </styleClass>
-                        </ToggleButton>
-                     </children>
-                     <stylesheets>
-                        <URL value="@css/default.css" />
-                        <URL value="@css/custom.css" />
-                        <URL value="@css/gestionevaluation.css" />
-                     </stylesheets>
-                  </HBox>
-                  <Text fx:id="txtnom" layoutX="51.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre  :" />
-                  <Text fx:id="txtType" layoutX="51.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date debut :" />
-                  <Text fx:id="txtPrix" layoutX="53.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date fin :" />
-                  <Text fx:id="txtDescription" layoutX="327.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :" />
-                  <TextField fx:id="ttitre" layoutX="130.0" layoutY="90.0" />
-                  <DatePicker fx:id="tdate_debut" layoutX="130.0" layoutY="150.0" prefHeight="25.0" prefWidth="149.0" />
-                  <TextArea fx:id="tdescription" layoutX="474.0" layoutY="103.0" prefHeight="79.0" prefWidth="503.0" />
-                  <TableView fx:id="tbtable" layoutX="386.0" layoutY="268.0" prefHeight="365.0" prefWidth="701.0">
-                     <columns>
-                        <TableColumn fx:id="titre" prefWidth="130.99996948242188" text="Titre" />
-                        <TableColumn fx:id="date_debut" prefWidth="159.0" text="Date debut" />
-                        <TableColumn fx:id="date_fin" minWidth="0.0" prefWidth="163.0" text="Date fin" />
-                        <TableColumn fx:id="description" prefWidth="286.0" text="Description" />
-                        <TableColumn id="id_offre" fx:id="id_offre" prefWidth="286.0" text="id" visible="false" />
-                     </columns>
-                     <padding>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </padding>
-                     <opaqueInsets>
-                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </opaqueInsets>
-                  </TableView>
-                  <DatePicker fx:id="tdate_fin" layoutX="130.0" layoutY="204.0" prefHeight="25.0" prefWidth="149.0" />
-                  <Button id="btn1" fx:id="btn1" disable="true" layoutX="977.0" layoutY="217.0" mnemonicParsing="false" onAction="#mod2" text="Valider Modification" />
-                  <TextField fx:id="id_offre1" layoutX="130.0" layoutY="256.0" visible="false" />
-                  <Button fx:id="btretour" layoutX="1029.0" layoutY="655.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
+                  <Label prefHeight="31.0" prefWidth="733.0" textFill="MAROON">
+                     <font>
+                        <Font name="AdobeHebrew-Regular" size="26.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="trecherche" maxHeight="44.0" prefHeight="44.0" prefWidth="200.0" promptText="chercher par titre" style="-fx-border-color: #ffc014;" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <ToggleButton maxHeight="40.0" mnemonicParsing="false" onAction="#recherche" prefHeight="40.0" style="-fx-border-color: #ffc014;" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
+                     <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="pesquisar" />
+                     </styleClass>
+                  </ToggleButton>
+                  <ToggleButton fx:id="ajouter" maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" style="-fx-border-color: #ffc014;" stylesheets="@css/gestionevaluation.css" text="">
+                     <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-add" />
+                     </styleClass>
+                  </ToggleButton>
+                  <ToggleButton fx:id="modifier" layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" style="-fx-border-color: #ffc014;" stylesheets="@css/gestionevaluation.css" text="">
+                     <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-editar" />
+                     </styleClass>
+                  </ToggleButton>
+                  <ToggleButton fx:id="supprimer" layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-border-color: #ffc014;" stylesheets="@css/gestionevaluation.css" text="">
+                     <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-excluir" />
+                     </styleClass>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="menu1" />
+                     </toggleGroup>
+                  </ToggleButton>
                </children>
-            </AnchorPane>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <ToggleButton layoutX="8.0" layoutY="15.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/icon/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutX="-1.0" layoutY="-2.0" prefHeight="869.0" prefWidth="266.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <ImageView fitHeight="333.0" fitWidth="232.0" layoutX="17.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logofinal.gif" />
+               </image>
+            </ImageView>
+            <ToggleButton layoutX="1.0" layoutY="270.0" mnemonicParsing="false" onAction="#demandeB" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Demandes">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutY="198.0" mnemonicParsing="false" onAction="#offresB" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Offres&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" onAction="#PostulerTravail" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Postuler Travail&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
          </children>
       </AnchorPane>
    </children>

@@ -106,6 +106,20 @@ Offre p=null;
     
         return p; 
     }
+ public Offre search1(int n) {
+Offre p=null;
+        try {
+       
+        rs=st.executeQuery("select * from offres_babysitter where id_babysitter="+n);
+          if(rs.next())
+            p = new Offre(rs.getInt("id_babysitter"),rs.getString("Description"),rs.getString("titre"),rs.getString("date_debut"),rs.getString("date_fin"));
+
+    } catch (SQLException ex) { 
+        Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+        return p; 
+    }
 
     @Override
     public boolean delete(int id) {
@@ -116,6 +130,21 @@ Offre p=null;
    {
        try {
            st.executeUpdate("delete from offres_babysitter where id_offre="+id);
+            return true;
+       } catch (SQLException ex) {      
+             Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);
+         }      
+  
+   }return false;
+    }
+ public boolean delete1(int id) {
+     Offre p1=search1(id);
+        // System.out.println(p1);
+         
+   if(p1!=null)
+   {
+       try {
+           st.executeUpdate("delete from offres_babysitter where id_babysitter="+id);
             return true;
        } catch (SQLException ex) {      
              Logger.getLogger(OffreService.class.getName()).log(Level.SEVERE, null, ex);

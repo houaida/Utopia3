@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="866.0" prefWidth="1329.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="allforkids.GUI.ConseilsGoogleController">
+   <children>
+      <ToggleButton layoutX="4.0" layoutY="5.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/icon/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutX="-2.0" layoutY="-2.0" prefHeight="869.0" prefWidth="266.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <ImageView fitHeight="333.0" fitWidth="232.0" layoutX="17.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logofinal.gif" />
+               </image>
+            </ImageView>
+            <ToggleButton layoutX="1.0" layoutY="270.0" mnemonicParsing="false" onAction="#ConseilsGoogle" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionPrduit" layoutY="198.0" mnemonicParsing="false" onAction="#boutique" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Boutique&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" onAction="#Evaluation" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evaluation Enfant&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="386.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="BabySitter&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="2.0" layoutY="464.0" mnemonicParsing="false" onAction="#onclickCov" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Covoiturage &amp;&#10;Réservation&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="-1.0" layoutY="547.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Clubs&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="fleche2" layoutX="226.0" layoutY="412.0" mnemonicParsing="false" onAction="#aff1" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/fleche1%20-%20copie.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="fleche1" layoutX="227.0" layoutY="412.0" mnemonicParsing="false" onAction="#aff2" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;" visible="false">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/fleche1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton layoutX="1.0" layoutY="607.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evénements&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anB" layoutX="264.0" layoutY="399.0" prefHeight="212.0" prefWidth="262.0" style="-fx-background-color: #87CEFA;" visible="false">
+         <children>
+            <ToggleButton mnemonicParsing="false" onAction="#Reclamation" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Reclamation&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutY="53.0" mnemonicParsing="false" onAction="#ListeOffre" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Liste des offres">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutY="106.0" mnemonicParsing="false" onAction="#Demandes" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Demandes">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutY="159.0" mnemonicParsing="false" onAction="#ServiceAllForKids" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Service AllForKids&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

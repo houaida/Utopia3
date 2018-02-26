@@ -55,7 +55,7 @@ public class ReservationService implements IAllForKids<Reservation>{
     try{
         result = st.executeQuery(req) ; 
         result.next() ; 
-        p = new Reservation(result.getInt(1), result.getInt(2), result.getInt(3),result.getInt(4)); 
+        p = new Reservation(result.getInt(1),result.getInt(2),result.getInt(3),result.getInt(4)); 
     }   catch (SQLException ex) {
             Logger.getLogger(ReservationService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -73,7 +73,7 @@ public class ReservationService implements IAllForKids<Reservation>{
         }
     }
        
-    public void insert1(Reservation p, int id,int v) {
+    public void insert1(Reservation p,int v) {
         String req = "insert into reservations (id_user,nbre_place,idC) values ('" + p.getId_user()+ "','" + p.getNbre_place()+"','"+v+"')";
         System.out.println(req);
         try {
@@ -93,7 +93,7 @@ public class ReservationService implements IAllForKids<Reservation>{
             result = st.executeQuery("select * from reservations join users on users.id_user=reservations.id_user where users.type='parent'");
          
             while (result.next()) {
-                Reservation p = new Reservation(result.getInt(1), result.getInt(2), result.getInt(3),result.getInt(4));
+                Reservation p = new Reservation(result.getInt(1), result.getInt(2), result.getInt(3));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -118,7 +118,7 @@ public class ReservationService implements IAllForKids<Reservation>{
     @Override
     public Reservation search(int id) {
                   Reservation p = null ; 
-    String req = "select * from reservations where id_Reservation="+id ; 
+    String req = "select * from reservations where idC="+id ; 
     try{
         result = st.executeQuery(req) ; 
         result.next() ; 
@@ -128,27 +128,43 @@ public class ReservationService implements IAllForKids<Reservation>{
         }
     return p ;
     }
-
-    
-    public boolean delete(Reservation p) {
-         String req = "delete from reservations where id_reservation="+p.getId()  ; 
-    if(p!=null){
-        try{
-            st.executeUpdate(req) ;
-            return true ; 
-        } catch (SQLException ex) {
-            Logger.getLogger(ReservationService.class.getName()).log(Level.SEVERE, null, ex);
+       public  Reservation search2(int id) {
+                   Reservation p = null ; 
+    String req = "select * from reservations where id_reservation="+id ; 
+    try{
+        result = st.executeQuery(req) ; 
+        result.next() ; 
+        p = new Reservation(result.getInt(1), result.getInt(2), result.getInt(3),result.getInt(4));
+        }   catch (SQLException ex) {
+            Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
         }
+    return p ;
     }
-    return false ; 
-    }
+
 
     @Override
-    public boolean update(Reservation p) {
-         Reservation p1 = getReservationbyId(p.getId()) ; 
+    public boolean delete(int id) {
+        Reservation p1=search(id);
+      
+   if(p1!=null)
+   {
+       try {
+           st.executeUpdate("delete from reservations where idC="+id);
+            return true;
+           }catch (SQLException ex) {    
+                Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
+            }    
+  
+   }return false;
+     
+    }
+
+
+    public boolean update1(Reservation p,int v) {
+         Reservation p1= search2(p.getId()); 
     if(p1!=null){
         try{
-            st.executeUpdate("update reservations set id_user='"+p.getId_user()+"', nbre_place='"+p.getNbre_place()+"'where id_reservation="+p.getId()) ; 
+            st.executeUpdate("update reservations set id_user='"+p.getId_user()+"',nbre_place='"+p.getNbre_place()+"',idC='"+v+"'where id_reservation="+p1) ; 
         } catch (SQLException ex) {
             Logger.getLogger(ReservationService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -162,18 +178,22 @@ public class ReservationService implements IAllForKids<Reservation>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public boolean delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public Reservation getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public boolean update(Reservation t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     }
     
     
+
+
 

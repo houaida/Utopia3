@@ -56,7 +56,7 @@
                   <Image url="@img/icon/facebook.png" />
                </image>
             </ImageView>
-            <Label fx:id="mdp" layoutX="136.0" layoutY="487.0" onMouseClicked="#PARAMMDP" onMouseEntered="#changerStyle" onMouseExited="#changerStyle" text="Mot de passe oublié?">
+            <Label fx:id="mdp" layoutX="136.0" layoutY="487.0" onMouseClicked="#PARAMMDP" onMouseEntered="#changerStyle" onMouseExited="#changerStyle2" text="Mot de passe oublié?">
                <font>
                   <Font size="17.0" />
                </font></Label>

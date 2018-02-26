@@ -10,8 +10,7 @@ import allforkids.entite.Membre;
 import allforkids.entite.User;
 import allforkids.service.ClubService;
 import allforkids.service.MembreService;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.PdfWriter;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;

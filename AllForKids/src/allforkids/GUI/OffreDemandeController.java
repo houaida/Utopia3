@@ -28,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -41,22 +42,6 @@ public class OffreDemandeController implements Initializable {
 
     @FXML
     private AnchorPane AnchorPane1;
-    @FXML
-    private AnchorPane AnchorPane2;
-    @FXML
-    private ToggleButton menu_babysitter;
-    @FXML
-    private ToggleGroup grupoMenus;
-    @FXML
-    private ToggleButton Education;
-    @FXML
-    private AnchorPane anchor_offre;
-    @FXML
-    private Label lbTitulo1;
-    @FXML
-    private ToggleButton ajout;
-    @FXML
-    private ToggleGroup menu;
     @FXML
     private Text txtnom;
     @FXML
@@ -78,28 +63,41 @@ public class OffreDemandeController implements Initializable {
     @FXML
     private DatePicker tdate_fin;
  
-    @FXML
     private TableColumn<Offre, String> titre;
-    @FXML
     private TableColumn<Offre, String> date_debut;
-    @FXML
     private TableColumn<Offre, String> date_fin;
-    @FXML
     private TableColumn<Offre, String> description;
     @FXML
     private TableColumn<Offre, String> id_offre;
     @FXML
-    private ToggleButton supp;
-    @FXML
     private ToggleButton modifier;
-    @FXML
     private Button btn1;
     @FXML
     private TextField id_offre1;
     @FXML
     private TextField trecherche;
     @FXML
-    private ToggleButton recherche;
+    private TableColumn<?, ?> titre1;
+    @FXML
+    private TableColumn<?, ?> date_debut1;
+    @FXML
+    private TableColumn<?, ?> date_fin1;
+    @FXML
+    private TableColumn<?, ?> description1;
+    @FXML
+    private Button btn2;
+    @FXML
+    private ToggleButton ajouter;
+    @FXML
+    private ToggleButton supprimer;
+    @FXML
+    private ToggleGroup menu1;
+    @FXML
+    private AnchorPane AnchorPane2;
+    @FXML
+    private ToggleButton retire;
+    private ToggleButton fleche2;
+    private ToggleButton fleche1;
      
 
     
@@ -114,14 +112,7 @@ public class OffreDemandeController implements Initializable {
          afficherOffre();
      
     }    
-    @FXML
-    public void retour() throws IOException
-    {
-    
-    AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilKids.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
-    }
+   
  public void afficherOffre()
        {
            
@@ -129,23 +120,16 @@ public class OffreDemandeController implements Initializable {
             tbtable.setItems(null);
                 tbtable.setItems(Goffre.getAll());
 
-titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
-date_debut.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
-date_fin.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
-description.setCellValueFactory(new PropertyValueFactory<>("description"));       
+titre1.setCellValueFactory(new PropertyValueFactory<>("titre"));
+date_debut1.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
+date_fin1.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
+description1.setCellValueFactory(new PropertyValueFactory<>("description"));       
 id_offre.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
 
         
 
 
        }
-    @FXML
-    private void menu_babysitter(ActionEvent event) {
-    }
-
-    @FXML
-    private void Education(ActionEvent event) {
-    }
 
     @FXML
     private void ajouter(ActionEvent event) throws ParseException{
@@ -223,6 +207,52 @@ date_fin.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
 description.setCellValueFactory(new PropertyValueFactory<>("description"));       
         
     }
+
+
+    @FXML
+    private void gotoDemandeTravail(MouseEvent event) {
+    }
+
+    
+
+    @FXML
+    private void PostulerTravail(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demandeTravail.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+   
+    
+
+    @FXML
+    private void afficher(ActionEvent event) {
+        AnchorPane2.setVisible(true);
+       retire.setVisible(true);
+    }
+
+    @FXML
+    private void retirer(ActionEvent event) {
+        AnchorPane2.setVisible(false);
+        retire.setVisible(false);
+    }
+
+    @FXML
+    private void demandeB(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("DemandeBabysitterFront.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void offresB(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("OffreDemande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    
+  
 
     }
     

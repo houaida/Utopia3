@@ -167,6 +167,10 @@ public class GestionEvaluationController implements Initializable {
      matiere.getText(),Float.parseFloat(moyenne.getText()),p.getNom(),nom.getText(),
     prenom.getText());
      ps.update(e);
+     nom.clear();
+     prenom.clear();
+     matiere.clear();
+     moyenne.clear();
      afficherEva(AuthentificationController.LoggedEnseignant);
      }
     @FXML

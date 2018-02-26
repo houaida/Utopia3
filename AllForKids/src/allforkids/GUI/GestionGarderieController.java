@@ -50,10 +50,7 @@ import javafx.util.Callback;
  * @author MacBook
  */
 public class GestionGarderieController implements Initializable {
-@FXML
     private Button btn1;
-   @FXML
-    private Button btliste;
       @FXML
     private TextField entrer;
      @FXML
@@ -252,17 +249,13 @@ String nom=entrer.getText();
        
               }
 
-    @FXML
-    private void retour(MouseEvent event) throws IOException {
-          
-        AnchorPane1.getChildren().clear();
-            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Acceuilkids2.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
     
-    }
 
     @FXML
-    private void retour(ActionEvent event) {
+    private void retour(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilPropG.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
     }
 
     

@@ -27,16 +27,7 @@ public class Reclamation {
     private int etat;
     private int diff_heure;
     private int diff_minute;
-    private int alerte;
-
-    public int getAlerte() {
-        return alerte;
-    }
-
-    public void setAlerte(int alerte) {
-        this.alerte = alerte;
-    }
-
+    
     public int getDiff_heure() {
         return diff_heure;
     }
@@ -53,7 +44,7 @@ public class Reclamation {
         this.diff_minute = diff_minute;
     }
 
-    public Reclamation(int id_reclamation, int id_parent, int id_babysitter, String description, Timestamp date_envoi, Time heure_travail, Time heure_pointe, int etat, int diff_heure, int diff_minute, int alerte) {
+    public Reclamation(int id_reclamation, int id_parent, int id_babysitter, String description, Timestamp date_envoi, Time heure_travail, Time heure_pointe, int etat) {
         this.id_reclamation = id_reclamation;
         this.id_parent = id_parent;
         this.id_babysitter = id_babysitter;
@@ -62,9 +53,8 @@ public class Reclamation {
         this.heure_travail = heure_travail;
         this.heure_pointe = heure_pointe;
         this.etat = etat;
-        this.diff_heure = diff_heure;
-        this.diff_minute = diff_minute;
-        this.alerte = alerte;
+        
+       
     }
 
     public Reclamation(int id_reclamation, int id_parent, int id_babysitter, String description, Timestamp date_envoi, Time heure_travail, Time heure_pointe, int etat, int diff_heure, int diff_minute) {
