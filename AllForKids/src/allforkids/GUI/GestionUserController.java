@@ -1204,8 +1204,8 @@ String nom=entrer.getText();
                     
                     return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
                 }
-            }) ; 
-            Cimage.setCellFactory(new Callback<TableColumn<ProprietaireJ, Image>, TableCell<ProprietaireJ, Image>>() {
+            }) ; */
+           /* Cimage.setCellFactory(new Callback<TableColumn<ProprietaireJ, Image>, TableCell<ProprietaireJ, Image>>() {
                 @Override
                 public TableCell<ProprietaireJ, Image> call(TableColumn<ProprietaireJ, Image> param) {
                     return new TableCell<ProprietaireJ, Image>(){
@@ -1223,6 +1223,7 @@ String nom=entrer.getText();
                 } ; 
                 }
             });*/
+           
  Cid_user.setCellValueFactory(new PropertyValueFactory<>("id_user"));
  //Cimage.setCellValueFactory(new PropertyValueFactory<>("image"));
  Cpseudo.setCellValueFactory(new PropertyValueFactory<>("pseudo"));

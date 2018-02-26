@@ -35,7 +35,7 @@
                   <Image url="@img/logofinal.gif" />
                </image>
             </ImageView>
-            <ToggleButton layoutX="2.0" layoutY="270.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education">
+            <ToggleButton layoutX="2.0" layoutY="270.0" mnemonicParsing="false" onAction="#ConseilsGoogle" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
@@ -54,7 +54,7 @@
                   </ImageView>
                </graphic>
             </ToggleButton>
-            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evaluation Enfant&#10;" textAlignment="CENTER">
+            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" onAction="#Evaluation" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evaluation Enfant&#10;" textAlignment="CENTER">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>

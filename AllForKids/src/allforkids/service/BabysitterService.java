@@ -7,8 +7,10 @@ package allforkids.service;
 
 import allforkids.entite.Babysitter;
 import allforkids.entite.Demande;
+import allforkids.entite.Enseignant;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -242,6 +244,25 @@ rs = st.executeQuery("select * from users where type='babysitter' and nom like '
     public Babysitter getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public Babysitter findbyMail(String s) {
+        Babysitter user = null;
+        String req = "select * from users where email =? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setString(1, s);
+             rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                user = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("type"),rs.getString("date_naissance"),rs.getString("image"));
+                break;
+            }
+        } catch (SQLException ex) {
+            System.out.println("mail not found ");
+        }
+        return user;
+    }
+    
  }
 
     

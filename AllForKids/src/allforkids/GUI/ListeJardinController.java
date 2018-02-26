@@ -80,7 +80,7 @@ public class ListeJardinController implements Initializable {
                           ImageView imgV = new ImageView(img);
                           setGraphic(imgV);
                           
-                          setText("id : "+p.getId_jardinEnfant()+"\n Nom : "+p.getNom()+"\n Adresse : "+p.getAdresse()+"\n Numero : "+p.getNum_tel()+"\n Description : "+p.getDescription());
+                          setText(" Nom : "+p.getNom()+"\n Adresse : "+p.getAdresse()+"\n Numero : "+p.getNum_tel()+"\n Description : "+p.getDescription());
                       }
                   }
               } ; return cell ;
