@@ -96,15 +96,15 @@ public class AccueilParentController implements Initializable {
        
 
 
-      /*  imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
+      /* imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
        
         imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
          imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));
      */bt1.setDisable(true);
      bt.setDisable(false);
      
-    /* String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
-=======
+    // String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+
         imgView.setImage(new Image("file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
         imgView1.setImage(new Image("file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
          imgView2.setImage(new Image("file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));
@@ -112,14 +112,13 @@ public class AccueilParentController implements Initializable {
      bt.setDisable(false);
      
      String Vurl="file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
->>>>>>> 8e8aa203b9185b8f18b5a9b2e99eda9d8fad9847
         Media media = new Media(Vurl);
      MediaPlayer mediaplayer=new MediaPlayer(media);
      video.setFitHeight(400);
      video.setFitWidth(700);
      video.setMediaPlayer(mediaplayer);
 
-      mediaplayer.setAutoPlay(true);*/
+      mediaplayer.setAutoPlay(true);
      
 
 
@@ -198,7 +197,6 @@ public class AccueilParentController implements Initializable {
     }
 
     @FXML
-<<<<<<< HEAD
     private void ConseilsGoogle(ActionEvent event) {
     }
 
@@ -208,7 +206,8 @@ public class AccueilParentController implements Initializable {
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evaluation.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
-=======
+
+    @FXML
     private void onclickCov(ActionEvent event)throws IOException {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Cov.fxml"));
@@ -216,7 +215,6 @@ public class AccueilParentController implements Initializable {
     }
     
     
->>>>>>> 192dccae74d84e02b371486deee306b392cec36a
 
     
 
