@@ -2,45 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/AuthentificationController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/OffreDemandeController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/ListViewTestController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/service/LigneCommandeService.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/service/demande_travailService.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/AccueilGeneralController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/ReclamationController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/GestionEnfantJController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/Reclamation.fxml</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/demandeController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/OffreParentFront.fxml</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/BabysitterPersonnelController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/GestionEnfantController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/demande.fxml</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/GestionJardinController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/demandeTravailController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/demandeTravail.fxml</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/entite/Reclamation.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/service/OffreService.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/AccueilParentController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/babysitterPersonnel.fxml</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/OffreParentController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/service/DemandeService.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/listViewTest.fxml</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/GestionUserController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/OffreDemande.fxml</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/OffreParentFrontController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/service/ReclamationService.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/entite/Babysitter.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/AccueilAdminController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/ListviewReclamationController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/service/BabysitterService.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/GestionGarderieController.java</file>
-            <file>file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/technique/util/DataSource.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/service/EnfantService.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/entite/Enfant.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/ListeGardJardController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/GestionEnfantController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/AccueilParentController.java</file>
+            <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/InscriptionUserController.java</file>
         </group>
->>>>>>> b0af3010ed1fad557cebb1404626e57716bf79fe
     </open-files>
 </project-private>

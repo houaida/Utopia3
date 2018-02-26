@@ -148,7 +148,7 @@ Babysitter p=null;
 ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
         
     try {
-        rs=st.executeQuery("select * from users where type='babysitter' and prenom like '%"+n+"%'");
+        rs=st.executeQuery("select * from users where type='babysitterPersonnel' and prenom like '%"+n+"%'");
     } catch (SQLException ex) { 
         Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
     }
