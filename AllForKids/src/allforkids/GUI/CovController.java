@@ -80,7 +80,7 @@ public class CovController implements Initializable {
     private ListView liste ;
      @FXML 
     private ListView listeR ;
-     private ToggleButton btn1;
+     private Button btn1;
      @FXML
     private TextField np;
      @FXML
@@ -131,6 +131,8 @@ public class CovController implements Initializable {
     private ToggleGroup menu1;
     @FXML
     private Button btretour;
+    private ListView<Covoiturage> listeR1;
+    
  
      
    
@@ -146,15 +148,35 @@ public class CovController implements Initializable {
         
          ObservableList<String> ol = FXCollections.observableArrayList();
         ol.add("Tunis") ; 
-        ol.add("marsa") ; 
-        ol.add("ariena") ; 
+        ol.add("Marsa") ; 
+        ol.add("Ariana") ; 
+        ol.add("Ben Arous") ;
+        ol.add("Sidi bou said") ;
+        ol.add("Kram") ;
+        ol.add("Radess") ;
+        ol.add("Megrine") ;
+        ol.add("Carthage") ;
+        ol.add("Manar") ;
+         ol.add("Manzah") ;
+         ol.add("Monfleury") ; 
+          
         
+         
         destination.setItems(ol);
            
         ObservableList<String> ol1 = FXCollections.observableArrayList();
-        ol1.add("Tunis") ; 
-        ol1.add("marsa") ; 
-        ol1.add("ariena") ; 
+         ol1.add("Tunis") ; 
+        ol1.add("Marsa") ; 
+        ol1.add("Ariana") ; 
+        ol1.add("Ben Arous") ;
+        ol1.add("Sidi bou said") ;
+        ol1.add("Kram") ;
+        ol1.add("Radess") ;
+        ol1.add("Megrine") ;
+        ol1.add("Carthage") ;
+        ol1.add("Manar") ;
+         ol1.add("Manzah") ;
+         ol1.add("Monfleury") ; 
         
         depart.setItems(ol1);
         
@@ -162,19 +184,19 @@ public class CovController implements Initializable {
         
          afficherListeReservation();
         // LoggedParent = new Parent();
-           
+          // afficherApprouver();
         
        
     }   
  
-    
-
+   
 
     @FXML
     private void ajouter() throws ParseException {
         CovoiturageService ps=new CovoiturageService();
        // int i=Integer.parseInt(idu.getText());
        // int u=Integer.parseInt(nbr.getText());
+       if(!depart.getValue().equals(destination.getValue())){
         Covoiturage p= new Covoiturage(depart.getValue(),date_depart.getEditor().getText(),heureD.getText(),destination.getValue(),datearrivee.getEditor().getText(),heureA.getText(),Integer.parseInt(nbr.getText()));
        ps.insert1(p,AuthentificationController.LoggedParent.getId_user());
        // ps.insert(p);
@@ -186,7 +208,14 @@ public class CovController implements Initializable {
         idu.clear();
         heureD.clear();
         heureA.clear();
-         afficherCov(AuthentificationController.LoggedParent);
+         afficherCov(AuthentificationController.LoggedParent);}else{
+       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Ville ");
+            alert.setHeaderText("veuillez verifier la ville départ et ville destination");
+            Optional<ButtonType> result = alert.showAndWait();
+            
+       
+       }
     }
       
     
@@ -213,6 +242,7 @@ public class CovController implements Initializable {
         
     }
     
+    @FXML
         public void afficherListeCovoiturage()
        {
           CovoiturageService ps = new CovoiturageService() ; 
@@ -305,7 +335,7 @@ public class CovController implements Initializable {
            Covoiturage b= as.search(AuthentificationController.LoggedParent.getId_user());
            System.out.println(b);*/
        }
-              public void afficherListeReservation()
+            /*  public void afficherListeReservation()
        {
           listeR.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); 
           CovoiturageService ps = new CovoiturageService() ; 
@@ -321,19 +351,65 @@ public class CovController implements Initializable {
                         if(p!=null){
                             System.out.println(p.getId_user());
                             ReservationService rs = new ReservationService() ; 
-                            Reservation r = rs.search1(p.getId_user()) ; 
+                            Reservation r = rs.search1(AuthentificationController.LoggedParent.getId_user()) ; 
                             System.out.println(r);
                            /* ParentService ps = new ParentService() ; 
                             Parent p1 =  ps.searchImg(p.getId_user()) ; */
                            //String im = "file:/C:/Users/imen/Desktop/imen.png" ;    
 
+<<<<<<< HEAD
+                           /* Image img = new Image("file:/C:/wamp/www/ressources/reservation.png", 100, 100, true, true, true) ; */
+
+                          //  Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/reserv.png", 100, 100, true, true, true) ; 
+
+                           /* ImageView imgV = new ImageView(img) ; 
+                            setGraphic(imgV); 
+                            setText("Depart : " + p.getDepart() + "\n"+"DateDepart : " + p.getDateDepart() + "\n"+"Destination : " + p.getDestination() + "\n" +"Heure dÃ©part : " + p.getHeureD() + "\n"+"Date arrivÃ© : " + p.getDateArrive() + "\n"+"Heure arrivÃ© : " + p.getHeureA() + "\n"+"Nombre de places disponibles : " + p.getNbre_place_dispo() + "\n"+"Nombre de place reservÃ©: " + r.getNbre_place()+ "\n");
+                               
+                        }
+                        
+                    }
+                  } ; return cell ; 
+              }
+          });
+      listeR.setItems(lp);
+   
+}*/
+    @FXML
+          public void afficherListeReservation()
+       {
+          listeR.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); 
+          ReservationService ps = new ReservationService() ; 
+          ObservableList<Reservation> lp = ps.search1(AuthentificationController.LoggedParent.getId_user());
+          
+          listeR.setCellFactory(new Callback<ListView<Reservation>, ListCell<Reservation>>() {
+              @Override
+              public ListCell<Reservation> call(ListView<Reservation> param) {
+                  ListCell<Reservation> cell = new ListCell<Reservation>() {
+                      @Override
+                    protected void updateItem(Reservation p , boolean bl) {
+                        super.updateItem(p, bl);
+                        if(p!=null){
+                            System.out.println(p.getId_user());
+                            CovoiturageService rs = new CovoiturageService() ; 
+                            Covoiturage r = rs.searchCo(p.getIdC()) ; 
+                            System.out.println(r);
+                            /*ParentService ps = new ParentService() ; 
+                            Parent p1 =  ps.searchImg(p.getId_user()) ; */
+                             //String im = "file:/C:/Users/imen/Desktop/imen.png" ;    
+
+                            Image img = new Image("file:/C:/wamp/www/ressources/reservation.png", 100, 100, true, true, true) ; 
+
+                          //  Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/reserv.png", 100, 100, true, true, true) ; 
+=======
                             Image img = new Image("file:/C:/wamp/www/ressources/reservation.png", 100, 100, true, true, true) ; 
 
                            // Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/reserv.png", 100, 100, true, true, true) ; 
+>>>>>>> 3049ec7efcded067c6bf369cc60623cf3a057d93
 
                             ImageView imgV = new ImageView(img) ; 
                             setGraphic(imgV); 
-                            setText("Depart : " + p.getDepart() + "\n"+"DateDepart : " + p.getDateDepart() + "\n"+"Destination : " + p.getDestination() + "\n" +"Heure dÃ©part : " + p.getHeureD() + "\n"+"Date arrivÃ© : " + p.getDateArrive() + "\n"+"Heure arrivÃ© : " + p.getHeureA() + "\n"+"Nombre de places disponibles : " + p.getNbre_place_dispo() + "\n"+"Nombre de place reservÃ©: " + r.getNbre_place()+ "\n");
+                            setText("Depart : " + r.getDepart() + "\n"+"DateDepart : " + r.getDateDepart() + "\n"+"Destination : " + r.getDestination() + "\n" +"Heure dÃ©part : " + r.getHeureD() + "\n"+"Date arrivÃ© : " + r.getDateArrive() + "\n"+"Heure arrivÃ© : " + r.getHeureA() + "\n"+"Nombre de places disponibles : " + r.getNbre_place_dispo() + "\n"+"Nombre de place reservÃ©: " + p.getNbre_place()+ "\n");
                                
                         }
                         
@@ -350,24 +426,46 @@ public class CovController implements Initializable {
         CovoiturageService ds=new CovoiturageService();
          ReservationService ps= new ReservationService();
         // listeR.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-      ObservableList<Covoiturage> selectedItems = listeR.getSelectionModel().getSelectedItems();
+      ObservableList<Reservation> selectedItems = listeR.getSelectionModel().getSelectedItems();
       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
        alert.setHeaderText("Voulez vous supprimer votre rÃ©servation?");
        Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
-                        for(Covoiturage s : selectedItems){
+                        for(Reservation s : selectedItems){
                      //       System.out.println(s);
                         //ds.delete(s.getId());
                             ps.delete(s.getId());    
                        
                         }
-                          afficherListeReservation();   
+                            
 
                     }
-         
+         afficherListeReservation(); 
     
             }
+@FXML
+    public void rechercher()
+{
+Covoiturage e=null;
+String nom=afficher_entry.getText();
+ CovoiturageService ps=new CovoiturageService();
 
+
+        table.setItems(null);
+                table.setItems(ps.findbyVille(nom));
+  Cd.setCellValueFactory(new PropertyValueFactory<>("depart"));
+         Cd1.setCellValueFactory(new PropertyValueFactory<>("destination"));
+         Cdepart.setCellValueFactory(new PropertyValueFactory<>("dateDepart"));
+         Carrive.setCellValueFactory(new PropertyValueFactory<>("dateArrive"));
+         Cha.setCellValueFactory(new PropertyValueFactory<>("heureA"));
+         Chd.setCellValueFactory(new PropertyValueFactory<>("heureD"));
+         Cnbr.setCellValueFactory(new PropertyValueFactory<>("nbre_place_dispo"));
+         Cid.setCellValueFactory(new PropertyValueFactory<>("id"));
+         Cidu.setCellValueFactory(new PropertyValueFactory<>("id_user"));
+              
+              if(afficher_entry.getText().isEmpty()){
+              afficherCov(AuthentificationController.LoggedParent);
+              }}
     
           @FXML
             public void ajouter2(){
@@ -380,7 +478,7 @@ public class CovController implements Initializable {
                             if(s.getNbre_place_dispo()<Integer.parseInt(np.getText()))
                             {
                                 Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
-                                 alert1.setHeaderText("Nombre de place ajoutÃ© invalide!");
+                                 alert1.setHeaderText("Nombre de place ajouté invalide!");
                                  Optional<ButtonType> result1 = alert1.showAndWait();
                                  if (result1.get() == ButtonType.OK){
                                        np.clear();
@@ -427,14 +525,19 @@ public class CovController implements Initializable {
            public void modifier2()
            {
                ReservationService ps= new ReservationService();
-               Reservation p= new Reservation(AuthentificationController.LoggedParent.getId_user(),Integer.parseInt(nouv.getText()));
-                ObservableList<Covoiturage> selectedItems = listeR.getSelectionModel().getSelectedItems();
-              {
-                        for(Covoiturage s : selectedItems){
-                            if(s.getNbre_place_dispo()<Integer.parseInt(nouv.getText()))
+              
+                ObservableList<Reservation> selectedItems = listeR.getSelectionModel().getSelectedItems();
+              
+                        for(Reservation s : selectedItems){
+                            CovoiturageService cs=new CovoiturageService();
+                            Covoiturage c=cs.searchCo(s.getIdC());
+                            int a=Integer.parseInt(nouv.getText());
+                           // System.out.println("aaaa:"+a);
+                            //System.out.println("cccc:"+c.getNbre_place_dispo());
+                            if(c.getNbre_place_dispo()<a)
                             {
                                 Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
-                                 alert1.setHeaderText("Nombre de place ajoutÃ© invalide!");
+                                 alert1.setHeaderText("Nombre de place ajouté invalide!");
                                  Optional<ButtonType> result1 = alert1.showAndWait();
                                  if (result1.get() == ButtonType.OK){
                                        nouv.clear();
@@ -442,10 +545,11 @@ public class CovController implements Initializable {
                                 
                             }
                             else{ Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                      alert.setHeaderText("Votre rÃ©servation a Ã©tÃ© modifier!");
+                      alert.setHeaderText("Votre réservation a été modifier!");
                     Optional<ButtonType> result = alert.showAndWait();
                  if (result.get() == ButtonType.OK)
-                     {  ps.update1(p,s.getId());
+                     {  Reservation p= new Reservation(s.getId(),AuthentificationController.LoggedParent.getId_user(),Integer.parseInt(nouv.getText()),s.getIdC());
+                         ps.update1(p,c.getId());
                         System.out.println(ps);}
                             
                          }
@@ -454,7 +558,7 @@ public class CovController implements Initializable {
         nouv.clear();
            afficherListeReservation();  
          
-            }
+            
            }
 
     @FXML

@@ -108,7 +108,7 @@
                   </ImageView>
                </graphic>
             </ToggleButton>
-            <ToggleButton fx:id="fleche1" layoutX="227.0" layoutY="412.0" mnemonicParsing="false" onAction="#aff2" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;" visible="false">
+            <ToggleButton fx:id="fleche1" layoutX="231.0" layoutY="345.0" mnemonicParsing="false" onAction="#aff2" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;" visible="false">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -117,7 +117,11 @@
                   </ImageView>
                </graphic>
             </ToggleButton>
+<<<<<<< HEAD
+            <ToggleButton layoutX="1.0" layoutY="549.0" mnemonicParsing="false" onAction="#bus" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Affecter Bus &#10;&#10;">
+=======
             <ToggleButton fx:id="evenements" layoutX="8.0" layoutY="549.0" mnemonicParsing="false" onAction="#evenements" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evénements&#10;&#10;">
+>>>>>>> 3049ec7efcded067c6bf369cc60623cf3a057d93
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font></ToggleButton>
@@ -131,6 +135,27 @@
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
+<<<<<<< HEAD
+            <ToggleButton fx:id="fleche21" layoutX="232.0" layoutY="417.0" mnemonicParsing="false" onAction="#aff1R" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/fleche1%20-%20copie.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="fleche11" layoutX="236.0" layoutY="417.0" mnemonicParsing="false" onAction="#aff2R" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;" visible="false">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/fleche1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+=======
+>>>>>>> 3049ec7efcded067c6bf369cc60623cf3a057d93
          </children>
 </AnchorPane>
       <Label layoutX="629.0" layoutY="43.0" text="Bienvenue à AllForKids " textFill="#ffc014">
@@ -339,6 +364,24 @@
             <Image url="@img/icon/Ic_play_arrow_48px.svg%20-%20copie%202.png" />
          </image>
       </ImageView>
+<<<<<<< HEAD
+=======
+      <Button layoutX="1141.0" layoutY="29.0" mnemonicParsing="false" onAction="#notification" text="Notification" />
+      <AnchorPane fx:id="AnRes" layoutX="280.0" layoutY="405.0" prefHeight="125.0" prefWidth="262.0" style="-fx-background-color: #87CEFA;" visible="false">
+         <children>
+            <ToggleButton mnemonicParsing="false" onAction="#ApprouverRes" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Approuver réservations&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutY="53.0" mnemonicParsing="false" onAction="#onclickCov" prefHeight="65.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Service Covoiturage&#10; et Réservation ">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+>>>>>>> b9439653913ad28e5d4f053e9be3b8d3eb1aef3c
             
          </children>
       </AnchorPane>

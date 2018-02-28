@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="483.0" prefWidth="639.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.MoyenController">
+    <stylesheets>
+        <URL value="@moyen.css" />
+    </stylesheets>
+   <children>
+      <ListView fx:id="liste" layoutX="6.0" layoutY="51.0" onEditStart="#afficherListemoyen" prefHeight="367.0" prefWidth="626.0" />
+      <Text fill="#792c2c" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Bus disponnible: " textAlignment="CENTER" wrappingWidth="397.13671875">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="btn" layoutX="549.0" layoutY="431.0" mnemonicParsing="false" onAction="#ajouter" text="Confirmer" />
+   </children>
+</AnchorPane>

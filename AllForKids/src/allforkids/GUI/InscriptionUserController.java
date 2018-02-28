@@ -52,6 +52,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 
 /**
@@ -653,16 +654,23 @@ ToggleGroup etude = new ToggleGroup();
         
         if((cin.getText()).length()!=8){
         alertCIn.setText("CIN invalide");
+        alertCIn.setTextFill(Color.RED);
         }
-        else alertCIn.setText("CIN valide");
+        else {alertCIn.setTextFill(Color.GREEN);
+            alertCIn.setText("CIN valide");
+        }
         }
     @FXML
     public void controlNUMPress(){
         
         if((num_tel.getText()).length()!=8){
+            alertNum.setTextFill(Color.RED);
         alertNum.setText("numero invalide");
+        
         }
-        else alertNum.setText("numero valide");
+        else{  alertNum.setTextFill(Color.GREEN);
+            alertNum.setText("numero valide");
+       }
         }
     
         public boolean controlCIN(int cin){

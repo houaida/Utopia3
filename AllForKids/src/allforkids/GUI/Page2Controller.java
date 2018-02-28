@@ -67,7 +67,7 @@ public class Page2Controller implements Initializable {
     @FXML
     private JFXListView<Covoiturage> liste;
     @FXML
-    private JFXListView<Covoiturage> listeR;
+    private JFXListView<Reservation> listeR;
     @FXML
     private ToggleButton fleche2;
     @FXML
@@ -135,30 +135,32 @@ public class Page2Controller implements Initializable {
 public void afficherListeReservation()
        {
            listeR.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); 
-          CovoiturageService ps = new CovoiturageService() ; 
-          ObservableList<Covoiturage> lp = ps.getAll() ; 
+          ReservationService ps = new ReservationService() ; 
+          ObservableList<Reservation> lp = ps.getAll();
           
-          listeR.setCellFactory(new Callback<ListView<Covoiturage>, ListCell<Covoiturage>>() {
+          listeR.setCellFactory(new Callback<ListView<Reservation>, ListCell<Reservation>>() {
               @Override
-              public ListCell<Covoiturage> call(ListView<Covoiturage> param) {
-                  ListCell<Covoiturage> cell = new ListCell<Covoiturage>() {
+              public ListCell<Reservation> call(ListView<Reservation> param) {
+                  ListCell<Reservation> cell = new ListCell<Reservation>() {
                       @Override
-                    protected void updateItem(Covoiturage p , boolean bl) {
+                    protected void updateItem(Reservation p , boolean bl) {
                         super.updateItem(p, bl);
                         if(p!=null){
                             System.out.println(p.getId_user());
-                            ReservationService rs = new ReservationService() ; 
-                            System.out.println("iddd:"+p.getId_user());
-                            Reservation r = rs.search1(p.getId_user()); 
-                            //System.out.println("rrrr:"+r);
+                            CovoiturageService rs = new CovoiturageService() ; 
+                            Covoiturage r = rs.searchCo(p.getIdC()) ; 
                             System.out.println(r);
-                           /* ParentService ps = new ParentService() ; 
+                            /*ParentService ps = new ParentService() ; 
                             Parent p1 =  ps.searchImg(p.getId_user()) ; */
-                           //String im = "file:/C:/Users/imen/Desktop/imen.png" ;    
+                             //String im = "file:/C:/Users/imen/Desktop/imen.png" ;    
+
                             Image img = new Image("file:/C:/wamp/www/ressources/reservation.png", 100, 100, true, true, true) ; 
+
+                          //  Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/reserv.png", 100, 100, true, true, true) ; 
+
                             ImageView imgV = new ImageView(img) ; 
                             setGraphic(imgV); 
-                            setText("Depart : " + p.getDepart() + "\n"+"DateDepart : " + p.getDateDepart() + "\n"+"Destination : " + p.getDestination() + "\n" +"Heure départ : " + p.getHeureD() + "\n"+"Date arrivé : " + p.getDateArrive() + "\n"+"Heure arrivé : " + p.getHeureA() + "\n"+"Nombre de places disponibles : " + p.getNbre_place_dispo() + "\n"+"Nombre de place reservé: " + r.getNbre_place()+ "\n");
+                            setText("Depart : " + r.getDepart() + "\n"+"DateDepart : " + r.getDateDepart() + "\n"+"Destination : " + r.getDestination() + "\n" +"Heure dÃ©part : " + r.getHeureD() + "\n"+"Date arrivÃ© : " + r.getDateArrive() + "\n"+"Heure arrivÃ© : " + r.getHeureA() + "\n"+"Nombre de places disponibles : " + r.getNbre_place_dispo() + "\n"+"Nombre de place reservÃ©: " + p.getNbre_place()+ "\n");
                                
                         }
                         
@@ -167,7 +169,8 @@ public void afficherListeReservation()
               }
           });
       listeR.setItems(lp);
-    
+                            
+                            
 }
 
     @FXML

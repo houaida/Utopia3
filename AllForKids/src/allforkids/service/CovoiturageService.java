@@ -7,19 +7,25 @@ package allforkids.service;
 
 
 
+import allforkids.GUI.AuthentificationController;
 import allforkids.entite.Covoiturage;
+import allforkids.entite.Garderie;
+import allforkids.entite.Parent;
 import allforkids.technique.util.DataSource;
 import java.sql.SQLException;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  *
@@ -111,7 +117,56 @@ public class CovoiturageService implements IAllForKids<Covoiturage>{
         }
     return p ; 
     }
-
+public Covoiturage search2(int id){
+             //ObservableList<Covoiturage>list =FXCollections.observableArrayList(); 
+ Covoiturage p=null;
+    try{
+        
+        result=st.executeQuery("select * from covoiturages where id_user="+id);
+       if( result.next())
+       {  p = new Covoiturage(result.getInt(1),result.getInt(2), result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9)) ; 
+       //list.add(p);
+       }
+    }   catch (SQLException ex) {
+            Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return p; 
+    }
+public ObservableList<Covoiturage> searchIDU(int id){
+             ObservableList<Covoiturage>list =FXCollections.observableArrayList(); 
+ //Covoiturage p=null;
+    try{
+        
+        result=st.executeQuery("select * from covoiturages where id_user="+id);
+       if( result.next())
+       {  Covoiturage p = new Covoiturage(result.getInt(1),result.getInt(2), result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9)) ; 
+       list.add(p);
+       }
+    }   catch (SQLException ex) {
+            Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return list; 
+    }
+public  Covoiturage searchCo(int id) {
+      //ObservableList<Covoiturage>list =FXCollections.observableArrayList(); 
+      Covoiturage t=null;
+    
+        System.out.println("id **********************"+id);
+         try {
+             result=st.executeQuery("select * from covoiturages where id="+id);
+         } catch (SQLException ex) {
+             Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         try {
+             while( result.next())
+             {   t = new Covoiturage(result.getInt(1),result.getInt(2), result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9)) ;
+             System.out.println("from servce:"+t.toString());
+             //list.add(t);}
+             }    } catch (SQLException ex) {
+             Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    return t ; 
+    }
      public  ObservableList<Covoiturage> search1(int id){
       ObservableList<Covoiturage>list =FXCollections.observableArrayList(); 
       
@@ -141,7 +196,24 @@ public class CovoiturageService implements IAllForKids<Covoiturage>{
     }
     return false ; 
     }*/
-
+public ObservableList<Covoiturage> findbyVille(String s) {
+       ObservableList<Covoiturage>list =FXCollections.observableArrayList(); 
+        String req = "select * from covoiturages where destination=? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = connexion.prepareStatement(req);
+            preparedStatement.setString(1, s);
+             result = preparedStatement.executeQuery();
+            while (result.next()) {
+               Covoiturage user = new Covoiturage(result.getInt(1),result.getInt(2), result.getString(3),result.getString(4),result.getString(5),result.getString(6),result.getString(7),result.getString(8),result.getInt(9));
+                list.add(user);
+            }
+        } catch (SQLException ex) {
+            System.out.println("ville not found ");
+        }
+        return list;
+    }
+ 
     @Override
     public boolean update(Covoiturage t) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
