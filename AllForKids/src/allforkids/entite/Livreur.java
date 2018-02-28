@@ -30,6 +30,11 @@ public class Livreur extends User {
         this.disponibilite = disponibilite ;
     }
 
+    public Livreur(int id,String pseudo, String mdp, String mail,int disponibilite,String type,String image) {
+  super( id,pseudo, mdp, mail,type,image);
+   this.disponibilite = disponibilite ;
+    }
+
     public int getDisponibilite() {
         return disponibilite;
     }

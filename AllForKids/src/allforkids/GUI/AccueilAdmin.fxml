@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -10,9 +15,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" maxHeight="866.0" maxWidth="1329.0" minHeight="866.0" minWidth="1329.0" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilAdminController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" maxHeight="866.0" maxWidth="1329.0" minHeight="866.0" minWidth="1329.0" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilAdminController">
    <children>
-      <TableView fx:id="tableC" layoutX="309.0" layoutY="327.0" prefHeight="412.0" prefWidth="994.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
+      <TableView fx:id="tableC" layoutX="311.0" layoutY="301.0" prefHeight="209.0" prefWidth="994.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
          <columns>
             <TableColumn fx:id="client" prefWidth="205.12908935546875" text="Client" />
             <TableColumn fx:id="produit" prefWidth="282.870849609375" text="produit" />
@@ -78,7 +83,7 @@
             <Font name="Baskerville" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="276.0" layoutY="274.0" text="Liste des commandes" textFill="#ffc014">
+      <Label layoutX="273.0" layoutY="252.0" text="Liste des commandes" textFill="#ffc014">
          <font>
             <Font name="Baskerville" size="33.0" />
          </font>
@@ -93,6 +98,19 @@
             <Font size="18.0" />
          </font>
       </ToggleButton>
+      <Label layoutX="285.0" layoutY="510.0" text="Liste des livraisons" textFill="#ffc014">
+         <font>
+            <Font name="Baskerville" size="33.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tableL" layoutX="300.0" layoutY="563.0" prefHeight="209.0" prefWidth="994.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
+         <columns>
+            <TableColumn fx:id="livreur" prefWidth="205.12908935546875" text="Livreur" />
+            <TableColumn fx:id="produit1" prefWidth="282.870849609375" text="produit" />
+            <TableColumn fx:id="duree" prefWidth="242.979248046875" text="durée" />
+            <TableColumn fx:id="adresse" prefWidth="262.02081298828125" text="Adresse " />
+         </columns>
+      </TableView>
 
     
 

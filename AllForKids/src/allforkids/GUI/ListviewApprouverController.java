@@ -94,7 +94,8 @@ public class ListviewApprouverController implements Initializable {
                   protected void updateItem(demandetravail p , boolean bl) {
                       super.updateItem(p, bl);
                       if(p!=null){
-                          Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
+                          String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
                           

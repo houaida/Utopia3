@@ -174,7 +174,8 @@ public class ListePromotionsController implements Initializable {
        {
             //nom.setText(u.getNom());
             prod.setText(Integer.toString(u.getId_produit()));
-            String imageFile = u.getImage() ; 
+            String s="file:/C:/wamp/www/ressources/";
+            String imageFile = s+u.getImage() ; 
             Image image1 = new Image(imageFile);
             imgV.setImage(image1);
        }
@@ -206,7 +207,7 @@ public class ListePromotionsController implements Initializable {
        {
             PromotionService ps = new PromotionService();
 //            tableP.setItems(null);
-            tableP.setItems(ps.getAll());
+            tableP.setItems(ps.getAll2(ListeProduitsController.LoggedUser.getId_produit()));
         
         Identifiant.setCellValueFactory(new PropertyValueFactory<>("id_promotion"));
         produit.setCellValueFactory(new PropertyValueFactory<>("id_produit"));

@@ -16,6 +16,8 @@ import java.util.logging.Logger;
 import allforkids.entite.Note;
 import allforkids.technique.util.DataSource;
 import java.util.Map;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -36,7 +38,7 @@ public class NoteService implements IAllForKids<Note>{
     
     }
  
-private NoteService() 
+public NoteService() 
 {
     connexion=DataSource.getInstance().getConnexion();
     try {
@@ -69,7 +71,7 @@ private NoteService()
             }
             System.out.println("***********"); */
             while (result.next()) {
-                Note p = new Note(result.getInt("id_note"),result.getInt("id_parent"), result.getInt("id_produit"), result.getInt("nb_etoiles"));
+                Note p = new Note(result.getInt("id_note"),result.getInt("id_parent"), result.getInt("id_produit"), result.getString("nb_etoiles"));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -85,7 +87,7 @@ private NoteService()
     try{
         result = st.executeQuery(req) ; 
         result.next() ; 
-        p = new Note(result.getInt("id_note"),result.getInt("id_parent"), result.getInt("id_produit"), result.getInt("nb_etoiles")) ; 
+        p = new Note(result.getInt("id_note"),result.getInt("id_parent"), result.getInt("id_produit"), result.getString("nb_etoiles")) ; 
     }   catch (SQLException ex) {
             Logger.getLogger(NoteService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -129,6 +131,25 @@ private NoteService()
     @Override
     public Note getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    public ObservableList<Note> getAllById(int id) {
+       ObservableList<Note> list = FXCollections.observableArrayList();
+        try {
+            result = st.executeQuery("select * from notes where id_produit="+id);
+           /* ResultSetMetaData resultMeta = result.getMetaData() ; 
+            System.out.println("**********");
+            for(int i = 1 ; i<= resultMeta.getColumnCount() ; i++){
+                System.out.println(resultMeta.getColumnName(i).toUpperCase());
+            }
+            System.out.println("***********"); */
+            while (result.next()) {
+                Note p = new Note(result.getInt("id_note"),result.getInt("id_parent"), result.getInt("id_produit"), result.getString("nb_etoiles"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
     }
 
     

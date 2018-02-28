@@ -135,6 +135,18 @@ public void insertTotal(Commande p) {
         }
     return p ; 
     }
+      public Commande searchIdLigne(int id) {
+        Commande p = null ; 
+    String req = "select * from commandes where id_ligne="+id ; 
+    try{
+        result = st.executeQuery(req) ; 
+        result.next() ; 
+        p = new Commande(result.getInt("id_commande"),result.getInt("id_parent"), result.getInt("id_ligne"), result.getFloat("total")) ; 
+    }   catch (SQLException ex) {
+            Logger.getLogger(CommandeService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return p ; 
+    }
 
     @Override
     public boolean delete(int id) {

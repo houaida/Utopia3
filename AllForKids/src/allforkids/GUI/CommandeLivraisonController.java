@@ -71,8 +71,8 @@ public class CommandeLivraisonController implements Initializable {
                     Commande p = param.getValue() ; 
                     ParentService ps = new ParentService() ; 
                     Parent pr = ps.search(p.getId_parent()) ; 
-                    
-                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                    String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 80, 80, true, true, true));
                 }
             }) ; 
             client.setCellFactory(new Callback<TableColumn<Commande, Image>, TableCell<Commande, Image>>() {
@@ -103,7 +103,8 @@ public class CommandeLivraisonController implements Initializable {
                     LigneCommande l = ls.search(p.getId_ligne()) ; 
                     ProduitService ps = new ProduitService() ; 
                     Produit pr = ps.search(l.getId_produit()) ; 
-                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 150, 150, true, true, true));
+                    String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 150, 150, true, true, true));
                 }
             }) ; 
             produit.setCellFactory(new Callback<TableColumn<Commande, Image>, TableCell<Commande, Image>>() {

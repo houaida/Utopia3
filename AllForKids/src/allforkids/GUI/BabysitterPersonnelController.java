@@ -76,7 +76,8 @@ public class BabysitterPersonnelController implements Initializable {
                   protected void updateItem(Babysitter p , boolean bl) {
                       super.updateItem(p, bl);
                       if(p!=null){
-                          Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
+                          String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
                           setText(" Cin: "+p.getCin()+"\n Nom : "+p.getNom()+"\n Prenom : "+p.getPrenom()+"\n Mail : "+p.getEmail()+"\n Adresse : "+p.getAdresse()

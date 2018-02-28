@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import org.controlsfx.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
@@ -15,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ProduitDetailsController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.ProduitDetailsController">
    <children>
       <ToggleButton mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
          <graphic>
@@ -43,7 +50,7 @@
       </Text>
       <Text fx:id="desc" layoutX="843.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&#10;&#10;&#10;&#10;&#10;&#10;" wrappingWidth="369.2085103094578" />
       <ListView fx:id="listeC" layoutX="287.0" layoutY="591.0" prefHeight="237.0" prefWidth="1019.0" />
-      <ImageView fx:id="image" fitHeight="328.0" fitWidth="362.0" layoutX="373.0" layoutY="71.0" onMouseEntered="#onclick" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image" fitHeight="288.0" fitWidth="342.0" layoutX="373.0" layoutY="71.0" onMouseEntered="#onclick" pickOnBounds="true" preserveRatio="true" />
       <AnchorPane fx:id="AnchorPane2" focusTraversable="true" prefHeight="869.0" prefWidth="266.0" style="-fx-background-color: #87CEFA;">
          <children>
             <ImageView fitHeight="333.0" fitWidth="232.0" layoutX="17.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
@@ -132,5 +139,7 @@
          <font>
             <Font name="Baskerville" size="16.0" />
          </font></JFXButton>
+      <Rating fx:id="rating" layoutX="379.0" layoutY="377.0" onMouseClicked="#ajouterNote" prefHeight="20.0" prefWidth="50.0" />
+      <Label fx:id="msg" layoutX="569.0" layoutY="385.0" prefHeight="17.0" prefWidth="96.0" text="Label" />
    </children>
 </AnchorPane>

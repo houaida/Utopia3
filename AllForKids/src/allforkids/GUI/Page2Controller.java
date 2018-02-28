@@ -92,8 +92,8 @@ public class Page2Controller implements Initializable {
     private void afficherUser(Admin a) {
         pseudo.setText(a.getPseudo());
         
-        
-        String imageFile =a.getImage();
+        String s="file:/C:/wamp/www/ressources/";
+        String imageFile =s+a.getImage();
         Image img=new Image(imageFile,280,280,true,true,true);
         profil.setImage(img);
         final Circle clip = new Circle(60, 60, 55);
@@ -113,10 +113,11 @@ public class Page2Controller implements Initializable {
                     protected void updateItem(Covoiturage p , boolean bl) {
                         super.updateItem(p, bl);
                         if(p!=null){
+                            
                            /* ParentService ps = new ParentService() ; 
                             Parent p1 =  ps.searchImg(p.getId_user()) ; */
                            //String im = "file:/C:/Users/imen/Desktop/imen.png" ;    
-                            Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/28308637_1258699480931726_1081687478_n.png", 100, 100, true, true, true) ; 
+                            Image img = new Image("file:/C:/wamp/www/ressources/imencov.jpg", 100, 100, true, true, true) ; 
                             ImageView imgV = new ImageView(img) ; 
                             setGraphic(imgV); 
                             setText("Depart : " + p.getDepart() + "\n"+"DateDepart : " + p.getDateDepart() + "\n"+"Destination : " + p.getDestination() + "\n" +"Heure départ : " + p.getHeureD() + "\n"+"Date arrivé : " + p.getDateArrive() + "\n"+"Heure arrivé : " + p.getHeureA() + "\n"+"Nombre de places disponibles : " + p.getNbre_place_dispo() );
@@ -154,7 +155,7 @@ public void afficherListeReservation()
                            /* ParentService ps = new ParentService() ; 
                             Parent p1 =  ps.searchImg(p.getId_user()) ; */
                            //String im = "file:/C:/Users/imen/Desktop/imen.png" ;    
-                            Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/28236357_1769461659772238_2102816472_n.png", 100, 100, true, true, true) ; 
+                            Image img = new Image("file:/C:/wamp/www/ressources/reservation.png", 100, 100, true, true, true) ; 
                             ImageView imgV = new ImageView(img) ; 
                             setGraphic(imgV); 
                             setText("Depart : " + p.getDepart() + "\n"+"DateDepart : " + p.getDateDepart() + "\n"+"Destination : " + p.getDestination() + "\n" +"Heure départ : " + p.getHeureD() + "\n"+"Date arrivé : " + p.getDateArrive() + "\n"+"Heure arrivé : " + p.getHeureA() + "\n"+"Nombre de places disponibles : " + p.getNbre_place_dispo() + "\n"+"Nombre de place reservé: " + r.getNbre_place()+ "\n");

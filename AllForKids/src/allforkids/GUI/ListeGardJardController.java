@@ -81,7 +81,8 @@ public class ListeGardJardController implements Initializable {
                       super.updateItem(p, bl);
                       
                       if(p!=null){
-                          Image img = new Image(p.getImage(), 200, 200, true, true, true) ;
+                          String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+p.getImage(), 200, 200, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
                           

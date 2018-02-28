@@ -6,9 +6,11 @@
 package allforkids.GUI;
 
 import allforkids.entite.Commentaire;
+import allforkids.entite.Note;
 import allforkids.entite.Parent;
 import allforkids.entite.Produit;
 import allforkids.service.CommentaireService;
+import allforkids.service.NoteService;
 import allforkids.service.ParentService;
 import java.io.IOException;
 import java.net.URL;
@@ -56,6 +58,8 @@ public class ViewCommentsController implements Initializable {
     @FXML
     private ListView<Commentaire> listeC ;
     @FXML
+    private ListView<Note> listeN ;
+    @FXML
     private Text count ; 
     @FXML
     private AnchorPane AnchorPane2;
@@ -89,8 +93,9 @@ public class ViewCommentsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         afficher(ListeProduitsController.LoggedUser) ; 
-        System.out.println("imgggggggg"+ListeProduitsController.LoggedUser.getImage());
+        //System.out.println("imgggggggg"+ListeProduitsController.LoggedUser.getImage());
         afficherCommment(); 
+        afficherNotes() ; 
     }    
     
      public void afficher(Produit u)
@@ -100,7 +105,8 @@ public class ViewCommentsController implements Initializable {
             categorie.setText("Catégorie : "+u.getCatégorie());
             prix.setText("Prix : "+u.getPrix_produit()+" DT");
             description.setText("Description : "+u.getDescription());
-            String imageFile = u.getImage() ; 
+            String s="file:/C:/wamp/www/ressources/";
+            String imageFile = s+u.getImage() ; 
             Image image1 = new Image(imageFile);
             image.setImage(image1);
        } 
@@ -117,13 +123,13 @@ public class ViewCommentsController implements Initializable {
                       super.updateItem(p, bl);
                       if(p!=null){
 
-                          
+                          String s="file:/C:/wamp/www/ressources/";
                           ParentService ps = new ParentService() ; 
                           Parent pr = ps.search(p.getId_parent()) ; 
                           System.out.println("***********************");
                           System.out.println("parents : "+pr);
                           System.out.println("***********************"); 
-                          Image img = new Image(pr.getImage(), 80, 80, true, true, true) ;
+                          Image img = new Image(s+pr.getImage(), 80, 80, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
 final Circle clip = new Circle(30,40,25);
 imgV.setClip(clip);
@@ -237,6 +243,37 @@ imgV.setClip(clip);
 
     @FXML
     private void gotoDemandeTravail(MouseEvent event) {
+    }
+    
+     public void afficherNotes(){
+        NoteService cs = new NoteService() ; 
+        ObservableList<Note>  lc = cs.getAllById(ListeProduitsController.LoggedUser.getId_produit()) ; 
+        
+        
+          listeN.setCellFactory((ListView<Note> param) -> {
+              ListCell<Note> cell = new ListCell<Note>() {
+                  @Override
+                  protected void updateItem(Note p , boolean bl) {
+                      super.updateItem(p, bl);
+                      if(p!=null){
+
+                          String s="file:/C:/wamp/www/ressources/";
+                          ParentService ps = new ParentService() ; 
+                          Parent pr = ps.search(p.getId_parent()) ; 
+                          Image img = new Image(s+pr.getImage(), 80, 80, true, true, true) ;
+                          ImageView imgV = new ImageView(img) ;
+final Circle clip = new Circle(30,40,25);
+imgV.setClip(clip);
+        
+        
+                          setGraphic(imgV);
+                          setText(pr.getNom()+" a noté le produit avec un :"+"\n"+p.getNb_etoiles()+"\n");
+                          
+                      }
+                  }
+              } ; return cell ;
+          });
+      listeN.setItems(lc);
     }
     
 }

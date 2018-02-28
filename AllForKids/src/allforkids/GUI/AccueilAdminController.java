@@ -8,15 +8,20 @@ package allforkids.GUI;
 import allforkids.entite.Admin;
 import allforkids.entite.Commande;
 import allforkids.entite.LigneCommande;
+import allforkids.entite.Livraison;
+import allforkids.entite.Livreur;
 import allforkids.entite.Parent;
 import allforkids.entite.Produit;
 import allforkids.service.CommandeService;
 import allforkids.service.LigneCommandeService;
+import allforkids.service.LivraisonService;
+import allforkids.service.LivreurService;
 import allforkids.service.ParentService;
 import allforkids.service.ProduitService;
 import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -78,7 +83,7 @@ public class AccueilAdminController implements Initializable {
     @FXML
     private TableColumn<Commande, Float> total;
     @FXML
-    private TableColumn<Commande, String> date;
+    private TableColumn<Commande, Timestamp> date;
     @FXML
     private ToggleButton page1;
     @FXML
@@ -88,6 +93,16 @@ public class AccueilAdminController implements Initializable {
     private BorderPane anB;
     @FXML
     private ToggleButton gestionReclamation;
+    @FXML
+    private TableView<Livraison> tableL;
+    @FXML
+    private TableColumn<Livraison, Image> livreur;
+    @FXML
+    private TableColumn<Livraison, Image> produit1;
+    @FXML
+    private TableColumn<Livraison, String> duree;
+    @FXML
+    private TableColumn<Livraison, String> adresse;
 
     /**
      * Initializes the controller class.
@@ -99,6 +114,7 @@ public class AccueilAdminController implements Initializable {
                
         afficherUser(AuthentificationController.LoggedAdmin);
         afficherListeProduits();
+        afficherListeLivraisons() ; 
     }    
 
     @FXML
@@ -109,8 +125,8 @@ public class AccueilAdminController implements Initializable {
     private void afficherUser(Admin a) {
         pseudo.setText(a.getPseudo());
         
-        
-        String imageFile =a.getImage();
+         String s="file:/C:/wamp/www/ressources/";
+        String imageFile =s+a.getImage();
         Image img=new Image(imageFile,280,280,true,true,true);
         profil.setImage(img);
         final Circle clip = new Circle(60, 60, 55);
@@ -129,8 +145,8 @@ public void afficherListeProduits()
                     Commande p = param.getValue() ; 
                     ParentService ps = new ParentService() ; 
                     Parent pr = ps.search(p.getId_parent()) ; 
-                    
-                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                    String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 80, 80, true, true, true));
                 }
             }) ; 
             client.setCellFactory(new Callback<TableColumn<Commande, Image>, TableCell<Commande, Image>>() {
@@ -160,7 +176,8 @@ public void afficherListeProduits()
                     LigneCommande l = ls.search(p.getId_ligne()) ; 
                     ProduitService ps = new ProduitService() ; 
                     Produit pr = ps.search(l.getId_produit()) ; 
-                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                    String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 80, 80, true, true, true));
                 }
             }) ; 
             produit.setCellFactory(new Callback<TableColumn<Commande, Image>, TableCell<Commande, Image>>() {
@@ -181,7 +198,7 @@ public void afficherListeProduits()
             
             //produit.setCellValueFactory(new PropertyValueFactory<>("id_produit")) ;
             
-      
+      date.setCellValueFactory(new PropertyValueFactory<>("date"));
         total.setCellValueFactory(new PropertyValueFactory<>("total"));
      date.setCellValueFactory(new PropertyValueFactory<>("date"));
       
@@ -262,6 +279,74 @@ public void afficherListeProduits()
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListviewApprouver.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+        
+    }
+    
+    @FXML 
+    private void afficherListeLivraisons()
+    {
+         LivraisonService ps = new LivraisonService() ; 
+            tableL.setItems(null);
+            tableL.setItems(ps.getAll2());
+              //client.setCellFactory(new PropertyValueFactory<>("id_parent"));
+            livreur.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Livraison, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<Livraison, Image> param) {
+                    Livraison p = param.getValue() ; 
+                    LivreurService ps = new LivreurService() ; 
+                    Livreur pr = ps.search(p.getId_livreur()) ; 
+                    String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+            livreur.setCellFactory(new Callback<TableColumn<Livraison, Image>, TableCell<Livraison, Image>>() {
+                @Override
+                public TableCell<Livraison, Image> call(TableColumn<Livraison, Image> param) {
+                    return new TableCell<Livraison, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        //ImageView imageV =  new ImageView() ; 
+                        ImageView imageV = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        //final Circle clip = new Circle(30,40,25);
+                        //imageV.setClip(clip);
+                        setGraphic(imageV);
+                    }
+                } ; 
+                }
+            });
+            produit1.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Livraison, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<Livraison, Image> param) {
+                    Livraison p = param.getValue() ;
+                    ProduitService ps = new ProduitService() ; 
+                    Produit pr = ps.search(p.getId_produit()) ; 
+                    String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 80, 80, true, true, true));
+                }
+            }) ; 
+            produit1.setCellFactory(new Callback<TableColumn<Livraison, Image>, TableCell<Livraison, Image>>() {
+                @Override
+                public TableCell<Livraison, Image> call(TableColumn<Livraison, Image> param) {
+                    return new TableCell<Livraison, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        ImageView imageView = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        setGraphic(imageView);
+                    }
+                } ; 
+                }
+            });
+      duree.setCellValueFactory(new PropertyValueFactory<>("duree"));
+     adresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+        
+      
+      
         
     }
     

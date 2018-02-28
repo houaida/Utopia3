@@ -14,16 +14,16 @@ public class Note {
     private int id_note ; 
     private int id_parent ; 
     private int id_produit ; 
-    private int nb_etoiles ; 
+    private String nb_etoiles ; 
 
-    public Note(int id_note, int id_parent, int id_produit, int nb_etoiles) {
+    public Note(int id_note, int id_parent, int id_produit, String nb_etoiles) {
         this.id_note = id_note;
         this.id_parent = id_parent;
         this.id_produit = id_produit;
         this.nb_etoiles = nb_etoiles;
     }
 
-    public Note(int id_parent, int id_produit, int nb_etoiles) {
+    public Note(int id_parent, int id_produit, String nb_etoiles) {
         this.id_parent = id_parent;
         this.id_produit = id_produit;
         this.nb_etoiles = nb_etoiles;
@@ -41,7 +41,7 @@ public class Note {
         return id_produit;
     }
 
-    public int getNb_etoiles() {
+    public String getNb_etoiles() {
         return nb_etoiles;
     }
 
@@ -57,7 +57,7 @@ public class Note {
         this.id_produit = id_produit;
     }
 
-    public void setNb_etoiles(int nb_etoiles) {
+    public void setNb_etoiles(String nb_etoiles) {
         this.nb_etoiles = nb_etoiles;
     }
 

@@ -112,6 +112,19 @@ public void insertTotal(Promotion p) {
         }
     return p ; 
     }
+    
+    public Promotion searchIdProd(int id) {
+        Promotion p = null ; 
+    String req = "select * from promotions where id_produit="+id ; 
+    try{
+        result = st.executeQuery(req) ; 
+        result.next() ; 
+        p = new Promotion(result.getInt("id_promo"),result.getInt("id_produit"), result.getInt("pourcentage"), result.getString("date_debut"),result.getString("date_fin"),result.getFloat("prixPromo")) ; 
+    }   catch (SQLException ex) {
+            Logger.getLogger(PromotionService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return p ; 
+    }
 
     @Override
     public boolean delete(int id) {
@@ -176,6 +189,25 @@ public void insertTotal(Promotion p) {
     }
     */
 
+    public ObservableList<Promotion> getAll2(int id) {
+       
+        ObservableList<Promotion> list = FXCollections.observableArrayList();
+        try {
+            result = st.executeQuery("select * from promotions where id_produit="+id);
+           /* ResultSetMetaData resultMeta = result.getMetaData() ; 
+            System.out.println("**********");
+            for(int i = 1 ; i<= resultMeta.getColumnCount() ; i++){
+                System.out.println(resultMeta.getColumnName(i).toUpperCase());
+            }
+            System.out.println("***********"); */
+            while (result.next()) {
+                Promotion p = new Promotion(result.getInt("id_promo"),result.getInt("id_produit"), result.getInt("pourcentage"), result.getString("date_debut"),result.getString("date_fin"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;    }
     
     
 }
