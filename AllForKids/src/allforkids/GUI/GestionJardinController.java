@@ -120,7 +120,8 @@ public class GestionJardinController implements Initializable {
                 @Override
                 public ObservableValue<Image> call(TableColumn.CellDataFeatures<JardinEnfant, Image> param) {
                     JardinEnfant p = param.getValue() ; 
-                    return new SimpleObjectProperty<>(new Image(p.getImage(), 100, 100, true, true, true));
+                    String s="file:/C:/wamp/www/ressources/" ; 
+                    return new SimpleObjectProperty<>(new Image(s+p.getImage(), 100, 100, true, true, true));
                 }
             }) ; 
             image.setCellFactory(new Callback<TableColumn<JardinEnfant, Image>, TableCell<JardinEnfant, Image>>() {

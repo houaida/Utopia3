@@ -124,7 +124,7 @@ public class demandeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        		//System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
         // TODO int i;
          afficherDemande();

@@ -50,7 +50,7 @@ public class OffreDemandeCompController implements Initializable {
     @FXML
     private TableColumn<Offre, String> description1;
     @FXML
-    private TableColumn<Demande, Integer> id_demande2;
+    private TableColumn<Demande, Integer> id_demande;
     @FXML
     private TableView<Demande> tbtable;
     @FXML
@@ -62,7 +62,7 @@ public class OffreDemandeCompController implements Initializable {
     @FXML
     private TableColumn<Demande, String> description;
     @FXML
-    private TableColumn<Offre, Integer> id_offre1;
+    private TableColumn<Offre, Integer> id_offre;
     private JFXTextField rechercheo;
     private JFXTextField recherched;
     @FXML
@@ -111,7 +111,7 @@ titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
 date_debut.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
 date_fin.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
 description.setCellValueFactory(new PropertyValueFactory<>("description"));       
-id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
+id_demande.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
 
         
 
@@ -128,7 +128,8 @@ titre1.setCellValueFactory(new PropertyValueFactory<>("titre"));
 date_debut1.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
 date_fin1.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
 description1.setCellValueFactory(new PropertyValueFactory<>("description"));       
-id_offre1.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
+id_offre.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
+        
 
         
 
@@ -138,7 +139,7 @@ id_offre1.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
     private void rechercheOffreDemande(ActionEvent event) {
          OffreService Goffre=OffreService.getInstance();
 
-        String a =(rechercheo.getText()) ;
+        String a =(trecherche.getText()) ;
 
        tbtable1.setItems(Goffre.getbyPseudo1(a));
       titre1.setCellValueFactory(new PropertyValueFactory<>("titre"));
@@ -161,10 +162,10 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
     }
 
     @FXML
-    private void supprimerOffreDemande(MouseEvent event) {
+    private void supprimerOffreDemande(ActionEvent event) {
            if (!tbtable1.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("suppression de propriétaire ");
+            alert.setTitle("suppression de l'offre ");
             alert.setHeaderText("Etes-vous sur que vous voulez supprimer cette offre"
                     +tbtable1.getSelectionModel().getSelectedItem().getId_offre());
             Optional<ButtonType> result = alert.showAndWait();
@@ -172,20 +173,14 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
                      OffreService Goffre=OffreService.getInstance();
 
                 Goffre.delete(tbtable1.getSelectionModel().getSelectedItem().getId_offre());
+               
                afficherOffre();
             }
-        } else {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            
-            alert.setTitle("Erreur de selection");
-            alert.setHeaderText("Vous etes obligé de selectioner une offre  ");
-
-            Optional<ButtonType> result = alert.showAndWait();
-        }
+        } 
             if (!tbtable.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("suppression de propriétaire ");
-           alert.setHeaderText("Etes-vous sur que vous voulez supprimer cette offre"
+            alert.setTitle("suppression de la demande ");
+           alert.setHeaderText("Etes-vous sur que vous voulez supprimer cette demande"
                +tbtable.getSelectionModel().getSelectedItem().getId_demande());
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
@@ -198,7 +193,7 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             
             alert.setTitle("Erreur de selection");
-            alert.setHeaderText("Vous etes obligé de selectioner une offre  ");
+            alert.setHeaderText("Vous etes obligé de selectioner une offre ou une demande ");
 
             Optional<ButtonType> result = alert.showAndWait();
         }

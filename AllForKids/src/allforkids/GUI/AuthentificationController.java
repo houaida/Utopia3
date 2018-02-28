@@ -234,7 +234,8 @@ public static Admin LoggedAdmin;
                         LoggedProprietaireG = new ProprietaireG();
                        LoggedProprietaireG.setPseudo(u.getPseudo());
                        LoggedProprietaireG.setMdp(u.getMdp());
-                LoggedProprietaireG.setImage(u.getImage());
+                        String s="file:/C:/wamp/www/ressources/";
+                LoggedProprietaireG.setImage(s+u.getImage());
                LoggedProprietaireG.setId_user(u.getId_user());
        //System.out.println(u.getId_user());
        // System.out.println(tfPseudo.getText());
@@ -257,7 +258,8 @@ public static Admin LoggedAdmin;
                         LoggedProprietaireJ = new ProprietaireJ();
                          LoggedProprietaireJ.setPseudo(u.getPseudo());
                           LoggedProprietaireJ.setMdp(u.getMdp());
-                LoggedProprietaireJ.setImage(u.getImage());
+                           String s="file:/C:/wamp/www/ressources/";
+                LoggedProprietaireJ.setImage(s+u.getImage());
                LoggedProprietaireJ.setId_user(u.getId_user());
                System.out.println("id:"+LoggedProprietaireJ.getId_user());
        //System.out.println(u.getId_user());
@@ -413,7 +415,8 @@ public static Image image1=null;
             img.setImage(null);
         ParentService ps=new ParentService();
         Parent p=ps.findbyMail(Mail);
-        String imageFile1 =p.getImage();
+         String s="file:/C:/wamp/www/ressources/";
+        String imageFile1 =s+p.getImage();
         Image image1 = new Image(imageFile1);
         final Circle clip = new Circle(50, 40, 40);
         img.setClip(clip); 
@@ -425,8 +428,8 @@ public static Image image1=null;
           else if(u.getType().equals("enseignant")){
         EnseignantService ps=new EnseignantService();
         Enseignant p=ps.findbyMail(Mail);
-         
-        Image image1 = new Image(p.getImage());
+          String s="file:/C:/wamp/www/ressources/";
+        Image image1 = new Image(s+p.getImage());
         final Circle clip = new Circle(50, 40, 40);
         img.setClip(clip); 
             img.setImage(image1);
@@ -435,8 +438,8 @@ public static Image image1=null;
            else if(u.getType().equals("babysitter")){
         EnseignantService ps=new EnseignantService();
         Enseignant p=ps.findbyMail(Mail);
-         
-        Image image1 = new Image(p.getImage());
+          String s="file:/C:/wamp/www/ressources/";
+        Image image1 = new Image(s+p.getImage());
         final Circle clip = new Circle(50, 40, 40);
         img.setClip(clip); 
             img.setImage(image1);
@@ -445,8 +448,8 @@ public static Image image1=null;
         else if(u.getType().equals("proprietaireg")){
         ProprietaireGService ps=new ProprietaireGService();
         ProprietaireG p=ps.findbyMail(Mail);
-         
-        Image image1 = new Image(p.getImage());
+          String s="file:/C:/wamp/www/ressources/";
+        Image image1 = new Image(s+p.getImage());
         final Circle clip = new Circle(50, 40, 40);
         img.setClip(clip); 
             img.setImage(image1);
@@ -455,8 +458,8 @@ public static Image image1=null;
           else if(u.getType().equals("proprietairej")){
         ProprietaireJService ps=new ProprietaireJService();
         ProprietaireJ p=ps.findbyMail(Mail);
-         
-        Image image1 = new Image(p.getImage());
+          String s="file:/C:/wamp/www/ressources/";
+        Image image1 = new Image(s+p.getImage());
         final Circle clip = new Circle(50, 40, 40);
         img.setClip(clip); 
             img.setImage(image1);

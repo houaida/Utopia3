@@ -171,8 +171,8 @@ public class GestionEnfantController implements Initializable {
                     Enfant p = param.getValue() ; 
                   EnfantService ps = new EnfantService() ; 
                     Enfant pr = ps.search(p.getId_enfant()) ; 
-                    
-                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                    String s="file:/C:/wamp/www/ressources/" ; 
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 80, 80, true, true, true));
                 }
             }) ; 
              Cimage.setCellFactory(new Callback<TableColumn<Enfant, Image>, TableCell<Enfant, Image>>() {
@@ -276,8 +276,8 @@ EnfantService ps=new EnfantService();
                     Enfant p = param.getValue() ; 
                   EnfantService ps = new EnfantService() ; 
                     Enfant pr = ps.search(p.getId_enfant()) ; 
-                    
-                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                    String s="file:/C:/wamp/www/ressources/" ; 
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 80, 80, true, true, true));
                 }
             }) ; 
              Cimage.setCellFactory(new Callback<TableColumn<Enfant, Image>, TableCell<Enfant, Image>>() {

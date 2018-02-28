@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< HEAD
-=======
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
->>>>>>> 667fc182a677a29cd4db7e1e454272150fe35bdc
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.ToggleButton?>
@@ -16,7 +20,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilParentController">
+<AnchorPane fx:id="AnchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilParentController">
    <children>
       <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
          <graphic>
@@ -29,17 +33,17 @@
       </ToggleButton>
       <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutX="-1.0" layoutY="-1.0" prefHeight="869.0" prefWidth="266.0" style="-fx-background-color: #87CEFA;">
          <children>
-            <ImageView fitHeight="333.0" fitWidth="232.0" layoutX="17.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="203.0" fitWidth="166.0" layoutX="63.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/logofinal.gif" />
                </image>
             </ImageView>
-            <ToggleButton layoutX="1.0" layoutY="270.0" mnemonicParsing="false" onAction="#ConseilsGoogle" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education">
+            <ToggleButton layoutX="2.0" layoutY="180.0" mnemonicParsing="false" onAction="#ConseilsGoogle" prefHeight="50.0" prefWidth="277.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
-            <ToggleButton fx:id="gestionPrduit" layoutY="198.0" mnemonicParsing="false" onAction="#boutique" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Boutique&#10;" textAlignment="CENTER">
+            <ToggleButton fx:id="gestionPrduit" layoutX="4.0" layoutY="109.0" mnemonicParsing="false" onAction="#boutique" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="277.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Boutique&#10;" textAlignment="CENTER">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
@@ -53,27 +57,27 @@
                   </ImageView>
                </graphic>
             </ToggleButton>
-            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" onAction="#Evaluation" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evaluation Enfant" textAlignment="CENTER">
+            <ToggleButton layoutX="4.0" layoutY="239.0" mnemonicParsing="false" onAction="#Evaluation" prefHeight="75.0" prefWidth="277.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evaluation Enfant" textAlignment="CENTER">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
-            <ToggleButton layoutX="3.0" layoutY="386.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="BabySitter">
+            <ToggleButton layoutX="4.0" layoutY="304.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="277.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="BabySitter">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
-            <ToggleButton layoutX="2.0" layoutY="464.0" mnemonicParsing="false" onAction="#onclickCov" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="CovoiturageRéservation;">
+            <ToggleButton layoutX="4.0" layoutY="393.0" mnemonicParsing="false" onAction="#onclickCov" prefHeight="83.0" prefWidth="277.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Covoiturage&#10;Réservation">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
 
-            <ToggleButton fx:id="clubs" layoutX="3.0" layoutY="547.0" mnemonicParsing="false" onAction="#clubs" prefHeight="65.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Clubs">
+            <ToggleButton fx:id="clubs" layoutX="10.0" layoutY="484.0" mnemonicParsing="false" onAction="#clubs" prefHeight="65.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Clubs">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font></ToggleButton>
-            <ToggleButton fx:id="fleche2" layoutX="226.0" layoutY="412.0" mnemonicParsing="false" onAction="#aff1" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+            <ToggleButton fx:id="fleche2" layoutX="231.0" layoutY="345.0" mnemonicParsing="false" onAction="#aff1" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -91,7 +95,7 @@
                   </ImageView>
                </graphic>
             </ToggleButton>
-            <ToggleButton fx:id="evenements" layoutY="634.0" mnemonicParsing="false" onAction="#evenements" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evénements&#10;&#10;">
+            <ToggleButton fx:id="evenements" layoutX="8.0" layoutY="549.0" mnemonicParsing="false" onAction="#evenements" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evénements&#10;&#10;">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font></ToggleButton>
@@ -100,7 +104,7 @@
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
-            <ToggleButton layoutX="11.0" layoutY="668.0" mnemonicParsing="false" onAction="#gotoPaint" prefHeight="90.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Dessiner avec votre&#10;         enfant&#10;">
+            <ToggleButton layoutX="8.0" layoutY="617.0" mnemonicParsing="false" onAction="#gotoPaint" prefHeight="90.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Dessiner avec votre&#10;         enfant&#10;">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>
@@ -139,7 +143,7 @@
       <ImageView fx:id="imgView1" fitHeight="161.0" fitWidth="285.0" layoutX="674.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgView2" fitHeight="161.0" fitWidth="285.0" layoutX="1056.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true" />
       <MediaView fx:id="video" fitHeight="400.0" fitWidth="700.0" layoutX="456.0" layoutY="406.0" />
-      <AnchorPane fx:id="anB" layoutX="265.0" layoutY="409.0" prefHeight="212.0" prefWidth="262.0" style="-fx-background-color: #87CEFA;" visible="false">
+      <AnchorPane fx:id="anB" layoutX="275.0" layoutY="350.0" prefHeight="212.0" prefWidth="262.0" style="-fx-background-color: #87CEFA;" visible="false">
          <children>
             <ToggleButton mnemonicParsing="false" onAction="#Reclamation" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Reclamation&#10;">
                <font>

@@ -229,11 +229,11 @@ public class CovController implements Initializable {
                            /* ParentService ps = new ParentService() ; 
                             Parent p1 =  ps.searchImg(p.getId_user()) ; */
                            //String im = "file:/C:/Users/imen/Desktop/imen.png" ;    
-<<<<<<< HEAD
+
                             Image img = new Image("file:/C:/wamp/www/ressources/imencov.jpg", 100, 100, true, true, true) ; 
-=======
-                            Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/img/cov.png", 100, 100, true, true, true) ; 
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
+                            //Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/img/cov.png", 100, 100, true, true, true) ; 
+
                             ImageView imgV = new ImageView(img) ; 
                             setGraphic(imgV); 
                             setText("Depart : " + p.getDepart() + "\n"+"DateDepart : " + p.getDateDepart() + "\n"+"Destination : " + p.getDestination() + "\n" +"Heure dÃ©part : " + p.getHeureD() + "\n"+"Date arrivÃ© : " + p.getDateArrive() + "\n"+"Heure arrivÃ© : " + p.getHeureA() + "\n"+"Nombre de places disponibles : " + p.getNbre_place_dispo() );
@@ -326,11 +326,11 @@ public class CovController implements Initializable {
                            /* ParentService ps = new ParentService() ; 
                             Parent p1 =  ps.searchImg(p.getId_user()) ; */
                            //String im = "file:/C:/Users/imen/Desktop/imen.png" ;    
-<<<<<<< HEAD
+
                             Image img = new Image("file:/C:/wamp/www/ressources/reservation.png", 100, 100, true, true, true) ; 
-=======
-                            Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/reserv.png", 100, 100, true, true, true) ; 
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
+                           // Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/reserv.png", 100, 100, true, true, true) ; 
+
                             ImageView imgV = new ImageView(img) ; 
                             setGraphic(imgV); 
                             setText("Depart : " + p.getDepart() + "\n"+"DateDepart : " + p.getDateDepart() + "\n"+"Destination : " + p.getDestination() + "\n" +"Heure dÃ©part : " + p.getHeureD() + "\n"+"Date arrivÃ© : " + p.getDateArrive() + "\n"+"Heure arrivÃ© : " + p.getHeureA() + "\n"+"Nombre de places disponibles : " + p.getNbre_place_dispo() + "\n"+"Nombre de place reservÃ©: " + r.getNbre_place()+ "\n");

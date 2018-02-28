@@ -182,7 +182,7 @@ Offre p1=search(p.getId_offre());
     ObservableList<Offre> liste = FXCollections.observableArrayList();
    
     try{
-rs = st.executeQuery("select * from offres_babysitter where titre like '%"+pseudo+"%'") ;
+rs = st.executeQuery("select * from offres_babysitter d join users u on d.id_babysitter=u.id_user where type='babysitter' and titre like '%"+pseudo+"%'") ;
       while (rs.next()) { 
             Offre p = new Offre(rs.getInt("id_babysitter"),rs.getString("Description"),rs.getString("titre"),rs.getString("date_debut"),rs.getString("date_fin"));
                 liste.add(p); 

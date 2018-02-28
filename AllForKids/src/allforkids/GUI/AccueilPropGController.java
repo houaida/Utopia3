@@ -100,8 +100,8 @@ public class AccueilPropGController implements Initializable {
     private void afficherUser(ProprietaireG a) {
         pseudo.setText(a.getPseudo());
         
-        
-        String imageFile =a.getImage();
+        String s="file:/C:/wamp/www/ressources/" ; 
+        String imageFile =s+a.getImage();
         Image img=new Image(imageFile,280,280,true,true,true);
         profil.setImage(img);
         final Circle clip = new Circle(60, 60, 55);
@@ -119,7 +119,9 @@ public class AccueilPropGController implements Initializable {
                       super.updateItem(p, bl);
                       
                       if(p!=null){
-                          Image img = new Image(p.getImage(), 200, 200, true, true, true) ;
+                          String s="file:/C:/wamp/www/ressources/" ; 
+                          Image img = new Image(s+p.getImage(), 200, 200, true, true, true) ;
+                          
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
                           
