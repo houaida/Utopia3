@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
+=======
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Button?>
+>>>>>>> 667fc182a677a29cd4db7e1e454272150fe35bdc
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.ToggleButton?>
@@ -93,6 +96,11 @@
                   <Font name="Baskerville" size="23.0" />
                </font></ToggleButton>
             <ToggleButton layoutX="-1.0" layoutY="707.0" mnemonicParsing="false" onAction="#quiz" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Quiz&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="11.0" layoutY="668.0" mnemonicParsing="false" onAction="#gotoPaint" prefHeight="90.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Dessiner avec votre&#10;         enfant&#10;">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>

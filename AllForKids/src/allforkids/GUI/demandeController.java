@@ -34,6 +34,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import org.opencv.core.Core;
 
 /**
  * FXML Controller class
@@ -123,6 +124,8 @@ public class demandeController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+
         // TODO int i;
          afficherDemande();
      
@@ -187,6 +190,7 @@ id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
 
      gDemande.update(demande);
          afficherDemande();
+           btn2.setDisable(true);
      }
     @FXML
     private void supprimerdemande(ActionEvent event) {
@@ -194,8 +198,8 @@ id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
         if (!tbtable1.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("suppression de propriétaire ");
-           alert.setHeaderText("Etes-vous sur que vous voulez supprimer cette offre"
-               +tbtable1.getSelectionModel().getSelectedItem().getId_demande());
+           alert.setHeaderText("Etes-vous sur que vous voulez supprimer cette l'offre --"
+               +tbtable1.getSelectionModel().getSelectedItem().getTitre()+"--");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
      DemandeService gDemande=DemandeService.getInstance();

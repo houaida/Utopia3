@@ -33,10 +33,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+<<<<<<< HEAD
+import javafx.scene.Scene;
+=======
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+>>>>>>> 667fc182a677a29cd4db7e1e454272150fe35bdc
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -47,9 +51,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+<<<<<<< HEAD
+import javafx.stage.Stage;
+=======
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
+>>>>>>> 667fc182a677a29cd4db7e1e454272150fe35bdc
 
 /**
  * FXML Controller class
@@ -351,6 +359,20 @@ public class AccueilParentController implements Initializable {
     }
 
     @FXML
+<<<<<<< HEAD
+    private void gotoPaint(ActionEvent event) throws IOException {
+          AnchorPane1.setPrefSize(600,600);
+                 Stage stage = new Stage();
+                     //  ((Node) event.getSource()).getScene().getWindow().hide();
+                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("Paint.fxml"));
+                        Scene scene = new Scene(root);
+
+                        
+
+                        stage.setScene(scene);
+                        stage.show();
+    }
+=======
     private void parametrage(ActionEvent event) {
         Param.setVisible(true);
         param1.setVisible(false);
@@ -516,6 +538,7 @@ private void closeButtonAction(){
            
     }
         }
+>>>>>>> 667fc182a677a29cd4db7e1e454272150fe35bdc
     
     
 

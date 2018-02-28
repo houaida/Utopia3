@@ -21,6 +21,15 @@ public class Babysitter extends User{
     private String num_tel;
     private String image;
      private int alerte;
+     private int Anciennete;
+
+    public int getAnciennete() {
+        return Anciennete;
+    }
+
+    public void setAnciennete(int Anciennete) {
+        this.Anciennete = Anciennete;
+    }
 
 
   
@@ -69,6 +78,18 @@ public Babysitter(int id_user,int cin, String nom, String prenom, String adresse
         this.num_tel = num_tel;
         this.alerte=alerte;
     }
+public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,String num_tel,String date_naissance,String image,int alerte,int Anciennete ) {
+        super(id_user, pseudo, mdp, Email);
+        this.date_naissance=date_naissance;
+        this.image=image;
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.alerte=alerte;
+        this.Anciennete=Anciennete;
+    }
 public Babysitter(int id_user,int cin, String nom, String prenom, String adresse,  String pseudo, String mdp, String Email,String num_tel,String date_naissance,String image) {
         super(id_user, pseudo, mdp, Email);
         this.date_naissance=date_naissance;
@@ -97,6 +118,17 @@ public Babysitter(int id_user,int cin, String nom, String prenom, String adresse
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.alerte=alerte;
+    }
+  public Babysitter(int cin, String nom, String prenom, String pseudo,String mdp,String Email,String adresse, String num_tel,String date_naissance,String image,int alerte,int Anciennete) {
+        super(pseudo, mdp, Email);
+        this.cin = cin;
+     this.image=image;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.alerte=alerte;
+        this.Anciennete=Anciennete;
     }
     public Babysitter(int cin, String nom, String prenom, String pseudo,String mdp,String Email,String adresse, String num_tel,String date_naissance,String image) {
         super(pseudo, mdp, Email);
