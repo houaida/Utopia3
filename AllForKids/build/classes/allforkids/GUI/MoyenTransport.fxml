@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,13 +18,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="707.0" prefWidth="1085.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.MoyenTransportController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="707.0" prefWidth="1085.0" stylesheets="@css/covoiturage.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.MoyenTransportController">
    <children>
-      <ImageView fitHeight="707.0" fitWidth="1085.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/hou.png" />
-         </image>
-      </ImageView>
       <HBox layoutX="18.0" layoutY="11.0" prefHeight="60.0" prefWidth="1036.0" styleClass="box-topo">
          <children>
             <Label id="AnchorPane1" fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Gestion Des Moyens de transport" textFill="#45d328" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
@@ -74,9 +73,9 @@
       <TextField id="nbr" fx:id="nbr" layoutX="197.0" layoutY="237.0" promptText="nombre de place" />
       <TextField id="immatriculation" fx:id="immatriculation" layoutX="197.0" layoutY="188.0" promptText="immatriculation" />
       <TextField id="type" fx:id="type" layoutX="197.0" layoutY="144.0" promptText="type" />
-      <TableView fx:id="table" layoutX="502.0" layoutY="123.0" prefHeight="394.0" prefWidth="525.0">
+      <TableView fx:id="table" layoutX="502.0" layoutY="123.0" prefHeight="394.0" prefWidth="376.0">
          <columns>
-            <TableColumn fx:id="Cid" prefWidth="148.0" text="Id moyen de transport" />
+            <TableColumn fx:id="Cid" prefWidth="148.0" text="Id moyen de transport" visible="false" />
             <TableColumn fx:id="Ctype" prefWidth="99.0" text="Type" />
             <TableColumn fx:id="Cim" prefWidth="129.0" text="Immatriculation" />
             <TableColumn fx:id="Cnbr" prefWidth="148.0" text="Nombre de place" />

@@ -101,18 +101,35 @@ public class ReservationService implements IAllForKids<Reservation>{
         }
         return list;
     }
-    
-     public  Reservation search1(int id) {
-                   Reservation p = null ; 
+     public  ObservableList<Reservation> searchRes(int id) {
+                  // Reservation p = null ; 
+                  ObservableList<Reservation>list =FXCollections.observableArrayList(); 
     String req = "select * from reservations where id_user="+id ; 
     try{
         result = st.executeQuery(req) ; 
-        result.next() ; 
-        p = new Reservation(result.getInt(1), result.getInt(2), result.getInt(3),result.getInt(4));
+        while(result.next() ){ 
+        Reservation p = new Reservation(result.getInt(1), result.getInt(2), result.getInt(3),result.getInt(4));
+        list.add(p);
+        }
         }   catch (SQLException ex) {
             Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
         }
-    return p ;
+    return list ;
+    }
+     public  ObservableList<Reservation> search1(int id) {
+                  // Reservation p = null ; 
+                  ObservableList<Reservation>list =FXCollections.observableArrayList(); 
+    String req = "select * from reservations where id_user="+id ; 
+    try{
+        result = st.executeQuery(req) ; 
+        while(result.next() ){ 
+        Reservation p = new Reservation(result.getInt(1), result.getInt(2), result.getInt(3),result.getInt(4));
+        list.add(p);
+        }
+        }   catch (SQLException ex) {
+            Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return list ;
     }
 
     @Override
@@ -144,12 +161,12 @@ public class ReservationService implements IAllForKids<Reservation>{
 
     @Override
     public boolean delete(int id) {
-        Reservation p1=search(id);
+        Reservation p1=search2(id);
       
    if(p1!=null)
    {
        try {
-           st.executeUpdate("delete from reservations where idC="+id);
+           st.executeUpdate("delete from reservations where id_reservation="+id);
             return true;
            }catch (SQLException ex) {    
                 Logger.getLogger(CovoiturageService.class.getName()).log(Level.SEVERE, null, ex);
@@ -164,7 +181,7 @@ public class ReservationService implements IAllForKids<Reservation>{
          Reservation p1= search2(p.getId()); 
     if(p1!=null){
         try{
-            st.executeUpdate("update reservations set id_user='"+p.getId_user()+"',nbre_place='"+p.getNbre_place()+"',idC='"+v+"'where id_reservation="+p1) ; 
+            st.executeUpdate("update reservations set id_user='"+p.getId_user()+"',nbre_place='"+p.getNbre_place()+"',idC='"+v+"'where id_reservation="+p1.getId()) ; 
         } catch (SQLException ex) {
             Logger.getLogger(ReservationService.class.getName()).log(Level.SEVERE, null, ex);
         }

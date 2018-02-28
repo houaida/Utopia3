@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< HEAD
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-=======
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -21,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" maxHeight="866.0" maxWidth="1329.0" minHeight="866.0" minWidth="1329.0" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilAdminController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" maxHeight="866.0" maxWidth="1329.0" minHeight="866.0" minWidth="1329.0" prefHeight="866.0" prefWidth="1329.0" styleClass="mainFxmlClass" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilAdminController">
    <children>
       <TableView fx:id="tableC" layoutX="311.0" layoutY="301.0" prefHeight="209.0" prefWidth="994.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
          <columns>
@@ -131,11 +123,11 @@
             <Font name="Baskerville" size="21.0" />
          </font>
       </Label>
-<<<<<<< HEAD
+
       <Label layoutX="273.0" layoutY="252.0" text="Liste des commandes" textFill="#ffc014">
-=======
-      <Label layoutX="294.0" layoutY="263.0" text="Liste des commandes" textFill="#ffc014">
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
+      
+
          <font>
             <Font name="Baskerville" size="25.0" />
          </font>
@@ -150,7 +142,7 @@
             <Font size="18.0" />
          </font>
       </ToggleButton>
-<<<<<<< HEAD
+
       <Label layoutX="285.0" layoutY="510.0" text="Liste des livraisons" textFill="#ffc014">
          <font>
             <Font name="Baskerville" size="33.0" />
@@ -164,7 +156,7 @@
             <TableColumn fx:id="adresse" prefWidth="262.02081298828125" text="Adresse " />
          </columns>
       </TableView>
-=======
+
       <ImageView fx:id="profil" fitHeight="150.0" fitWidth="200.0" layoutX="368.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" />
       <AnchorPane fx:id="Param" layoutX="1097.0" layoutY="63.0" prefHeight="98.0" prefWidth="154.0" style="-fx-background-color: black;" visible="false">
          <children>
@@ -246,9 +238,11 @@
             <Image url="@img/icon/Ic_play_arrow_48px.svg%20-%20copie%202.png" />
          </image>
       </ImageView>
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
-
-    
+      <ToggleButton layoutX="-2.0" layoutY="542.0" mnemonicParsing="false" onAction="#moyenTransport" onMouseClicked="#gotoDemandeTravail" prefHeight="75.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Moyen&#10; de transport&#10;&#10;&#10;" textAlignment="CENTER">
+         <font>
+            <Font name="Baskerville" size="23.0" />
+         </font>
+      </ToggleButton>
 
 
    </children>

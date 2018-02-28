@@ -33,10 +33,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+
+import javafx.scene.Scene;
+
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -47,9 +51,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+
+import javafx.stage.Stage;
+
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.controlsfx.control.Notifications;
+
 
 /**
  * FXML Controller class
@@ -66,8 +74,6 @@ public class AccueilParentController implements Initializable {
     private ToggleButton gestionPrduit;
     @FXML
     private ToggleButton clubs;
-    @FXML
-    private ToggleButton evenements;
     @FXML
     private ToggleButton retire;
     @FXML
@@ -130,37 +136,43 @@ public class AccueilParentController implements Initializable {
     private ToggleButton triangle1;
     @FXML
     private ImageView Tparam;
+    @FXML
+    private ToggleButton fleche21;
+    @FXML
+    private ToggleButton fleche11;
+    @FXML
+    private AnchorPane AnRes;
 @FXML
     private void changer2(ActionEvent event) {
-       
+       /*
         imgView.setImage(new Image("file:/C:/wamp/www/ressources/garderie1.jpg"));
        
-<<<<<<< HEAD
+
         imgView1.setImage(new Image("file:/C:/wamp/www/ressources/boutique1.jpg"));
          imgView2.setImage(new Image("file:/C:/wamp/www/ressources/event1.jpg"));
      bt1.setDisable(true);
-=======
-        imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
-         imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));
-    */ bt1.setDisable(true);
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
+      /*  imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
+         imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));*/
+     bt1.setDisable(true);
      bt.setDisable(false);
     }
     @FXML
     private void changer1(ActionEvent event) {
-<<<<<<< HEAD
+
        
-          imgView.setImage(new Image("file:/C:/wamp/www/ressources/garderie2.jpg"));
+          /*imgView.setImage(new Image("file:/C:/wamp/www/ressources/garderie2.jpg"));
          imgView1.setImage(new Image("file:/C:/wamp/www/ressources/boutique2.jpg"));
    imgView2.setImage(new Image("file:/C:/wamp/www/ressources/event2.jpg"));
-    bt1.setDisable(false);
-=======
+    bt1.setDisable(false);*/
+
        /*
           imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie2.jpg"));
          imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique2.jpg"));
    imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event2.jpg"));
    */ bt1.setDisable(false);
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
+  
      bt.setDisable(true);
     }
       
@@ -176,24 +188,24 @@ public class AccueilParentController implements Initializable {
        
 
 
-<<<<<<< HEAD
-        imgView.setImage(new Image("file:/C:/wamp/www/ressources/garderie1.jpg"));
-=======
-      /* imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
+        //imgView.setImage(new Image("file:/C:/wamp/www/ressources/garderie1.jpg"));
+
+    //imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
+
        
-        imgView1.setImage(new Image("file:/C:/wamp/www/ressources/boutique1.jpg"));
+      /* imgView1.setImage(new Image("file:/C:/wamp/www/ressources/boutique1.jpg"));
          imgView2.setImage(new Image("file:/C:/wamp/www/ressources/event1.jpg"));
      bt1.setDisable(true);
-     bt.setDisable(false);
+     bt.setDisable(false);*/
      
-<<<<<<< HEAD
-     String Vurl="file:/C:/wamp/www/ressources/video.mp4";
 
-        imgView.setImage(new Image("file:/C:/wamp/www/ressources/garderie1.jpg"));
+     //String Vurl="file:/C:/wamp/www/ressources/video.mp4";
+
+       /* imgView.setImage(new Image("file:/C:/wamp/www/ressources/garderie1.jpg"));
         imgView1.setImage(new Image("file:/C:/wamp/www/ressources/boutique1.jpg"));
-         imgView2.setImage(new Image("file:/C:/wamp/www/ressources/event1.jpg"));
-=======
+         imgView2.setImage(new Image("file:/C:/wamp/www/ressources/event1.jpg"));*/
+
 
     /*String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
 
@@ -203,32 +215,27 @@ public class AccueilParentController implements Initializable {
         imgView.setImage(new Image("file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
         imgView1.setImage(new Image("file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
          imgView2.setImage(new Image("file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
      bt1.setDisable(true);
      bt.setDisable(false);*/
      
-<<<<<<< HEAD
+
     // String Vurl="file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
-=======
+
 
      //String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
 
-     String Vurl="file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+    // String Vurl="file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
 
 
-
-
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
-
-        Media media = new Media(Vurl);
+/*        Media media = new Media(Vurl);
      MediaPlayer mediaplayer=new MediaPlayer(media);
      video.setFitHeight(400);
      video.setFitWidth(700);
      video.setMediaPlayer(mediaplayer);
 
       mediaplayer.setAutoPlay(true);
-<<<<<<< HEAD
-=======
+
      /*String urlv = "file:/C:/Users/pacha/Videos/fifa-world-cup-russia-2018-official-video.mp4";
         media = new Media(urlv);
         mediaPlayer = new MediaPlayer(media);
@@ -236,14 +243,10 @@ public class AccueilParentController implements Initializable {
         view.setFitWidth(400);
         view.setMediaPlayer(mediaPlayer);
         mediaPlayer.setAutoPlay(true);*/
-//=======
+
 
      // mediaplayer.setAutoPlay(true);*/
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
-     
 
-
-//>>>>>>> 804e546665f454bf02eaeb7aec1087a9129b620f
     }
 
     
@@ -274,7 +277,6 @@ public class AccueilParentController implements Initializable {
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Clubs.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
-    @FXML
     private void evenements(ActionEvent event) throws IOException {
          AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evenements.fxml"));
@@ -331,9 +333,6 @@ public class AccueilParentController implements Initializable {
     }
 
     @FXML
-
-
-
     private void ConseilsGoogle(ActionEvent event) {
     }
 
@@ -349,6 +348,20 @@ public class AccueilParentController implements Initializable {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Cov.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void gotoPaint(ActionEvent event) throws IOException {
+          AnchorPane1.setPrefSize(600,600);
+                 Stage stage = new Stage();
+                     //  ((Node) event.getSource()).getScene().getWindow().hide();
+                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("Paint.fxml"));
+                        Scene scene = new Scene(root);
+
+                        
+
+                        stage.setScene(scene);
+                        stage.show();
     }
 
     @FXML
@@ -530,12 +543,52 @@ private void closeButtonAction(){
        ObservableList<Covoiturage> listeC=cs.getAll();
        for(Covoiturage c:listeC){
            ParentService ps=new ParentService();
+           
            Parent p=ps.search(c.getId_user());
         Notifications.create()
                 .title("L'utilisateur "+p.getNom()+" a  ajouté un covoiturage")
                 .text("Destination "+c.getDestination()).position(Pos.TOP_RIGHT)
                 .showInformation();
        }
+    }
+
+    @FXML
+    private void bus(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Moyen.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void aff1R(ActionEvent event) {
+    AnRes.setVisible(true);
+        fleche21.setVisible(false);
+        fleche11.setVisible(true);
+    }
+
+    @FXML
+    private void aff2R(ActionEvent event) {
+        AnRes.setVisible(false);
+        fleche21.setVisible(true);
+        fleche11.setVisible(false);
+    }
+
+    @FXML
+    private void ApprouverRes(ActionEvent event) throws IOException {
+          CovoiturageService ps = new CovoiturageService() ; 
+          Covoiturage lp = null;
+                  lp=ps.search2(AuthentificationController.LoggedParent.getId_user());
+          if(lp!=null){
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeReservation.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);}
+            else{
+              Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("ATTENTION");
+            alert.setHeaderText("vous n'avez pas un covoiturage pour le gérer");
+            Optional<ButtonType> result = alert.showAndWait();
+          
+          }
     }
     
 

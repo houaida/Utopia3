@@ -26,7 +26,7 @@
             <Font name="Baskerville" size="31.0" />
          </font>
       </Label>
-      <Label fx:id="nomEnfant" layoutX="400.0" layoutY="66.0" />
+      <Label fx:id="nomEnfant" layoutX="400.0" layoutY="66.0" visible="false" />
       <TableView fx:id="table1" layoutX="293.0" layoutY="234.0" prefHeight="364.0" prefWidth="730.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
         <columns>
           <TableColumn fx:id="matiere" prefWidth="269.0" text="Matière" />
@@ -34,7 +34,7 @@
             <TableColumn fx:id="remarque" prefWidth="266.41229248046875" text="Nom_enseignant" />
         </columns>
       </TableView>
-      <Label fx:id="lbnom" layoutX="441.0" layoutY="133.0" prefHeight="16.0" prefWidth="171.0" />
+      <Label fx:id="lbnom" layoutX="274.0" layoutY="97.0" prefHeight="16.0" prefWidth="171.0" visible="false" />
       <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutY="-1.0" prefHeight="869.0" prefWidth="266.0" style="-fx-background-color: #87CEFA;">
          <children>
             <ImageView fitHeight="333.0" fitWidth="232.0" layoutX="17.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">

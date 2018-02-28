@@ -129,7 +129,7 @@
       </AnchorPane>
       <TabPane layoutX="268.0" layoutY="56.0" prefHeight="770.0" prefWidth="1061.0" stylesheets="@css/accueilparent.css" tabClosingPolicy="UNAVAILABLE">
          <tabs>
-            <Tab text="Liste des covoiturages ">
+            <Tab onSelectionChanged="#afficherListeCovoiturage" text="Liste des covoiturages ">
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
@@ -153,7 +153,7 @@
                      <children>
                         <DatePicker fx:id="datearrivee" layoutX="300.0" layoutY="147.0" />
                         <DatePicker fx:id="date_depart" layoutX="300.0" layoutY="89.0" />
-                        <Label layoutX="21.0" layoutY="63.0" prefHeight="17.0" prefWidth="76.0" text="Ville depart ">
+                        <Label layoutX="21.0" layoutY="63.0" prefHeight="19.0" prefWidth="133.0" text="Ville depart ">
                            <font>
                               <Font name="Baskerville Old Face" size="15.0" />
                            </font></Label>
@@ -165,7 +165,7 @@
                            <font>
                               <Font name="Baskerville Old Face" size="15.0" />
                            </font></Label>
-                        <Label layoutX="19.0" layoutY="188.0" prefWidth="187.0" text="Nombre de place disponible ">
+                        <Label layoutX="19.0" layoutY="188.0" prefHeight="19.0" prefWidth="232.0" text="Nombre de place disponible ">
                            <font>
                               <Font name="Baskerville Old Face" size="15.0" />
                            </font></Label>
@@ -203,7 +203,7 @@
                                     <Font name="AdobeHebrew-Regular" size="26.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="afficher_entry" maxHeight="44.0" prefHeight="44.0" prefWidth="200.0" promptText="chercher par nom" style="-fx-border-color: #ffc014;" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css">
+                              <TextField fx:id="afficher_entry" maxHeight="44.0" onAction="#rechercher" prefHeight="44.0" prefWidth="200.0" promptText="chercher par ville" style="-fx-border-color: #ffc014;" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -246,7 +246,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab text="Ma reservation ">
+            <Tab onSelectionChanged="#afficherListeReservation" text="Ma reservation ">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
