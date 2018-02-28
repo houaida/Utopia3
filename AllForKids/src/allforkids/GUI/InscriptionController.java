@@ -48,14 +48,8 @@ public class InscriptionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    @FXML
-    public void inscrire(){
-    EnfantService ps=new EnfantService();
-        Enfant p= new Enfant(Integer.parseInt(tfId.getText()),tfNom.getText(),tfPrenom.getText(),Integer.parseInt(tfAge.getText()));
-        ps.insert(p);
-        tfNom.clear();
-        tfPrenom.clear();
-    }
+    
+    
 
     private void retour(MouseEvent event) throws IOException {
         AnchorPane1.getChildren().clear();

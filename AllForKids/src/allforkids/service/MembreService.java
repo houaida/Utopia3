@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 
 import allforkids.entite.Membre;
 import allforkids.technique.util.DataSource;
+import java.text.ParseException;
 import java.util.Map;
 
 /**
@@ -46,8 +47,14 @@ public class MembreService implements IAllForKids<Membre>{
 
     @Override
     public void insert(Membre m) {
-        String req="insert into membres(nom,prenom,date_inscription,age,num_parent,email_parent)values('"+m.getNom()+"','"+m.getPrenom()+"','"+m.getDate_inscription()+"','"+m.getAge()+"','"+m.getNum_parent()+"','"+m.getEmail_parent()+"')";
-    System.out.println(req);
+        String req=null;
+        try {
+            req = "insert into membres(id_user,id_club,nom,prenom,num_parent,email_parent,date_naissance)values('"+m.getId_user()+"','"+m.getId_club()+"','"+m.getNom()+"','"+m.getPrenom()+"','"+m.getNum_parent()+"','"+m.getEmail_parent()+"','"+m.convert(m.getDate_naissance())+"')";
+            System.out.println(req);
+        } catch (ParseException ex) {
+            Logger.getLogger(MembreService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
@@ -68,7 +75,7 @@ public class MembreService implements IAllForKids<Membre>{
         System.out.println("");
     try {
         while(result.next()){
-            Membre m=new Membre(result.getString(2),result.getString(3),result.getDate(4),result.getInt(5),result.getInt(6),result.getString(7));
+            Membre m=new Membre(result.getInt("id_user"),result.getInt("id_club"),result.getString("nom"),result.getString("prenom"),result.getInt("num_parent"),result.getString("email_parent"),result.getString("date_naissance"));
             Membres.add(m);
         }
     } catch (SQLException ex) {
@@ -84,7 +91,7 @@ public class MembreService implements IAllForKids<Membre>{
        
         result=st.executeQuery("select * from membres where id="+id);
           if(result.next())
-         m = new Membre(result.getString(2),result.getString(3),result.getDate(4),result.getInt(5),result.getInt(6),result.getString(7));
+         m = new Membre(result.getInt("id_user"),result.getInt("id_club"),result.getString("nom"),result.getString("prenom"),result.getInt("num_parent"),result.getString("email_parent"),result.getString("date_naissance"));
     } catch (SQLException ex) {
         Logger.getLogger(MembreService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -115,8 +122,7 @@ public class MembreService implements IAllForKids<Membre>{
    if(me!=null)
    {
         try {
-            st.executeUpdate("Update membres set  nom='"+m.getNom()+"',prenom='"+m.getPrenom()+"', date_inscription='"
-                    +m.getDate_inscription()+"', age='"+m.getAge()+"', num_parent='"+m.getNum_parent()+"', email_parent='"+m.getEmail_parent()+"' where id="+m.getId());
+            st.executeUpdate("Update membres set  nom='"+m.getNom()+"',prenom='"+m.getPrenom()+"', num_parent='"+m.getNum_parent()+"', email_parent='"+m.getEmail_parent()+"', date_naissance='"+m.getDate_naissance()+"' where id="+m.getId());
         } catch (SQLException ex) {
             Logger.getLogger(MembreService.class.getName()).log(Level.SEVERE, null, ex);
         }

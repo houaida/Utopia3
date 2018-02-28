@@ -81,7 +81,7 @@ public class ListeJardinController implements Initializable {
                           ImageView imgV = new ImageView(img);
                           setGraphic(imgV);
                           
-                          setText("id : "+p.getId_jardinEnfant()+"\n Nom : "+p.getNom()+"\n Adresse : "+p.getAdresse()+"\n Numero : "+p.getNum_tel()+"\n Description : "+p.getDescription());
+                          setText(" Nom : "+p.getNom()+"\n Adresse : "+p.getAdresse()+"\n Numero : "+p.getNum_tel()+"\n Description : "+p.getDescription());
                       }
                   }
               } ; return cell ;
@@ -111,7 +111,7 @@ public class ListeJardinController implements Initializable {
 public void confirmerEnfant(EnfantJ e)
 {
    
-  EnfantJ p= new EnfantJ(Integer.parseInt(id_parent.getText()),Integer.parseInt(id_jardin.getText()),e.getNom(),e.getPrenom(),e.getAge());
+  EnfantJ p= new EnfantJ(Integer.parseInt(id_parent.getText()),Integer.parseInt(id_jardin.getText()),e.getNom(),e.getPrenom(),e.getAge(),e.getImage());
           EnfantJService es=new EnfantJService();
           es.insert(p);
 }

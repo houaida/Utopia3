@@ -7,8 +7,10 @@ package allforkids.service;
 
 import allforkids.entite.Babysitter;
 import allforkids.entite.Demande;
+import allforkids.entite.Enseignant;
 import allforkids.technique.util.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -140,7 +142,32 @@ Babysitter p=null;
     
         return p; 
     }
-   
+    
+
+   public ObservableList<Babysitter> search2(String n) {
+ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
+        
+    try {
+        rs=st.executeQuery("select * from users where type='babysitterPersonnel' and prenom like '%"+n+"%'");
+    } catch (SQLException ex) { 
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  
+      
+    try {
+        while(rs.next()){
+            Babysitter p;
+        
+            p = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("type"),rs.getString("date_naissance"),rs.getString("image"));
+             Babysitters.add(p);
+        }
+    } catch (SQLException ex) { 
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return  Babysitters;
+    }
+    
     public Babysitter search1(int n) {
 Babysitter p=null;
         try {
@@ -242,6 +269,25 @@ rs = st.executeQuery("select * from users where type='babysitter' and nom like '
     public Babysitter getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public Babysitter findbyMail(String s) {
+        Babysitter user = null;
+        String req = "select * from users where email =? ";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setString(1, s);
+             rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                user = new Babysitter(rs.getInt("id_user"),rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("type"),rs.getString("date_naissance"),rs.getString("image"));
+                break;
+            }
+        } catch (SQLException ex) {
+            System.out.println("mail not found ");
+        }
+        return user;
+    }
+    
  }
 
     

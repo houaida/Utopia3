@@ -13,7 +13,15 @@ public class Enfant {
     private int id_enfant;
     private int id_parent;
     private int id_garderie;
- 
+ private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public int getId_garderie() {
         return id_garderie;
@@ -27,35 +35,39 @@ public void setId_garderie(int id_garderie) {
     private String prenom;
     private int age;
 
-    public Enfant( int id_parent, String nom, String prenom, int age) {
+    public Enfant( int id_parent, String nom, String prenom, int age,String image) {
         //this.id_enfant = id_enfant;
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.id_parent=id_parent;
+        this.image=image;
     }
     public Enfant(  String nom, String prenom) {
         //this.id_enfant = id_enfant;
         this.nom = nom;
         this.prenom = prenom;
+         this.image=image;
         
     }
-public Enfant(int id_parent,int id_garderie, String nom, String prenom, int age) {
+public Enfant(int id_parent,int id_garderie, String nom, String prenom, int age,String image) {
        
         this.id_parent = id_parent;
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.id_garderie=id_garderie;
+         this.image=image;
         
     }
-    public Enfant(int id_enfant,int id_garderie, int id_parent, String nom, String prenom, int age) {
+    public Enfant(int id_enfant,int id_garderie, int id_parent, String nom, String prenom, int age,String image) {
         this.id_enfant = id_enfant;
         this.id_parent = id_parent;
         this.nom = nom;
         this.prenom = prenom;
         this.age = age;
         this.id_garderie=id_garderie;
+         this.image=image;
         
     }
 
@@ -67,7 +79,7 @@ public Enfant(int id_parent,int id_garderie, String nom, String prenom, int age)
 
     @Override
     public String toString() {
-        return "Enfant{"+"id_parent="+id_parent+ " nom=" + nom + ", prenom=" + prenom + ", age=" + age + '}';
+        return "Enfant{"+"id_parent="+id_parent+ " nom=" + nom + ", prenom=" + prenom + ", age=" + age +", image=" + image + '}';
     }
 
     public int getId_enfant() {

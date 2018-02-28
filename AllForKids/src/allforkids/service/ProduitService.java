@@ -163,6 +163,19 @@ public ProduitService()
     }
     return false ; 
     }
+    public boolean updateQuantite(Produit p) {
+        Produit p1 = search(p.getId_produit()) ; 
+        int q=(p.getQuantite())-1;
+    if(p1!=null){
+        try{
+            st.executeUpdate("update produits set quantite='"+q+"' where id_produit="+p.getId_produit()) ; 
+        } catch (SQLException ex) {
+            Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true ; 
+    }
+    return false ; 
+    }
 
     @Override
     public Map<String, Produit> getAllMap() {

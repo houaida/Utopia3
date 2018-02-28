@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.InscriptionClubController">
+   <children>
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" prefHeight="869.0" prefWidth="269.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <ToggleButton layoutX="1.0" layoutY="270.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionPrduit" layoutY="198.0" mnemonicParsing="false" onAction="#boutique" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Boutique&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evaluation Enfant&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="386.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="BabySitter&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="2.0" layoutY="464.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Covoiturage &amp;&#10;Réservation&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="clubs" layoutX="3.0" layoutY="547.0" mnemonicParsing="false" onAction="#clubs" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Clubs&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="evenements" layoutX="7.0" layoutY="658.0" mnemonicParsing="false" onAction="#evenements" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evénements&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="578.0" layoutY="46.0" text="Inscrire mon enfant dans un club" />
+      <Label layoutX="382.0" layoutY="139.0" text="Nom du club" />
+      <JFXComboBox fx:id="nomClub" layoutX="382.0" layoutY="180.0" onAction="#nomClub" prefHeight="25.0" prefWidth="117.0" />
+      <Label layoutX="382.0" layoutY="283.0" text="Nom" />
+      <Label layoutX="382.0" layoutY="403.0" text="Prenom" />
+      <Label layoutX="637.0" layoutY="283.0" text="Date de naissance" />
+      <Label layoutX="637.0" layoutY="403.0" text="Numéro de téléphone" />
+      <Label layoutX="870.0" layoutY="139.0" text="Email" />
+      <JFXTextField fx:id="nom" layoutX="376.0" layoutY="315.0" onAction="#nom" />
+      <JFXTextField fx:id="prenom" layoutX="376.0" layoutY="454.0" />
+      <JFXTextField fx:id="email" layoutX="852.0" layoutY="180.0" />
+      <JFXTextField fx:id="num" layoutX="637.0" layoutY="454.0" onAction="#num" />
+      <JFXButton fx:id="confirmer" layoutX="707.0" layoutY="614.0" onAction="#ajouter" text="Confirmer" />
+      <JFXDatePicker fx:id="dateNaissance" layoutX="629.0" layoutY="315.0" onAction="#dateNaissance" />
+      <JFXButton fx:id="retour" layoutX="350.0" layoutY="42.0" onAction="#retour" text="retour" />
+   </children>
+</AnchorPane>

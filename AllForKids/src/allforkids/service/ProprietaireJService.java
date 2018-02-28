@@ -67,7 +67,7 @@ public ProprietaireJService()
             preparedStatement.setString(1, s);
              result = preparedStatement.executeQuery();
             while (result.next()) {
-                user = new ProprietaireJ(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(13));
+                user = new ProprietaireJ(result.getInt(1),result.getString(5),result.getString(6),result.getString(7),result.getString(12),result.getString(14));
                 break;
             }
         } catch (SQLException ex) {

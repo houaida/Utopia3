@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionQuizController">
+   <children>
+      <ToggleButton layoutX="9.0" layoutY="8.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/icon/menu1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutY="-1.0" prefHeight="879.0" prefWidth="264.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <ImageView fitHeight="299.0" fitWidth="205.0" layoutX="34.0" layoutY="-36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logofinal.gif" />
+               </image>
+            </ImageView>
+            <ToggleButton fx:id="gestionUtilisateur" layoutX="1.0" layoutY="264.0" mnemonicParsing="false" onAction="#gestionUtilisateur" prefHeight="40.0" prefWidth="235.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Utilisateurs">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionProduit" layoutY="208.0" mnemonicParsing="false" onAction="#gestionProduit" onMouseClicked="#gotoDemandeTravail" prefHeight="50.0" prefWidth="230.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Produits&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionOffre" layoutX="3.0" layoutY="322.0" mnemonicParsing="false" onAction="#gestionOffre" prefHeight="75.0" prefWidth="264.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Offres &#10;et Demandes" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionUtilisateur1" layoutX="3.0" layoutY="406.0" mnemonicParsing="false" onAction="#approbation" prefHeight="60.0" prefWidth="264.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Approbation des CVs">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionReclamation" layoutX="2.0" layoutY="476.0" mnemonicParsing="false" onAction="#gestionReclamation" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Reclamations&#10;&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="1.0" layoutY="532.0" mnemonicParsing="false" onAction="#gestionQuiz" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion des Quizs&#10;&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <HBox layoutX="402.0" layoutY="13.0" prefHeight="60.0" prefWidth="933.0" styleClass="box-topo" stylesheets="@css/covoiturage.css">
+         <children>
+            <Label prefHeight="37.0" prefWidth="554.0" text="Gestion des Quizs" textFill="#ffc014">
+               <font>
+                  <Font name="Baskerville" size="32.0" />
+               </font>
+            </Label>
+            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" style="-fx-border-color: #ffc014;" stylesheets="@css/gestioncovoiturage.css" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-add" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" style="-fx-border-color: #ffc014;" stylesheets="@css/gestioncovoiturage.css" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-editar" />
+               </styleClass>
+            </ToggleButton>
+            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-border-color: #ffc014;" stylesheets="@css/gestioncovoiturage.css" text="">
+               <styleClass>
+                  <String fx:value="menus-tela" />
+                  <String fx:value="menu-excluir" />
+               </styleClass>
+               <toggleGroup>
+                  <ToggleGroup fx:id="menu" />
+               </toggleGroup>
+            </ToggleButton>
+         </children>
+      </HBox>
+      <Button fx:id="btretour" layoutX="268.0" layoutY="9.0" mnemonicParsing="false" onAction="#retour" prefHeight="60.0" prefWidth="113.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/ios7-rewind-outline_icon-icons.com_50173.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="lbDebut" layoutX="308.0" layoutY="120.0" text="Veuillez-entrer les champs nécessaires pour le quiz du jour">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="292.0" layoutY="181.0" text="Thème">
+         <font>
+            <Font name="Baskerville" size="17.0" />
+         </font></Label>
+      <JFXTextField fx:id="tfTheme" layoutX="420.0" layoutY="173.0" prefHeight="26.0" prefWidth="216.0" />
+      <JFXTextField fx:id="tfQuestion" layoutX="420.0" layoutY="239.0" prefHeight="26.0" prefWidth="216.0" />
+      <JFXTextField fx:id="pathImage" layoutX="420.0" layoutY="319.0" prefHeight="26.0" prefWidth="122.0" />
+      <JFXTextField fx:id="tfRep1" layoutX="420.0" layoutY="395.0" prefHeight="26.0" prefWidth="216.0" />
+      <JFXTextField fx:id="tfRep2" layoutX="420.0" layoutY="473.0" prefHeight="26.0" prefWidth="216.0" />
+      <JFXTextField fx:id="tfRep3" layoutX="420.0" layoutY="555.0" prefHeight="26.0" prefWidth="216.0" />
+      <Label layoutX="292.0" layoutY="244.0" text="Question">
+         <font>
+            <Font name="Baskerville" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="292.0" layoutY="324.0" text="Image">
+         <font>
+            <Font name="Baskerville" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="292.0" layoutY="413.0" text="Réponse 1">
+         <font>
+            <Font name="Baskerville" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="292.0" layoutY="483.0" text="Réponse 2">
+         <font>
+            <Font name="Baskerville" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="292.0" layoutY="562.0" text="Réponse 3">
+         <font>
+            <Font name="Baskerville" size="17.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="tfRepC" layoutX="420.0" layoutY="623.0" prefHeight="26.0" prefWidth="216.0" />
+      <Label layoutX="292.0" layoutY="637.0" text="Réponse correcte">
+         <font>
+            <Font name="Baskerville" size="17.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="aperçu" layoutX="672.0" layoutY="166.0" prefHeight="218.0" prefWidth="634.0" style="-fx-background-color: white;">
+         <children>
+            <Label layoutX="15.0" layoutY="8.0" text="Question:" />
+            <Label fx:id="lbquestion" layoutX="86.0" layoutY="1.0" prefHeight="25.0" prefWidth="536.0" text="&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;" />
+            <RadioButton layoutX="37.0" layoutY="46.0" mnemonicParsing="false" />
+            <RadioButton layoutX="37.0" layoutY="95.0" mnemonicParsing="false" />
+            <RadioButton layoutX="37.0" layoutY="151.0" mnemonicParsing="false" />
+            <Label fx:id="lbrep1" layoutX="70.0" layoutY="43.0" prefHeight="16.0" prefWidth="290.0" />
+            <Label fx:id="lbrep2" layoutX="80.0" layoutY="94.0" prefHeight="16.0" prefWidth="290.0" />
+            <Label fx:id="lbrep3" layoutX="80.0" layoutY="151.0" prefHeight="16.0" prefWidth="290.0" />
+            <ImageView fx:id="img" fitHeight="134.0" fitWidth="154.0" layoutX="460.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <JFXListView fx:id="listeQ" layoutX="680.0" layoutY="415.0" prefHeight="433.0" prefWidth="632.0" />
+      <JFXButton layoutX="564.0" layoutY="319.0" onAction="#actionBrowse" text="Browse" />
+      <JFXTextField fx:id="etat" layoutX="420.0" layoutY="699.0" prefHeight="26.0" prefWidth="216.0" />
+      <JFXToggleButton layoutX="1153.0" layoutY="103.0" onAction="#confirmer" text="Confirmer" />
+   </children>
+</AnchorPane>

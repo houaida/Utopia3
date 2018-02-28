@@ -169,6 +169,31 @@ public class BabysitterPersonnelController implements Initializable {
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
+  
+
+    @FXML
+    private void rechercherPersonnel(ActionEvent event) {
+         BabysitterService ls = new BabysitterService()  ; 
+    
+        ObservableList<Babysitter> lc =  ls.search2(search.getText()) ; 
+      
+      listebabysitter.setCellFactory((ListView<Babysitter> param) -> {
+              ListCell<Babysitter> cell = new ListCell<Babysitter>() {
+                  @Override
+                  protected void updateItem(Babysitter p , boolean bl) {
+                      super.updateItem(p, bl);
+                      if(p!=null){
+                          Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
+                          ImageView imgV = new ImageView(img) ;
+                          setGraphic(imgV);
+    setText(" Cin: "+p.getCin()+"\n Nom : "+p.getNom()+"\n Prenom : "+p.getPrenom()+"\n Mail : "+p.getEmail()+"\n Adresse : "+p.getAdresse()
+                          +"\n Numero telephone : "+p.getNum_tel()+"\n Date de naissance : "+p.getDate_naissance());
+                      }
+                  }
+              } ; return cell ;
+          });
+      listebabysitter.setItems(lc);
+     }
     
    
     

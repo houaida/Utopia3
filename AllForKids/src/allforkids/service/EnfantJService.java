@@ -54,7 +54,7 @@ public EnfantJService()
         
         result=st.executeQuery("select * from enfantsJ  where id_jardinEnfant="+id);
           if(result.next())
-         p = new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+         p = new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6),result.getString(7));
     } catch (SQLException ex) {
         Logger.getLogger(EnfantJService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -65,7 +65,7 @@ public EnfantJService()
     @Override
     public void insert(EnfantJ t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-   String req="insert into enfantsJ(id_parent,id_jardinEnfant,nom_enfant,prenom,age)values('"+t.getId_parent()+"','"+t.getId_jardinEnfant()+"','"+t.getNom()+"','"+t.getPrenom()+"','"+t.getAge()+"')";
+   String req="insert into enfantsJ(id_parent,id_jardinEnfant,nom_enfant,prenom,age,image)values('"+t.getId_parent()+"','"+t.getId_jardinEnfant()+"','"+t.getNom()+"','"+t.getPrenom()+"','"+t.getAge()+"','"+t.getImage()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -90,7 +90,7 @@ public EnfantJService()
            result = preparedStatement.executeQuery();
             while (result.next()) {
 
-            EnfantJ p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+            EnfantJ p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6),result.getString(7));
             Enfants.add(p);
         }
     } catch (SQLException ex) {
@@ -115,7 +115,7 @@ public EnfantJService()
     try {
         while(result.next()){
             //Enfant p=new Enfant(result.getInt(2),result.getString(3),result.getString(4),result.getInt(5));
-            EnfantJ p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+            EnfantJ p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6),result.getString(7));
             Enfants.add(p);
         }
     } catch (SQLException ex) {
@@ -132,7 +132,7 @@ public EnfantJService()
        
         result=st.executeQuery("select * from enfantsJ where id_enfant="+id);
           if(result.next())
-         p = new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+         p = new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6),result.getString(7));
     } catch (SQLException ex) {
         Logger.getLogger(EnfantJService.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -165,7 +165,7 @@ public EnfantJService()
    if(p1!=null)
    {
         try {
-            st.executeUpdate("Update enfantsJ set nom_enfant='"+t.getNom()+"', prenom='"+t.getPrenom()+"', age='"+t.getAge()+"' where id_enfant="+t.getId_enfant());
+            st.executeUpdate("Update enfantsJ set nom_enfant='"+t.getNom()+"', prenom='"+t.getPrenom()+"', age='"+t.getAge()+"', image='"+t.getImage()+"' where id_enfant="+t.getId_enfant());
         } catch (SQLException ex) {
             Logger.getLogger(EnfantJService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -179,9 +179,32 @@ public EnfantJService()
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public EnfantJ getbyPseudo(String pseudo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public EnfantJ getbyNomPrenom(String Nom,String Prenom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    EnfantJ p=null;
+        String requete = "select * from enfantsJ where nom_enfant=? and prenom=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, Nom);
+            preparedStatement.setString(2, Prenom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+             p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6),result.getString(7));
+            } 
+        } catch (SQLException ex) {
+        Logger.getLogger(EnfantJService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+       return  p;
     }
 
     public  ObservableList<EnfantJ> getListeEnfant(String nom) {
@@ -198,7 +221,7 @@ public EnfantJService()
         
     try {
         while(result.next()){
-            EnfantJ p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+            EnfantJ p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6),result.getString(7));
             
             System.out.println(p.toString());
             garderies.add(p);
@@ -240,13 +263,18 @@ public EnfantJService()
        
         result=st.executeQuery("select * from enfantsJ where id_parent="+id);
           while(result.next())
-          {  p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6));
+          {  p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6),result.getString(7));
           } 
         } catch (SQLException ex) {
         Logger.getLogger(EnfantJService.class.getName()).log(Level.SEVERE, null, ex);
     }
         
        return  p;
+    }
+
+    @Override
+    public EnfantJ getbyPseudo(String pseudo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

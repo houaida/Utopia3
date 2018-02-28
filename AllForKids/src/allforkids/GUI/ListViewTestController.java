@@ -468,6 +468,17 @@ public class ListViewTestController implements Initializable {
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 
+    @FXML
+    private void ConseilsGoogle(ActionEvent event) {
+    }
+
+    @FXML
+    private void Evaluation(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evaluation.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
 
    
     

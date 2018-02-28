@@ -72,7 +72,7 @@
             <Font name="Baskerville" size="30.0" />
          </font>
       </Label>
-      <JFXButton fx:id="ajouter" layoutX="445.0" layoutY="291.0" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #ffc014;" text="Ajouter">
+      <JFXButton fx:id="ajouter" layoutX="445.0" layoutY="291.0" onAction="#ajouter" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #ffc014;" text="Ajouter">
          <font>
             <Font name="Baskerville" size="17.0" />
          </font></JFXButton>

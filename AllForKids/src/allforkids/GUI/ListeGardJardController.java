@@ -65,6 +65,7 @@ public class ListeGardJardController implements Initializable {
        afficherId(InscriptionUserController.LoggedParent);
         afficher();
         aff();
+        System.out.println("enfant initialize:"+InscriptionUserController.LoggedEnfant.getImage());
     }    
    
  
@@ -86,7 +87,7 @@ public class ListeGardJardController implements Initializable {
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
                           
-                          setText("id : "+p.getId_garderie()+"\n Nom : "+p.getNom()+"\n Adresse : "+p.getAdresse()+"\n Numero : "+p.getNum_tel()+"\n Description : "+p.getDescription());
+                          setText(" Nom : "+p.getNom()+"\n Adresse : "+p.getAdresse()+"\n Numero : "+p.getNum_tel()+"\n Description : "+p.getDescription());
                       }
                   }
               } ; return cell ;
@@ -115,8 +116,8 @@ public class ListeGardJardController implements Initializable {
    }
 public void confirmerEnfant(Enfant e)
 {
-   
-  Enfant p= new Enfant(Integer.parseInt(id_parent.getText()),Integer.parseInt(id_garderie.getText()),e.getNom(),e.getPrenom(),e.getAge());
+    System.out.println("confirmerenfant:"+e.getImage());
+  Enfant p= new Enfant(Integer.parseInt(id_parent.getText()),Integer.parseInt(id_garderie.getText()),e.getNom(),e.getPrenom(),e.getAge(),e.getImage());
           EnfantService es=new EnfantService();
           es.insert(p);
 }
