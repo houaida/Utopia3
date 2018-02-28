@@ -32,7 +32,7 @@ private Screen screen = Screen.getPrimary();
         window = stage;
 //Parent root = FXMLLoader.load(getClass().getResource("LesClubs.fxml")); 
 
-    Parent root = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml")); 
+  //  Parent root = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml")); 
 
            // Parent root = FXMLLoader.load(getClass().getResource("CommandeLivraison.fxml")); 
             
@@ -58,7 +58,7 @@ private Screen screen = Screen.getPrimary();
 
 //                Parent root = FXMLLoader.load(getClass().getResource("acceuil.fxml"));
 
-//Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml"));
+Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml"));
 
 //Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
 

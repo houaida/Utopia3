@@ -30,6 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -48,6 +49,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -56,7 +58,9 @@ import javafx.stage.Stage;
 
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.controlsfx.control.Notifications;
+import org.opencv.core.Core;
 
 
 /**
@@ -180,7 +184,7 @@ public class AccueilParentController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+ System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
        
 
 
@@ -547,6 +551,35 @@ private void closeButtonAction(){
                 .text("Destination "+c.getDestination()).position(Pos.TOP_RIGHT)
                 .showInformation();
        }
+    }
+
+   
+    @FXML
+    private void capture(ActionEvent event) throws IOException {
+             Stage primaryStage=new Stage();
+              // load the FXML resource
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Capture.fxml"));
+			// store the root element so that the controllers can use it
+			     BorderPane rootElement = (BorderPane) loader.load();
+			// create and style a scene
+			//
+                        Scene scene = new Scene(rootElement, 800, 600);
+			// create the stage with the given title and the previously created
+			// scene
+			primaryStage.setTitle("Photo");
+			primaryStage.setScene(scene);
+			// show the GUI
+			primaryStage.show();
+			
+			// set the proper behavior on closing the application
+			CaptureController controller = loader.getController();
+			primaryStage.setOnCloseRequest((new EventHandler<WindowEvent>() {
+				public void handle(WindowEvent we)
+				{
+					controller.setClosed();
+				}
+			}));
+		
     }
     
 

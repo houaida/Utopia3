@@ -218,6 +218,11 @@ public class CaptureController
 
     @FXML
     private void onSave(ActionEvent event) {
+        save.setOnAction(actionEvent -> { 
+    final FileChooser dialog = new FileChooser(); 
+    final File file = dialog.showSaveDialog(save.getScene().getWindow()); 
+   
+});
     }
 
 

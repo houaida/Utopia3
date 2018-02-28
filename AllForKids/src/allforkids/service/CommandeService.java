@@ -17,6 +17,7 @@ import allforkids.entite.Commande;
 import allforkids.entite.Produit;
 
 import allforkids.technique.util.DataSource;
+import java.sql.Timestamp;
 import java.util.Map;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -84,7 +85,7 @@ public void insertTotal(Commande p) {
             }
             System.out.println("***********"); */
             while (result.next()) {
-                Commande p = new Commande(result.getInt("id_commande"),result.getInt("id_parent"), result.getInt("id_ligne"), result.getFloat("total"),result.getString("date"));
+                Commande p = new Commande(result.getInt("id_commande"),result.getInt("id_parent"), result.getInt("id_ligne"), result.getFloat("total"),result.getTimestamp("date"));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -99,7 +100,7 @@ public void insertTotal(Commande p) {
             result = st.executeQuery("select * from commandes");
           
             while (result.next()) {
-                 Commande p = new Commande(result.getInt("id_commande"),result.getInt("id_parent"), result.getInt("id_ligne"), result.getFloat("total"),result.getString("date"));
+                 Commande p = new Commande(result.getInt("id_commande"),result.getInt("id_parent"), result.getInt("id_ligne"), result.getFloat("total"),result.getTimestamp("date"));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -113,7 +114,7 @@ public void insertTotal(Commande p) {
             result = st.executeQuery("select date from commandes");
           
             while (result.next()) {
-                 Commande p = new Commande(result.getInt("id_commande"),result.getString("date"));
+                 Commande p = new Commande(result.getInt("id_commande"),result.getTimestamp("date"));
                 list.add(p);
             }
         } catch (SQLException ex) {

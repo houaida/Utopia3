@@ -5,6 +5,8 @@
  */
 package allforkids.entite;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author Molka
@@ -15,9 +17,9 @@ public class Commande {
     private int id_parent ; 
     private int id_ligne ; 
     private float total ; 
-    private String date ; 
+    private Timestamp date ; 
 
-    public Commande(int id_commande, String date) {
+    public Commande(int id_commande, Timestamp date) {
         this.id_commande = id_commande;
         this.date = date;
     }
@@ -28,7 +30,7 @@ public class Commande {
         this.total = total;
     }
 
-    public Commande(int id_commande, int id_parent, int id_ligne, float total,String date) {
+    public Commande(int id_commande, int id_parent, int id_ligne, float total,Timestamp date) {
         this.id_commande = id_commande;
         this.id_parent = id_parent;
         this.id_ligne = id_ligne;
@@ -73,6 +75,14 @@ public class Commande {
 
     public void setTotal(float total) {
         this.total = total;
+    }
+
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
     }
 
     @Override

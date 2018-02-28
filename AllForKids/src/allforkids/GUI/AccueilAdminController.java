@@ -56,6 +56,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -68,6 +70,9 @@ import javafx.util.Callback;
  */
 public class AccueilAdminController implements Initializable {
 
+    MediaPlayer mediaPlayer;
+    Media musicFile;
+    
     @FXML
     private AnchorPane AnchorPane1;
     @FXML
@@ -159,6 +164,10 @@ public class AccueilAdminController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         AnchorPane1.setPrefSize(1329,866);
+        
+        /* musicFile=new Media("file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/musique/wael.mp3");
+        mediaPlayer=new MediaPlayer(musicFile);
+        mediaPlayer.setAutoPlay(true) ; */
                
         afficherUser(AuthentificationController.LoggedAdmin);
         afficherListeProduits();
@@ -425,7 +434,6 @@ public void afficherListeProduits()
     }
     
     
-    @FXML 
     private void afficherListeLivraisons()
     {
          LivraisonService ps = new LivraisonService() ; 
