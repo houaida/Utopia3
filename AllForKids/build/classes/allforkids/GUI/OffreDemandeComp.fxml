@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -14,7 +20,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.OffreDemandeCompController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.OffreDemandeCompController">
    <children>
       <ToggleButton layoutX="16.0" layoutY="11.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
          <graphic>
@@ -27,7 +33,7 @@
       </ToggleButton>
       <TableView fx:id="tbtable1" layoutX="282.0" layoutY="97.0" prefHeight="263.0" prefWidth="1019.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
          <columns>
-            <TableColumn id="id_offre" fx:id="id_demande2" prefWidth="286.0" text="id" visible="false" />
+            <TableColumn id="id_offre" fx:id="id_offre" prefWidth="286.0" text="id" visible="false" />
             <TableColumn fx:id="titre1" prefWidth="130.99996948242188" text="Titre" />
             <TableColumn fx:id="date_debut1" prefWidth="96.0" text="Date debut" />
             <TableColumn fx:id="date_fin1" prefWidth="96.0" text="Date fin" />
@@ -42,7 +48,7 @@
       </TableView>
       <TableView fx:id="tbtable" layoutX="294.0" layoutY="473.0" prefHeight="263.0" prefWidth="1019.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
          <columns>
-            <TableColumn id="id_offre" fx:id="id_offre1" prefWidth="286.0" text="id" visible="false" />
+            <TableColumn id="id_offre" fx:id="id_demande" prefWidth="286.0" text="id" visible="false" />
             <TableColumn fx:id="titre" prefWidth="130.99996948242188" text="Titre" />
             <TableColumn fx:id="date_debut" prefWidth="96.0" text="Date debut" />
             <TableColumn fx:id="date_fin" prefWidth="96.0" text="Date fin" />

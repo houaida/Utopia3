@@ -136,8 +136,8 @@ public class demandeTravailController implements Initializable {
    tnum_tel.setText(b.getNum_tel());
        tprenom.setText(b.getPrenom());
        tdate_naissance.getEditor().setText(b.getDate_naissance());
-        
-           path.setText(b.getImage());
+         String s="file:/C:/wamp/www/ressources/";
+           path.setText(s+b.getImage());
        
        
       

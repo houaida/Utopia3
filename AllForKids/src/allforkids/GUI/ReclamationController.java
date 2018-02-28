@@ -179,17 +179,18 @@ public class ReclamationController implements Initializable {
                   b=ps2.search(p.getId_babysitter());
 AnchorPane pane=new AnchorPane();
 Label label=new Label();
-                          Image img = new Image(b.getImage(), 200, 200, true, true, true) ;
+String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+b.getImage(), 200, 200, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           if(p.getEtat()==0){
-                            Image img1 = new Image("file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/img/circle-red.png", 20,20, true, true, true) ;
+                            Image img1 = new Image("file:/C:/wamp/www/ressources/circle-red.png", 20,20, true, true, true) ;
                               ImageView iv = new ImageView(img1);
                          iv.setY(5);
                          iv.setX(150);
                           pane.getChildren().addAll(iv,imgV);
                           }
                           else{
-                            Image img1 = new Image("file:/C:/Users/user/Desktop/PI/Utopia/AllForKids/src/allforkids/GUI/img/circle-green.png", 20,20, true, true, true) ;
+                            Image img1 = new Image("file:/C:/wamp/www/ressources/circle-green.png", 20,20, true, true, true) ;
                               ImageView iv = new ImageView(img1);
                          iv.setY(5);
                          iv.setX(200);

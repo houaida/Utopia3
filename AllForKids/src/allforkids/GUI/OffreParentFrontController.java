@@ -183,8 +183,8 @@ id_offre.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
         babysitter2=bs.searchAnciennete(id);
         int Anciennete=babysitter2.getAnciennete();
         System.out.println(Anciennete);
-       
- Image image1 = new Image(babysitter1.getImage(),280,280,true,true,true);
+       String s="file:/C:/wamp/www/ressources/";
+ Image image1 = new Image(s+babysitter1.getImage(),280,280,true,true,true);
  final Circle clip=new Circle(60,60,55);
  imageU.setClip(clip);
         if(Anciennete>30)
