@@ -25,11 +25,11 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
-<<<<<<< HEAD
+
 import java.sql.Timestamp;
-=======
+
 import java.util.Optional;
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
 import java.util.ResourceBundle;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -105,7 +105,7 @@ public class AccueilAdminController implements Initializable {
     
     @FXML
     private ToggleButton gestionReclamation;
-<<<<<<< HEAD
+
     @FXML
     private TableView<Livraison> tableL;
     @FXML
@@ -116,7 +116,7 @@ public class AccueilAdminController implements Initializable {
     private TableColumn<Livraison, String> duree;
     @FXML
     private TableColumn<Livraison, String> adresse;
-=======
+
     
     @FXML
     private ToggleButton Compte;
@@ -150,7 +150,7 @@ public class AccueilAdminController implements Initializable {
     private ToggleButton triangle1;
     @FXML
     private ImageView Tparam;
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
 
     /**
      * Initializes the controller class.

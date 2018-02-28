@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<<<<<<< HEAD
+
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-=======
+
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -131,11 +131,11 @@
             <Font name="Baskerville" size="21.0" />
          </font>
       </Label>
-<<<<<<< HEAD
+
       <Label layoutX="273.0" layoutY="252.0" text="Liste des commandes" textFill="#ffc014">
-=======
-      <Label layoutX="294.0" layoutY="263.0" text="Liste des commandes" textFill="#ffc014">
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
+
+      
+
          <font>
             <Font name="Baskerville" size="25.0" />
          </font>
@@ -150,7 +150,7 @@
             <Font size="18.0" />
          </font>
       </ToggleButton>
-<<<<<<< HEAD
+
       <Label layoutX="285.0" layoutY="510.0" text="Liste des livraisons" textFill="#ffc014">
          <font>
             <Font name="Baskerville" size="33.0" />
@@ -164,7 +164,7 @@
             <TableColumn fx:id="adresse" prefWidth="262.02081298828125" text="Adresse " />
          </columns>
       </TableView>
-=======
+
       <ImageView fx:id="profil" fitHeight="150.0" fitWidth="200.0" layoutX="368.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" />
       <AnchorPane fx:id="Param" layoutX="1097.0" layoutY="63.0" prefHeight="98.0" prefWidth="154.0" style="-fx-background-color: black;" visible="false">
          <children>
@@ -246,9 +246,6 @@
             <Image url="@img/icon/Ic_play_arrow_48px.svg%20-%20copie%202.png" />
          </image>
       </ImageView>
->>>>>>> 73094d59521b1627e2a54ed390a73b4088bf2f3b
-
-    
 
 
    </children>

@@ -140,7 +140,8 @@ public String id=" " ;
         lbrep1.setText(e.getRep1());
          lbrep2.setText(e.getRep2());
           lbrep3.setText(e.getRep3());
-          String imageFile1 =e.getImage();
+           String s="file:/C:/wamp/www/ressources/";
+          String imageFile1 =s+e.getImage();
         Image image1 = new Image(imageFile1);
          
         img.setImage(image1);
@@ -286,7 +287,8 @@ public void afficher2()
                       super.updateItem(p, bl);
                       
                       if(p!=null){
-                          Image img = new Image(p.getImage(), 200, 200, true, true, true) ;
+                           String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+p.getImage(), 200, 200, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
                           
