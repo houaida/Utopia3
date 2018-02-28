@@ -133,20 +133,20 @@ public class AccueilParentController implements Initializable {
 @FXML
     private void changer2(ActionEvent event) {
        
-        imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
+        /*imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
        
         imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
          imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));
-     bt1.setDisable(true);
+    */ bt1.setDisable(true);
      bt.setDisable(false);
     }
     @FXML
     private void changer1(ActionEvent event) {
-       
+       /*
           imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie2.jpg"));
          imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique2.jpg"));
    imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event2.jpg"));
-    bt1.setDisable(false);
+   */ bt1.setDisable(false);
      bt.setDisable(true);
     }
       
@@ -162,11 +162,11 @@ public class AccueilParentController implements Initializable {
        
 
 
-       imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
+      /* imgView.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/garderie1.jpg"));
        
         imgView1.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/boutique1.jpg"));
          imgView2.setImage(new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/event1.jpg"));
-     bt1.setDisable(true);
+     */bt1.setDisable(true);
      bt.setDisable(false);
      
 
@@ -182,9 +182,9 @@ public class AccueilParentController implements Initializable {
      bt.setDisable(false);*/
      
 
-     String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+     //String Vurl="file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
 
-    // String Vurl="file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
+     String Vurl="file:/C:/Users/user/Desktop/3A5/FinalAllforkids/Utopia3/AllForKids/src/allforkids/GUI/img/hodahadher/video.mp4";
 
 
 
