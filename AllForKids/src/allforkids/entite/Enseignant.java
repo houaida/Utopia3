@@ -29,6 +29,10 @@ public class Enseignant extends User{
         this.montant = montant;
        
     }
+ public Enseignant(int id_user, String pseudo, String mdp, String email) {
+        super(id_user, pseudo, mdp, email);
+        
+    }
 public Enseignant( int id_user, int cin,String nom, String prenom, String pseudo, String mdp,String email,float montant, String nom_club,String image) {
         super(id_user, pseudo, mdp, email);
         this.nom = nom;

@@ -51,8 +51,7 @@ public EnseignantService()
     @Override
     public void insert(Enseignant t) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type,image)values('"+t.getCin()+"','"+t.getNom()+"',"
-            + "'"+t.getPrenom()+"','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"','','"+t.getMontant()+"','"+t.getNom_club()+"','0','enseignant','"+t.getImage()+"')";
+    String req="insert into users(cin,nom,prenom,pseudo,mdp,email,adresse,montant,nom_club,num_tel,type,image)values('"+t.getCin()+"','"+t.getNom()+"','"+t.getPrenom()+"','"+t.getPseudo()+"','"+t.getMdp()+"','"+t.getEmail()+"',' ','"+t.getMontant()+"','"+t.getNom_club()+"','0','enseignant','"+t.getImage()+"')";
     System.out.println(req);
         try {
             st.executeUpdate(req);

@@ -27,8 +27,8 @@ public class DataSource {
   //final String url="jdbc:mysql://127.0.0.1:3306/pidev";
 
 
-   //final String url="jdbc:mysql://localhost:8889/PIDEV";
-  final String url="jdbc:mysql://127.0.0.1:3306/pidev";
+   final String url="jdbc:mysql://localhost:8889/PIDEV";
+   //final String url="jdbc:mysql://127.0.0.1:3306/pidev";
   //final String url="jdbc:mysql://127.0.0.1:3306/pidev";
 
 
@@ -40,7 +40,7 @@ public class DataSource {
 
 
     final String login="root";
-    final String password="";
+    final String password="root";
      Connection connexion=null;
      static DataSource instance;
      

@@ -179,9 +179,32 @@ public EnfantJService()
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public EnfantJ getbyPseudo(String pseudo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public EnfantJ getbyNomPrenom(String Nom,String Prenom) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    EnfantJ p=null;
+        String requete = "select * from enfantsJ where nom_enfant=? and prenom=?";
+        //// "select * from user where username like '"+search+"
+        
+        System.out.println(requete);
+        
+        PreparedStatement preparedStatement;
+
+        try {
+          
+             preparedStatement = connexion.prepareStatement(requete);
+            preparedStatement.setString(1, Nom);
+            preparedStatement.setString(2, Prenom);
+           result = preparedStatement.executeQuery();
+            while (result.next()) {
+
+             p=new EnfantJ(result.getInt(1),result.getInt(2),result.getInt(3),result.getString(4),result.getString(5),result.getInt(6),result.getString(7));
+            } 
+        } catch (SQLException ex) {
+        Logger.getLogger(EnfantJService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+       return  p;
     }
 
     public  ObservableList<EnfantJ> getListeEnfant(String nom) {
@@ -247,6 +270,11 @@ public EnfantJService()
     }
         
        return  p;
+    }
+
+    @Override
+    public EnfantJ getbyPseudo(String pseudo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 

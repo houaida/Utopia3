@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
 <?import javafx.scene.control.Label?>
@@ -9,6 +10,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
@@ -87,6 +90,124 @@
                   </ToggleButton>
                </children>
             </HBox>
+            <ToggleButton fx:id="param1" layoutX="8.0" layoutY="29.0" mnemonicParsing="false" onAction="#parametrage" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/icons8_Settings_50px_2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="triangle1" layoutX="31.0" layoutY="32.0" mnemonicParsing="false" onAction="#parametrage" prefHeight="15.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/Ic_play_arrow_48px.svg.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="triangle" layoutX="31.0" layoutY="32.0" mnemonicParsing="false" onAction="#parametrage2" prefHeight="15.0" prefWidth="33.0" style="-fx-background-color: transparent;" visible="false">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/Ic_play_arrow_48px.svg.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="param2" layoutX="8.0" layoutY="29.0" mnemonicParsing="false" onAction="#parametrage2" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: transparent;" visible="false">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/icons8_Settings_50px_2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Param" layoutX="27.0" layoutY="77.0" prefHeight="98.0" prefWidth="154.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <ToggleButton fx:id="Compte" layoutY="-1.0" mnemonicParsing="false" onAction="#Compte" onMouseClicked="#CompteCouleur2" onMouseEntered="#CompteCouleur2" onMouseExited="#CompteCouleur1" prefHeight="50.0" prefWidth="155.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gérer Mon compte&#10;" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="Deco" layoutY="48.0" mnemonicParsing="false" onAction="#closeButtonAction" onMouseClicked="#DecoCouleur2" onMouseEntered="#DecoCouleur2" onMouseExited="#DecoCouleur1" prefHeight="50.0" prefWidth="156.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Déconnexion&#10;" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="Tparam" fitHeight="15.0" fitWidth="15.0" layoutX="39.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@img/icon/Ic_play_arrow_48px.svg%20-%20copie%202.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="flou" fitHeight="870.0" fitWidth="1430.0" layoutX="-83.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@img/icon/flou.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="anCompte" layoutX="220.0" layoutY="136.0" prefHeight="571.0" prefWidth="966.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <Label layoutX="335.0" layoutY="30.0" text="Sécurisé Votre Compte" textAlignment="CENTER" textFill="#ffc014">
+               <font>
+                  <Font name="Baskerville" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="266.0" layoutY="158.0" text="Pseudo ">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="268.0" layoutY="238.0" text="Ancien mot de passe">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="268.0" layoutY="319.0" text="Nouveau mot de passe">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="Tpseudo" layoutX="488.0" layoutY="149.0" prefHeight="26.0" prefWidth="220.0" promptText="entrer votre pseudo">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="Amdp" layoutX="493.0" layoutY="225.0" prefHeight="32.0" prefWidth="220.0" promptText="entrer mot de passe">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXPasswordField fx:id="Nmdp" layoutX="497.0" layoutY="308.0" prefHeight="32.0" prefWidth="220.0" promptText="entrer mot de passe">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXButton fx:id="annul" layoutX="628.0" layoutY="448.0" onAction="#annul" style="-fx-background-color: #ffc014;" text="Annuler">
+               <font>
+                  <Font name="Baskerville" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="enregistrer" layoutX="493.0" layoutY="448.0" onAction="#enregistrer" style="-fx-background-color: #ffc014;" text="Enregistrer">
+               <font>
+                  <Font name="Baskerville" size="18.0" />
+               </font>
+            </JFXButton>
+            <ToggleButton fx:id="fermer" layoutX="885.0" layoutY="24.0" mnemonicParsing="false" onAction="#fermer" prefHeight="32.0" prefWidth="37.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/Chess_tile_xx.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
          </children>
       </AnchorPane>
    </children>

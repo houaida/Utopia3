@@ -126,9 +126,14 @@ public static Admin LoggedAdmin;
              String type=  u.getType();
       System.out.println(type);
           if(type.equals("parent")){
-              
+              ParentService pas=new ParentService();
+              Parent pa=pas.search(u.getId_user());
                 LoggedParent = new Parent();
                 LoggedParent.setId_user(u.getId_user());
+                LoggedParent.setPseudo(u.getPseudo());
+                LoggedParent.setMdp(u.getMdp());
+                LoggedParent.setEmail(u.getEmail());
+                LoggedParent.setMontant(pa.getMontant());
        System.out.println(u);
            /* AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
@@ -150,6 +155,9 @@ public static Admin LoggedAdmin;
           else if(type.equals("enseignant")){
            LoggedEnseignant = new Enseignant();
                 LoggedEnseignant.setId_user(u.getId_user());
+                 LoggedEnseignant.setPseudo(u.getPseudo());
+                  LoggedEnseignant.setMdp(u.getMdp());
+                LoggedEnseignant.setEmail(u.getEmail());
                 
       // System.out.println(u);
         System.out.println(tfPseudo.getText());
@@ -176,6 +184,8 @@ public static Admin LoggedAdmin;
                 LoggedAdmin = new Admin();
                 LoggedAdmin.setId_user(u.getId_user());
                 LoggedAdmin.setPseudo(u.getPseudo());
+                LoggedAdmin.setMdp(u.getMdp());
+                LoggedAdmin.setEmail(u.getEmail());
                 LoggedAdmin.setImage(u.getImage());
                 AnchorPane1.setPrefSize(1329,866);
                  Stage stage = new Stage();
@@ -223,6 +233,7 @@ public static Admin LoggedAdmin;
                     else if(type.equals("proprietaireg")){
                         LoggedProprietaireG = new ProprietaireG();
                        LoggedProprietaireG.setPseudo(u.getPseudo());
+                       LoggedProprietaireG.setMdp(u.getMdp());
                 LoggedProprietaireG.setImage(u.getImage());
                LoggedProprietaireG.setId_user(u.getId_user());
        //System.out.println(u.getId_user());
@@ -245,6 +256,7 @@ public static Admin LoggedAdmin;
              else if(type.equals("proprietairej")){
                         LoggedProprietaireJ = new ProprietaireJ();
                          LoggedProprietaireJ.setPseudo(u.getPseudo());
+                          LoggedProprietaireJ.setMdp(u.getMdp());
                 LoggedProprietaireJ.setImage(u.getImage());
                LoggedProprietaireJ.setId_user(u.getId_user());
                System.out.println("id:"+LoggedProprietaireJ.getId_user());
@@ -267,7 +279,7 @@ public static Admin LoggedAdmin;
     }
     }
    
-    if (!u.getMdp().equals(mdp))
+   else
     {
     
           Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
