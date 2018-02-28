@@ -25,12 +25,12 @@
             </ImageView>
          </graphic>
       </ToggleButton>
-      <Label layoutX="440.0" layoutY="137.0" text="Cin babysitter">
+      <Label layoutX="440.0" layoutY="81.0" text="Cin babysitter">
          <font>
             <Font name="Baskerville" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="879.0" layoutY="178.0" text="Cause">
+      <Label layoutX="879.0" layoutY="132.0" text="Cause">
          <font>
             <Font name="Baskerville" size="22.0" />
          </font>
@@ -38,27 +38,27 @@
       <TextField fx:id="idEva" layoutX="60.0" layoutY="517.0" visible="false" />
       <TextField fx:id="id_garderie" disable="true" layoutX="44.0" layoutY="561.0" visible="false" />
       <TextField fx:id="id_user" layoutX="85.0" layoutY="785.0" visible="false" />
-      <Label layoutX="439.0" layoutY="178.0" text="Heure de travail">
+      <Label layoutX="439.0" layoutY="136.0" text="Heure de travail">
          <font>
             <Font name="Baskerville" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="880.0" layoutY="139.0" text="Heure de pointe">
+      <Label layoutX="880.0" layoutY="85.0" text="Heure de pointe">
          <font>
             <Font name="Baskerville" size="22.0" />
          </font>
       </Label>
-      <JFXTimePicker fx:id="heurep" defaultColor="LIGHTSKYBLUE" layoutX="1042.0" layoutY="134.0" prefHeight="26.0" prefWidth="192.0" promptText="saisir heure de pointe" style="-jfx-default-color: #87cefa;" />
-      <JFXTimePicker fx:id="heuret" layoutX="597.0" layoutY="171.0" promptText="saisir heure de travail" style="-jfx-default-color: #87CEFA;" />
-      <JFXTextField fx:id="tcinbs" layoutX="597.0" layoutY="130.0" promptText="saisir carte d'identité" />
-      <JFXTextArea fx:id="tdescription" layoutX="1043.0" layoutY="177.0" prefHeight="127.0" prefWidth="263.0" promptText="saisir la cause" />
-      <JFXListView fx:id="maliste" layoutX="444.0" layoutY="408.0" prefHeight="376.0" prefWidth="871.0" />
-      <Label layoutX="438.0" layoutY="355.0" prefHeight="48.0" prefWidth="302.0" text="Vos reclamations" textFill="#ffc014">
+      <JFXTimePicker fx:id="heurep" defaultColor="LIGHTSKYBLUE" layoutX="1042.0" layoutY="83.0" prefHeight="26.0" prefWidth="192.0" promptText="saisir heure de pointe" style="-jfx-default-color: #87cefa;" />
+      <JFXTimePicker fx:id="heuret" layoutX="597.0" layoutY="132.0" promptText="saisir heure de travail" style="-jfx-default-color: #87CEFA;" />
+      <JFXTextField fx:id="tcinbs" layoutX="597.0" layoutY="80.0" promptText="saisir carte d'identité" />
+      <JFXTextArea fx:id="tdescription" layoutX="1043.0" layoutY="135.0" prefHeight="127.0" prefWidth="263.0" promptText="saisir la cause" />
+      <JFXListView fx:id="maliste" layoutX="444.0" layoutY="370.0" prefHeight="344.0" prefWidth="871.0" />
+      <Label layoutX="438.0" layoutY="302.0" prefHeight="48.0" prefWidth="302.0" text="Vos reclamations" textFill="#ffc014">
          <font>
             <Font name="Baskerville" size="30.0" />
          </font>
       </Label>
-      <ToggleButton fx:id="bt11" layoutX="1229.0" layoutY="334.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="83.0" prefWidth="53.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
+      <ToggleButton fx:id="bt11" layoutX="1229.0" layoutY="293.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="83.0" prefWidth="53.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
          <graphic>
             <ImageView fitHeight="43.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -67,12 +67,12 @@
             </ImageView>
          </graphic>
       </ToggleButton>
-      <Label layoutX="432.0" layoutY="59.0" prefHeight="38.0" prefWidth="547.0" text="Demande de reclamation" textFill="#ffc014">
+      <Label layoutX="432.0" layoutY="23.0" prefHeight="38.0" prefWidth="547.0" text="Demande de reclamation" textFill="#ffc014">
          <font>
             <Font name="Baskerville" size="30.0" />
          </font>
       </Label>
-      <JFXButton fx:id="ajouter" layoutX="445.0" layoutY="291.0" onAction="#ajouter" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #ffc014;" text="Ajouter">
+      <JFXButton fx:id="ajouter" layoutX="445.0" layoutY="206.0" onAction="#ajouter" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #ffc014;" text="Ajouter">
          <font>
             <Font name="Baskerville" size="17.0" />
          </font></JFXButton>

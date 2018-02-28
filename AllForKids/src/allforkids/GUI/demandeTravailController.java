@@ -23,9 +23,11 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -40,6 +42,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import org.opencv.core.Core;
 
 /**
  * FXML Controller class
@@ -92,7 +97,8 @@ public class demandeTravailController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+       		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+
         try {     
         ObservableList<String> ol = FXCollections.observableArrayList();
         ol.add("Francais") ; 
@@ -130,8 +136,8 @@ public class demandeTravailController implements Initializable {
    tnum_tel.setText(b.getNum_tel());
        tprenom.setText(b.getPrenom());
        tdate_naissance.getEditor().setText(b.getDate_naissance());
-        
-           path.setText(b.getImage());
+         String s="file:/C:/wamp/www/ressources/";
+           path.setText(s+b.getImage());
        
        
       
@@ -148,12 +154,40 @@ public class demandeTravailController implements Initializable {
     @FXML
 
     private void ajouter(ActionEvent event) throws ParseException, IOException{
+      Stage primaryStage=new Stage();
+        try
+		{
+			
+                        	
            demande_travailService Gd=new demande_travailService();
         demandetravail demande=new demandetravail(tetude.getText(),tposte.getText(),tlangue.getValue(),tnom1.getText(),tprenom.getText(),path.getText(),tnum_tel.getText());
          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-       alert.setHeaderText("Votre demande a été envoyer veuillez svp attendre notre reponse, merci.");
+       alert.setHeaderText("Les demandes des sont sacrés on doit verifier votre identité.");
        Optional<ButtonType> result = alert.showAndWait();
+       
         if (result.get() == ButtonType.OK){
+            // load the FXML resource
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("Capture.fxml"));
+			// store the root element so that the controllers can use it
+			BorderPane rootElement = (BorderPane) loader.load();
+			// create and style a scene
+			Scene scene = new Scene(rootElement, 800, 600);
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			// create the stage with the given title and the previously created
+			// scene
+			primaryStage.setTitle("Verification");
+			primaryStage.setScene(scene);
+			// show the GUI
+			primaryStage.show();
+			
+			// set the proper behavior on closing the application
+			CaptureController controller = loader.getController();
+			primaryStage.setOnCloseRequest((new EventHandler<WindowEvent>() {
+				public void handle(WindowEvent we)
+				{
+					controller.setClosed();
+				}
+			}));
      Gd.insert1(demande,AuthentificationController.LoggedBabysitter.getId_user());
          
     tetude.clear();
@@ -165,6 +199,12 @@ public class demandeTravailController implements Initializable {
             AnchorPane1.getChildren().add(newLoadedPane);
      
     }
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+
  
     }
 

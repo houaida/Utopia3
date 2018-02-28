@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.OffreParentFrontController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" onMouseClicked="#cacherCordonnee" prefHeight="866.0" prefWidth="1329.0" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.OffreParentFrontController">
    <children>
       <ToggleButton mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
          <graphic>
@@ -65,13 +65,13 @@
             </ImageView>
          </graphic>
       </ToggleButton>
-      <TableView fx:id="tbtable" layoutX="287.0" layoutY="116.0" prefHeight="619.0" prefWidth="1013.0">
+      <TableView fx:id="tbtable" layoutX="270.0" layoutY="150.0" onMouseClicked="#afficherCordonnee" prefHeight="477.0" prefWidth="785.0">
          <columns>
             <TableColumn id="id_offre" fx:id="id_offre" prefWidth="286.0" text="id" visible="false" />
-            <TableColumn fx:id="titre1" prefWidth="130.99996948242188" text="Titre" />
-            <TableColumn fx:id="date_debut1" prefWidth="159.0" text="Date debut" />
-            <TableColumn fx:id="date_fin1" minWidth="0.0" prefWidth="163.0" text="Date fin" />
-            <TableColumn fx:id="description1" prefWidth="558.0" text="Description" />
+            <TableColumn fx:id="titre1" prefWidth="239.0" text="Titre" />
+            <TableColumn fx:id="date_debut1" prefWidth="96.0" text="Date debut" />
+            <TableColumn fx:id="date_fin1" prefWidth="96.0" text="Date fin" />
+            <TableColumn fx:id="description1" maxWidth="1054.0" prefWidth="600.0" text="Description" />
          </columns>
          <padding>
             <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
@@ -173,6 +173,27 @@
                   <Font name="Baskerville" size="23.0" />
                </font>
             </ToggleButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="details" layoutX="1055.0" layoutY="151.0" prefHeight="335.0" prefWidth="267.0" rotate="71.6" visible="false">
+         <children>
+            <ImageView fx:id="ancien" fitHeight="133.0" fitWidth="119.0" layoutX="128.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" rotate="-21.0">
+               <image>
+                  <Image url="@img/Sans%20titre-2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="262.0" fitWidth="335.0" layoutX="-76.0" layoutY="27.0" opacity="0.66" pickOnBounds="true" preserveRatio="true" rotate="24.4">
+               <image>
+                  <Image url="@img/bulle.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="info" layoutX="10.0" layoutY="90.0" prefHeight="83.0" prefWidth="206.0" rotate="-71.6" />
+            <ImageView fx:id="imageU" fitHeight="167.0" fitWidth="155.0" layoutX="-32.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true" rotate="-75.0" />
+            <ImageView fx:id="nouveau" fitHeight="120.0" fitWidth="120.0" layoutX="136.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true" rotate="-26.6">
+               <image>
+                  <Image url="@img/Sans%20titre-1.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

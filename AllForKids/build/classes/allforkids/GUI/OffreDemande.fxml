@@ -123,6 +123,11 @@
                   <Image url="@img/logofinal.gif" />
                </image>
             </ImageView>
+            <ToggleButton layoutX="1.0" layoutY="397.0" mnemonicParsing="false" onAction="#gotoPaint" prefHeight="90.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Dessiner avec votre&#10;         enfant&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
             <ToggleButton layoutX="1.0" layoutY="270.0" mnemonicParsing="false" onAction="#demandeB" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Demandes">
                <font>
                   <Font name="Baskerville" size="23.0" />

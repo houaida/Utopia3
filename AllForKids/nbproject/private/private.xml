@@ -3,12 +3,76 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/service/CovoiturageService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/CovController.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/service/ReservationService.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/ListeReservationController.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/AccueilParentController.java</file>
             <file>file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/AccueilAdminController.java</file>
+=======
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ListeGardJardController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/GestionEvaluationController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/service/Upload.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/service/NoteService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/LoadingController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/demandeTravailController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilKidsController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilParentController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/MoyenTransportController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/OffreParentFrontController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/EvaluationController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/PaintController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/LigneCommandesController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/allforkids.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/LivraisonController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/InscriptionController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ListeReservationController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/OffreDemandeCompController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/BabysitterController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/Page2Controller.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilGeneralController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AuthentificationController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ligneCommandes.fxml</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ListeJardinController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ListviewReclamationController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilParent.fxml</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/Browser/Browser.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/BabysitterPersonnelController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/DemandeBabysitterFrontController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/service/PromotionService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/GestionGarderieController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/service/CommandeService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/GestionQuizController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ListeCommandesController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ListePromotionsController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/CovController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ApprouverDemandeController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/GestionUserController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilPropGController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/InscriptionClubController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/GestionJardinController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ViewCommentsController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/OffreParentController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/entite/Note.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilAdminController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ProduitDetailsController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/service/CommentaireService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/InscriptionUserController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ListeProduitsController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ListviewApprouverController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/demandeController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/GestionEnfantJController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilAdmin.fxml</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/OffreDemandeController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ReclamationController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/CaptureController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/ListViewTestController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/service/OffreService.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/GestionEnfantController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/CommandeLivraisonController.java</file>
+            <file>file:/C:/Users/Molka/Documents/GitHub/Utopia3/AllForKids/src/allforkids/GUI/AccueilPropJController.java</file>
+>>>>>>> 3049ec7efcded067c6bf369cc60623cf3a057d93
         </group>
     </open-files>
 </project-private>

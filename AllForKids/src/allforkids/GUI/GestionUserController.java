@@ -254,7 +254,8 @@ ToggleGroup group = new ToggleGroup();
     {
     if(Rparent.isSelected())
         
-    {  Cpseudo.setMinWidth(80);
+    { label.setVisible(false);
+        Cpseudo.setMinWidth(80);
  Cmdp.setMinWidth(80);
  Cemail.setMinWidth(200);
          table.setLayoutX(25);
@@ -288,8 +289,8 @@ ToggleGroup group = new ToggleGroup();
                     Parent p = param.getValue() ; 
                     ParentService ps = new ParentService() ; 
                     Parent pr = ps.search(p.getId_user()) ; 
-                    
-                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                     String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 80, 80, true, true, true));
                 }
             }) ; 
                 Cimage.setCellFactory(new Callback<TableColumn<Parent, Image>, TableCell<Parent, Image>>() {
@@ -357,7 +358,8 @@ imgv1.setVisible(false);
                 }
     else if(Renseignant.isSelected())
         
-    { Cpseudo.setMinWidth(80);
+    { label.setVisible(false);
+        Cpseudo.setMinWidth(80);
  Cmdp.setMinWidth(80);
  Cemail.setMinWidth(200);
     table.setLayoutX(25);
@@ -399,8 +401,8 @@ imgv1.setVisible(false);
                     Enseignant p = param.getValue() ; 
                     EnseignantService ps = new EnseignantService() ; 
                     Enseignant pr = ps.search(p.getId_user()) ; 
-                    
-                    return new SimpleObjectProperty<>(new Image(pr.getImage(), 80, 80, true, true, true));
+                     String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+pr.getImage(), 80, 80, true, true, true));
                 }
             }) ; 
                 Cimage.setCellFactory(new Callback<TableColumn<Enseignant, Image>, TableCell<Enseignant, Image>>() {
@@ -462,7 +464,8 @@ imgv1.setVisible(false);
       
      }
     else if(RpropG.isSelected())
-    {Cnaissance.setVisible(false);
+    {label.setVisible(false);
+        Cnaissance.setVisible(false);
                 Cnaissance1.setVisible(false);
 imgv1.setVisible(false);
         inscrit.setVisible(false);
@@ -560,7 +563,8 @@ imgv1.setVisible(false);
 
     }
      else if(RpropJ.isSelected())
-    {Cnaissance.setVisible(false);
+    {label.setVisible(false);
+        Cnaissance.setVisible(false);
                 Cnaissance1.setVisible(false);
 imgv1.setVisible(false);
         inscrit.setVisible(false);
@@ -1299,7 +1303,8 @@ String nom=entrer.getText();
        {
                 TableView<Babysitter> table2=table;
         imgv1.setImage(null);
-        String imageFile1 = table2.getSelectionModel().getSelectedItem().getImage();
+        String s="file:/C:/wamp/www/ressources/";
+        String imageFile1 = s+table2.getSelectionModel().getSelectedItem().getImage();
                 String type= table2.getSelectionModel().getSelectedItem().getType();
         String date = table2.getSelectionModel().getSelectedItem().getDate_naissance();
         String nom = table2.getSelectionModel().getSelectedItem().getNom();
@@ -1322,8 +1327,8 @@ String nom=entrer.getText();
          if (event.getClickCount() == 1) //Checking double click
        {
             imgv1.setImage(null);
-           
-            String imageFile = table1.getSelectionModel().getSelectedItem().getImage(); 
+           String s="file:/C:/wamp/www/ressources/";
+            String imageFile = s+table1.getSelectionModel().getSelectedItem().getImage(); 
               String type= table1.getSelectionModel().getSelectedItem().getType();
         String date = table1.getSelectionModel().getSelectedItem().getDate_naissance();
         String nom = table1.getSelectionModel().getSelectedItem().getNom();

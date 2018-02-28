@@ -44,7 +44,8 @@ import javafx.scene.layout.Pane;
  * @author user
  */
 public class ListviewApprouverController implements Initializable {
-
+public static final String ACCOUNT_SID = "AC1b03266295bbba0a1e053cb7f2c4c550";
+  public static final String AUTH_TOKEN = "2c12a62349d571be7427e4b55f3774c8";
     @FXML
     private AnchorPane AnchorPane1;
     @FXML
@@ -53,8 +54,7 @@ public class ListviewApprouverController implements Initializable {
     private ToggleButton bt1;
     @FXML
     private ToggleButton bt11;
- public static final String ACCOUNT_SID = "AC1b03266295bbba0a1e053cb7f2c4c550";
-  public static final String AUTH_TOKEN = "2c12a62349d571be7427e4b55f3774c8";
+
     @FXML
     private AnchorPane AnchorPane2;
     @FXML

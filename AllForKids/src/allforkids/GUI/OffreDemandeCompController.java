@@ -22,7 +22,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -48,7 +50,7 @@ public class OffreDemandeCompController implements Initializable {
     @FXML
     private TableColumn<Offre, String> description1;
     @FXML
-    private TableColumn<Demande, Integer> id_demande2;
+    private TableColumn<Demande, Integer> id_demande;
     @FXML
     private TableView<Demande> tbtable;
     @FXML
@@ -60,14 +62,8 @@ public class OffreDemandeCompController implements Initializable {
     @FXML
     private TableColumn<Demande, String> description;
     @FXML
-    private TableColumn<Offre, Integer> id_offre1;
-    @FXML
-    private TableColumn<?, ?> titre2;
-    @FXML
-    private TableColumn<?, ?> titre3;
-    @FXML
+    private TableColumn<Offre, Integer> id_offre;
     private JFXTextField rechercheo;
-    @FXML
     private JFXTextField recherched;
     @FXML
     private AnchorPane AnchorPane2;
@@ -88,6 +84,12 @@ public class OffreDemandeCompController implements Initializable {
     private BorderPane anB;
     @FXML
     private ToggleButton gestionReclamation;
+    @FXML
+    private TextField trecherche;
+    @FXML
+    private ToggleButton supprimer;
+    @FXML
+    private ToggleGroup menu1;
 
     /**
      * Initializes the controller class.
@@ -109,7 +111,7 @@ titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
 date_debut.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
 date_fin.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
 description.setCellValueFactory(new PropertyValueFactory<>("description"));       
-id_demande2.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
+id_demande.setCellValueFactory(new PropertyValueFactory<>("id_demande"));
 
         
 
@@ -126,18 +128,44 @@ titre1.setCellValueFactory(new PropertyValueFactory<>("titre"));
 date_debut1.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
 date_fin1.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
 description1.setCellValueFactory(new PropertyValueFactory<>("description"));       
-id_offre1.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
+id_offre.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
+        
 
         
 
 
        }
+    @FXML
+    private void rechercheOffreDemande(ActionEvent event) {
+         OffreService Goffre=OffreService.getInstance();
+
+        String a =(trecherche.getText()) ;
+
+       tbtable1.setItems(Goffre.getbyPseudo1(a));
+      titre1.setCellValueFactory(new PropertyValueFactory<>("titre"));
+date_debut1.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
+date_fin1.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
+description1.setCellValueFactory(new PropertyValueFactory<>("description"));     
+      DemandeService gDemande=DemandeService.getInstance();
+ 
+         
+
+        tbtable.setItems(gDemande.getbyPseudo1(a));
+      titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
+date_debut.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
+date_fin.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
+description.setCellValueFactory(new PropertyValueFactory<>("description"));       
+    
+    
+
+                     
+    }
 
     @FXML
-    private void supprimerOffre(ActionEvent event) {
-         if (!tbtable1.getSelectionModel().isEmpty()) {
+    private void supprimerOffreDemande(ActionEvent event) {
+           if (!tbtable1.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("suppression de propriétaire ");
+            alert.setTitle("suppression de l'offre ");
             alert.setHeaderText("Etes-vous sur que vous voulez supprimer cette offre"
                     +tbtable1.getSelectionModel().getSelectedItem().getId_offre());
             Optional<ButtonType> result = alert.showAndWait();
@@ -145,26 +173,14 @@ id_offre1.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
                      OffreService Goffre=OffreService.getInstance();
 
                 Goffre.delete(tbtable1.getSelectionModel().getSelectedItem().getId_offre());
+               
                afficherOffre();
             }
-        } else {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            
-            alert.setTitle("Erreur de selection");
-            alert.setHeaderText("Vous etes obligé de selectioner une offre  ");
-
-            Optional<ButtonType> result = alert.showAndWait();
-        }
-
-        
-    }
-
-    @FXML
-    private void supprimerDemande(ActionEvent event) {
+        } 
             if (!tbtable.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("suppression de propriétaire ");
-           alert.setHeaderText("Etes-vous sur que vous voulez supprimer cette offre"
+            alert.setTitle("suppression de la demande ");
+           alert.setHeaderText("Etes-vous sur que vous voulez supprimer cette demande"
                +tbtable.getSelectionModel().getSelectedItem().getId_demande());
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
@@ -177,46 +193,22 @@ id_offre1.setCellValueFactory(new PropertyValueFactory<>("id_offre"));
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             
             alert.setTitle("Erreur de selection");
-            alert.setHeaderText("Vous etes obligé de selectioner une offre  ");
+            alert.setHeaderText("Vous etes obligé de selectioner une offre ou une demande ");
 
             Optional<ButtonType> result = alert.showAndWait();
         }
 
-    }
 
-    @FXML
-    private void rechercherOffre(ActionEvent event) {
-              OffreService Goffre=OffreService.getInstance();
-
-        String a =(rechercheo.getText()) ;
-
-       tbtable1.setItems(Goffre.getbyPseudo1(a));
-      titre1.setCellValueFactory(new PropertyValueFactory<>("titre"));
-date_debut1.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
-date_fin1.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
-description1.setCellValueFactory(new PropertyValueFactory<>("description"));     
-                      
         
     }
 
-    
 
-    @FXML
-    private void rechercherDemande(ActionEvent event)throws IOException, InterruptedException {
-              DemandeService gDemande=DemandeService.getInstance();
- 
-                String a =(recherched.getText()) ;
 
-        tbtable.setItems(gDemande.getbyPseudo1(a));
-      titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
-date_debut.setCellValueFactory(new PropertyValueFactory<>("date_debut"));
-date_fin.setCellValueFactory(new PropertyValueFactory<>("date_fin"));
-description.setCellValueFactory(new PropertyValueFactory<>("description"));       
-    
-    
+
+   
 
     
-}
+
 @FXML
     private void afficher(ActionEvent event) {
          AnchorPane2.setVisible(true);
@@ -283,5 +275,6 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
         
     }
 
+    
     
 }

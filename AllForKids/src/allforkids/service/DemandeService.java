@@ -148,7 +148,7 @@ ObservableList<Demande> Demandes=FXCollections.observableArrayList();
    ObservableList<Demande> liste = FXCollections.observableArrayList();
    
     try{
-rs = st.executeQuery("select * from demandes_parent where titre like '%"+pseudo+"%'") ;
+rs = st.executeQuery("select * from demandes_parent d join users u on d.id_parent=u.id_user where type='parent' and titre like '%"+pseudo+"%'") ;
       while (rs.next()) { 
             Demande p = new Demande(rs.getInt("id_parent"),rs.getString("Description"),rs.getString("titre"),rs.getString("date_debut"),rs.getString("date_fin"));
                 liste.add(p); 

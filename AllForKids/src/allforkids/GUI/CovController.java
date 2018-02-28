@@ -357,6 +357,7 @@ public class CovController implements Initializable {
                             Parent p1 =  ps.searchImg(p.getId_user()) ; */
                            //String im = "file:/C:/Users/imen/Desktop/imen.png" ;    
 
+<<<<<<< HEAD
                            /* Image img = new Image("file:/C:/wamp/www/ressources/reservation.png", 100, 100, true, true, true) ; */
 
                           //  Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/reserv.png", 100, 100, true, true, true) ; 
@@ -400,6 +401,11 @@ public class CovController implements Initializable {
                             Image img = new Image("file:/C:/wamp/www/ressources/reservation.png", 100, 100, true, true, true) ; 
 
                           //  Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/reserv.png", 100, 100, true, true, true) ; 
+=======
+                            Image img = new Image("file:/C:/wamp/www/ressources/reservation.png", 100, 100, true, true, true) ; 
+
+                           // Image img = new Image("file:/Users/MacBook/Desktop/3A5/PIDEV/AllForKids/Utopia3/AllForKids/src/allforkids/GUI/reserv.png", 100, 100, true, true, true) ; 
+>>>>>>> 3049ec7efcded067c6bf369cc60623cf3a057d93
 
                             ImageView imgV = new ImageView(img) ; 
                             setGraphic(imgV); 

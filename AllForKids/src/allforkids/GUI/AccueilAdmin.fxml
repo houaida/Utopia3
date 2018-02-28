@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
+=======
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+
+>>>>>>> 3049ec7efcded067c6bf369cc60623cf3a057d93
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -238,11 +252,14 @@
             <Image url="@img/icon/Ic_play_arrow_48px.svg%20-%20copie%202.png" />
          </image>
       </ImageView>
+<<<<<<< HEAD
       <ToggleButton layoutX="-2.0" layoutY="542.0" mnemonicParsing="false" onAction="#moyenTransport" onMouseClicked="#gotoDemandeTravail" prefHeight="75.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gestion Moyen&#10; de transport&#10;&#10;&#10;" textAlignment="CENTER">
          <font>
             <Font name="Baskerville" size="23.0" />
          </font>
       </ToggleButton>
+=======
+>>>>>>> 3049ec7efcded067c6bf369cc60623cf3a057d93
 
 
    </children>
