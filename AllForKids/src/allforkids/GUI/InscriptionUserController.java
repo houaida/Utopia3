@@ -41,9 +41,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -99,7 +101,7 @@ private AnchorPane AnchorPane1;
     @FXML
     private TextField pseudo;
     @FXML
-    private TextField mdp;
+    private PasswordField mdp;
     @FXML
     private TextField email;
     @FXML
@@ -112,8 +114,7 @@ private AnchorPane AnchorPane1;
   
     @FXML
     private TextField prenom_enfant;
-    @FXML
-    private TextField age;
+   
     @FXML
     private TextField nom_enfant;
    
@@ -156,7 +157,24 @@ private AnchorPane AnchorPane1;
     private TextField imgPath;
     @FXML
     private ImageView imgV;
-
+    @FXML
+    private TextField path;
+    @FXML
+    private Button btBrowse;
+    @FXML
+    private Label lbimage;
+@FXML
+     private ComboBox<Integer> comBox3 ; 
+    @FXML
+    private Label alertCIn;
+    @FXML
+    private Label alertNum;
+    @FXML
+    private TextField mdpT;
+    @FXML
+    private ToggleButton lu;
+    @FXML
+    private ToggleButton cache;
     /**
      * Initializes the controller class.
      */
@@ -165,6 +183,22 @@ private AnchorPane AnchorPane1;
         
         
             // TODO
+            ObservableList<Integer> ol3 = FXCollections.observableArrayList();
+        ol3.add(1) ; 
+        ol3.add(2) ; 
+        ol3.add(3) ; 
+        ol3.add(4) ; 
+        ol3.add(5) ;
+         ol3.add(6) ;
+          ol3.add(7) ;
+           ol3.add(8) ;
+            ol3.add(9) ;
+             ol3.add(10) ;
+              ol3.add(11) ;
+               ol3.add(12) ;
+                ol3.add(13) ;
+                 ol3.add(14) ;
+        comBox3.setItems(ol3);
             afficher();
         
         ToggleGroup group = new ToggleGroup();
@@ -209,13 +243,16 @@ ToggleGroup etude = new ToggleGroup();
      @FXML
     public void afficher() {
      if(Rparent.isSelected()){
+         path.setVisible(true);
+         btBrowse.setVisible(true);
+         lbimage.setVisible(true);
          imgV.setVisible(false);
       imgPath.setDisable(false);
     naissance.setDisable(true);
     num_tel.setDisable(false);
       club.setDisable(true);
       montant.setDisable(false);
-     age.setDisable(false);
+     comBox3.setDisable(false);
      prenom_enfant.setDisable(false);
      nom_enfant.setDisable(false);
     an2.setVisible(true);
@@ -230,6 +267,8 @@ ToggleGroup etude = new ToggleGroup();
       adresse.clear();
       email.clear();
       montant.clear();
+      alertCIn.setText(" ");
+       alertNum.setText(" ");
       
      
      }
@@ -240,13 +279,15 @@ ToggleGroup etude = new ToggleGroup();
      num_tel.setDisable(true);
         club.setDisable(false);
         montant.setDisable(false);
-        age.setDisable(true);
+        comBox3.setDisable(true);
      prenom_enfant.setDisable(true);
      nom_enfant.setDisable(true);
          an2.setVisible(false);
     an3.setVisible(false);
     btV.setVisible(true);
      btP.setVisible(false);
+     alertCIn.setText(" ");
+       alertNum.setText(" ");
     
     }
       if(Rbabysitter.isSelected()){
@@ -255,13 +296,15 @@ ToggleGroup etude = new ToggleGroup();
         montant.setDisable(true);
      num_tel.setDisable(false);
       club.setDisable(true);
-      age.setDisable(true);
+      comBox3.setDisable(true);
      prenom_enfant.setDisable(true);
      nom_enfant.setDisable(true);
       an2.setVisible(false);
     an3.setVisible(false);
      btV.setVisible(true);
       btP.setVisible(false);
+      alertCIn.setText(" ");
+       alertNum.setText(" ");
       }
       
     }
@@ -277,6 +320,7 @@ ToggleGroup etude = new ToggleGroup();
          e=es.findbyMail(email.getText());
          p4=es.getbyPseudo(pseudo.getText());
         if((controMail(email.getText()))&&(e==null)&&(p4==null)){
+            if(mdp.isVisible()){
               Enseignant p=new Enseignant (Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
       email.getText(),Float.parseFloat(montant.getText()),club.getText(),imgPath.getText());
       EnseignantService ps= new EnseignantService();
@@ -290,8 +334,31 @@ ToggleGroup etude = new ToggleGroup();
       email.clear();
       club.clear();
       num_tel.clear();
+      alertCIn.setText(" ");
+       alertNum.setText(" ");
        num_tel.setDisable(false);
        afficher();}
+            else if(mdpT.isVisible()){
+             Enseignant p=new Enseignant (Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdpT.getText(),
+      email.getText(),Float.parseFloat(montant.getText()),club.getText(),imgPath.getText());
+      EnseignantService ps= new EnseignantService();
+      ps.insert(p);
+      cin.clear();
+      nom.clear();
+      prenom.clear();
+      pseudo.clear();
+      mdp.clear();
+     adresse.clear();
+      email.clear();
+      club.clear();
+      num_tel.clear();
+      alertCIn.setText(" ");
+       alertNum.setText(" ");
+       num_tel.setDisable(false);
+       afficher();
+            
+            }
+        }
          else{
              if (((p4!=null)&&(!controMail(email.getText())))||((p4!=null)&&(e!=null))){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -321,7 +388,7 @@ ToggleGroup etude = new ToggleGroup();
     
     if(Rbabysitter.isSelected()){
        
-      
+       if(mdp.isVisible()){
       Babysitter p=new Babysitter(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
       email.getText(),adresse.getText(),num_tel.getText(),naissance.getEditor().getText(),imgPath.getText());
       BabysitterService ps= new BabysitterService();
@@ -336,9 +403,31 @@ ToggleGroup etude = new ToggleGroup();
       club.clear();
       num_tel.clear();
       imgPath.clear();
+      alertCIn.setText(" ");
+       alertNum.setText(" ");
       club.setDisable(false);
       afficher();
              }
+    else if(mdpT.isVisible()){
+        Babysitter p=new Babysitter(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdpT.getText(),
+      email.getText(),adresse.getText(),num_tel.getText(),naissance.getEditor().getText(),imgPath.getText());
+      BabysitterService ps= new BabysitterService();
+      ps.insert(p);
+      cin.clear();
+      nom.clear();
+      prenom.clear();
+      pseudo.clear();
+      mdp.clear();
+     adresse.clear();
+      email.clear();
+      club.clear();
+      num_tel.clear();
+      imgPath.clear();
+      alertCIn.setText(" ");
+       alertNum.setText(" ");
+      club.setDisable(false);
+      afficher();
+    }}
     
     }
 
@@ -352,13 +441,21 @@ ToggleGroup etude = new ToggleGroup();
 
     private void listegarderie(ActionEvent event) throws IOException {
        if(Rgarderie.isSelected()){
-        
+        if(comBox3.getValue()<5){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Age");
+            alert.setHeaderText("votre enfant est trop petit pour s'inscrire à une garderie");
+            Optional<ButtonType> result = alert.showAndWait();
+           comBox3.setValue(null);
+        }else{
         LoggedEnfant = new Enfant();
        
         LoggedEnfant.setNom(nom_enfant.getText());
         LoggedEnfant.setPrenom(prenom_enfant.getText());
-        LoggedEnfant.setAge(Integer.parseInt(age.getText())); 
+        LoggedEnfant.setAge(comBox3.getValue()); 
+        LoggedEnfant.setImage(path.getText()); 
         System.out.println(LoggedEnfant.getNom());
+        System.out.println("enfant"+LoggedEnfant.getImage());
       
          
       LoggedParent = new Parent();
@@ -367,10 +464,11 @@ ToggleGroup etude = new ToggleGroup();
         LoggedParent.setNom(nom.getText());
         LoggedParent.setPrenom(prenom.getText());
          LoggedParent.setPseudo(pseudo.getText());
-          LoggedParent.setMdp(mdp.getText());
+         if(mdp.isVisible()){
+          LoggedParent.setMdp(mdp.getText());}else if (mdpT.isVisible()){ LoggedParent.setMdp(mdpT.getText());}
           LoggedParent.setNum_tel(num_tel.getText());
            LoggedParent.setEmail(email.getText());
-        LoggedParent.setMontant(Float.parseFloat(age.getText())); 
+        LoggedParent.setMontant(Float.parseFloat(montant.getText())); 
          LoggedParent.setAdresse(adresse.getText());
         System.out.println(LoggedParent.getNom());
         ParentService es=new ParentService();
@@ -379,14 +477,25 @@ ToggleGroup etude = new ToggleGroup();
          e=es.findbyMail(email.getText());
          p4=es.getbyPseudo(pseudo.getText());
         if((controMail(email.getText()))&&(e==null)&&(p4==null)){
-           
+           if(mdp.isVisible()){
         Parent p=new Parent(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
       email.getText(),adresse.getText(),Float.parseFloat(montant.getText()),imgPath.getText(),num_tel.getText());
       ParentService ps= new ParentService();
       ps.insert(p);
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeGardJard.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);}else{
+            AnchorPane1.getChildren().add(newLoadedPane);}
+           else if(mdpT.isVisible()){
+           Parent p=new Parent(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdpT.getText(),
+      email.getText(),adresse.getText(),Float.parseFloat(montant.getText()),imgPath.getText(),num_tel.getText());
+      ParentService ps= new ParentService();
+      ps.insert(p);
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeGardJard.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+           }
+        
+        }else{
            
              if (((p4!=null)&&(!controMail(email.getText())))||((p4!=null)&&(e!=null))){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -411,15 +520,23 @@ ToggleGroup etude = new ToggleGroup();
             pseudo.clear();
             }
            
-        }}
+        }}}
        else if(Rjardin.isSelected()){
-        
+        if(comBox3.getValue()>5){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Age");
+            alert.setHeaderText("votre enfant est grand pour s'inscrire à un jardin d'enfant");
+            Optional<ButtonType> result = alert.showAndWait();
+           comBox3.setValue(null);
+        }else{
         LoggedEnfantJ = new EnfantJ();
        
         LoggedEnfantJ.setNom(nom_enfant.getText());
         LoggedEnfantJ.setPrenom(prenom_enfant.getText());
-        LoggedEnfantJ.setAge(Integer.parseInt(age.getText())); 
+        LoggedEnfantJ.setAge(comBox3.getValue()); 
+        LoggedEnfantJ.setImage(path.getText()); 
         System.out.println(LoggedEnfantJ.getNom());
+        System.out.println(LoggedEnfantJ.getImage());
       
          
       LoggedParent = new Parent();
@@ -428,9 +545,10 @@ ToggleGroup etude = new ToggleGroup();
         LoggedParent.setNom(nom.getText());
         LoggedParent.setPrenom(prenom.getText());
          LoggedParent.setPseudo(pseudo.getText());
-          LoggedParent.setMdp(mdp.getText());
+         if(mdp.isVisible()){
+          LoggedParent.setMdp(mdp.getText());}else if (mdpT.isVisible()){ LoggedParent.setMdp(mdpT.getText());}
            LoggedParent.setEmail(email.getText());
-        LoggedParent.setMontant(Float.parseFloat(age.getText())); 
+        LoggedParent.setMontant(Float.parseFloat(montant.getText())); 
          LoggedParent.setAdresse(adresse.getText());
         System.out.println(LoggedParent.getNom());
         ParentService es=new ParentService();
@@ -439,14 +557,24 @@ ToggleGroup etude = new ToggleGroup();
          e=es.findbyMail(email.getText());
          p4=es.getbyPseudo(pseudo.getText());
         if((controMail(email.getText()))&&(e==null)&&(p4==null)){
-           
+           if(mdp.isVisible()){
         Parent p=new Parent(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdp.getText(),
       email.getText(),adresse.getText(),Float.parseFloat(montant.getText()),imgPath.getText(),num_tel.getText());
       ParentService ps= new ParentService();
       ps.insert(p);
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeJardin.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);}else{
+            AnchorPane1.getChildren().add(newLoadedPane);}
+           else if(mdpT.isVisible()){
+            Parent p=new Parent(Integer.parseInt(cin.getText()),nom.getText(),prenom.getText(),pseudo.getText(),mdpT.getText(),
+      email.getText(),adresse.getText(),Float.parseFloat(montant.getText()),imgPath.getText(),num_tel.getText());
+      ParentService ps= new ParentService();
+      ps.insert(p);
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("ListeJardin.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+           }
+        }else{
            
              if (((p4!=null)&&(!controMail(email.getText())))||((p4!=null)&&(e!=null))){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -470,12 +598,19 @@ ToggleGroup etude = new ToggleGroup();
             Optional<ButtonType> result = alert.showAndWait();
             pseudo.clear();
             }
+              if(!controlCIN(Integer.parseInt(cin.getText()))){
+             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Carte d'identité");
+            alert.setHeaderText("CIN invalide");
+            Optional<ButtonType> result = alert.showAndWait();
+            cin.clear();
+             }
            
         
         
     }}
     
-    }
+    }}
 
  @FXML
     public void actionBrowser(ActionEvent event) throws MalformedURLException{  
@@ -495,7 +630,47 @@ ToggleGroup etude = new ToggleGroup();
      
         
         }
+    @FXML
+    public void actionBrowser2(ActionEvent event) throws MalformedURLException{  
+        String imageFile;
+      
+        FileChooser fc = new FileChooser();
+        File selectedFile = fc.showOpenDialog(null);
+        if (selectedFile != null) {
+            imageFile = selectedFile.toURI().toURL().toString();
+            System.out.println(imageFile);
+            Image image1 = new Image(imageFile);
+            imgV.setImage(image1);
+            path.setText(imageFile);
+        } else {
+            System.out.println("file doesn't exist");
+        }
+     
         
+        }
+     @FXML
+    public void controlCINPress(){
+        
+        if((cin.getText()).length()!=8){
+        alertCIn.setText("CIN invalide");
+        }
+        else alertCIn.setText("CIN valide");
+        }
+    @FXML
+    public void controlNUMPress(){
+        
+        if((num_tel.getText()).length()!=8){
+        alertNum.setText("numero invalide");
+        }
+        else alertNum.setText("numero valide");
+        }
+    
+        public boolean controlCIN(int cin){
+        String chaine=Integer.toString(cin);
+        if(chaine.length()!=8){
+        return false;
+        }else return true;
+        }
     
     public boolean controMail(String mail){
 String masque = "^[a-zA-Z]+[a-zA-Z0-9\\._-]*[a-zA-Z0-9]@[a-zA-Z]+"
@@ -510,6 +685,23 @@ return false;
 }
 
 }
+
+    @FXML
+    private void lirePass(ActionEvent event) {
+        mdpT.setText(mdp.getText());
+        mdp.setVisible(false);
+        mdpT.setVisible(true);
+        lu.setVisible(false);
+        cache.setVisible(true);
+    }
+     @FXML
+    private void CacherPass(ActionEvent event) {
+        mdp.setText(mdpT.getText());
+        mdp.setVisible(true);
+        mdpT.setVisible(false);
+        cache.setVisible(false);
+        lu.setVisible(true);
+    }
 
 }
 

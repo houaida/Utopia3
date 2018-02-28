@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -14,71 +16,199 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="706.0" prefWidth="1042.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionEvaluationController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" stylesheets="@css/gestionevaluation.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.GestionEvaluationController">
    <children>
-      <ImageView fitHeight="706.0" fitWidth="1173.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/b2.jpg" />
-         </image>
-      </ImageView>
-      <HBox layoutX="18.0" layoutY="11.0" prefHeight="60.0" prefWidth="1036.0" styleClass="box-topo">
-         <children>
-            <Label fx:id="lbTitulo1" layoutX="10.0" maxWidth="1.7976931348623157E308" styleClass="titulo" text="Gestion d'évaluations d'un enfant" textFill="#45d328" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="445.0" AnchorPane.topAnchor="0.0" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="entrer" onAction="#rechercher" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css" />
-            <ToggleButton mnemonicParsing="false" onAction="#rechercher" stylesheets="@css/gestionevaluation.css" textFill="#a10f0f">
-               <styleClass>
-                  <String fx:value="menus-tela" />
-                  <String fx:value="pesquisar" />
-               </styleClass>
-            </ToggleButton>
-            <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" stylesheets="@css/gestionevaluation.css" text="">
-               <styleClass>
-                  <String fx:value="menus-tela" />
-                  <String fx:value="menu-add" />
-               </styleClass>
-            </ToggleButton>
-            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" stylesheets="@css/gestionevaluation.css" text="">
-               <styleClass>
-                  <String fx:value="menus-tela" />
-                  <String fx:value="menu-editar" />
-               </styleClass>
-            </ToggleButton>
-            <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" stylesheets="@css/gestionevaluation.css" text="">
-               <styleClass>
-                  <String fx:value="menus-tela" />
-                  <String fx:value="menu-excluir" />
-               </styleClass>
-               <toggleGroup>
-                  <ToggleGroup fx:id="menu" />
-               </toggleGroup>
-            </ToggleButton>
-         </children>
-      </HBox>
-      <Label layoutX="22.0" layoutY="135.0" text="Nom" />
-      <Label layoutX="23.0" layoutY="203.0" text="Prénom" />
-      <Label layoutX="24.0" layoutY="266.0" text="Matiére" />
-      <Label layoutX="26.0" layoutY="325.0" text="Moyenne" />
-      <TextField fx:id="moyenne" layoutX="128.0" layoutY="321.0" />
-      <TextField fx:id="matiere" layoutX="128.0" layoutY="261.0" />
-      <TextField fx:id="prenom" layoutX="128.0" layoutY="195.0" />
-      <TextField fx:id="nom" layoutX="128.0" layoutY="131.0" />
-      <TableView fx:id="table" layoutX="476.0" layoutY="129.0" prefHeight="393.0" prefWidth="499.0">
+      <Label layoutX="68.0" layoutY="321.0" text="Nom">
+         <font>
+            <Font name="Baskerville" size="23.0" />
+         </font></Label>
+      <Label layoutX="68.0" layoutY="400.0" text="Prénom">
+         <font>
+            <Font name="Baskerville" size="22.0" />
+         </font></Label>
+      <Label layoutX="70.0" layoutY="483.0" text="Matiére">
+         <font>
+            <Font name="Baskerville" size="23.0" />
+         </font></Label>
+      <Label layoutX="70.0" layoutY="562.0" text="Moyenne">
+         <font>
+            <Font name="Baskerville" size="23.0" />
+         </font></Label>
+      <TableView fx:id="table" layoutX="567.0" layoutY="239.0" prefHeight="480.0" prefWidth="698.0" style="-fx-background-color: transparent;" stylesheets="@css/accueilgeneral.css">
         <columns>
-            <TableColumn fx:id="Cid" prefWidth="92.07455444335938" text="Id évaluation" visible="false" />
-          <TableColumn fx:id="Cnom" prefWidth="107.55718994140625" text="Nom" />
-          <TableColumn fx:id="Cprenom" prefWidth="140.05194091796875" text="Prénom" />
-            <TableColumn fx:id="Cmatiere" prefWidth="124.662353515625" text="Matiére" />
-            <TableColumn fx:id="Cmoyenne" minWidth="0.0" prefWidth="122.2987060546875" text="Moyenne" />
             <TableColumn fx:id="Cremarque" prefWidth="177.7012939453125" text="Remarque" visible="false" />
+            <TableColumn fx:id="Cid" prefWidth="92.07455444335938" text="Id évaluation" visible="false" />
+          <TableColumn fx:id="Cnom" prefWidth="160.00437927246094" text="Nom" />
+          <TableColumn fx:id="Cprenom" prefWidth="181.99563598632812" text="Prénom" />
+            <TableColumn fx:id="Cmatiere" prefWidth="175.21640014648438" text="Matiére" />
+            <TableColumn fx:id="Cmoyenne" minWidth="0.0" prefWidth="184.96966552734375" text="Moyenne" />
         </columns>
       </TableView>
-      <Button id="btn1" fx:id="btn1" disable="true" layoutX="169.0" layoutY="402.0" mnemonicParsing="false" onAction="#mod2" text="Valider Modification" />
       <TextField fx:id="idEva" layoutX="60.0" layoutY="517.0" visible="false" />
-      <Button fx:id="btretour" layoutX="957.0" layoutY="611.0" mnemonicParsing="false" onAction="#retour" onMouseClicked="#retour" style="-fx-background-color: #FFFAF4;" text="Retour" />
       <TextField fx:id="idEns" layoutX="81.0" layoutY="585.0" visible="false" />
+      <JFXButton fx:id="btn1" layoutX="357.0" layoutY="649.0" onAction="#mod2" style="-fx-background-color: #ffc014;" text="Valider Modification" />
+      <JFXTextField fx:id="nom" layoutX="198.0" layoutY="317.0" />
+      <JFXTextField fx:id="prenom" layoutX="199.0" layoutY="390.0" />
+      <JFXTextField fx:id="matiere" layoutX="200.0" layoutY="472.0" />
+      <JFXTextField fx:id="moyenne" layoutX="202.0" layoutY="558.0" />
+      <AnchorPane layoutX="-1.0" layoutY="19.0" prefHeight="129.0" prefWidth="1329.0" style="-fx-background-color: #cce6ff;">
+         <children>
+            <HBox layoutX="15.0" layoutY="29.0" prefHeight="60.0" prefWidth="1310.0" styleClass="box-topo" stylesheets="@css/covoiturage.css">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="795.0" text="Gestion des Evaluations" textFill="#ffc014">
+                     <font>
+                        <Font name="Baskerville" size="32.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="entrer" onAction="#rechercher" prefHeight="50.0" prefWidth="417.0" promptText="chercher par nom" style="-fx-border-color: #ffc014;" styleClass="pesquisar" stylesheets="@css/gestioncovoiturage.css" />
+                  <ToggleButton mnemonicParsing="false" onAction="#rechercher" style="-fx-border-color: #ffc014;" stylesheets="@css/gestioncovoiturage.css" textFill="#a10f0f">
+                     <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="pesquisar" />
+                     </styleClass>
+                  </ToggleButton>
+                  <ToggleButton maxHeight="70.0" maxWidth="76.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="70.0" prefWidth="76.0" style="-fx-border-color: #ffc014;" stylesheets="@css/gestioncovoiturage.css" text="">
+                     <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-add" />
+                     </styleClass>
+                  </ToggleButton>
+                  <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#modifier" style="-fx-border-color: #ffc014;" stylesheets="@css/gestioncovoiturage.css" text="">
+                     <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-editar" />
+                     </styleClass>
+                  </ToggleButton>
+                  <ToggleButton layoutX="1150.0" layoutY="27.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-border-color: #ffc014;" stylesheets="@css/gestioncovoiturage.css" text="">
+                     <styleClass>
+                        <String fx:value="menus-tela" />
+                        <String fx:value="menu-excluir" />
+                     </styleClass>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="menu" />
+                     </toggleGroup>
+                  </ToggleButton>
+               </children>
+            </HBox>
+            <ToggleButton fx:id="param1" layoutX="8.0" layoutY="29.0" mnemonicParsing="false" onAction="#parametrage" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/icons8_Settings_50px_2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="triangle1" layoutX="31.0" layoutY="32.0" mnemonicParsing="false" onAction="#parametrage" prefHeight="15.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/Ic_play_arrow_48px.svg.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="triangle" layoutX="31.0" layoutY="32.0" mnemonicParsing="false" onAction="#parametrage2" prefHeight="15.0" prefWidth="33.0" style="-fx-background-color: transparent;" visible="false">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/Ic_play_arrow_48px.svg.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="param2" layoutX="8.0" layoutY="29.0" mnemonicParsing="false" onAction="#parametrage2" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: transparent;" visible="false">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/icons8_Settings_50px_2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="Param" layoutX="27.0" layoutY="77.0" prefHeight="98.0" prefWidth="154.0" style="-fx-background-color: black;" visible="false">
+         <children>
+            <ToggleButton fx:id="Compte" layoutY="-1.0" mnemonicParsing="false" onAction="#Compte" onMouseClicked="#CompteCouleur2" onMouseEntered="#CompteCouleur2" onMouseExited="#CompteCouleur1" prefHeight="50.0" prefWidth="155.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Gérer Mon compte&#10;" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="Deco" layoutY="48.0" mnemonicParsing="false" onAction="#closeButtonAction" onMouseClicked="#DecoCouleur2" onMouseEntered="#DecoCouleur2" onMouseExited="#DecoCouleur1" prefHeight="50.0" prefWidth="156.0" style="-fx-background-color: black;" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Déconnexion&#10;" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="Tparam" fitHeight="15.0" fitWidth="15.0" layoutX="39.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@img/icon/Ic_play_arrow_48px.svg%20-%20copie%202.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="flou" fitHeight="870.0" fitWidth="1430.0" layoutX="-83.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@img/icon/flou.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="anCompte" layoutX="220.0" layoutY="136.0" prefHeight="571.0" prefWidth="966.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <Label layoutX="335.0" layoutY="30.0" text="Sécurisé Votre Compte" textAlignment="CENTER" textFill="#ffc014">
+               <font>
+                  <Font name="Baskerville" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="266.0" layoutY="158.0" text="Pseudo ">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="268.0" layoutY="238.0" text="Ancien mot de passe">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="268.0" layoutY="319.0" text="Nouveau mot de passe">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="Tpseudo" layoutX="488.0" layoutY="149.0" prefHeight="26.0" prefWidth="220.0" promptText="entrer votre pseudo">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField fx:id="Amdp" layoutX="493.0" layoutY="225.0" prefHeight="32.0" prefWidth="220.0" promptText="entrer mot de passe">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXPasswordField fx:id="Nmdp" layoutX="497.0" layoutY="308.0" prefHeight="32.0" prefWidth="220.0" promptText="entrer mot de passe">
+               <font>
+                  <Font name="Baskerville" size="17.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXButton fx:id="annul" layoutX="628.0" layoutY="448.0" onAction="#annul" style="-fx-background-color: #ffc014;" text="Annuler">
+               <font>
+                  <Font name="Baskerville" size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="enregistrer" layoutX="493.0" layoutY="448.0" onAction="#enregistrer" style="-fx-background-color: #ffc014;" text="Enregistrer">
+               <font>
+                  <Font name="Baskerville" size="18.0" />
+               </font>
+            </JFXButton>
+            <ToggleButton fx:id="fermer" layoutX="885.0" layoutY="24.0" mnemonicParsing="false" onAction="#fermer" prefHeight="32.0" prefWidth="37.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/icon/Chess_tile_xx.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

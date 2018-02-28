@@ -103,8 +103,8 @@ public static final String ACCOUNT_SID = "AC1b03266295bbba0a1e053cb7f2c4c550";
                       if(p!=null){
                             Parent b=new Parent();
                   b=ps2.search(p.getId_parent());
-                          
-                          Image img = new Image(b.getImage(), 300, 300, true, true, true) ;
+                          String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+b.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                                                 
                           setGraphic(imgV);

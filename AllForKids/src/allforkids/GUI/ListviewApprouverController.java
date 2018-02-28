@@ -94,7 +94,8 @@ public static final String ACCOUNT_SID = "AC1b03266295bbba0a1e053cb7f2c4c550";
                   protected void updateItem(demandetravail p , boolean bl) {
                       super.updateItem(p, bl);
                       if(p!=null){
-                          Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
+                          String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           setGraphic(imgV);
                           

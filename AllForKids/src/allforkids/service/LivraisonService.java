@@ -17,6 +17,8 @@ import allforkids.entite.Livraison;
 
 import allforkids.technique.util.DataSource;
 import java.util.Map;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -37,7 +39,7 @@ public class LivraisonService implements IAllForKids<Livraison>{
     
     }
  
-private LivraisonService() 
+public LivraisonService() 
 {
     connexion=DataSource.getInstance().getConnexion();
     try {
@@ -50,7 +52,7 @@ private LivraisonService()
 
     @Override
     public void insert(Livraison p) {
-        String req = "insert into livraisons(id_livreur,id_parent,duree,montant,adresse) values ('" + p.getId_livreur()+ "','" + p.getId_parent()+ "','" + p.getDuree()+ "','" + p.getMontant()+ "','" + p.getAdresse()+ "')";
+        String req = "insert into livraisons(id_livreur,id_parent,id_produit,duree,adresse) values ('" + p.getId_livreur()+ "','" + p.getId_parent()+ "','" + p.getId_produit()+ "','" + p.getDuree()+ "','" + p.getAdresse()+ "')";
         //System.out.println(req);
         try {
             st.executeUpdate(req);
@@ -73,7 +75,7 @@ private LivraisonService()
             }
             System.out.println("***********"); */
             while (result.next()) {
-                Livraison p = new Livraison(result.getInt("id_livraison"),result.getInt("id_livreur"),result.getInt("id_parent"), result.getInt("duree"), result.getInt("montant"),result.getString("adresse"));
+                Livraison p = new Livraison(result.getInt("id_livraison"),result.getInt("id_livreur"),result.getInt("id_parent"), result.getInt("id_produit"),result.getString("duree"),result.getString("adresse"));
                 list.add(p);
             }
         } catch (SQLException ex) {
@@ -89,7 +91,7 @@ private LivraisonService()
     try{
         result = st.executeQuery(req) ; 
         result.next() ; 
-        p = new Livraison(result.getInt("id_livraison"),result.getInt("id_livreur"), result.getInt("id_parent"), result.getInt("duree"),result.getInt("montant"),result.getString("adresse")) ; 
+        p = new Livraison(result.getInt("id_livraison"),result.getInt("id_livreur"), result.getInt("id_parent"),result.getInt("id_produit"), result.getString("duree"),result.getString("adresse")) ; 
     }   catch (SQLException ex) {
             Logger.getLogger(LivraisonService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -116,7 +118,7 @@ private LivraisonService()
         Livraison p1 = search(p.getId_livraison()) ; 
     if(p1!=null){
         try{
-            st.executeUpdate("update livraisons set id_livreur='"+p.getId_livreur()+"', id_parent='"+p.getId_parent()+"', duree='"+p.getDuree()+"', montant='"+p.getMontant()+"',adresse='"+p.getAdresse()+"' where id_livraison="+p.getId_livraison()) ; 
+            st.executeUpdate("update livraisons set id_livreur='"+p.getId_livreur()+"', id_parent='"+p.getId_parent()+"', id_produit='"+p.getId_produit()+"', duree='"+p.getDuree()+"',adresse='"+p.getAdresse()+"' where id_livraison="+p.getId_livraison()) ; 
         } catch (SQLException ex) {
             Logger.getLogger(LivraisonService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -134,6 +136,22 @@ private LivraisonService()
     public Livraison getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public ObservableList<Livraison> getAll2() {
+         ObservableList<Livraison> list=FXCollections.observableArrayList();
+        try {
+            result = st.executeQuery("select * from livraisons");
+          
+            while (result.next()) {
+                Livraison p = new Livraison(result.getInt("id_livraison"),result.getInt("id_livreur"),result.getInt("id_parent"), result.getInt("id_produit"),result.getString("duree"),result.getString("adresse"));
+                list.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return list;
+    }
+   
 
     
     

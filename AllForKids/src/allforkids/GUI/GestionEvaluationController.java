@@ -5,11 +5,20 @@
  */
 package allforkids.GUI;
 
+import allforkids.entite.Enfant;
+import allforkids.entite.EnfantJ;
 import allforkids.entite.Enseignant;
 import allforkids.entite.Evaluation;
+import allforkids.entite.ProprietaireJ;
+import allforkids.service.EnfantJService;
+import allforkids.service.EnfantService;
 import allforkids.service.EnseignantService;
 
 import allforkids.service.EvaluationService;
+import allforkids.service.ProprietaireJService;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 
 import java.net.URL;
@@ -27,11 +36,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -70,15 +83,43 @@ public class GestionEvaluationController implements Initializable {
     @FXML
     private TableColumn<Evaluation, String> Cremarque;
     @FXML
-    private Label lbTitulo1;
-    @FXML
     private ToggleGroup menu;
-    @FXML
-    private Button btretour;
     @FXML
     private AnchorPane AnchorPane1;
     @FXML
     private TextField idEns;
+    @FXML
+    private ToggleButton param1;
+    @FXML
+    private ToggleButton triangle1;
+    @FXML
+    private ToggleButton triangle;
+    @FXML
+    private ToggleButton param2;
+    @FXML
+    private ImageView Tparam;
+    @FXML
+    private ImageView flou;
+    @FXML
+    private AnchorPane anCompte;
+    @FXML
+    private JFXTextField Tpseudo;
+    @FXML
+    private JFXPasswordField Amdp;
+    @FXML
+    private JFXPasswordField Nmdp;
+    @FXML
+    private JFXButton annul;
+    @FXML
+    private JFXButton enregistrer;
+    @FXML
+    private ToggleButton fermer;
+    @FXML
+    private AnchorPane Param;
+    @FXML
+    private ToggleButton Compte;
+    @FXML
+    private ToggleButton Deco;
     /**
      * Initializes the controller class.
      */
@@ -117,7 +158,32 @@ public class GestionEvaluationController implements Initializable {
        }
     @FXML
      public void ajouter()
-     {EnseignantService es=new EnseignantService();
+     {
+         EnfantService pse=new EnfantService();
+         EnfantJService psj=new EnfantJService();
+         System.out.println("nomenfant:"+nom.getText());
+         System.out.println("prenomenfant:"+prenom.getText());
+         Enfant en1=null;
+                 en1=pse.getbyNomPrenom(nom.getText(), prenom.getText());
+          EnfantJ en2=null;
+                  en2=psj.getbyNomPrenom(nom.getText(), prenom.getText());
+         System.out.println("enfant:"+pse.getbyNomPrenom(nom.getText(), prenom.getText()));
+         System.out.println("enfantj:"+psj.getbyNomPrenom(nom.getText(), prenom.getText()));
+         
+         if(en1!=null)
+         {EnseignantService es=new EnseignantService();
+            Enseignant e=es.search(Integer.parseInt(idEns.getText()));
+     EvaluationService ps=new EvaluationService();
+        Evaluation p= new Evaluation(Integer.parseInt(idEns.getText()),matiere.getText(),Float.parseFloat(moyenne.getText()),e.getNom(),nom.getText(),prenom.getText());
+        ps.insert(p);
+        nom.clear();
+        prenom.clear();
+        matiere.clear();
+        moyenne.clear();
+        
+        afficherEva(AuthentificationController.LoggedEnseignant);}
+         else if(en2!=null)
+         {EnseignantService es=new EnseignantService();
             Enseignant e=es.search(Integer.parseInt(idEns.getText()));
      EvaluationService ps=new EvaluationService();
         Evaluation p= new Evaluation(Integer.parseInt(idEns.getText()),matiere.getText(),Float.parseFloat(moyenne.getText()),e.getNom(),nom.getText(),prenom.getText());
@@ -128,6 +194,15 @@ public class GestionEvaluationController implements Initializable {
         moyenne.clear();
         
         afficherEva(AuthentificationController.LoggedEnseignant);
+         } 
+         else{
+         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("enfant n'existe pas");
+            alert.setHeaderText("veuillez vérifier les coordonnées de l'élève");
+            Optional<ButtonType> result = alert.showAndWait();
+            nom.clear();
+            prenom.clear();
+         }
         
      }
     @FXML
@@ -167,6 +242,10 @@ public class GestionEvaluationController implements Initializable {
      matiere.getText(),Float.parseFloat(moyenne.getText()),p.getNom(),nom.getText(),
     prenom.getText());
      ps.update(e);
+     nom.clear();
+     prenom.clear();
+     matiere.clear();
+     moyenne.clear();
      afficherEva(AuthentificationController.LoggedEnseignant);
      }
     @FXML
@@ -193,7 +272,6 @@ String nom=entrer.getText();
 }
 
 
-    @FXML
     private void retour(ActionEvent event) throws IOException {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
@@ -201,8 +279,101 @@ String nom=entrer.getText();
     }
 
     @FXML
-    private void retour(MouseEvent event) {
+    private void parametrage(ActionEvent event) {
+        Param.setVisible(true);
+       Tparam.setVisible(true);
+        param1.setVisible(false);
+        param2.setVisible(true);
+        triangle.setVisible(true);
+        triangle1.setVisible(false);
     }
 
+    @FXML
+    private void parametrage2(ActionEvent event) {
+        Param.setVisible(false);
+        Tparam.setVisible(false);
+        param2.setVisible(false);
+        param1.setVisible(true);
+        triangle.setVisible(false);
+        triangle1.setVisible(true);
+    }
+
+    @FXML
+    public void CompteCouleur1(){
+    Compte.setTextFill(Color.WHITE);
+    }
+    @FXML
+    public void CompteCouleur2(){
+    Compte.setTextFill(Color.BLUE);
+    }
+
+    @FXML
+    private void Compte(ActionEvent event) {
+       flou.setVisible(true);
+       anCompte.setVisible(true);
+        System.out.println("pseudo:"+AuthentificationController.LoggedEnseignant.getPseudo());
+        Tpseudo.setText(AuthentificationController.LoggedEnseignant.getPseudo());
+        Tpseudo.setDisable(true);
+         Tparam.setVisible(false);
+       Param.setVisible(false);
+    }
+
+    @FXML
+     public void DecoCouleur1(){
+    Deco.setTextFill(Color.WHITE);
+    }
+    @FXML
+    public void DecoCouleur2(){
+    Deco.setTextFill(Color.BLUE);
+    }
+    
+
+     @FXML
+private void closeButtonAction(){
+    // get a handle to the stage
+    Stage stage = (Stage) Deco.getScene().getWindow();
+    // do what you have to do
+    stage.close();
+}
+    @FXML
+    private void annul(ActionEvent event) {
+         flou.setVisible(false);
+       anCompte.setVisible(false);
+       Tparam.setVisible(true);
+       Param.setVisible(true);
+    }
+@FXML
+    private void enregistrer(ActionEvent event) {
+       
+       
+        if(Amdp.getText().equals(AuthentificationController.LoggedEnseignant.getMdp())){
+        Enseignant a= new Enseignant(AuthentificationController.LoggedEnseignant.getId_user(),AuthentificationController.LoggedEnseignant.getPseudo(),Nmdp.getText(),AuthentificationController.LoggedEnseignant.getEmail());
+        EnseignantService as=new EnseignantService();
+        as.update(a);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Sécurité");
+            alert.setHeaderText("Votre mot de passe a été changé");
+            Optional<ButtonType> result = alert.showAndWait();
+        Tpseudo.clear();
+        Amdp.clear();
+            Nmdp.clear();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Mot de passe");
+            alert.setHeaderText("Mot de passe incorrecte");
+            Optional<ButtonType> result = alert.showAndWait();
+            Amdp.clear();
+            Nmdp.clear();
+        }
+    }
+
+    @FXML
+    private void fermer(ActionEvent event) {
+        flou.setVisible(false);
+       anCompte.setVisible(false);
+       Tparam.setVisible(true);
+       Param.setVisible(true);
+    }
     
 }

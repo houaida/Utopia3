@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.QuizController">
+   <children>
+      <AnchorPane fx:id="AnchorPane2" focusTraversable="true" layoutX="-3.0" layoutY="-2.0" prefHeight="869.0" prefWidth="266.0" style="-fx-background-color: #87CEFA;">
+         <children>
+            <ImageView fitHeight="333.0" fitWidth="232.0" layoutX="17.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/logofinal.gif" />
+               </image>
+            </ImageView>
+            <ToggleButton layoutX="1.0" layoutY="270.0" mnemonicParsing="false" onAction="#ConseilsGoogle" prefHeight="40.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Education">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="gestionPrduit" layoutY="198.0" mnemonicParsing="false" onAction="#boutique" onMouseClicked="#gotoDemandeTravail" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Boutique&#10;" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="retire" layoutX="231.0" layoutY="13.0" mnemonicParsing="false" onAction="#retirer" prefHeight="26.0" prefWidth="22.0" styleClass="button" stylesheets="@css/accueilgeneral.css">
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/moins.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="322.0" mnemonicParsing="false" onAction="#Evaluation" prefHeight="75.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evaluation Enfant" textAlignment="CENTER">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="3.0" layoutY="386.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="BabySitter">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="2.0" layoutY="464.0" mnemonicParsing="false" onAction="#onclickCov" prefHeight="83.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="CovoiturageRéservation;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="clubs" layoutX="3.0" layoutY="547.0" mnemonicParsing="false" onAction="#clubs" prefHeight="65.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Clubs">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton fx:id="fleche2" layoutX="226.0" layoutY="412.0" mnemonicParsing="false" onAction="#aff1" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/fleche1%20-%20copie.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="fleche1" layoutX="227.0" layoutY="412.0" mnemonicParsing="false" onAction="#aff2" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;" visible="false">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/fleche1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="evenements" layoutY="634.0" mnemonicParsing="false" onAction="#evenements" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evénements&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="-1.0" layoutY="707.0" mnemonicParsing="false" onAction="#quiz" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Quiz&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="286.0" layoutY="43.0" text="Question1:" />
+      <Label fx:id="lbq" layoutX="361.0" layoutY="41.0" prefHeight="16.0" prefWidth="220.0" />
+      <Label fx:id="lb1" layoutX="323.0" layoutY="86.0" prefHeight="16.0" prefWidth="157.0" />
+      <Label fx:id="lb2" layoutX="320.0" layoutY="116.0" prefHeight="16.0" prefWidth="220.0" />
+      <Label fx:id="lb3" layoutX="320.0" layoutY="147.0" prefHeight="16.0" prefWidth="387.0" />
+      <RadioButton fx:id="r1" layoutX="287.0" layoutY="85.0" mnemonicParsing="false">
+         <toggleGroup>
+            <ToggleGroup fx:id="group" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="r2" layoutX="287.0" layoutY="115.0" mnemonicParsing="false" toggleGroup="$group" />
+      <RadioButton fx:id="r3" layoutX="287.0" layoutY="146.0" mnemonicParsing="false" toggleGroup="$group" />
+      <ImageView fitHeight="123.0" fitWidth="149.0" layoutX="606.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lbq2" layoutX="664.0" layoutY="257.0" prefHeight="16.0" prefWidth="220.0" />
+      <ImageView fitHeight="123.0" fitWidth="149.0" layoutX="909.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="391.0" layoutY="197.0" mnemonicParsing="false" onAction="#resultat" text="Terminer" />
+   </children>
+</AnchorPane>

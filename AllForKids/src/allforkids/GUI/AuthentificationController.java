@@ -126,9 +126,14 @@ public static Admin LoggedAdmin;
              String type=  u.getType();
       System.out.println(type);
           if(type.equals("parent")){
-              
+              ParentService pas=new ParentService();
+              Parent pa=pas.search(u.getId_user());
                 LoggedParent = new Parent();
                 LoggedParent.setId_user(u.getId_user());
+                LoggedParent.setPseudo(u.getPseudo());
+                LoggedParent.setMdp(u.getMdp());
+                LoggedParent.setEmail(u.getEmail());
+                LoggedParent.setMontant(pa.getMontant());
        System.out.println(u);
            /* AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("AccueilParent.fxml"));
@@ -150,13 +155,25 @@ public static Admin LoggedAdmin;
           else if(type.equals("enseignant")){
            LoggedEnseignant = new Enseignant();
                 LoggedEnseignant.setId_user(u.getId_user());
+                 LoggedEnseignant.setPseudo(u.getPseudo());
+                  LoggedEnseignant.setMdp(u.getMdp());
+                LoggedEnseignant.setEmail(u.getEmail());
                 
       // System.out.println(u);
         System.out.println(tfPseudo.getText());
        
-            AnchorPane1.getChildren().clear();
+         /*   AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("GestionEvaluation.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
+            AnchorPane1.getChildren().add(newLoadedPane);*/
+         Stage stage = new Stage();
+                     //  ((Node) event.getSource()).getScene().getWindow().hide();
+                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("GestionEvaluation.fxml"));
+                        Scene scene = new Scene(root);
+
+                        
+
+                        stage.setScene(scene);
+                        stage.show();
          
 
     }
@@ -167,6 +184,8 @@ public static Admin LoggedAdmin;
                 LoggedAdmin = new Admin();
                 LoggedAdmin.setId_user(u.getId_user());
                 LoggedAdmin.setPseudo(u.getPseudo());
+                LoggedAdmin.setMdp(u.getMdp());
+                LoggedAdmin.setEmail(u.getEmail());
                 LoggedAdmin.setImage(u.getImage());
                 AnchorPane1.setPrefSize(1329,866);
                  Stage stage = new Stage();
@@ -213,6 +232,9 @@ public static Admin LoggedAdmin;
           
                     else if(type.equals("proprietaireg")){
                         LoggedProprietaireG = new ProprietaireG();
+                       LoggedProprietaireG.setPseudo(u.getPseudo());
+                       LoggedProprietaireG.setMdp(u.getMdp());
+                LoggedProprietaireG.setImage(u.getImage());
                LoggedProprietaireG.setId_user(u.getId_user());
        //System.out.println(u.getId_user());
        // System.out.println(tfPseudo.getText());
@@ -222,7 +244,7 @@ public static Admin LoggedAdmin;
             AnchorPane1.getChildren().add(newLoadedPane);*/
        Stage stage = new Stage();
                      //  ((Node) event.getSource()).getScene().getWindow().hide();
-                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("GestionGarderie.fxml"));
+                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("AccueilPropG.fxml"));
                         Scene scene = new Scene(root);
 
                         
@@ -233,6 +255,9 @@ public static Admin LoggedAdmin;
     }
              else if(type.equals("proprietairej")){
                         LoggedProprietaireJ = new ProprietaireJ();
+                         LoggedProprietaireJ.setPseudo(u.getPseudo());
+                          LoggedProprietaireJ.setMdp(u.getMdp());
+                LoggedProprietaireJ.setImage(u.getImage());
                LoggedProprietaireJ.setId_user(u.getId_user());
                System.out.println("id:"+LoggedProprietaireJ.getId_user());
        //System.out.println(u.getId_user());
@@ -244,7 +269,7 @@ public static Admin LoggedAdmin;
        */
      Stage stage = new Stage();
                      //  ((Node) event.getSource()).getScene().getWindow().hide();
-                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("GestionJardin.fxml"));
+                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("AccueilPropJ.fxml"));
                         Scene scene = new Scene(root);
 
                         
@@ -254,7 +279,7 @@ public static Admin LoggedAdmin;
     }
     }
    
-    if (!u.getMdp().equals(mdp))
+   else
     {
     
           Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -280,14 +305,28 @@ public static Admin LoggedAdmin;
 
     @FXML
     private void inscrire(ActionEvent event) throws IOException {
-         AnchorPane1.getChildren().clear();
+         /*AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("InscriptionUser.fxml"));
-            AnchorPane1.getChildren().add(newLoadedPane);
+            AnchorPane1.getChildren().add(newLoadedPane);*/
+         Stage stage = new Stage();
+                     //  ((Node) event.getSource()).getScene().getWindow().hide();
+                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("InscriptionUser.fxml"));
+                        Scene scene = new Scene(root);
+
+                        
+
+                        stage.setScene(scene);
+                        stage.show();
     }
     @FXML
  public void changerStyle()
  {
   mdp.setTextFill(Color.BLUE);
+ }
+  @FXML
+ public void changerStyle2()
+ {
+  mdp.setTextFill(Color.BLACK);
  }
     @FXML
  public void PARAMMDP(){
@@ -371,18 +410,29 @@ public static Image image1=null;
   motdepasse=u.getMdp();
   pseudo.setText(u.getPseudo());
         if(u.getType().equals("parent")){
+            img.setImage(null);
         ParentService ps=new ParentService();
         Parent p=ps.findbyMail(Mail);
-        
-        Image image1 = new Image(p.getImage());
-        //final Circle clip = new Circle(50, 40, 40);
-        //img.setClip(clip); 
+        String imageFile1 =p.getImage();
+        Image image1 = new Image(imageFile1);
+        final Circle clip = new Circle(50, 40, 40);
+        img.setClip(clip); 
         img.setImage(image1);
         
             
         
         }
           else if(u.getType().equals("enseignant")){
+        EnseignantService ps=new EnseignantService();
+        Enseignant p=ps.findbyMail(Mail);
+         
+        Image image1 = new Image(p.getImage());
+        final Circle clip = new Circle(50, 40, 40);
+        img.setClip(clip); 
+            img.setImage(image1);
+        
+        }
+           else if(u.getType().equals("babysitter")){
         EnseignantService ps=new EnseignantService();
         Enseignant p=ps.findbyMail(Mail);
          

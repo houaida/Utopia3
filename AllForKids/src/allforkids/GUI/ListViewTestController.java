@@ -7,7 +7,9 @@ package allforkids.GUI;
 
 import static allforkids.GUI.ListeProduitsController.LoggedUser;
 import allforkids.entite.Produit;
+import allforkids.entite.Promotion;
 import allforkids.service.ProduitService;
+import allforkids.service.PromotionService;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -29,6 +31,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableCell;
@@ -174,12 +177,41 @@ public class ListViewTestController implements Initializable {
                   @Override
                   protected void updateItem(Produit p , boolean bl) {
                       super.updateItem(p, bl);
+                      
                       if(p!=null){
-                          Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
+                           AnchorPane pane=new AnchorPane();
+                           //AnchorPane pane2=new AnchorPane();
+                          PromotionService pss = new PromotionService() ; 
+                          Promotion p1 =null;
+                          p1= pss.searchIdProd(p.getId_produit()) ; 
+                          Image img1 = new Image("file:/C:/wamp/www/ressources/promo.png", 50,50, true, true, true) ;
+                              ImageView iv = new ImageView(img1);
+                              String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
-                          setGraphic(imgV);
-                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
+                          System.out.println("pppppppppppppppppppppppp1111111111111"+p1);
+                          if(p1!=null){
+                             
+                         iv.setY(5);
+                         iv.setX(300);
+                        //  pane2.getChildren().addAll(iv);
+                         pane.getChildren().addAll(iv,imgV);
+                        // setGraphic(pane2);
+  
+                         
+                          }
+                          else {
+                          
+                          pane.getChildren().addAll(imgV);
+                         //setGraphic(pane);
                       }
+                          setGraphic(pane);
+                         setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
+
+
+                      }                
+
+
                   }
               } ; return cell ;
           });
@@ -197,12 +229,38 @@ public class ListViewTestController implements Initializable {
                   @Override
                   protected void updateItem(Produit p , boolean bl) {
                       super.updateItem(p, bl);
-                      if(p!=null){
-                          Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
+                     if(p!=null){
+                           AnchorPane pane=new AnchorPane();
+                           //AnchorPane pane2=new AnchorPane();
+                          PromotionService pss = new PromotionService() ; 
+                          Promotion p1 =null;
+                          p1= pss.searchIdProd(p.getId_produit()) ; 
+                          Image img1 = new Image("file:/C:/wamp/www/ressources/promo.png", 50,50, true, true, true) ;
+                              ImageView iv = new ImageView(img1);
+                              String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
-                          setGraphic(imgV);
-                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());                      }
-                  }
+                          System.out.println("pppppppppppppppppppppppp1111111111111"+p1);
+                          if(p1!=null){
+                             
+                         iv.setY(5);
+                         iv.setX(300);
+                        //  pane2.getChildren().addAll(iv);
+                         pane.getChildren().addAll(iv,imgV);
+                        // setGraphic(pane2);
+  
+                         
+                          }
+                          else {
+                          
+                          pane.getChildren().addAll(imgV);
+                         //setGraphic(pane);
+                      }
+                          setGraphic(pane);
+                         setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
+
+
+                      } }
               } ; return cell ;
           });
       liste2.setItems(lp);
@@ -219,11 +277,37 @@ public class ListViewTestController implements Initializable {
                   protected void updateItem(Produit p , boolean bl) {
                       super.updateItem(p, bl);
                       if(p!=null){
-                          Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
+                           AnchorPane pane=new AnchorPane();
+                           //AnchorPane pane2=new AnchorPane();
+                          PromotionService pss = new PromotionService() ; 
+                          Promotion p1 =null;
+                          p1= pss.searchIdProd(p.getId_produit()) ; 
+                          Image img1 = new Image("file:/C:/wamp/www/ressources/promo.png", 50,50, true, true, true) ;
+                              ImageView iv = new ImageView(img1);
+                              String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
-                          setGraphic(imgV);
-                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());                      }
-                  }
+                          System.out.println("pppppppppppppppppppppppp1111111111111"+p1);
+                          if(p1!=null){
+                             
+                         iv.setY(5);
+                         iv.setX(300);
+                        //  pane2.getChildren().addAll(iv);
+                         pane.getChildren().addAll(iv,imgV);
+                        // setGraphic(pane2);
+  
+                         
+                          }
+                          else {
+                          
+                          pane.getChildren().addAll(imgV);
+                         //setGraphic(pane);
+                      }
+                          setGraphic(pane);
+                         setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
+
+
+                      } }
               } ; return cell ;
           });
       liste3.setItems(lp);
@@ -240,12 +324,38 @@ public class ListViewTestController implements Initializable {
                   @Override
                   protected void updateItem(Produit p , boolean bl) {
                       super.updateItem(p, bl);
-                      if(p!=null){
-                          Image img = new Image(p.getImage(), 300, 300, true, true, true) ;
+                     if(p!=null){
+                           AnchorPane pane=new AnchorPane();
+                           //AnchorPane pane2=new AnchorPane();
+                          PromotionService pss = new PromotionService() ; 
+                          Promotion p1 =null;
+                          p1= pss.searchIdProd(p.getId_produit()) ; 
+                          Image img1 = new Image("file:/C:/wamp/www/ressources/promo.png", 50,50, true, true, true) ;
+                              ImageView iv = new ImageView(img1);
+                              String s="file:/C:/wamp/www/ressources/";
+                          Image img = new Image(s+p.getImage(), 300, 300, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
-                          setGraphic(imgV);
-                          setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());                      }
-                  }
+                          System.out.println("pppppppppppppppppppppppp1111111111111"+p1);
+                          if(p1!=null){
+                             
+                         iv.setY(5);
+                         iv.setX(300);
+                        //  pane2.getChildren().addAll(iv);
+                         pane.getChildren().addAll(iv,imgV);
+                        // setGraphic(pane2);
+  
+                         
+                          }
+                          else {
+                          
+                          pane.getChildren().addAll(imgV);
+                         //setGraphic(pane);
+                      }
+                          setGraphic(pane);
+                         setText("Nom : "+p.getNom()+"\n Catégorie : "+p.getCatégorie()+"\n Quantite disponible : "+p.getQuantite()+"\n Prix : "+p.getPrix_produit()+"\n Description : "+p.getDescription());
+
+
+                      } }
               } ; return cell ;
           });
       liste4.setItems(lp);
@@ -267,37 +377,6 @@ public class ListViewTestController implements Initializable {
           }
       }
     
-   
-    
-    /*@FXML 
-    public void onSelect (){
-           if (!listeP.getSelectionModel().isEmpty()){
-           NomP.setText(listeP.getSelectionModel().getSelectedItem().getNom());
-           comBox.setValue(listeP.getSelectionModel().getSelectedItem().getCatégorie()) ; 
-           comBox2.setValue(listeP.getSelectionModel().getSelectedItem().getPrix_produit());
-           Desc.setText(listeP.getSelectionModel().getSelectedItem().getDescription());
-            //imgPath.setText(listeP.getSelectionModel().getSelectedItem().getImage().toString());
-           }
-    }*/
-    
-  
-  /*  @FXML
-    private void afficherimage(MouseEvent event){
-        if (event.getClickCount() == 1) //Checking double click
-       {
-            imgV.setImage(null);
-            //int S = listeP.getSelectionModel().getSelectedItem().getId_produit();
-            //Produit p = new Produit() ; 
-            /*ProduitService ps = new ProduitService();
-            Produit p = ps.search(S) ; */
-        //    String imageFile = imgPath.getText() ; 
-            //String imageFile = p.getImage() ; 
-            //String imageFile = (ps.search(listeP.getSelectionModel().getSelectedItem().getId_produit()).getImage());
-    /*        System.out.println(imageFile);
-            Image image1 = new Image(imageFile);
-            imgV.setImage(image1);
-      }
-    }*/
 
     @FXML
     private void gotoDemandeTravail(MouseEvent event) {
@@ -379,6 +458,24 @@ public class ListViewTestController implements Initializable {
     private void Demandes(ActionEvent event) throws IOException {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("demande.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    } 
+
+    @FXML
+    private void voirWishlist(ActionEvent event) throws IOException {
+         AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("LigneCommandes.fxml"));
+            AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void ConseilsGoogle(ActionEvent event) {
+    }
+
+    @FXML
+    private void Evaluation(ActionEvent event) throws IOException {
+        AnchorPane1.getChildren().clear();
+            Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Evaluation.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 

@@ -9,10 +9,12 @@ import static allforkids.GUI.ListViewTestController.LoggedUser;
 import static allforkids.GUI.ListeProduitsController.LoggedUser;
 import allforkids.entite.Commentaire;
 import allforkids.entite.LigneCommande;
+import allforkids.entite.Note;
 import allforkids.entite.Parent;
 import allforkids.entite.Produit;
 import allforkids.service.CommentaireService;
 import allforkids.service.LigneCommandeService;
+import allforkids.service.NoteService;
 import allforkids.service.ParentService;
 import allforkids.service.ProduitService;
 import java.awt.Graphics2D;
@@ -29,6 +31,8 @@ import java.util.logging.Logger;
 import javafx.beans.InvalidationListener;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -60,6 +64,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import org.controlsfx.control.Rating;
 
 /**
  * FXML Controller class
@@ -107,6 +112,10 @@ public class ProduitDetailsController implements Initializable {
     private ToggleButton btmod;
     @FXML
     private ToggleGroup menu;
+    @FXML
+    private Label msg;
+    @FXML 
+    private Rating rating ; 
     /**
      * Initializes the controller class.
      */
@@ -122,7 +131,14 @@ public class ProduitDetailsController implements Initializable {
         afficher(ListViewTestController.LoggedUser) ; 
         afficherCommment();
         
+        rating.ratingProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+                msg.setText("Rating : "+newValue.toString());
+            }
         
+        
+    });
        
        
     }    
@@ -135,7 +151,8 @@ public class ProduitDetailsController implements Initializable {
             categorie.setText("Catégorie : "+u.getCatégorie());
             prix.setText("Prix : "+u.getPrix_produit()+" DT");
             desc.setText("Description : "+u.getDescription());
-            String imageFile = u.getImage() ; 
+            String s="file:/C:/wamp/www/ressources/";
+            String imageFile = s+u.getImage() ; 
             Image image1 = new Image(imageFile);
             image.setImage(image1);
        } 
@@ -212,11 +229,11 @@ public class ProduitDetailsController implements Initializable {
                       if(p!=null){
                           ParentService ps = new ParentService() ; 
                          Parent pr = ps.search(p.getId_parent()) ; 
-                         
+                         String s="file:/C:/wamp/www/ressources/";
                           System.out.println("***********************");
                           System.out.println("parents : "+pr);
                           System.out.println("***********************"); 
-                          Image img = new Image(pr.getImage(), 50, 55, true, true, true) ;
+                          Image img = new Image(s+pr.getImage(), 50, 55, true, true, true) ;
                           ImageView imgV = new ImageView(img) ;
                           final Circle clip = new Circle(20,30,15);
                           imgV.setClip(clip);
@@ -338,6 +355,17 @@ public class ProduitDetailsController implements Initializable {
     private void retirer(ActionEvent event) {
         AnchorPane2.setVisible(false);
         retire.setVisible(false);
+    }
+
+    @FXML
+    private void onclick(MouseEvent event) {
+    }
+
+    @FXML
+    private void ajouterNote(MouseEvent event) {
+        NoteService ns = new NoteService() ; 
+        Note n = new Note(AuthentificationController.LoggedParent.getId_user(),ListViewTestController.LoggedUser.getId_produit(), msg.getText()) ;
+        ns.insert(n);
     }
     
     

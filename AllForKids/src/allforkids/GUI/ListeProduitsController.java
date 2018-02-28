@@ -7,6 +7,7 @@ package allforkids.GUI;
 import javafx.scene.image.Image ;
 import allforkids.entite.Produit;
 import allforkids.service.ProduitService;
+import allforkids.service.Upload;
 //import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.io.File;
@@ -53,6 +54,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.util.Callback;
@@ -133,7 +135,7 @@ public class ListeProduitsController implements Initializable {
     private ToggleButton gestionReclamation;
     private ToggleButton fleche2;
     private ToggleButton fleche1;
-     
+     private File selectedFile  ; 
      
     // int id_prod ; 
      
@@ -209,7 +211,8 @@ public class ListeProduitsController implements Initializable {
                 @Override
                 public ObservableValue<Image> call(TableColumn.CellDataFeatures<Produit, Image> param) {
                     Produit p = param.getValue() ; 
-                    return new SimpleObjectProperty<>(new Image(p.getImage(), 100, 100, true, true, true));
+                   String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+p.getImage(), 100, 100, true, true, true));
                 }
             }) ; 
             Identifiant.setCellFactory(new Callback<TableColumn<Produit, Image>, TableCell<Produit, Image>>() {
@@ -247,18 +250,24 @@ public class ListeProduitsController implements Initializable {
         
         String imageFile;
         FileChooser fc = new FileChooser();
-        File selectedFile = fc.showOpenDialog(null);
+        fc.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("file", "*.jpg", "*.pdf")
+        );
+         selectedFile = fc.showOpenDialog(null);
         if (selectedFile != null) {
             imageFile = selectedFile.toURI().toURL().toString();
+           
             System.out.println(imageFile);
             Image image1 = new Image(imageFile);
             imgV.setImage(image1);
-            imgPath.setText(imageFile);
+            //imgPath.setText(imageFile);
+            imgPath.setText(selectedFile.getName()) ; 
         } else {
             System.out.println("file doesn't exist");
         }
      }
     
+     
     
      @FXML
     public void ajouterProduit(ActionEvent event)throws IOException, InterruptedException{
@@ -269,6 +278,8 @@ public class ListeProduitsController implements Initializable {
        Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
         ps.insert(p);
+        Upload u = new Upload();
+        u.upload(selectedFile);
          afficherListeProduits() ;
          NomP.clear() ; 
          comBox.setValue("Veuillez choirsir une catégorie");
@@ -338,7 +349,30 @@ public class ListeProduitsController implements Initializable {
         listeP.setItems(ps.SearchCatégorie(a));
         textSearch.setText("Résultat de votre recherche : "+ps.SearchCatégorie(a).size()+" produits");
       
-        Identifiant.setCellValueFactory(new PropertyValueFactory<>("id_produit"));
+        //Identifiant.setCellValueFactory(new PropertyValueFactory<>("id_produit"));
+         Identifiant.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Produit, Image>, ObservableValue<Image>>() {
+                @Override
+                public ObservableValue<Image> call(TableColumn.CellDataFeatures<Produit, Image> param) {
+                    Produit p = param.getValue() ; 
+                   String s="file:/C:/wamp/www/ressources/";
+                    return new SimpleObjectProperty<>(new Image(s+p.getImage(), 100, 100, true, true, true));
+                }
+            }) ; 
+            Identifiant.setCellFactory(new Callback<TableColumn<Produit, Image>, TableCell<Produit, Image>>() {
+                @Override
+                public TableCell<Produit, Image> call(TableColumn<Produit, Image> param) {
+                    return new TableCell<Produit, Image>(){
+                        @Override
+                    protected void updateItem(Image i, boolean empty) {
+                        super.updateItem(i, empty);
+                        setText(null);
+                        setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+                        ImageView imageView = (i == null || empty) ? null : ImageViewBuilder.create().image(i).build();
+                        setGraphic(imageView);
+                    }
+                } ; 
+                }
+            });
         Nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         Cat.setCellValueFactory(new PropertyValueFactory<>("catégorie"));
         Prix.setCellValueFactory(new PropertyValueFactory<>("prix_produit"));
@@ -356,7 +390,8 @@ public class ListeProduitsController implements Initializable {
             //Produit p = new Produit() ; 
             /*ProduitService ps = new ProduitService();
             Produit p = ps.search(S) ; */
-            String imageFile = imgPath.getText() ; 
+            String s="file:/C:/wamp/www/ressources/";
+            String imageFile = s+imgPath.getText() ; 
             //String imageFile = p.getImage() ; 
             //String imageFile = (ps.search(listeP.getSelectionModel().getSelectedItem().getId_produit()).getImage());
             System.out.println(imageFile);

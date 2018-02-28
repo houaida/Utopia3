@@ -36,7 +36,7 @@ public class LivreurService implements IAllForKids<Livreur>{
     
     }
  
-private LivreurService() 
+public LivreurService() 
 {
     connexion=DataSource.getInstance().getConnexion();
     try {
@@ -80,18 +80,22 @@ private LivreurService()
         return list;
     }
 
-    @Override
+    
+      @Override
     public Livreur search(int id) {
-        Livreur p = null ; 
-    String req = "select id_user,pseudo,mdp,email,disponibilite from users where id_user="+id ; 
-    try{
-        result = st.executeQuery(req) ; 
-        result.next() ; 
-        p = new Livreur(result.getInt("id_user"),result.getString("pseudo"), result.getString("mdp"), result.getString("email"),result.getInt("disponibilite"),result.getString(12)) ; 
-    }   catch (SQLException ex) {
-            Logger.getLogger(LivreurService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    return p ; 
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Livreur p=null;
+        try {
+            System.out.println(id);
+        result=st.executeQuery("select * from users where type='livreur' and id_user="+id);
+          if(result.next())
+        p = new Livreur(result.getInt("id_user"),result.getString("pseudo"), result.getString("mdp"), result.getString("email"),result.getInt("disponibilite"),result.getString(12),result.getString(14)) ; 
+    } catch (SQLException ex) {
+        Logger.getLogger(ParentService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
+    
+        return p; 
     }
 
     @Override
@@ -132,6 +136,21 @@ private LivreurService()
     public Livreur getbyPseudo(String pseudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public Livreur AffecterLivreur(){
+        Livreur p = null ; 
+    String req = "select id_user,pseudo,mdp,email,disponibilite from users where type='livreur' and disponibilite='1' limit 1 " ; 
+    try{
+        result = st.executeQuery(req) ; 
+        result.next() ; 
+        p = new Livreur(result.getInt("id_user"),result.getString("pseudo"), result.getString("mdp"), result.getString("email"),result.getInt("disponibilite")) ; 
+    }   catch (SQLException ex) {
+            Logger.getLogger(LivreurService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return p ; 
+    }
+    
+   
 
     
 }

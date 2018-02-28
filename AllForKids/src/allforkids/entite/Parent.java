@@ -42,7 +42,12 @@ public class Parent extends User{
     public Parent(String pseudo, String mdp,String email,String num_tel) {
         super( pseudo, mdp, email);
         
-    }public Parent(int id_user,int cin, String nom, String prenom, String pseudo, String mdp, 
+    }
+     public Parent(int id_user,String pseudo, String mdp,String email) {
+        super( id_user,pseudo, mdp, email);
+        
+    }
+    public Parent(int id_user,int cin, String nom, String prenom, String pseudo, String mdp, 
             String email, String adresse,float montant,String num_tel) {
         super(id_user,pseudo, mdp, email);
       

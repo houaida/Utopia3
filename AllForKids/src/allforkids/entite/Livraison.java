@@ -13,25 +13,36 @@ public class Livraison {
     private int id_livraison ; 
     private int id_livreur ; 
     private int id_parent ; 
-    private int duree ; 
-    private int montant ; 
+    private int id_produit ; 
+    private String duree ; 
+    //private int montant ; 
     private String adresse ; 
 
-    public Livraison(int id_livraison, int id_livreur, int id_parent, int duree, int montant, String adresse) {
+    public Livraison(int id_livraison, int id_livreur, int id_parent, int id_produit, String duree, String adresse) {
         this.id_livraison = id_livraison;
         this.id_livreur = id_livreur;
         this.id_parent = id_parent;
+        this.id_produit=id_produit ; 
         this.duree = duree;
-        this.montant = montant;
+        
         this.adresse = adresse;
     }
 
-    public Livraison(int id_livreur, int id_parent, int duree, int montant, String adresse) {
+    public Livraison(int id_livreur, int id_parent, int id_produit, String duree, String adresse) {
         this.id_livreur = id_livreur;
         this.id_parent = id_parent;
+        this.id_produit=id_produit ; 
         this.duree = duree;
-        this.montant = montant;
+      
         this.adresse = adresse;
+    }
+
+    public int getId_produit() {
+        return id_produit;
+    }
+
+    public void setId_produit(int id_produit) {
+        this.id_produit = id_produit;
     }
 
     public int getId_livraison() {
@@ -46,12 +57,8 @@ public class Livraison {
         return id_parent;
     }
 
-    public int getDuree() {
+    public String getDuree() {
         return duree;
-    }
-
-    public int getMontant() {
-        return montant;
     }
 
     public String getAdresse() {
@@ -70,12 +77,8 @@ public class Livraison {
         this.id_parent = id_parent;
     }
 
-    public void setDuree(int duree) {
+    public void setDuree( String duree) {
         this.duree = duree;
-    }
-
-    public void setMontant(int montant) {
-        this.montant = montant;
     }
 
     public void setAdresse(String adresse) {
@@ -84,7 +87,7 @@ public class Livraison {
 
     @Override
     public String toString() {
-        return "Livraison{" + "id_livraison=" + id_livraison + ", id_livreur=" + id_livreur + ", id_parent=" + id_parent + ", duree=" + duree + ", montant=" + montant + ", adresse=" + adresse + '}';
+        return "Livraison{" + "id_livraison=" + id_livraison + ", id_livreur=" + id_livreur + ", id_parent=" + id_parent + ", duree=" + duree + ", adresse=" + adresse + '}';
     }
     
     
