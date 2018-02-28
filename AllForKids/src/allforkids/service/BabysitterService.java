@@ -124,13 +124,41 @@ Babysitter p=null;
     
         return p; 
     }
+     public Babysitter searchAnciennete(int n) {
+Babysitter p=null;
+        try {
+       
+        rs=st.executeQuery("select * from users where type='babysitter' and id_user="+n);
+          if(rs.next())
+         p = new Babysitter(rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("date_naissance"),rs.getString("image"),rs.getInt("alerte"),rs.getInt("Anciennete"));
+    } catch (SQLException ex) {  
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+        return p; 
+    }
+      public Babysitter searchID(int n) {
+Babysitter p=null;
+        try {
+       
+        rs=st.executeQuery("select * from users where type='babysitter' and id_user="+n);
+          if(rs.next())
+         p = new Babysitter(rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
+                    rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("date_naissance"),rs.getString("image"),rs.getInt("alerte"));
+    } catch (SQLException ex) {  
+        Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+        return p; 
+    }
    
     @Override
     public Babysitter search(int n) {
 Babysitter p=null;
         try {
        
-        rs=st.executeQuery("select * from users where type='babysitter' and id_user="+n);
+        rs=st.executeQuery("select * from users where type=('babysitter' or 'babysitterPersonnel') and id_user="+n);
           if(rs.next())
          p = new Babysitter(rs.getInt("cin"),rs.getString("nom"),rs.getString("prenom"),
                     rs.getString("pseudo"),rs.getString("mdp"),rs.getString("email"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("date_naissance"),rs.getString("image"));
@@ -140,13 +168,26 @@ Babysitter p=null;
     
         return p; 
     }
+ public boolean updateAnciennete(int i) {
+     Babysitter p1=searchID(i);
+   if(p1!=null)
+   {
+        try {
+            st.executeUpdate("Update users set Anciennete=to_days(CURRENT_DATE)-to_days(date_inscription) where type='babysitter' and id_user="+i);
+        } catch (SQLException ex) { 
+             Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
+         }
+       return true ;
+   }
+   return false;
+    }
     
 
    public ObservableList<Babysitter> search2(String n) {
 ObservableList<Babysitter> Babysitters=FXCollections.observableArrayList();
         
     try {
-        rs=st.executeQuery("select * from users where type='babysitter' and prenom like '%"+n+"%'");
+        rs=st.executeQuery("select * from users where type='babysitterPersonnel' and prenom like '%"+n+"%'");
     } catch (SQLException ex) { 
         Logger.getLogger(BabysitterService.class.getName()).log(Level.SEVERE, null, ex);
     }

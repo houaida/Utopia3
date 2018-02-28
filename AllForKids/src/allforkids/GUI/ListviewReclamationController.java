@@ -14,6 +14,7 @@ import allforkids.entite.Parent;
 import allforkids.entite.Reclamation;
 import allforkids.entite.demandetravail;
 import allforkids.service.BabysitterService;
+import allforkids.service.OffreService;
 import allforkids.service.ParentService;
 import allforkids.service.ReclamationService;
 import allforkids.service.demande_travailService;
@@ -52,15 +53,15 @@ import javafx.util.StringConverter;
  * @author user
  */
 public class ListviewReclamationController implements Initializable {
-
+public static final String ACCOUNT_SID = "AC1b03266295bbba0a1e053cb7f2c4c550";
+  public static final String AUTH_TOKEN = "2c12a62349d571be7427e4b55f3774c8";
     @FXML
     private AnchorPane AnchorPane1;
     @FXML
     private ListView<Reclamation> liste1;
     @FXML
     private ToggleButton bt1;
-public static final String ACCOUNT_SID = "AC8f118de401e49baedc319855cbb14258";
-  public static final String AUTH_TOKEN = "433014f1c92f881f5a11b580a8669e08";
+
     @FXML
     private AnchorPane AnchorPane2;
     @FXML
@@ -137,36 +138,33 @@ public static final String ACCOUNT_SID = "AC8f118de401e49baedc319855cbb14258";
        
         ReclamationService ds=ReclamationService.getInstance();
         BabysitterService ds1=BabysitterService.getInstance();
+        OffreService o1=OffreService.getInstance();
         ParentService ds3=new ParentService();
-
- ObservableList<Reclamation> selectedItems =  liste1.getSelectionModel().getSelectedItems();
+        ObservableList<Reclamation> selectedItems =  liste1.getSelectionModel().getSelectedItems();
   Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
        alert.setHeaderText("Cette réclamation a été traité");
        Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
   for(Reclamation s : selectedItems){
-      
-           int id2=s.getId_babysitter();
-      Babysitter babysitter1=ds1.search(id2);
+                       ds.update1(s.getId_parent());
+
+    int id2=s.getId_babysitter();
+    Babysitter babysitter1=ds1.search(id2);
       Reclamation r=ds.search3(s.getId_reclamation());
       Parent p=ds3.search(s.getId_parent());
                  ds.update2(s.getId_reclamation());
-
+ 
 if((r.getDiff_heure()==0)&&(r.getDiff_minute()<=15))
 {
-  
-               
-
                                         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
     Message message = Message
-        .creator(new PhoneNumber("+216"+p.getNum_tel()), new PhoneNumber("+12104051270"),
+        .creator(new PhoneNumber("+216"+p.getNum_tel()), new PhoneNumber("+19132867957"),
             "On est vraiment désolé Mr/Mme "+p.getNom()+" "+p.getPrenom()+" pour le retard de"+r.getDiff_minute()+" min puisqu'il n'a pas "
                     + "depasser les 15 minutes ça peut étre à cause d'une circulation")
         .create();
     }
-
-else
+ else
 {
         Babysitter babysitter2=ds1.searchAlerte(id2);
         int alerte=babysitter2.getAlerte();
@@ -174,8 +172,9 @@ else
                        ds1.update2(id2, alerte+1);
 
                          Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+                        
 Message message2 = Message
-        .creator(new PhoneNumber("+216"+babysitter1.getNum_tel()), new PhoneNumber("+12104051270"),
+        .creator(new PhoneNumber("+216"+babysitter1.getNum_tel()), new PhoneNumber("+19132867957"),
             "Mr/Mme "+babysitter1.getNom()+" "+babysitter1.getPrenom()+ " je suis trés deçu par votre service,c'est votre premier retard vous ne devez plus retarder svp,vous devez contacter Mr/Mme "+
              p.getNom()+" pour s'excuser")
         .create();
@@ -190,18 +189,23 @@ Message message2 = Message
 
    
     Message message3 = Message
-        .creator(new PhoneNumber("+216"+babysitter1.getNum_tel()), new PhoneNumber("+12104051270"),
+        .creator(new PhoneNumber("+216"+babysitter1.getNum_tel()), new PhoneNumber("+19132867957"),
             "Mr/Mme"+babysitter1.getNom()+" "+babysitter1.getPrenom()+ "je suis trés deçu par votre service,c'est votre deuxieme retard vous ne devez plus retarder svp,vous devez contacter Mr/Mme"+
              p.getNom()+" pour s'excuser la prochaine fois vous allez étre supprimer difinitivement!")
         .create();}
      if(alerte==2){
-          ds.delete(s.getId_reclamation());
-          ds1.delete(s.getId_babysitter());
+
+                    o1.delete1(s.getId_babysitter());
+                       //  ds1.update3(s.getId_babysitter());
+
+                    
+
+
                }
-                                Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+                               Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
                Message message1 = Message
-        .creator(new PhoneNumber("+216"+p.getNum_tel()), new PhoneNumber("+12104051270"),
+        .creator(new PhoneNumber("+216"+p.getNum_tel()), new PhoneNumber("+19132867957"),
             "On est vraiment désolé Mr/Mme "+p.getNom()+" "+p.getPrenom()+" pour le retard de"+r.getDiff_heure()+" heure et de "+s.getDiff_minute()+"minute "
                     + "nous allons avertir Mr/Mme "+babysitter1.getNom()+" et j'éspére que ça ne reproduirera plus")
         .create();
@@ -214,12 +218,18 @@ Message message2 = Message
 
     
 }
+    
                  afficherListeReclamations();
 }
 
      
     
     }}
+
+
+    
+
+
 
     @FXML
     private void afficher(ActionEvent event) {

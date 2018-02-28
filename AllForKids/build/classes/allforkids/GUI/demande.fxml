@@ -20,35 +20,35 @@
 
 <AnchorPane id="AnchorPane1" fx:id="AnchorPane1" prefHeight="866.0" prefWidth="1329.0" stylesheets="@css/accueil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.demandeController">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="866.0" prefWidth="1329.0">
+      <AnchorPane id="AnchorPane" layoutX="25.0" prefHeight="866.0" prefWidth="1329.0">
          <children>
-            <Text fx:id="txtnom" layoutX="346.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre  :">
+            <Text fx:id="txtnom" layoutX="346.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre  :">
                <font>
                   <Font name="Baskerville" size="22.0" />
                </font>
             </Text>
-            <Text fx:id="txtType" layoutX="350.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date debut :">
+            <Text fx:id="txtType" layoutX="350.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date debut :">
                <font>
                   <Font name="Baskerville" size="22.0" />
                </font>
             </Text>
-            <Text fx:id="txtPrix" layoutX="349.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date fin :">
+            <Text fx:id="txtPrix" layoutX="349.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date fin :">
                <font>
                   <Font name="Baskerville" size="22.0" />
                </font>
             </Text>
-            <Text fx:id="txtDescription" layoutX="761.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
+            <Text fx:id="txtDescription" layoutX="761.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
                <font>
                   <Font name="Baskerville" size="22.0" />
                </font>
             </Text>
-            <TableView fx:id="tbtable1" layoutX="332.0" layoutY="406.0" prefHeight="365.0" prefWidth="931.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
+            <TableView fx:id="tbtable1" layoutX="244.0" layoutY="326.0" prefHeight="321.0" prefWidth="1050.0" style="-fx-background-color: transparent;" styleClass="column-header-background" stylesheets="@css/accueilgeneral.css">
                <columns>
-                  <TableColumn fx:id="titre1" prefWidth="130.99996948242188" text="Titre" />
-                  <TableColumn fx:id="date_debut1" prefWidth="218.36541748046875" text="Date debut" />
-                  <TableColumn fx:id="date_fin1" minWidth="0.0" prefWidth="247.63458251953125" text="Date fin" />
-                  <TableColumn fx:id="description1" prefWidth="333.77899169921875" text="Description" />
                   <TableColumn fx:id="id_demande2" prefWidth="130.99996948242188" text="id" visible="false" />
+                  <TableColumn fx:id="titre1" prefWidth="296.0" text="Titre" />
+                  <TableColumn fx:id="date_debut1" prefWidth="96.0" text="Date debut" />
+                  <TableColumn fx:id="date_fin1" prefWidth="96.0" text="Date fin" />
+                  <TableColumn fx:id="description1" maxWidth="1054.0" prefWidth="1025.0" text="Description" />
                </columns>
                <padding>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
@@ -57,12 +57,12 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </opaqueInsets>
             </TableView>
-            <Button id="btn1" fx:id="btn2" disable="true" layoutX="1129.0" layoutY="339.0" mnemonicParsing="false" onAction="#mod2" style="-fx-background-color: #ffc014;" text="Valider Modification" />
+            <Button id="btn1" fx:id="btn2" disable="true" layoutX="1129.0" layoutY="283.0" mnemonicParsing="false" onAction="#mod2" style="-fx-background-color: #ffc014;" text="Valider Modification" />
             <TextField fx:id="id_demande1" layoutX="130.0" layoutY="256.0" visible="false" />
-            <JFXTextArea fx:id="tdescription1" layoutX="887.0" layoutY="121.0" prefHeight="154.0" prefWidth="427.0" promptText="saisir description" />
-            <JFXDatePicker fx:id="tdate_debut1" defaultColor="LIGHTSKYBLUE" layoutX="475.0" layoutY="161.0" promptText="saisir date debut" />
-            <JFXDatePicker fx:id="tdate_fin1" defaultColor="LIGHTSKYBLUE" layoutX="475.0" layoutY="197.0" promptText="saisir date fin" />
-            <JFXTextField fx:id="ttitre1" layoutX="472.0" layoutY="116.0" prefHeight="26.0" prefWidth="154.0" promptText="saisir titre" />
+            <JFXTextArea fx:id="tdescription1" layoutX="887.0" layoutY="87.0" prefHeight="154.0" prefWidth="427.0" promptText="saisir description" />
+            <JFXDatePicker fx:id="tdate_debut1" defaultColor="LIGHTSKYBLUE" layoutX="475.0" layoutY="120.0" promptText="saisir date debut" />
+            <JFXDatePicker fx:id="tdate_fin1" defaultColor="LIGHTSKYBLUE" layoutX="475.0" layoutY="167.0" promptText="saisir date fin" />
+            <JFXTextField fx:id="ttitre1" layoutX="472.0" layoutY="70.0" prefHeight="26.0" prefWidth="154.0" promptText="saisir titre" />
             <HBox layoutX="966.0" layoutY="2.0" prefHeight="75.0" prefWidth="380.0" styleClass="box-topo" stylesheets="@css/covoiturage.css">
                <children>
                   <TextField fx:id="trecherche1" maxHeight="44.0" prefHeight="44.0" prefWidth="200.0" promptText="chercher par titre" style="-fx-border-color: #ffc014;" styleClass="pesquisar" stylesheets="@css/gestionevaluation.css">
@@ -190,7 +190,7 @@
             </ToggleButton>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anB" layoutX="260.0" layoutY="407.0" prefHeight="212.0" prefWidth="262.0" style="-fx-background-color: #87CEFA;">
+      <AnchorPane fx:id="anB" layoutX="260.0" layoutY="407.0" prefHeight="212.0" prefWidth="262.0" style="-fx-background-color: #87CEFA;" visible="false">
          <children>
             <ToggleButton mnemonicParsing="false" onAction="#Reclamation" prefHeight="53.0" prefWidth="262.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Reclamation&#10;">
                <font>

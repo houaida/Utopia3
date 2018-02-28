@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.media.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +8,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilParentController">
+<AnchorPane fx:id="AnchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="866.0" prefWidth="1329.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="allforkids.GUI.AccueilParentController">
    <children>
       <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#afficher" prefHeight="40.0" prefWidth="35.0" styleClass="toggle" stylesheets="@css/accueilgeneral.css">
          <graphic>
@@ -90,6 +84,11 @@
                </graphic>
             </ToggleButton>
             <ToggleButton layoutX="1.0" layoutY="607.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Evénements&#10;&#10;">
+               <font>
+                  <Font name="Baskerville" size="23.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton layoutX="11.0" layoutY="668.0" mnemonicParsing="false" onAction="#gotoPaint" prefHeight="90.0" prefWidth="266.0" styleClass="button" stylesheets="@css/accueilgeneral.css" text="Dessiner avec votre&#10;         enfant&#10;">
                <font>
                   <Font name="Baskerville" size="23.0" />
                </font>

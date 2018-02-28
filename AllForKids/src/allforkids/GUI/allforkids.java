@@ -32,7 +32,7 @@ private Screen screen = Screen.getPrimary();
         window = stage;
 
 
-    Parent root = FXMLLoader.load(getClass().getResource("Loading.fxml")); 
+    Parent root = FXMLLoader.load(getClass().getResource("OffreDemandeComp.fxml")); 
 
            // Parent root = FXMLLoader.load(getClass().getResource("CommandeLivraison.fxml")); 
             

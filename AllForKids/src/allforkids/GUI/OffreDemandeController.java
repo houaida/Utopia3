@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -32,6 +33,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -251,6 +253,19 @@ description.setCellValueFactory(new PropertyValueFactory<>("description"));
             AnchorPane1.getChildren().add(newLoadedPane);
     }
 
+     @FXML
+    private void gotoPaint(ActionEvent event) throws IOException {
+         AnchorPane1.setPrefSize(600,600);
+                 Stage stage = new Stage();
+                     //  ((Node) event.getSource()).getScene().getWindow().hide();
+                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("Paint.fxml"));
+                        Scene scene = new Scene(root);
+
+                        
+
+                        stage.setScene(scene);
+                        stage.show();
+    }
     
   
 

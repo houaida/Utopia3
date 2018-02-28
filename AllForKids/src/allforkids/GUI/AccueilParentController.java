@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -30,6 +31,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -212,6 +214,20 @@ public class AccueilParentController implements Initializable {
         AnchorPane1.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource("Cov.fxml"));
             AnchorPane1.getChildren().add(newLoadedPane);
+    }
+
+    @FXML
+    private void gotoPaint(ActionEvent event) throws IOException {
+          AnchorPane1.setPrefSize(600,600);
+                 Stage stage = new Stage();
+                     //  ((Node) event.getSource()).getScene().getWindow().hide();
+                        javafx.scene.Parent root = FXMLLoader.load(getClass().getResource("Paint.fxml"));
+                        Scene scene = new Scene(root);
+
+                        
+
+                        stage.setScene(scene);
+                        stage.show();
     }
     
     
